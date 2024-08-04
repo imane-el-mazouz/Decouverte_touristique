@@ -49,10 +49,10 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="tourist" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="PlateformBackEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="bank" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tourist.tourist" />
+      <module name="Plateform_BackEnd" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tourist.PlateformBackEndApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
