@@ -5,25 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e3fd31-8393-44c8-8caf-2d681d6d67dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/JwtAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/AuthRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/JwtResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/enums/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/EmailNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/UserAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Visitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/UserAuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/enums/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Contact.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Excursion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Hotel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Reservation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +51,7 @@
     "Spring Boot.tourist.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Decouverte_touristique/Plateform_BackEnd/src/main/java/com/tourist",
+    "last_opened_file_path": "C:/Users/user/Desktop/Decouverte_touristique/Plateform_BackEnd/src/main/java/com/tourist/model",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,10 +62,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\java\com\tourist\model" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\java\com\tourist" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\Decouverte_touristique" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.tourist.enums" />
     </key>
   </component>
   <component name="RunManager">
@@ -102,7 +93,7 @@
       <workItem from="1721640495489" duration="2051000" />
       <workItem from="1721645981057" duration="183000" />
       <workItem from="1721655103528" duration="310000" />
-      <workItem from="1723028453277" duration="4076000" />
+      <workItem from="1723028453277" duration="5747000" />
     </task>
     <servers />
   </component>
