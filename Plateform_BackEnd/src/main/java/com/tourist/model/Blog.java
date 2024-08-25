@@ -1,9 +1,6 @@
 package com.tourist.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,13 +11,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Contact {
+public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idC;
+    private Long idBlog;
     private String name;
-    private String email;
-    private String message;
+    private String description;
 
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Tradition tradition;
 }

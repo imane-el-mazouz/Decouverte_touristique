@@ -3,7 +3,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.tourist.enums.Role;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -12,13 +14,15 @@ import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "role")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Admin.class, name = "Admin"),
-        @JsonSubTypes.Type(value = Client.class, name = "Technician"),
-        @JsonSubTypes.Type(value = Visitor.class, name = "UserU")
+        @JsonSubTypes.Type(value = Client.class, name = "Client"),
+        @JsonSubTypes.Type(value = Visitor.class, name = "Visitor")
 })
 public abstract class Person {
 
@@ -37,6 +41,5 @@ public abstract class Person {
     public List<SimpleGrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
     }
-    public Person() {
-    }
+
 }

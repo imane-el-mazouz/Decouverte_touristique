@@ -1,25 +1,21 @@
-package com.tourist.model;
+package com.tourist.dto;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tourist.enums.CategoryHotel;
+import com.tourist.model.Room;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
+@Builder
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Hotel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idHotel;
+@AllArgsConstructor
+
+public class HotelDTO {
     private String name;
     private String description;
     private String img;
@@ -31,9 +27,5 @@ public class Hotel {
 
     @OneToMany(mappedBy = "hotel" , cascade = CascadeType.ALL , orphanRemoval = true )
     @JsonIgnore
-    private List <Room> rooms ;
-
-//    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonIgnore
-//    private List<Reservation> reservations;
+    private List<Room> rooms ;
 }

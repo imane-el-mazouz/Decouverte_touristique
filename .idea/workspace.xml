@@ -5,13 +5,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e3fd31-8393-44c8-8caf-2d681d6d67dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/enums/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Contact.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Excursion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Hotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Reservation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/AdminDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/BlogDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/ClientDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/EventDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/ExcursionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/HotelDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/PersonDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/ReservationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/RoomDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/TraditionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/VisitorDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/enums/CategoryEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/enums/CategoryHotel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/enums/Type.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/BlogAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/BlogNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/ClientAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/ClientNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/EmailAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/EventAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/EventNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/ExcursionAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/TraditionAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/TraditionNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Tradition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/AdminRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/BlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/ClientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/ExcursionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/HotelRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/PersonRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/ReservationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/RoomRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/TraditionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/VisitorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/AuthRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/AuthRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/JwtResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/JwtResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/enums/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/EmailNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/EmailNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/UserAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/UserNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Excursion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Excursion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Visitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/target/classes/application.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +70,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -39,29 +89,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.PlateformBackEndApplication.executor": "Run",
-    "Spring Boot.tourist.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Decouverte_touristique/Plateform_BackEnd/src/main/java/com/tourist/model",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PlateformBackEndApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.tourist.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dell PC/Desktop/Decouverte_touristique/Plateform_BackEnd/src/main/java/com/tourist/model&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\java\com\tourist\model" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\java\com\tourist\model" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\java\com\tourist" />
     </key>
@@ -69,13 +121,14 @@
       <recent name="C:\Users\user\Desktop\Decouverte_touristique" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.tourist.model" />
       <recent name="com.tourist.enums" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="PlateformBackEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="bank" />
+      <module name="Plateform_BackEnd" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tourist.PlateformBackEndApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -94,10 +147,35 @@
       <workItem from="1721645981057" duration="183000" />
       <workItem from="1721655103528" duration="310000" />
       <workItem from="1723028453277" duration="5747000" />
+      <workItem from="1724063726319" duration="9697000" />
+      <workItem from="1724547241046" duration="1482000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Room.java</url>
+          <line>18</line>
+          <properties field="image_path" class="com.tourist.model.Room" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Person.java</url>
+          <line>32</line>
+          <properties field="name" class="com.tourist.model.Person" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Excursion.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

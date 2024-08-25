@@ -1,25 +1,19 @@
-package com.tourist.model;
+package com.tourist.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.tourist.model.Reservation;
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
-
-@Entity
-@DiscriminatorValue("Client")
+@Builder
 @Getter
 @Setter
-
-public class Client extends Person {
-
+@NoArgsConstructor
+@AllArgsConstructor
+public class ClientDTO {
     @OneToMany(mappedBy = "client" , cascade = CascadeType.ALL , orphanRemoval = true)
     @JsonIgnore
     private List<Reservation> reservations ;
-
 }

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.userdetails.User;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Getter
@@ -23,16 +24,26 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long numberOfPerson ;
     private LocalDateTime dateTime;
+    private Date checkInDate;
+    private Date checkOutDate;
+    private boolean reservedRoom;
+
+    @ManyToOne
+    @JoinColumn(name = "excursion_id")
+    private Excursion excursion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
-    @JoinColumn(name = "user_id")
     @JsonBackReference
-    private Person person;
+    @JoinColumn(name = "client_id")
+    private Client client;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "event_id")
-
     private Event event;
+
+    @ManyToOne
+    @JoinColumn(name = "room_id")
+    private Room room;
 }

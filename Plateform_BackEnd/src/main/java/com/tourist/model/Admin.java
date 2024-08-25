@@ -1,7 +1,6 @@
 package com.tourist.model;
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +11,12 @@ import lombok.Setter;
 @Setter
 public class Admin extends Person {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long totalClients ;
+    private Long totalEvents ;
+    private Long totalReservations ;
 
 
 }
