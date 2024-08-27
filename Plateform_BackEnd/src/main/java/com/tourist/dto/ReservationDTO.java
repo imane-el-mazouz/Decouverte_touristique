@@ -2,6 +2,7 @@ package com.tourist.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.tourist.enums.Status;
 import com.tourist.model.Client;
 import com.tourist.model.Event;
 import jakarta.persistence.FetchType;
@@ -24,6 +25,7 @@ public class ReservationDTO {
     private Date checkInDate;
     private Date checkOutDate;
     private boolean reservedRoom;
+    private Status status;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

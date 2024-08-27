@@ -1,10 +1,7 @@
 package com.tourist.dto;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tourist.enums.CategoryHotel;
-import com.tourist.model.Room;
-import jakarta.persistence.*;
+import com.tourist.model.Hotel;
 import lombok.*;
 
 import java.util.List;
@@ -14,18 +11,14 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class HotelDTO {
+    private Long idHotel;
     private String name;
     private String description;
     private String img;
-    private String location ;
-    private Integer capacity;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "category", nullable = false, length = 225)
+    private String location;
     private CategoryHotel categoryHotel;
+    private List<RoomDTO> rooms;
+    private Double averageRating;
 
-    @OneToMany(mappedBy = "hotel" , cascade = CascadeType.ALL , orphanRemoval = true )
-    @JsonIgnore
-    private List<Room> rooms ;
 }

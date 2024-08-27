@@ -3,6 +3,11 @@ package com.tourist.service;
 
 
 import com.tourist.enums.Role;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -55,10 +60,6 @@ public class JwtService {
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
-//    public String generateToken(String username) {
-//        Map<String, Object> claims = new HashMap<>();
-//        return createToken(claims, username);
-//    }
 public String generateToken(String username, Role role) {
     return Jwts.builder()
             .setSubject(username)
@@ -86,6 +87,5 @@ public String generateToken(String username, Role role) {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public String generateToken(String email, Role role) {
-    }
+
 }

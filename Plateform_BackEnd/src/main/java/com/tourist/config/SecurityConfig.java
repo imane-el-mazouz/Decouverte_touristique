@@ -1,6 +1,6 @@
 package com.tourist.config;
 
-import com.support_App.service.UserAuthService;
+import com.tourist.service.PersonAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +32,7 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return new UserAuthService();
+        return new PersonAuthService();
     }
 
 

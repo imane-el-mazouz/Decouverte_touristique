@@ -1,9 +1,7 @@
 package com.tourist.config;
 
 
-import com.support_App.model.Admin;
-import com.support_App.model.Technician;
-import com.support_App.model.UserU;
+
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;

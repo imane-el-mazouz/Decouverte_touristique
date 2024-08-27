@@ -1,6 +1,6 @@
 package com.tourist.service;
 
-
+import com.tourist.dto.AuthRequestDTO;
 import com.tourist.dto.JwtResponseDTO;
 import com.tourist.enums.Role;
 import com.tourist.model.Person;
@@ -15,8 +15,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 
 @Service
 public class PersonAuthService implements UserDetailsService {
@@ -47,57 +45,23 @@ public class PersonAuthService implements UserDetailsService {
                 .roles(person.getRole().name())
                 .build();
     }
-//@Override
-//public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//    User user = userRepository.findByEmail(email);
-//    if (user == null) {
-//        throw new UsernameNotFoundException("User not found with email: " + email);
-//    }
-//    return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
-//}
 
-    //    public JwtResponseDTO signUp(User userRequest) {
-//        if (userRepository.findByEmail(userRequest.getName()) != null) {
-//            throw new RuntimeException("Username is already taken.");
-//        }
-//        if (userRequest.getRole() == null) {
-//            userRequest.setRole(Role.UserU);
-//        }
-//        userRequest.setPassword(passwordEncoder.encode(userRequest.getPassword()));
-//
-//        User savedUser = userRepository.save(userRequest);
-//        String token = jwtService.generateToken(savedUser.getName(),savedUser.getRole());
-//
-//        return JwtResponseDTO.builder()
-//                .accessToken(token)
-//                .user(savedUser)
-//                .build();
-//    }
-public JwtResponseDTO signUp(Person personRequest) {
-    if (personRepository.findByEmail(personRequest.getEmail()) != null) {
-        throw new RuntimeException("Email is already taken.");
-    }
-    if (personRequest.getRole() == null) {
-        personRequest.setRole(Role.Admin);
-    } else {
-        try {
-            personRequest.setRole(Role.valueOf(personRequest.getRole().name()));
-        } catch (IllegalArgumentException e) {
-            throw new RuntimeException("Invalid role: " + personRequest.getRole().name());
+    public JwtResponseDTO signUp(Person personRequest) {
+        if (personRepository.findByEmail(personRequest.getEmail()) != null) {
+            throw new RuntimeException("Email is already taken.");
         }
-    }
-    personRequest.setPassword(passwordEncoder.encode(personRequest.getPassword()));
-    Person savedPerson = personRepository.save(personRequest);
+        if (personRequest.getRole() == null) {
+            personRequest.setRole(Role.Client);
+        }
+        personRequest.setPassword(passwordEncoder.encode(personRequest.getPassword()));
+        Person savedPerson = personRepository.save(personRequest);
 
-    String token = jwtService.generateToken(personRequest.getEmail(), savedPersongetRole());
+        String token = jwtService.generateToken(savedPerson.getEmail(), savedPerson.getRole());
 
-    return JwtResponseDTO.builder()
-            .accessToken(token)
-            .person(savedPerson)
-            .build();
-}
-
-    private Role savedPersongetRole() {
+        return JwtResponseDTO.builder()
+                .accessToken(token)
+                .person(savedPerson)
+                .build();
     }
 
     public JwtResponseDTO login(AuthRequestDTO authRequestDTO) {
@@ -106,7 +70,7 @@ public JwtResponseDTO signUp(Person personRequest) {
         );
 
         if (authentication.isAuthenticated()) {
-            Person person =personRepository.findByEmail(authRequestDTO.getEmail());
+            Person person = personRepository.findByEmail(authRequestDTO.getEmail());
             String token = jwtService.generateToken(person.getEmail(), person.getRole());
             return JwtResponseDTO.builder()
                     .accessToken(token)

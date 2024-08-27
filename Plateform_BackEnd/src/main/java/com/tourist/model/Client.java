@@ -22,4 +22,8 @@ public class Client extends Person {
     @JsonIgnore
     private List<Reservation> reservations ;
 
+    @OneToMany(mappedBy = "client" , cascade = CascadeType.ALL , orphanRemoval = true)
+    @JsonIgnore
+    private List<Review> reviews ;
+
 }

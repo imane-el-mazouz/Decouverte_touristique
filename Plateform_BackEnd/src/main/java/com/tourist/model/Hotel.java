@@ -24,7 +24,6 @@ public class Hotel {
     private String description;
     private String img;
     private String location ;
-    private Integer capacity;
     @Enumerated(EnumType.STRING)
     @Column(name = "category", nullable = false, length = 225)
     private CategoryHotel categoryHotel;
@@ -32,6 +31,9 @@ public class Hotel {
     @OneToMany(mappedBy = "hotel" , cascade = CascadeType.ALL , orphanRemoval = true )
     @JsonIgnore
     private List <Room> rooms ;
+
+    private Double averageRating;
+
 
 //    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
 //    @JsonIgnore

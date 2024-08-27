@@ -38,8 +38,8 @@ public abstract class Person {
     @Column(name = "role", nullable = false, length = 225)
     private Role role;
 
-    public List<SimpleGrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
-    }
+//    public List<SimpleGrantedAuthority> getAuthorities() {
+//        return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
+//    }
 
 }

@@ -14,4 +14,6 @@ public class JwtResponseDTO {
 
     private Person person ;
 
+    public JwtResponseDTO(String error, Object o) {
+    }
 }

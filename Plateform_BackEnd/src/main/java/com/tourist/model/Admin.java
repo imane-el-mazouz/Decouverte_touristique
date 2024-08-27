@@ -11,12 +11,7 @@ import lombok.Setter;
 @Setter
 public class Admin extends Person {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long totalClients ;
-    private Long totalEvents ;
-    private Long totalReservations ;
+
 
 
 }
