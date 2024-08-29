@@ -76,10 +76,13 @@ public class HotelService {
         hotel.setImg(hotelDTO.getImg());
         hotel.setLocation(hotelDTO.getLocation());
         hotel.setCategoryHotel(hotelDTO.getCategoryHotel());
-        List<Room> rooms = hotelDTO.getRooms().stream()
-                .map(this::convertToEntity)
-                .collect(Collectors.toList());
-        hotel.setRooms(rooms);
+//        List<Room> rooms = hotelDTO.getRooms().stream()
+//                .map(this::convertToEntity)
+//                .collect(Collectors.toList());
+//        hotel.setRooms(rooms);
+        hotel.setAverageRating(hotelDTO.getAverageRating());
+        hotel.setPrice(hotelDTO.getPrice());
+        hotel.setDistance(hotelDTO.getDistance());
     }
 
     private Hotel convertToEntity(HotelDTO hotelDTO) {
@@ -93,6 +96,9 @@ public class HotelService {
         hotel.setRooms(hotelDTO.getRooms().stream()
                 .map(this::convertToEntity)
                 .collect(Collectors.toList()));
+        hotel.setAverageRating(hotelDTO.getAverageRating());
+        hotel.setPrice(hotelDTO.getPrice());
+        hotel.setDistance(hotelDTO.getDistance());
         return hotel;
     }
 
@@ -107,6 +113,9 @@ public class HotelService {
                 .rooms(hotel.getRooms().stream()
                         .map(this::convertToDTO)
                         .collect(Collectors.toList()))
+                .averageRating(hotel.getAverageRating())
+                .price(hotel.getPrice())
+                .distance(hotel.getDistance())
                 .build();
     }
 

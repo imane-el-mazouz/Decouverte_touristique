@@ -10,6 +10,7 @@ import com.tourist.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -67,8 +68,8 @@ public class EventService {
                 filterDTO.getMaxDistance()
         );
     }
-    public List<Event> search(CategoryEvent category, String location, LocalDateTime date) {
-        return eventRepository.findEventByCategoryOrLocationOrDateTime(category, location, date);
+    public List<Event> search(CategoryEvent category, String location, LocalDate date) {
+        return eventRepository.findEventByCategoryOrLocationOrDate(category, location, LocalDate.from(date));
     }
 
 

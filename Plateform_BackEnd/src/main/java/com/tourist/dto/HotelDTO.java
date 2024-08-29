@@ -1,7 +1,6 @@
 package com.tourist.dto;
 
 import com.tourist.enums.CategoryHotel;
-import com.tourist.model.Hotel;
 import lombok.*;
 
 import java.util.List;
@@ -20,5 +19,6 @@ public class HotelDTO {
     private CategoryHotel categoryHotel;
     private List<RoomDTO> rooms;
     private Double averageRating;
-
+    private Double price;
+    private Double distance;
 }

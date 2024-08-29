@@ -11,6 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -68,7 +69,7 @@ public class EventController {
     public ResponseEntity<List<Event>> searchEvents(
             @RequestParam(required = false) CategoryEvent category,
             @RequestParam(required = false) String location,
-            @RequestParam(required = false) LocalDateTime date) {
+            @RequestParam(required = false) LocalDate date) {
         List<Event> eventList = eventService.search(category, location, date);
         return ResponseEntity.ok(eventList);
     }
