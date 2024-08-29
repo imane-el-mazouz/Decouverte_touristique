@@ -2,6 +2,7 @@ package com.tourist.controller;
 
 
 import com.tourist.dto.ReviewDTO;
+import com.tourist.exception.ReservationNotFoundException;
 import com.tourist.model.Client;
 import com.tourist.model.Reservation;
 import com.tourist.model.Review;
@@ -21,14 +22,17 @@ import java.util.List;
 @RequestMapping("/api/review")
 @CrossOrigin("*")
 public class ReviewController {
-    @Autowired
-    private ReviewService reviewService;
+    private final ReviewService reviewService;
 
-    @Autowired
-    private ClientService clientService;
+    private final ClientService clientService;
 
-    @Autowired
-    private ReservationService reservationService ;
+    private final ReservationService reservationService ;
+
+    public ReviewController(ReviewService reviewService, ClientService clientService, ReservationService reservationService) {
+        this.reviewService = reviewService;
+        this.clientService = clientService;
+        this.reservationService = reservationService;
+    }
 
 
     @PreAuthorize("hasRole('Client') or hasRole('Admin')" )
@@ -43,15 +47,20 @@ public class ReviewController {
 
     @PreAuthorize("hasRole('Client')")
     @PostMapping("/add")
-    public ResponseEntity<Review> addReview(@RequestBody ReviewDTO reviewDTO, @RequestParam Long reservationId) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = authentication.getName();
-        Client client = clientService.findByEmail(email);
-        Reservation reservation = reservationService.getReservationById(reservationId)
-                .orElseThrow(() -> new RuntimeException("Reservation not found"));
-        Review savedReview = reviewService.addReview(reviewDTO, client, reservation);
-        return ResponseEntity.ok(savedReview);
+    public ResponseEntity<?> addReview(@RequestBody ReviewDTO reviewDTO, @RequestParam Long reservationId) {
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String email = authentication.getName();
+            Client client = clientService.findByEmail(email);
+            Reservation reservation = reservationService.getReservationById(reservationId)
+                    .orElseThrow(() -> new ReservationNotFoundException("Reservation not found"));
+            Review savedReview = reviewService.addReview(reviewDTO, client, reservation);
+            return ResponseEntity.ok(savedReview);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
+
 
 
     @PreAuthorize("hasRole('Admin')")

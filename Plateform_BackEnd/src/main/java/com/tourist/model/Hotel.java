@@ -33,6 +33,10 @@ public class Hotel {
     private List <Room> rooms ;
 
     private Double averageRating;
+    private Double price;
+    private Double distance;
+
+
 
 
 //    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)

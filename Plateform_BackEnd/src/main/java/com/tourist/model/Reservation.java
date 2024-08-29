@@ -40,15 +40,18 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "excursion_id")
+    @JsonIgnore
     private Excursion excursion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference
     @JoinColumn(name = "client_id")
+    @JsonIgnore
     private Client client;
 
     @ManyToOne
     @JoinColumn(name = "event_id")
+    @JsonIgnore
+
     private Event event;
 
     @ManyToOne

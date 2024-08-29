@@ -27,7 +27,7 @@ public class Review {
     private LocalDate date ;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference
+    @JsonIgnore
     @JoinColumn(name = "client_id")
     private Client client;
 

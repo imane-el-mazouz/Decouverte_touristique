@@ -6,6 +6,7 @@ import com.tourist.model.Reservation;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,10 +17,11 @@ import java.util.List;
 @AllArgsConstructor
 
 public class EventDTO {
+    private Long id ;
     private String name;
     private String description;
     private String img;
-    private LocalDateTime dateTime;
+    private LocalDate date;
     private String location;
     private Integer capacity;
 

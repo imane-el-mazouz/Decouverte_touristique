@@ -5,9 +5,11 @@ import com.tourist.model.Hotel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
 public interface HotelRepository extends JpaRepository<Hotel, Long> {
-    List<Hotel> filterHotels(String location, Double price , CategoryHotel category);
+    List<Hotel> findAllByAverageRatingBetween(Long minRating, Long maxRating);
+    List<Hotel> findHotelByCategoryHotelOrLocation(CategoryHotel category, String location);
 }

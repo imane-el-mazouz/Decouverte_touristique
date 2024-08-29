@@ -1,43 +1,76 @@
 package com.tourist.service;
 
 import com.tourist.dto.HotelDTO;
-import com.tourist.dto.ReviewDTO;
+import com.tourist.dto.HotelFilterDTO;
 import com.tourist.dto.RoomDTO;
 import com.tourist.enums.CategoryHotel;
-import com.tourist.model.*;
+import com.tourist.exception.HotelNotFoundException;
+import com.tourist.model.Hotel;
+import com.tourist.model.Room;
 import com.tourist.repository.HotelRepository;
 import com.tourist.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class HotelService {
 
-
     private final HotelRepository hotelRepository;
 
-    @Autowired
-    private RoomRepository roomRepository;
 
+    @Autowired
     public HotelService(HotelRepository hotelRepository) {
         this.hotelRepository = hotelRepository;
     }
 
-
-    public List<HotelDTO> getAllHotels(){
-        List<Hotel> hotels = hotelRepository.findAll();
-        return hotels.stream().map(this::convertToDTO).collect(Collectors.toList());
+    public List<HotelDTO> getAllHotels() {
+        return hotelRepository.findAll().stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
+    public HotelDTO addHotel(HotelDTO hotelDTO) {
+        Hotel hotel = convertToEntity(hotelDTO);
+        return convertToDTO(hotelRepository.save(hotel));
+    }
 
+    public HotelDTO updateHotel(Long id, HotelDTO hotelDTO) {
+        Hotel hotel = hotelRepository.findById(id)
+                .orElseThrow(() -> new HotelNotFoundException(id));
+        updateHotelFields(hotel, hotelDTO);
+        return convertToDTO(hotelRepository.save(hotel));
+    }
 
-    public Hotel addHotel(HotelDTO hotelDTO ){
-        Hotel hotel = new Hotel();
-        hotel.setIdHotel(hotelDTO.getIdHotel());
+    public void deleteHotel(Long id) {
+        if (!hotelRepository.existsById(id)) {
+            throw new HotelNotFoundException(id);
+        }
+        hotelRepository.deleteById(id);
+    }
+
+    public List<HotelDTO> filterHotels(HotelFilterDTO filterDTO) {
+        return hotelRepository.findAllByAverageRatingBetween(
+                filterDTO.getMinRating(), filterDTO.getMaxRating()
+        ).stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    public HotelDTO getHotelById(Long id) {
+        Hotel hotel = hotelRepository.findById(id)
+                .orElseThrow(() -> new HotelNotFoundException(id));
+        return convertToDTO(hotel);
+    }
+
+    public List<HotelDTO> search(CategoryHotel category, String location) {
+        return hotelRepository.findHotelByCategoryHotelOrLocation(
+                category, location
+        ).stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    private void updateHotelFields(Hotel hotel, HotelDTO hotelDTO) {
         hotel.setName(hotelDTO.getName());
         hotel.setDescription(hotelDTO.getDescription());
         hotel.setImg(hotelDTO.getImg());
@@ -47,7 +80,20 @@ public class HotelService {
                 .map(this::convertToEntity)
                 .collect(Collectors.toList());
         hotel.setRooms(rooms);
-        return hotelRepository.save(hotel);
+    }
+
+    private Hotel convertToEntity(HotelDTO hotelDTO) {
+        Hotel hotel = new Hotel();
+        hotel.setIdHotel(hotelDTO.getIdHotel());
+        hotel.setName(hotelDTO.getName());
+        hotel.setDescription(hotelDTO.getDescription());
+        hotel.setImg(hotelDTO.getImg());
+        hotel.setLocation(hotelDTO.getLocation());
+        hotel.setCategoryHotel(hotelDTO.getCategoryHotel());
+        hotel.setRooms(hotelDTO.getRooms().stream()
+                .map(this::convertToEntity)
+                .collect(Collectors.toList()));
+        return hotel;
     }
 
     private HotelDTO convertToDTO(Hotel hotel) {
@@ -58,17 +104,9 @@ public class HotelService {
                 .img(hotel.getImg())
                 .location(hotel.getLocation())
                 .categoryHotel(hotel.getCategoryHotel())
-                .rooms(hotel.getRooms().stream().map(this::convertToDTO).collect(Collectors.toList()))
-                .build();
-    }
-
-    private RoomDTO convertToDTO(Room room) {
-        return RoomDTO.builder()
-                .id(room.getId())
-                .type(room.getType())
-                .price(room.getPrice())
-                .available(room.isAvailable())
-                .image_path(room.getImage_path())
+                .rooms(hotel.getRooms().stream()
+                        .map(this::convertToDTO)
+                        .collect(Collectors.toList()))
                 .build();
     }
 
@@ -82,8 +120,13 @@ public class HotelService {
         return room;
     }
 
-    public List<HotelDTO> filterHotels(String location, Double price, CategoryHotel categoryHotel) {
-        List<Hotel> hotels = hotelRepository.filterHotels(location, price, categoryHotel);
-        return hotels.stream().map(this::convertToDTO).collect(Collectors.toList());
+    private RoomDTO convertToDTO(Room room) {
+        return RoomDTO.builder()
+                .id(room.getId())
+                .type(room.getType())
+                .price(room.getPrice())
+                .available(room.isAvailable())
+                .image_path(room.getImage_path())
+                .build();
     }
 }

@@ -1,6 +1,7 @@
 package com.tourist.service;
 
 import com.tourist.dto.ReviewDTO;
+import com.tourist.exception.RatingException;
 import com.tourist.exception.ReviewNotFound;
 import com.tourist.model.Client;
 import com.tourist.model.Reservation;
@@ -26,15 +27,30 @@ public class ReviewService {
     }
 
 
-    public Review addReview(ReviewDTO reviewDTO, Client client, Reservation reservation) {
-        Review review = new Review();
-        review.setRating(reviewDTO.getRating());
-        review.setComment(reviewDTO.getComment());
-        review.setDate(reviewDTO.getDate());
-        review.setClient(client);
-        review.setReservation(reservation);
-        return reviewRepository.save(review);
+//    public Review addReview(ReviewDTO reviewDTO, Client client, Reservation reservation) {
+//        Review review = new Review();
+//        review.setRating(reviewDTO.getRating());
+//        review.setComment(reviewDTO.getComment());
+//        review.setDate(reviewDTO.getDate());
+//        review.setClient(client);
+//        review.setReservation(reservation);
+//        return reviewRepository.save(review);
+//    }
+public Review addReview(ReviewDTO reviewDTO, Client client, Reservation reservation) {
+    if (reviewDTO.getRating() < 1 || reviewDTO.getRating() > 5) {
+        throw new RatingException("Rating must be between 1 and 5");
     }
+
+    Review review = new Review();
+    review.setRating(reviewDTO.getRating());
+    review.setComment(reviewDTO.getComment());
+    review.setDate(reviewDTO.getDate());
+    review.setClient(client);
+    review.setReservation(reservation);
+
+    return reviewRepository.save(review);
+}
+
 
 
     public void deleteReview(Long id) {

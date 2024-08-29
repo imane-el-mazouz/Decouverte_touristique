@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,9 +26,12 @@ public class Event {
     private String name;
     private String description;
     private String img;
-    private LocalDateTime dateTime;
+    private LocalDate date;
     private String location;
     private Integer capacity;
+    private Double price;
+    private Integer rating;
+    private Double distance;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "category", nullable = false, length = 225)

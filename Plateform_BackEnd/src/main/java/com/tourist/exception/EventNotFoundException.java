@@ -1,7 +1,7 @@
 package com.tourist.exception;
 
 public class EventNotFoundException extends RuntimeException{
-    public EventNotFoundException (Long id){
+    public EventNotFoundException (String id){
         super("Event with id already exists " + id);
     }
 }
