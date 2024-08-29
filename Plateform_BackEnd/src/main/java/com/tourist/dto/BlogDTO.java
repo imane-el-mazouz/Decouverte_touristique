@@ -12,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 
 public class BlogDTO {
+    private Long id;
     private String name;
     private String description;
 

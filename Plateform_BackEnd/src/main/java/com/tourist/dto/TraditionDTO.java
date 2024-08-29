@@ -16,6 +16,7 @@ import java.util.List;
 @Builder
 
 public class TraditionDTO {
+    private Long id;
     private String city;
     private String description ;
 
