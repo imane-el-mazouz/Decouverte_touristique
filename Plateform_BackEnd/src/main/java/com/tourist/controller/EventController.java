@@ -2,17 +2,18 @@ package com.tourist.controller;
 
 import com.tourist.dto.EventDTO;
 import com.tourist.dto.EventFilterDTO;
+import com.tourist.dto.ReservationDTO;
 import com.tourist.enums.CategoryEvent;
 import com.tourist.exception.EventAlreadyExistsException;
 import com.tourist.model.Event;
 import com.tourist.service.EventService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -22,19 +23,49 @@ public class EventController {
 
     private final EventService eventService;
 
-   public EventController(EventService eventService){
-
-       this.eventService = eventService;
-   }
+    public EventController(EventService eventService){
+        this.eventService = eventService;
+    }
 
     @PostMapping
     @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<Event> saveEvent(@RequestBody EventDTO eventDTO) {
+    public ResponseEntity<Event> saveEvent(
+            @RequestParam("name") String name,
+            @RequestParam("description") String description,
+            @RequestParam("date") LocalDate date,
+            @RequestParam("location") String location,
+            @RequestParam("capacity") Integer capacity,
+            @RequestParam("category") CategoryEvent category,
+            @RequestParam(value = "img", required = false) MultipartFile img, // Handle optional file upload
+            @RequestParam(value = "reservations", required = false) List<ReservationDTO> reservations) throws IOException {
+
+        String imgPath = (img != null) ? eventService.saveImage(img) : null; // Save image and get path if provided
+        EventDTO eventDTO = new EventDTO(null, name, description, imgPath, date, location, capacity, category, reservations);
+
         Event savedEvent = eventService.saveEvent(eventDTO)
                 .orElseThrow(() -> new EventAlreadyExistsException("Event already exists with this ID"));
         return ResponseEntity.ok(savedEvent);
     }
 
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('Admin')")
+    public ResponseEntity<Event> updateEvent(
+            @PathVariable Long id,
+            @RequestParam("name") String name,
+            @RequestParam("description") String description,
+            @RequestParam("date") LocalDate date,
+            @RequestParam("location") String location,
+            @RequestParam("capacity") Integer capacity,
+            @RequestParam("category") CategoryEvent category,
+            @RequestParam(value = "img", required = false) MultipartFile img, // Handle optional file upload
+            @RequestParam(value = "reservations", required = false) List<ReservationDTO> reservations) throws IOException {
+
+        String imgPath = (img != null) ? eventService.saveImage(img) : null; // Save image and get path if provided
+        EventDTO eventDTO = new EventDTO(id, name, description, imgPath, date, location, capacity, category, reservations);
+
+        Event updatedEvent = eventService.updateEvent(id, eventDTO);
+        return ResponseEntity.ok(updatedEvent);
+    }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('Admin')")
@@ -45,17 +76,12 @@ public class EventController {
 
     @GetMapping("/get/{id}")
     @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<Void> getEventById(@PathVariable Long id) {
-        eventService.deleteEvent(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Event> getEventById(@PathVariable Long id) {
+        Event event = eventService.getEventById(id);
+        return ResponseEntity.ok(event);
     }
 
-    @PutMapping("/{id}")
-    @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<Event> updateEvent(@PathVariable Long id, @RequestBody EventDTO eventDTO) {
-        Event updatedEvent = eventService.updateEvent(id, eventDTO);
-        return ResponseEntity.ok(updatedEvent);
-    }
+
 
     @GetMapping("/filter")
     @PreAuthorize("hasRole('Client') or hasRole('Admin')")
@@ -73,7 +99,4 @@ public class EventController {
         List<Event> eventList = eventService.search(category, location, date);
         return ResponseEntity.ok(eventList);
     }
-
-
-
 }

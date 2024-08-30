@@ -5,37 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e3fd31-8393-44c8-8caf-2d681d6d67dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/CloudinaryConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ReservationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/CloudinaryResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/FuncErrorException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/exception/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Image.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/CloudinaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/util/FileUploadUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ClientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ExcursionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/about us.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/about.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/alhoceima.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/beach_hociema.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/binelouidane.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/culture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/events.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/fes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/ouarzazate.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/img/sahara.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d500d097-ac6a-4187-be6a-85c173988ed9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d500d097-ac6a-4187-be6a-85c173988ed9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/PlateformBackEndApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/PlateformBackEndApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/JwtAuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/MyConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/MyConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ReservationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ReviewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/TraditionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/TraditionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/RoomDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/RoomDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/TraditionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/TraditionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/DashAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/DashAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/AdminRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/ReservationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/RoomRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/EventDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/EventDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/ExcursionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/ExcursionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Excursion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Excursion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/ExcursionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/ExcursionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/ExcursionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/ExcursionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/HotelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/RoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/TraditionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/TraditionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,9 +54,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -85,7 +84,7 @@
     "Spring Boot.tourist.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Decouverte_touristique/Plateform_BackEnd/src/main/resources",
+    "last_opened_file_path": "C:/Users/Dell PC/Desktop/Decouverte_touristique/Plateform_BackEnd/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -99,11 +98,11 @@
       <recent name="com.tourist.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\resources" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\resources" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\java\com\tourist\exception" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\java\com\tourist" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\assets\img" />
-      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\Decouverte_touristique" />
@@ -122,7 +121,7 @@
     </configuration>
     <configuration name="PlateformBackEndApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="bank" />
+      <module name="Plateform_BackEnd" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tourist.PlateformBackEndApplication" />
       <extension name="coverage">
         <pattern>
@@ -158,6 +157,7 @@
       <workItem from="1724659384585" duration="15318000" />
       <workItem from="1724769024295" duration="25449000" />
       <workItem from="1725012221987" duration="17282000" />
+      <workItem from="1725053404426" duration="6539000" />
     </task>
     <servers />
   </component>
@@ -181,13 +181,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Excursion.java</url>
-          <line>36</line>
+          <line>33</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/EventService.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

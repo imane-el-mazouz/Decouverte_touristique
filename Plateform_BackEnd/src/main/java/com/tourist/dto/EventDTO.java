@@ -15,7 +15,7 @@ public class EventDTO {
     private Long id;
     private String name;
     private String description;
-    private String img;
+    private String imgPath;
     private LocalDate date;
     private String location;
     private Integer capacity;

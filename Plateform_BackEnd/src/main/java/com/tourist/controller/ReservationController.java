@@ -1,76 +1,95 @@
 package com.tourist.controller;
 
+import com.tourist.model.Client;
 import com.tourist.model.Reservation;
+import com.tourist.service.ClientService;
 import com.tourist.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/reservations")
+@RequestMapping("/api/reservation")
+@CrossOrigin("*")
 public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
+    @Autowired
+    private ClientService clientService ;
 
-    // Reserve an event
-    @PostMapping("/reserve-event")
+    @PostMapping("/event")
+    @PreAuthorize("hasRole('Client')")
     public ResponseEntity<Reservation> reserveEvent(
-            @RequestParam Long clientId,
             @RequestParam Long eventId,
             @RequestParam LocalDate dateTime) {
-        Reservation reservation = reservationService.reserveEvent(clientId, eventId, dateTime);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+
+        Client client = clientService.findByEmail(email);
+        Reservation reservation = reservationService.reserveEvent(client.getId(), eventId, dateTime);
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
 
-    // Reserve an excursion
-    @PostMapping("/reserve-excursion")
+    @PostMapping("/excursion")
+    @PreAuthorize("hasRole('Client')")
     public ResponseEntity<Reservation> reserveExcursion(
-            @RequestParam Long clientId,
             @RequestParam Long excursionId,
             @RequestParam LocalDate dateTime) {
-        Reservation reservation = reservationService.reserveExcursion(clientId, excursionId, dateTime);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+
+        Client client = clientService.findByEmail(email);
+        Reservation reservation = reservationService.reserveExcursion(client.getId(), excursionId, dateTime);
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
 
-    // Reserve a hotel room
-    @PostMapping("/reserve-hotel")
+    @PostMapping("/hotel")
+    @PreAuthorize("hasRole('Client')")
     public ResponseEntity<Reservation> reserveHotel(
-            @RequestParam Long clientId,
             @RequestParam Long roomId,
             @RequestParam LocalDate checkInDate,
             @RequestParam LocalDate checkOutDate) {
-        Reservation reservation = reservationService.reserveHotel(clientId, roomId, checkInDate, checkOutDate);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+
+        Client client = clientService.findByEmail(email);
+        Reservation reservation = reservationService.reserveHotel(client.getId(), roomId, checkInDate, checkOutDate);
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
 
-    // List all reservations for a specific event
+
     @GetMapping("/event/{eventId}")
+    @PreAuthorize("hasRole('Admin')")
+
     public ResponseEntity<List<Reservation>> listReservationsForEvent(@PathVariable Long eventId) {
         List<Reservation> reservations = reservationService.listReservationsForEvent(eventId);
         return new ResponseEntity<>(reservations, HttpStatus.OK);
     }
 
-    // List all reservations for a specific excursion
     @GetMapping("/excursion/{excursionId}")
+    @PreAuthorize("hasRole('Admin')")
     public ResponseEntity<List<Reservation>> listReservationsForExcursion(@PathVariable Long excursionId) {
         List<Reservation> reservations = reservationService.listReservationsForExcursion(excursionId);
         return new ResponseEntity<>(reservations, HttpStatus.OK);
     }
 
-    // List all reservations for a specific hotel room
     @GetMapping("/hotel/{roomId}")
+    @PreAuthorize("hasRole('Admin')")
     public ResponseEntity<List<Reservation>> listReservationsForHotel(@PathVariable Long roomId) {
         List<Reservation> reservations = reservationService.listReservationsForHotel(roomId);
         return new ResponseEntity<>(reservations, HttpStatus.OK);
     }
 
-    // Delete a reservation by ID
     @DeleteMapping("/{reservationId}")
+    @PreAuthorize("hasRole('Admin')")
     public ResponseEntity<Void> deleteReservation(@PathVariable Long reservationId) {
         reservationService.deleteReservation(reservationId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -34,9 +34,8 @@ public class ReviewController {
         this.reservationService = reservationService;
     }
 
-
-    @PreAuthorize("hasRole('Client') or hasRole('Admin')" )
     @GetMapping("/all")
+    @PreAuthorize("hasRole('Client') or hasRole('Admin')" )
     public ResponseEntity<List<Review>> getAllReviews() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();

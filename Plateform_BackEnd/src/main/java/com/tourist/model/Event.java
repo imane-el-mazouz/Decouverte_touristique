@@ -22,7 +22,7 @@ public class Event {
     private Long idEvent;
     private String name;
     private String description;
-    private String img;
+    private String imgPath;
     private LocalDate date;
     private String location;
     private Integer capacity;

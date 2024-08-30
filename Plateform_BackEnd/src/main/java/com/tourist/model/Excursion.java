@@ -15,23 +15,20 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class Excursion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idExcursion;
     private String name;
     private String description;
-    private String img;
+    private String imgPath;  // Updated to store the image path
     private LocalDateTime dateTime;
-    private String location ;
+    private String location;
     private Integer capacity;
-//    @Enumerated(EnumType.STRING)
-//    @Column(name = "category", nullable = false, length = 225)
-//    private CategoryExcursion categoryExcursion;
+    private Long rating;
+
 
     @OneToMany(mappedBy = "excursion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Reservation> reservations;
-
 }

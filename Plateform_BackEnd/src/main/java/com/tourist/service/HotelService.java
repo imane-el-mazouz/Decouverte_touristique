@@ -77,15 +77,18 @@ public class HotelService {
         hotel.setLocation(hotelDTO.getLocation());
         hotel.setCategoryHotel(hotelDTO.getCategoryHotel());
 
-        List<Room> rooms = hotelDTO.getRooms().stream()
+        List<Room> updatedRooms = hotelDTO.getRooms().stream()
                 .map(this::convertToEntity)
                 .collect(Collectors.toList());
-        hotel.setRooms(rooms);
+
+        hotel.getRooms().clear();
+        hotel.getRooms().addAll(updatedRooms);
 
         hotel.setAverageRating(hotelDTO.getAverageRating());
         hotel.setPrice(hotelDTO.getPrice());
         hotel.setDistance(hotelDTO.getDistance());
     }
+
 
     private Hotel convertToEntity(HotelDTO hotelDTO) {
         Hotel hotel = new Hotel();
@@ -127,7 +130,7 @@ public class HotelService {
         room.setType(roomDTO.getType());
         room.setPrice(roomDTO.getPrice());
         room.setAvailable(roomDTO.isAvailable());
-        room.setImages(roomDTO.getImages()); // Mise à jour pour la liste d'images
+        room.setImages(roomDTO.getImages());
         return room;
     }
 

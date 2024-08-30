@@ -9,9 +9,14 @@ import com.tourist.model.Event;
 import com.tourist.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,10 +24,15 @@ import java.util.Optional;
 public class EventService {
 
     private final EventRepository eventRepository;
+    private final Path rootLocation = Paths.get("uploaded-images");
 
-
+    @Autowired
     public EventService(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
+        File directory = new File(rootLocation.toString());
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
     }
 
     public Optional<Event> saveEvent(EventDTO eventDTO) {
@@ -33,7 +43,7 @@ public class EventService {
         Event event = new Event();
         event.setName(eventDTO.getName());
         event.setDescription(eventDTO.getDescription());
-        event.setImg(eventDTO.getImg());
+        event.setImgPath(eventDTO.getImgPath()); // Save image path
         event.setDate(eventDTO.getDate());
         event.setLocation(eventDTO.getLocation());
         event.setCapacity(eventDTO.getCapacity());
@@ -53,7 +63,7 @@ public class EventService {
 
         event.setName(eventDTO.getName());
         event.setDescription(eventDTO.getDescription());
-        event.setImg(eventDTO.getImg());
+        event.setImgPath(eventDTO.getImgPath()); // Update image path
         event.setDate(eventDTO.getDate());
         event.setLocation(eventDTO.getLocation());
         event.setCapacity(eventDTO.getCapacity());
@@ -68,10 +78,25 @@ public class EventService {
                 filterDTO.getMaxDistance()
         );
     }
+
     public List<Event> search(CategoryEvent category, String location, LocalDate date) {
         return eventRepository.findEventByCategoryOrLocationOrDate(category, location, LocalDate.from(date));
     }
 
+    private static final String UPLOADED_FOLDER = "src/main/resources/img/";
 
+    public String saveImage(MultipartFile file) throws IOException {
+        String fileName = file.getOriginalFilename();
+        File directory = new File(UPLOADED_FOLDER);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
 
+        File serverFile = new File(directory.getAbsolutePath() + File.separator + fileName);
+        file.transferTo(serverFile);
+        return "/img/" + fileName;
+    }
+    public Event getEventById(Long id) {
+        return eventRepository.findById(id) . orElseThrow(() -> new EventNotFoundException("not found"));
+    }
 }
