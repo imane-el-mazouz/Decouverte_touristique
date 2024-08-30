@@ -9,6 +9,7 @@ import com.tourist.repository.TraditionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,6 +22,9 @@ public class TraditionService {
     }
 
     public TraditionDTO createTraditionWithBlogs(TraditionDTO traditionDTO) {
+        if (traditionDTO.getBlogs() == null) {
+            traditionDTO.setBlogs(new ArrayList<>());
+        }
         Tradition tradition = new Tradition();
         tradition.setCity(traditionDTO.getCity());
         tradition.setDescription(traditionDTO.getDescription());

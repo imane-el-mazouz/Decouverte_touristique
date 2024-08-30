@@ -3,6 +3,7 @@ package com.tourist.service;
 
 
 import com.tourist.enums.Role;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -78,7 +79,7 @@ public String generateToken(String username, Role role) {
                 .setSubject(username)
                 .setIssuedAt(Date.from(now()))
                 .setExpiration(Date.from(now().plus(20, ChronoUnit.DAYS)))
-                .signWith(getSignKey() ,SignatureAlgorithm.HS256)
+                .signWith(getSignKey() , SignatureAlgorithm.HS256)
                 .compact();
     }
 

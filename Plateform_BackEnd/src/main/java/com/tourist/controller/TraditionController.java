@@ -23,6 +23,9 @@ public class TraditionController {
     @PostMapping("/add")
     @PreAuthorize("hasRole('Admin')")
     public ResponseEntity<TraditionDTO> addTraditionWithBlogs(@RequestBody TraditionDTO traditionDTO) {
+        if (traditionDTO.getBlogs() == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         TraditionDTO savedTradition = traditionService.createTraditionWithBlogs(traditionDTO);
         return new ResponseEntity<>(savedTradition, HttpStatus.CREATED);
     }

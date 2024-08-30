@@ -23,7 +23,9 @@ public class Room {
      private Type type;
      private Long price;
      private boolean available;
-     private String image_path;
+
+     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+     private List<Image> images;
 
 
      @ManyToOne()
@@ -37,9 +39,4 @@ public class Room {
 
 
 
-
-
-
-
-     
 }

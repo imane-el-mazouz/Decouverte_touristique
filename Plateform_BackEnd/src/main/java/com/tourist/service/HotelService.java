@@ -12,7 +12,6 @@ import com.tourist.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,11 +19,12 @@ import java.util.stream.Collectors;
 public class HotelService {
 
     private final HotelRepository hotelRepository;
-
+    private final RoomRepository roomRepository;
 
     @Autowired
-    public HotelService(HotelRepository hotelRepository) {
+    public HotelService(HotelRepository hotelRepository, RoomRepository roomRepository) {
         this.hotelRepository = hotelRepository;
+        this.roomRepository = roomRepository;
     }
 
     public List<HotelDTO> getAllHotels() {
@@ -76,10 +76,12 @@ public class HotelService {
         hotel.setImg(hotelDTO.getImg());
         hotel.setLocation(hotelDTO.getLocation());
         hotel.setCategoryHotel(hotelDTO.getCategoryHotel());
-//        List<Room> rooms = hotelDTO.getRooms().stream()
-//                .map(this::convertToEntity)
-//                .collect(Collectors.toList());
-//        hotel.setRooms(rooms);
+
+        List<Room> rooms = hotelDTO.getRooms().stream()
+                .map(this::convertToEntity)
+                .collect(Collectors.toList());
+        hotel.setRooms(rooms);
+
         hotel.setAverageRating(hotelDTO.getAverageRating());
         hotel.setPrice(hotelDTO.getPrice());
         hotel.setDistance(hotelDTO.getDistance());
@@ -125,7 +127,7 @@ public class HotelService {
         room.setType(roomDTO.getType());
         room.setPrice(roomDTO.getPrice());
         room.setAvailable(roomDTO.isAvailable());
-        room.setImage_path(roomDTO.getImage_path());
+        room.setImages(roomDTO.getImages()); // Mise à jour pour la liste d'images
         return room;
     }
 
@@ -135,7 +137,7 @@ public class HotelService {
                 .type(room.getType())
                 .price(room.getPrice())
                 .available(room.isAvailable())
-                .image_path(room.getImage_path())
+                .images(room.getImages())
                 .build();
     }
 }

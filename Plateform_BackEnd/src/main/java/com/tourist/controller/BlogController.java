@@ -1,26 +1,34 @@
 package com.tourist.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
+import com.tourist.model.Blog;
+import com.tourist.service.BlogService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-    @RequestMapping("api/blog")
-    @CrossOrigin(*)
-    public class BlogController {
+@RequestMapping("api/blog")
+@CrossOrigin("*")
+public class BlogController {
+    private final BlogService blogService ;
 
-        @Autowired
-        private BlogService blogService;
-
-        @GetMapping("/tradition/{traditionId}")
-        public ResponseEntity<List<Blog>> getBlogsByTraditionId(@PathVariable Long traditionId) {
-            List<Blog> blogs = blogService.getBlogsByTraditionId(traditionId);
-            return new ResponseEntity<>(blogs, HttpStatus.OK);
-        }
-
-        @PostMapping("/add/{traditionId}")
-        public ResponseEntity<Blog> addBlogToTradition(@PathVariable Long traditionId, @RequestBody Blog blog) {
-            Blog newBlog = blogService.addBlogToTradition(traditionId, blog);
-            return new ResponseEntity<>(newBlog, HttpStatus.CREATED);
-        }
+    public BlogController (BlogService blogService) {
+        this.blogService= blogService;
     }
+
+    @GetMapping("/tradition/{traditionId}")
+    public ResponseEntity<List<Blog>> getBlogsByTraditionId(@PathVariable Long traditionId) {
+        List<Blog> blogs = blogService.getBlogsByTraditionId(traditionId);
+        return ResponseEntity.ok(blogs);
+    }
+
+    @PostMapping("/add/{traditionId}")
+    public ResponseEntity<Blog> addBlogToTradition(@PathVariable Long traditionId, @RequestBody Blog blog) {
+        Blog newBlog = blogService.addBlogToTradition(traditionId, blog);
+        return new ResponseEntity<>(newBlog, HttpStatus.CREATED);
+    }
+
 
 }

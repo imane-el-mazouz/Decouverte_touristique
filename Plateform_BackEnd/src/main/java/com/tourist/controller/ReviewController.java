@@ -52,7 +52,7 @@ public class ReviewController {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String email = authentication.getName();
             Client client = clientService.findByEmail(email);
-            Reservation reservation = reservationService.getReservationById(reservationId)
+            Reservation reservation = (Reservation) reservationService.getReservationById(reservationId)
                     .orElseThrow(() -> new ReservationNotFoundException("Reservation not found"));
             Review savedReview = reviewService.addReview(reviewDTO, client, reservation);
             return ResponseEntity.ok(savedReview);
