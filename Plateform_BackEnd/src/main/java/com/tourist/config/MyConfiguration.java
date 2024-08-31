@@ -32,6 +32,7 @@ public class MyConfiguration implements WebMvcConfigurer {
     }
 
 
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
       CorsConfiguration configuration = new CorsConfiguration();

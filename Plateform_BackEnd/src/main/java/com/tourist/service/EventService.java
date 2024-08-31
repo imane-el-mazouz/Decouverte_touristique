@@ -43,7 +43,7 @@ public class EventService {
         Event event = new Event();
         event.setName(eventDTO.getName());
         event.setDescription(eventDTO.getDescription());
-        event.setImgPath(eventDTO.getImgPath()); // Save image path
+        event.setImgPath(eventDTO.getImgPath());
         event.setDate(eventDTO.getDate());
         event.setLocation(eventDTO.getLocation());
         event.setCapacity(eventDTO.getCapacity());
@@ -63,7 +63,7 @@ public class EventService {
 
         event.setName(eventDTO.getName());
         event.setDescription(eventDTO.getDescription());
-        event.setImgPath(eventDTO.getImgPath()); // Update image path
+        event.setImgPath(eventDTO.getImgPath());
         event.setDate(eventDTO.getDate());
         event.setLocation(eventDTO.getLocation());
         event.setCapacity(eventDTO.getCapacity());
@@ -98,5 +98,9 @@ public class EventService {
     }
     public Event getEventById(Long id) {
         return eventRepository.findById(id) . orElseThrow(() -> new EventNotFoundException("not found"));
+    }
+
+    public List<Event> getAllEvents (){
+        return eventRepository.findAll();
     }
 }

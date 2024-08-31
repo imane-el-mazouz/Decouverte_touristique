@@ -36,10 +36,10 @@ public class EventController {
             @RequestParam("location") String location,
             @RequestParam("capacity") Integer capacity,
             @RequestParam("category") CategoryEvent category,
-            @RequestParam(value = "img", required = false) MultipartFile img, // Handle optional file upload
+            @RequestParam(value = "img", required = false) MultipartFile img,
             @RequestParam(value = "reservations", required = false) List<ReservationDTO> reservations) throws IOException {
 
-        String imgPath = (img != null) ? eventService.saveImage(img) : null; // Save image and get path if provided
+        String imgPath = (img != null) ? eventService.saveImage(img) : null;
         EventDTO eventDTO = new EventDTO(null, name, description, imgPath, date, location, capacity, category, reservations);
 
         Event savedEvent = eventService.saveEvent(eventDTO)
@@ -57,10 +57,10 @@ public class EventController {
             @RequestParam("location") String location,
             @RequestParam("capacity") Integer capacity,
             @RequestParam("category") CategoryEvent category,
-            @RequestParam(value = "img", required = false) MultipartFile img, // Handle optional file upload
+            @RequestParam(value = "img", required = false) MultipartFile img,
             @RequestParam(value = "reservations", required = false) List<ReservationDTO> reservations) throws IOException {
 
-        String imgPath = (img != null) ? eventService.saveImage(img) : null; // Save image and get path if provided
+        String imgPath = (img != null) ? eventService.saveImage(img) : null;
         EventDTO eventDTO = new EventDTO(id, name, description, imgPath, date, location, capacity, category, reservations);
 
         Event updatedEvent = eventService.updateEvent(id, eventDTO);
@@ -98,5 +98,12 @@ public class EventController {
             @RequestParam(required = false) LocalDate date) {
         List<Event> eventList = eventService.search(category, location, date);
         return ResponseEntity.ok(eventList);
+    }
+
+    @GetMapping("/all")
+    @PreAuthorize("hasRole('Client') or hasRole('Admin')")
+    public ResponseEntity<List<Event>> getAllEvents(){
+        List<Event> events = eventService.getAllEvents();
+        return ResponseEntity.ok(events);
     }
 }

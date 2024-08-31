@@ -56,7 +56,8 @@ public class ReservationController {
     public ResponseEntity<Reservation> reserveHotel(
             @RequestParam Long roomId,
             @RequestParam LocalDate checkInDate,
-            @RequestParam LocalDate checkOutDate) {
+            @RequestParam LocalDate checkOutDate
+    ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
 
