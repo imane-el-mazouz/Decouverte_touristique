@@ -1,0 +1,394 @@
+<app-nav-bar></app-nav-bar>
+
+
+<section id="hero" class="hero section dark-background">
+
+
+  <div class="container">
+    <div class="row" style="margin-bottom: 260px">
+      <div class="col-lg-8 d-flex flex-column align-items-center align-items-lg-start">
+        <h2 data-aos="fade-up" data-aos-delay="100">Welcome to <span>It Company</span></h2>
+        <p data-aos="fade-up" data-aos-delay="200">Innovative IT services for the modern world.</p>
+        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+          <a [routerLink]="['/home']" fragment="home" routerLinkActive="active" class="cta-btn">Get In Touch</a>
+          <a routerLink="/login" class="cta-btn">Show More</a>
+        </div>
+      </div>
+<!--      <div class="col-lg-4 d-flex align-items-center justify-content-center mt-5 mt-lg-0">-->
+<!--        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>-->
+<!--      </div>-->
+    </div>
+  </div>
+  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d6b157f2b719f669d3bdf83f25902722da651f878514bf458b063a0582db601a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Login illustration" class="login-image"
+        style="  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  z-index: 1;" alt="" data-aos="fade-in">
+
+</section><!-- /Hero Section -->
+
+<section id="about" class="about section">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row gy-4">
+      <div class="col-lg-6 order-1 order-lg-2">
+        <img src="https://www.designveloper.com/wp-content/uploads/2021/08/it-services-providers.jpeg" class="img-fluid about-img" alt="">
+      </div>
+      <div class="col-lg-6 order-2 order-lg-1 content">
+        <h3 style="    color: var(--accent-color);
+    margin: 0;
+    font-size: 36px;
+    font-weight: 600;
+    font-family: var(--heading-font);">Providing Cutting-Edge IT Solutions</h3>
+        <p class="fst-italic">
+          We offer a comprehensive range of IT services, tailored to meet the needs of modern businesses and drive innovation.
+        </p>
+        <ul>
+          <li><i class="bi bi-check2-all"></i> <span>Expert software development and IT consulting.</span></li>
+          <li><i class="bi bi-check2-all"></i> <span>Customized solutions to enhance business efficiency.</span></li>
+          <li><i class="bi bi-check2-all"></i> <span>End-to-end support from project inception to deployment.</span></li>
+        </ul>
+        <p>
+          Our dedicated team of professionals is committed to delivering high-quality IT services that empower businesses to reach their full potential. Whether it's developing software, managing IT infrastructure, or providing technical support, we are here to help your business succeed in the digital age.
+        </p>
+        <a routerLink="/about" href="#" class="cta-btn" style="color: var(--default-color);border: 2px solid var(--accent-color);font-weight: 400;font-size: 14px;text-transform: uppercase;letter-spacing: 1px;display: inline-block;padding: 8px 30px;border-radius: 50px;transition: 0.3s;flex-shrink: 0;">Learn More About Our IT Services</a>
+      </div>
+    </div>
+
+  </div>
+
+</section><!-- /About Section -->
+
+<section id="why-us" class="why-us section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>WHY US</h2>
+    <p>Why Choose Our IT Services</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-item">
+          <span>01</span>
+          <h4><a href="" class="stretched-link">Experienced Team</a></h4>
+          <p>Our team is composed of IT experts with years of experience in delivering cutting-edge technology solutions.</p>
+        </div>
+      </div><!-- Card Item -->
+
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-item">
+          <span>02</span>
+          <h4><a href="" class="stretched-link">Tailored Solutions</a></h4>
+          <p>We offer personalized IT solutions that are designed to address the specific needs of your business.</p>
+        </div>
+      </div><!-- Card Item -->
+
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-item">
+          <span>03</span>
+          <h4><a href="" class="stretched-link">Comprehensive Support</a></h4>
+          <p>From initial consultation to deployment and maintenance, we provide full support to ensure your IT success.</p>
+        </div>
+      </div><!-- Card Item -->
+
+    </div>
+
+  </div>
+
+
+</section><!-- /Why Us Section -->
+
+
+<section id="testimonials" class="testimonials section dark-background" style="">
+
+  <img src="assets/img/events-bg.jpg" class="testimonials-bg" alt="">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="swiper init-swiper">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          }
+        }
+      </script>
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+            <h3>Michael Smith</h3>
+            <h4>Senior Account Manager</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              <span>"Our experience with this IT service provider has been exceptional. The solutions they offered were impeccable, and the client support was top-notch. It has revolutionized the way we manage our technology and business operations."</span>
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+            <h3>Linda Johnson</h3>
+            <h4>Financial Advisor</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              <span>"The organization and features of this event are outstanding. I trust it for providing a seamless and enjoyable experience, and appreciate the smooth coordination with other event services."</span>
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+            <h3>David Williams</h3>
+            <h4>Business Owner</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              <span>"Managing event logistics has never been easier. The user-friendly interface and excellent support make this platform my go-to for all event needs."</span>
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+            <h3>Emily Davis</h3>
+            <h4>Customer Service Specialist</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              <span>"I have attended various events, but this one stands out for its reliability and ease of participation. It's a game-changer for enjoying both personal and professional events."</span>
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+            <h3>Robert Brown</h3>
+            <h4>Entrepreneur</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              <span>"The comprehensive features and exceptional participant support make this event platform an excellent choice for anyone looking to streamline their event management."</span>
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+
+</section><!-- End Testimonials Section -->
+
+
+
+
+<!-- Gallery Section -->
+<section id="gallery" class="gallery section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>IM</h2>
+    <p>Explore our equipments</p>
+  </div><!-- End Section Title -->
+
+  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row g-0">
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" class="glightbox" data-gallery="images-gallery">
+            <img src="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div><!-- End Gallery Item -->
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" class="glightbox" data-gallery="images-gallery">
+            <img src="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div><!-- End Gallery Item -->
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" class="glightbox" data-gallery="images-gallery">
+            <img src="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div><!-- End Gallery Item -->
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="https://mssolutions.ca/wp-content/uploads/2022/05/Image-Webinaire-Article-3-1024x683.png" class="glightbox" data-gallery="images-gallery">
+            <img src="https://mssolutions.ca/wp-content/uploads/2022/05/Image-Webinaire-Article-3-1024x683.png" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div><!-- End Gallery Item -->
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" class="glightbox" data-gallery="images-gallery">
+            <img src="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div><!-- End Gallery Item -->
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" class="glightbox" data-gallery="images-gallery">
+            <img src="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div><!-- End Gallery Item -->
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" class="glightbox" data-gallery="images-gallery">
+            <img src="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div><!-- End Gallery Item -->
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" class="glightbox" data-gallery="images-gallery">
+            <img src="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div><!-- End Gallery Item -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Gallery Section -->
+<section id="contact" class="contact section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Contact Us</p>
+  </div><!-- End Section Title -->
+
+  <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+    <iframe style="border:0; width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div><!-- End Google Maps -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-4">
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+          <i class="bi bi-geo-alt flex-shrink-0"></i>
+          <div>
+            <h3>Location</h3>
+            <p>A108 Adam Street, New York, NY 535022</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+          <i class="bi bi-telephone flex-shrink-0"></i>
+          <div>
+            <h3>Open Hours</h3>
+            <p>Monday-Saturday:<br>11:00 AM - 2300 PM</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+          <i class="bi bi-telephone flex-shrink-0"></i>
+          <div>
+            <h3>Call Us</h3>
+            <p>+1 5589 55488 55</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+          <i class="bi bi-envelope flex-shrink-0"></i>
+          <div>
+            <h3>Email Us</h3>
+            <p>info&#64;example.com</p>
+          </div>
+        </div><!-- End Info Item -->
+
+      </div>
+
+      <div class="col-lg-8">
+        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <button type="submit">Send Message</button>
+            </div>
+
+          </div>
+        </form>
+      </div><!-- End Contact Form -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Contact Section -->
+<app-footer></app-footer>

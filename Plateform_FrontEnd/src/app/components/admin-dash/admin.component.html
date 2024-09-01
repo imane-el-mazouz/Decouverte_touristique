@@ -1,0 +1,136 @@
+<div class="dashboard-screen">
+<app-aside></app-aside>
+  <main class="main-content">
+    <div class="content-header">
+      <h1 class="result-count">249 Results</h1>
+      <div class="map-view-toggle">
+        <span class="map-view-label">Map View</span>
+        <button class="toggle-switch" aria-label="Toggle map view"></button>
+      </div>
+    </div>
+    <section class="stats-overview">
+      <div class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">Today's Money</h3>
+          <p class="stat-value">$53,000</p>
+          <span class="stat-change positive">+55%</span>
+        </div>
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d8d7016a549d827b6d193c732a125ab1d36ae55cc481ce5cfb1499e6f22a3320?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="" class="stat-icon orange-icon" />
+      </div>
+      <div class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">Today's Users</h3>
+          <p class="stat-value">2,300</p>
+          <span class="stat-change positive">+5%</span>
+        </div>
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/093553c9496b262bc10713ae1745ec197c67fff23946876617e39fe5381ddfae?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="" class="stat-icon orange-icon" />
+      </div>
+      <div class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">New Clients</h3>
+          <p class="stat-value">+3,052</p>
+          <span class="stat-change negative">-14%</span>
+        </div>
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1300da33e5e27b61fa39847b4f8472a701715879fed35e287029a13d6f37b3db?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="" class="stat-icon orange-icon" />
+      </div>
+    </section>
+
+    <router-outlet></router-outlet>
+
+
+    <!-- Section de la table des auteurs -->
+    <section *ngIf="showAuthorsTable" class="authors-table">
+      <div class="table-header">
+        <h2 class="table-title">Authors Table</h2>
+        <span class="table-subtitle">AUTHOR</span>
+      </div>
+      <div class="table-content">
+        <div *ngFor="let author of authors" class="table-row">
+          <div class="author-info">
+            <img [src]="author.avatarUrl" [alt]="author.name" class="author-avatar">
+            <div class="author-details">
+              <span class="author-name">{{ author.name }}</span>
+              <span class="author-email">{{ author.email }}</span>
+            </div>
+          </div>
+          <div class="author-role">
+            <span class="author-role">{{ author.role }}</span>
+            <span class="author-department">{{ author.department }}</span>
+          </div>
+          <span class="author-status" [ngClass]="{'status-online': author.status === 'Online'}">{{ author.status }}</span>
+          <span class="author-date">{{ author.date }}</span>
+          <span class="author-action" (click)="editAuthor(author)">Edit</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section du formulaire -->
+    <section *ngIf="showForm" class="signup-form">
+      <h2 class="form-title">{{ formMode === 'add' ? 'Save New User' : 'Edit User' }}</h2>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name" class="form-label">Name</label>
+          <input id="name" formControlName="name" class="form-input" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" formControlName="email" class="form-input" placeholder="Your email address" required>
+        </div>
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input id="password" formControlName="password" type="password" class="form-input" placeholder="Your password" required>
+        </div>
+        <button type="submit" class="submit-button">{{ formMode === 'add' ? 'SIGN UP' : 'UPDATE' }}</button>
+        <button type="button" (click)="cancel()" class="cancel-button">Cancel</button>
+      </form>
+    </section>
+
+
+
+    <section class="activity-feed">
+      <h2 class="visually-hidden">Recent Activity</h2>
+      <div class="activity-item">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/60cd19a502b3ad35cae70718e2ace77adaae8ebcb5c22c870ff101f2420425f5?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="" class="activity-icon">
+        <div class="activity-content">
+          <h3 class="activity-title">$2400, Design changes</h3>
+          <span class="activity-time">22 DEC 7:20 PM</span>
+        </div>
+      </div>
+      <!-- Repeat similar structure for other activity items -->
+    </section>
+
+    <section class="projects-overview">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f3b00ecb283892619d369987de79449c89b7b8459c34ad1b4b13dbef2645a26?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="" class="subtitle-icon" /> 30 done this month</p>
+      <table class="projects-table">
+        <thead>
+        <tr>
+          <th>COMPANIES</th>
+          <th>MEMBERS</th>
+          <th>BUDGET</th>
+          <th>COMPLETION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d130b4f9abba27941e2dd9d74f2b675c0725072c3dd232230e0f9644298b4a44?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Chakra logo" class="company-logo" />
+            <span>Chakra Soft UI Version</span>
+          </td>
+          <td>
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9337b0b6e6758f10a4ba17757d1b330633a98e6049bfbb86491a41ab3ca4ee04?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Team members" class="team-members" />
+          </td>
+          <td>$14,000</td>
+          <td>
+            <div class="progress-bar">
+              <div class="progress" style="width: 60%;"></div>
+            </div>
+            <span class="progress-text">60%</span>
+          </td>
+        </tr>
+        <!-- More project rows would go here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
