@@ -29,12 +29,13 @@ public class ReservationController {
     @PreAuthorize("hasRole('Client')")
     public ResponseEntity<Reservation> reserveEvent(
             @RequestParam Long eventId,
+            @RequestParam Long numberOfPerson,
             @RequestParam LocalDate dateTime) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
 
         Client client = clientService.findByEmail(email);
-        Reservation reservation = reservationService.reserveEvent(client.getId(), eventId, dateTime);
+        Reservation reservation = reservationService.reserveEvent(client.getId(), eventId,numberOfPerson , dateTime);
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
 
@@ -42,29 +43,36 @@ public class ReservationController {
     @PreAuthorize("hasRole('Client')")
     public ResponseEntity<Reservation> reserveExcursion(
             @RequestParam Long excursionId,
+            @RequestParam Long numberOfPerson,
             @RequestParam LocalDate dateTime) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
 
         Client client = clientService.findByEmail(email);
-        Reservation reservation = reservationService.reserveExcursion(client.getId(), excursionId, dateTime);
+        Reservation reservation = reservationService.reserveExcursion(client.getId(), excursionId,numberOfPerson , dateTime);
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
-
     @PostMapping("/hotel")
     @PreAuthorize("hasRole('Client')")
     public ResponseEntity<Reservation> reserveHotel(
             @RequestParam Long roomId,
+            @RequestParam Long numberOfPerson,
             @RequestParam LocalDate checkInDate,
-            @RequestParam LocalDate checkOutDate
-    ) {
+            @RequestParam LocalDate checkOutDate) {
+
+        if (checkInDate.isAfter(checkOutDate)) {
+            throw new IllegalArgumentException("Check-out date must be after check-in date");
+        }
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
 
         Client client = clientService.findByEmail(email);
-        Reservation reservation = reservationService.reserveHotel(client.getId(), roomId, checkInDate, checkOutDate);
+        Reservation reservation = reservationService.reserveHotel(client.getId(), roomId,numberOfPerson, checkInDate, checkOutDate);
+
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
+
 
 
     @GetMapping("/event/{eventId}")

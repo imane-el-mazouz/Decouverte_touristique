@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-import {SaveUserComponent} from "../user_management/save-user/save-user.component";
 import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import {NavigationEnd, Router, RouterLink, RouterOutlet} from "@angular/router";
-import {UserUService} from "../../../service/user/user.service";
-import {AsideComponent} from "../aside/aside.component";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {AsideComponent} from "../aside/aside.component";
 
 @Component({
   selector: 'app-admin',
   standalone: true,
   templateUrl: './admin.component.html',
   imports: [
-    SaveUserComponent,
+    // SaveUserComponent,
     NgIf,
     AsyncPipe,
     RouterLink,
-    AsideComponent,
+    // AsideComponent,
     RouterOutlet,
     ReactiveFormsModule,
     NgClass,
-    NgForOf
+    NgForOf,
+    AsideComponent
   ],
   styleUrls: ['./admin.component.scss']
 })
@@ -27,7 +26,7 @@ export class AdminComponent {
   showAuthorsTable: boolean = false;
   showForm: boolean = false;
   formMode: 'add' | 'edit' = 'add';
-  userForm: FormGroup;
+  personForm: FormGroup;
   authors: Array<any> = [
     {
       name: 'Esthera Jackson',
@@ -41,7 +40,7 @@ export class AdminComponent {
   ];
 
   constructor(private router: Router, private fb: FormBuilder) {
-    this.userForm = this.fb.group({
+    this.personForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -72,7 +71,7 @@ export class AdminComponent {
   editAuthor(author: any) {
     this.showForm = true;
     this.formMode = 'edit';
-    this.userForm.patchValue({
+    this.personForm.patchValue({
       name: author.name,
       email: author.email,
       password: ''
@@ -81,15 +80,15 @@ export class AdminComponent {
 
   cancel() {
     this.showForm = false;
-    this.userForm.reset();
+    this.personForm.reset();
   }
 
   onSubmit() {
-    if (this.userForm.valid) {
+    if (this.personForm.valid) {
       if (this.formMode === 'add') {
-        this.addAuthor(this.userForm.value);
+        this.addAuthor(this.personForm.value);
       } else {
-        this.updateAuthor(this.userForm.value);
+        this.updateAuthor(this.personForm.value);
       }
       this.cancel();
     }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../../service/auth_service/auth-service.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
 import { CommonModule } from '@angular/common';
+import {AuthService} from "../../service/auth_service/auth-service.service";
 
 @Component({
   selector: 'app-login',
@@ -39,20 +39,19 @@ export class LoginComponent {
       return;
     }
 
-    // this.http.post<{ accessToken: string, user: { role: string } }>('http://localhost:8081/api/auth/login', { email, password })
-    this.http.post<{ accessToken: string, user: { role: string } }>('http://localhost:8080/api/auth/login', { email, password })
+    this.http.post<{ accessToken: string, person: { role: string } }>('http://localhost:8082/api/auth/login', { email, password })
       .subscribe(
         response => {
           this.authService.setToken(response.accessToken);
 
-          if (response.user.role === 'Admin') {
+          if (response.person.role === 'Admin') {
             this.router.navigate(['/dashboard']);
-          } else if (response.user.role === 'UserU') {
-            this.router.navigate(['/userU'])
-          }else if (response.user.role === 'Technician'){
-            this.router.navigate(['/technician'])
+          } else if (response.person.role === 'Client') {
+            this.router.navigate(['/client'])
+          }else if (response.person.role === 'Visitor'){
+            this.router.navigate(['/home'])
           } else {
-            this.errorMessage = 'role undefined: ' + response.user.role;
+            this.errorMessage = 'role undefined: ' + response.person.role;
           }
         },
         error => {

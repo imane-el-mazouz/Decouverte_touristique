@@ -10,10 +10,10 @@ export class LoginComponent {
   constructor(private authService: AuthService, private http: HttpClient) { }
 
   login(email: string, password: string): void {
-    this.http.post<{ token: string, role: Role }>('http://localhost:8080/api/auth/login', { email, password })
+    this.http.post<{ token: string, role: Role }>('http://localhost:8082/api/auth/login', { email, password })
       .subscribe(response => {
         this.authService.setToken(response.token);
-        this.authService.setUserRole(response.role);
+        this.authService.setPersonRole(response.role);
       });
   }
 }

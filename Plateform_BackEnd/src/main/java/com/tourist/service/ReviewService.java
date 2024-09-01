@@ -2,13 +2,15 @@ package com.tourist.service;
 
 import com.tourist.dto.ReviewDTO;
 import com.tourist.exception.RatingException;
+import com.tourist.exception.ReservationNotFoundException;
 import com.tourist.exception.ReviewNotFound;
 import com.tourist.model.Client;
 import com.tourist.model.Reservation;
 import com.tourist.model.Review;
+import com.tourist.repository.ReservationRepository;
 import com.tourist.repository.ReviewRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +22,12 @@ public class ReviewService {
 
     @Autowired
     private ReviewRepository reviewRepository;
+
+
+    @Autowired
+    private ReservationRepository reservationRepository;
+
+
 
 
     public List<Review> getAllReviews(){
@@ -36,20 +44,15 @@ public class ReviewService {
 //        review.setReservation(reservation);
 //        return reviewRepository.save(review);
 //    }
-public Review addReview(ReviewDTO reviewDTO, Client client, Reservation reservation) {
-    if (reviewDTO.getRating() < 1 || reviewDTO.getRating() > 5) {
-        throw new RatingException("Rating must be between 1 and 5");
-    }
-
-    Review review = new Review();
-    review.setRating(reviewDTO.getRating());
-    review.setComment(reviewDTO.getComment());
-    review.setDate(reviewDTO.getDate());
-    review.setClient(client);
+@Transactional
+public Review addReview(Long reservationId, Review review) {
+    Reservation reservation = reservationRepository.findById(reservationId)
+            .orElseThrow(() -> new ReservationNotFoundException("Reservation not found with id " + reservationId));
     review.setReservation(reservation);
-
     return reviewRepository.save(review);
 }
+
+
 
 
 
@@ -58,10 +61,11 @@ public Review addReview(ReviewDTO reviewDTO, Client client, Reservation reservat
         reviewRepository.delete(review);
     }
 
-    public Optional<Review> getReviewById(Long id) {
-        Review review = reviewRepository.findById(id).orElseThrow(() -> new ReviewNotFound("review not found " + id));
-        return reviewRepository.findById(id);
+    public Review getReviewById(Long id) {
+        return reviewRepository.findById(id)
+                .orElseThrow(() -> new ReviewNotFound("Review not found: " + id));
     }
+
 
 
 }

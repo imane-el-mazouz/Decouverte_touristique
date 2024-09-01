@@ -1,2 +1,4 @@
-package com.tourist;public class ClientTest {
+package com.tourist;
+
+public class ClientTest {
 }

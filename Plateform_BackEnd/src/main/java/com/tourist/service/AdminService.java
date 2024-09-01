@@ -39,7 +39,7 @@ public class AdminService {
                 .map(admin -> {
                     admin.setName(updatedAdmin.getName());
                     admin.setEmail(updatedAdmin.getEmail());
-                    admin.setPassword(updatedAdmin.getPassword()); // Assurez-vous de gérer les mots de passe de manière sécurisée
+                    admin.setPassword(updatedAdmin.getPassword());
                     admin.setRole(updatedAdmin.getRole());
                     return adminRepository.save(admin);
                 })

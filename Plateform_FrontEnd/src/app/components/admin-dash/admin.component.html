@@ -67,7 +67,7 @@
     <!-- Section du formulaire -->
     <section *ngIf="showForm" class="signup-form">
       <h2 class="form-title">{{ formMode === 'add' ? 'Save New User' : 'Edit User' }}</h2>
-      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="name" class="form-label">Name</label>
           <input id="name" formControlName="name" class="form-input" placeholder="Your full name" required>

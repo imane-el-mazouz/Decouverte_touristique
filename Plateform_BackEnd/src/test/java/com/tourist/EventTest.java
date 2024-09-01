@@ -1,2 +1,4 @@
-package com.tourist;public class EventTest {
+package com.tourist;
+
+public class EventTest {
 }

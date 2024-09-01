@@ -1,2 +1,4 @@
-package com.tourist;public class AuthTest {
+package com.tourist;
+
+public class AuthTest {
 }

@@ -1,394 +1,1095 @@
 <app-nav-bar></app-nav-bar>
 
 
-<section id="hero" class="hero section dark-background">
+<!--<section id="hero" class="hero section dark-background">-->
 
 
-  <div class="container">
-    <div class="row" style="margin-bottom: 260px">
-      <div class="col-lg-8 d-flex flex-column align-items-center align-items-lg-start">
-        <h2 data-aos="fade-up" data-aos-delay="100">Welcome to <span>It Company</span></h2>
-        <p data-aos="fade-up" data-aos-delay="200">Innovative IT services for the modern world.</p>
-        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-          <a [routerLink]="['/home']" fragment="home" routerLinkActive="active" class="cta-btn">Get In Touch</a>
-          <a routerLink="/login" class="cta-btn">Show More</a>
-        </div>
-      </div>
-<!--      <div class="col-lg-4 d-flex align-items-center justify-content-center mt-5 mt-lg-0">-->
-<!--        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>-->
+<!--  <div class="container">-->
+<!--    <div class="row" style="margin-bottom: 260px">-->
+<!--      <div class="col-lg-8 d-flex flex-column align-items-center align-items-lg-start">-->
+<!--        <h2 data-aos="fade-up" data-aos-delay="100">Welcome to <span>It Company</span></h2>-->
+<!--        <p data-aos="fade-up" data-aos-delay="200">Innovative IT services for the modern world.</p>-->
+<!--        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">-->
+<!--          <a [routerLink]="['/home']" fragment="home" routerLinkActive="active" class="cta-btn">Get In Touch</a>-->
+<!--          <a routerLink="/login" class="cta-btn">Show More</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--&lt;!&ndash;      <div class="col-lg-4 d-flex align-items-center justify-content-center mt-5 mt-lg-0">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d6b157f2b719f669d3bdf83f25902722da651f878514bf458b063a0582db601a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Login illustration" class="login-image"-->
+<!--        style="  inset: 0;-->
+<!--  display: flex;-->
+<!--  justify-content: flex-end;-->
+<!--  width: 100%;-->
+<!--  height: 100%;-->
+<!--  z-index: 1;" alt="" data-aos="fade-in">-->
+
+<!--</section>&lt;!&ndash; /Hero Section &ndash;&gt;-->
+
+<!--<section id="about" class="about section">-->
+
+<!--  <div class="container" data-aos="fade-up" data-aos-delay="100">-->
+
+<!--    <div class="row gy-4">-->
+<!--      <div class="col-lg-6 order-1 order-lg-2">-->
+<!--        <img src="https://www.designveloper.com/wp-content/uploads/2021/08/it-services-providers.jpeg" class="img-fluid about-img" alt="">-->
+<!--      </div>-->
+<!--      <div class="col-lg-6 order-2 order-lg-1 content">-->
+<!--        <h3 style="    color: var(&#45;&#45;accent-color);-->
+<!--    margin: 0;-->
+<!--    font-size: 36px;-->
+<!--    font-weight: 600;-->
+<!--    font-family: var(&#45;&#45;heading-font);">Providing Cutting-Edge IT Solutions</h3>-->
+<!--        <p class="fst-italic">-->
+<!--          We offer a comprehensive range of IT services, tailored to meet the needs of modern businesses and drive innovation.-->
+<!--        </p>-->
+<!--        <ul>-->
+<!--          <li><i class="bi bi-check2-all"></i> <span>Expert software development and IT consulting.</span></li>-->
+<!--          <li><i class="bi bi-check2-all"></i> <span>Customized solutions to enhance business efficiency.</span></li>-->
+<!--          <li><i class="bi bi-check2-all"></i> <span>End-to-end support from project inception to deployment.</span></li>-->
+<!--        </ul>-->
+<!--        <p>-->
+<!--          Our dedicated team of professionals is committed to delivering high-quality IT services that empower businesses to reach their full potential. Whether it's developing software, managing IT infrastructure, or providing technical support, we are here to help your business succeed in the digital age.-->
+<!--        </p>-->
+<!--        <a routerLink="/about" href="#" class="cta-btn" style="color: var(&#45;&#45;default-color);border: 2px solid var(&#45;&#45;accent-color);font-weight: 400;font-size: 14px;text-transform: uppercase;letter-spacing: 1px;display: inline-block;padding: 8px 30px;border-radius: 50px;transition: 0.3s;flex-shrink: 0;">Learn More About Our IT Services</a>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--</section>&lt;!&ndash; /About Section &ndash;&gt;-->
+
+<!--<section id="why-us" class="why-us section">-->
+
+<!--  &lt;!&ndash; Section Title &ndash;&gt;-->
+<!--  <div class="container section-title" data-aos="fade-up">-->
+<!--    <h2>WHY US</h2>-->
+<!--    <p>Why Choose Our IT Services</p>-->
+<!--  </div>&lt;!&ndash; End Section Title &ndash;&gt;-->
+
+<!--  <div class="container">-->
+
+<!--    <div class="row gy-4">-->
+
+<!--      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">-->
+<!--        <div class="card-item">-->
+<!--          <span>01</span>-->
+<!--          <h4><a href="" class="stretched-link">Experienced Team</a></h4>-->
+<!--          <p>Our team is composed of IT experts with years of experience in delivering cutting-edge technology solutions.</p>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; Card Item &ndash;&gt;-->
+
+<!--      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">-->
+<!--        <div class="card-item">-->
+<!--          <span>02</span>-->
+<!--          <h4><a href="" class="stretched-link">Tailored Solutions</a></h4>-->
+<!--          <p>We offer personalized IT solutions that are designed to address the specific needs of your business.</p>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; Card Item &ndash;&gt;-->
+
+<!--      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">-->
+<!--        <div class="card-item">-->
+<!--          <span>03</span>-->
+<!--          <h4><a href="" class="stretched-link">Comprehensive Support</a></h4>-->
+<!--          <p>From initial consultation to deployment and maintenance, we provide full support to ensure your IT success.</p>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; Card Item &ndash;&gt;-->
+
+<!--    </div>-->
+
+<!--  </div>-->
+
+
+<!--</section>&lt;!&ndash; /Why Us Section &ndash;&gt;-->
+
+
+<!--<section id="testimonials" class="testimonials section dark-background" style="">-->
+
+<!--  <img src="assets/img/events-bg.jpg" class="testimonials-bg" alt="">-->
+
+<!--  <div class="container" data-aos="fade-up" data-aos-delay="100">-->
+
+<!--    <div class="swiper init-swiper">-->
+<!--      <script type="application/json" class="swiper-config">-->
+<!--        {-->
+<!--          "loop": true,-->
+<!--          "speed": 600,-->
+<!--          "autoplay": {-->
+<!--            "delay": 5000-->
+<!--          },-->
+<!--          "slidesPerView": "auto",-->
+<!--          "pagination": {-->
+<!--            "el": ".swiper-pagination",-->
+<!--            "type": "bullets",-->
+<!--            "clickable": true-->
+<!--          }-->
+<!--        }-->
+<!--      </script>-->
+<!--      <div class="swiper-wrapper">-->
+
+<!--        <div class="swiper-slide">-->
+<!--          <div class="testimonial-item">-->
+<!--            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>Michael Smith</h3>-->
+<!--            <h4>Senior Account Manager</h4>-->
+<!--            <div class="stars">-->
+<!--              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>-->
+<!--            </div>-->
+<!--            <p>-->
+<!--              <i class="bi bi-quote quote-icon-left"></i>-->
+<!--              <span>"Our experience with this IT service provider has been exceptional. The solutions they offered were impeccable, and the client support was top-notch. It has revolutionized the way we manage our technology and business operations."</span>-->
+<!--              <i class="bi bi-quote quote-icon-right"></i>-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
+
+<!--        <div class="swiper-slide">-->
+<!--          <div class="testimonial-item">-->
+<!--            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>Linda Johnson</h3>-->
+<!--            <h4>Financial Advisor</h4>-->
+<!--            <div class="stars">-->
+<!--              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>-->
+<!--            </div>-->
+<!--            <p>-->
+<!--              <i class="bi bi-quote quote-icon-left"></i>-->
+<!--              <span>"The organization and features of this event are outstanding. I trust it for providing a seamless and enjoyable experience, and appreciate the smooth coordination with other event services."</span>-->
+<!--              <i class="bi bi-quote quote-icon-right"></i>-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
+
+<!--        <div class="swiper-slide">-->
+<!--          <div class="testimonial-item">-->
+<!--            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>David Williams</h3>-->
+<!--            <h4>Business Owner</h4>-->
+<!--            <div class="stars">-->
+<!--              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>-->
+<!--            </div>-->
+<!--            <p>-->
+<!--              <i class="bi bi-quote quote-icon-left"></i>-->
+<!--              <span>"Managing event logistics has never been easier. The user-friendly interface and excellent support make this platform my go-to for all event needs."</span>-->
+<!--              <i class="bi bi-quote quote-icon-right"></i>-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
+
+<!--        <div class="swiper-slide">-->
+<!--          <div class="testimonial-item">-->
+<!--            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>Emily Davis</h3>-->
+<!--            <h4>Customer Service Specialist</h4>-->
+<!--            <div class="stars">-->
+<!--              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>-->
+<!--            </div>-->
+<!--            <p>-->
+<!--              <i class="bi bi-quote quote-icon-left"></i>-->
+<!--              <span>"I have attended various events, but this one stands out for its reliability and ease of participation. It's a game-changer for enjoying both personal and professional events."</span>-->
+<!--              <i class="bi bi-quote quote-icon-right"></i>-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
+
+<!--        <div class="swiper-slide">-->
+<!--          <div class="testimonial-item">-->
+<!--            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>Robert Brown</h3>-->
+<!--            <h4>Entrepreneur</h4>-->
+<!--            <div class="stars">-->
+<!--              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>-->
+<!--            </div>-->
+<!--            <p>-->
+<!--              <i class="bi bi-quote quote-icon-left"></i>-->
+<!--              <span>"The comprehensive features and exceptional participant support make this event platform an excellent choice for anyone looking to streamline their event management."</span>-->
+<!--              <i class="bi bi-quote quote-icon-right"></i>-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
+
+<!--      </div>-->
+<!--      <div class="swiper-pagination"></div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--</section>&lt;!&ndash; End Testimonials Section &ndash;&gt;-->
+
+
+
+
+<!--&lt;!&ndash; Gallery Section &ndash;&gt;-->
+<!--<section id="gallery" class="gallery section">-->
+
+<!--  &lt;!&ndash; Section Title &ndash;&gt;-->
+<!--  <div class="container section-title" data-aos="fade-up">-->
+<!--    <h2>IM</h2>-->
+<!--    <p>Explore our equipments</p>-->
+<!--  </div>&lt;!&ndash; End Section Title &ndash;&gt;-->
+
+<!--  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">-->
+
+<!--    <div class="row g-0">-->
+
+<!--      <div class="col-lg-3 col-md-4">-->
+<!--        <div class="gallery-item">-->
+<!--          <a href="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" class="glightbox" data-gallery="images-gallery">-->
+<!--            <img src="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" alt="" class="img-fluid">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Gallery Item &ndash;&gt;-->
+
+<!--      <div class="col-lg-3 col-md-4">-->
+<!--        <div class="gallery-item">-->
+<!--          <a href="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" class="glightbox" data-gallery="images-gallery">-->
+<!--            <img src="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" alt="" class="img-fluid">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Gallery Item &ndash;&gt;-->
+
+<!--      <div class="col-lg-3 col-md-4">-->
+<!--        <div class="gallery-item">-->
+<!--          <a href="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" class="glightbox" data-gallery="images-gallery">-->
+<!--            <img src="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" alt="" class="img-fluid">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Gallery Item &ndash;&gt;-->
+
+<!--      <div class="col-lg-3 col-md-4">-->
+<!--        <div class="gallery-item">-->
+<!--          <a href="https://mssolutions.ca/wp-content/uploads/2022/05/Image-Webinaire-Article-3-1024x683.png" class="glightbox" data-gallery="images-gallery">-->
+<!--            <img src="https://mssolutions.ca/wp-content/uploads/2022/05/Image-Webinaire-Article-3-1024x683.png" alt="" class="img-fluid">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Gallery Item &ndash;&gt;-->
+
+<!--      <div class="col-lg-3 col-md-4">-->
+<!--        <div class="gallery-item">-->
+<!--          <a href="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" class="glightbox" data-gallery="images-gallery">-->
+<!--            <img src="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" alt="" class="img-fluid">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Gallery Item &ndash;&gt;-->
+
+<!--      <div class="col-lg-3 col-md-4">-->
+<!--        <div class="gallery-item">-->
+<!--          <a href="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" class="glightbox" data-gallery="images-gallery">-->
+<!--            <img src="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" alt="" class="img-fluid">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Gallery Item &ndash;&gt;-->
+
+<!--      <div class="col-lg-3 col-md-4">-->
+<!--        <div class="gallery-item">-->
+<!--          <a href="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" class="glightbox" data-gallery="images-gallery">-->
+<!--            <img src="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" alt="" class="img-fluid">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Gallery Item &ndash;&gt;-->
+
+<!--      <div class="col-lg-3 col-md-4">-->
+<!--        <div class="gallery-item">-->
+<!--          <a href="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" class="glightbox" data-gallery="images-gallery">-->
+<!--            <img src="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" alt="" class="img-fluid">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Gallery Item &ndash;&gt;-->
+
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--</section>&lt;!&ndash; /Gallery Section &ndash;&gt;-->
+<!--<section id="contact" class="contact section">-->
+
+<!--  &lt;!&ndash; Section Title &ndash;&gt;-->
+<!--  <div class="container section-title" data-aos="fade-up">-->
+<!--    <h2>Contact</h2>-->
+<!--    <p>Contact Us</p>-->
+<!--  </div>&lt;!&ndash; End Section Title &ndash;&gt;-->
+
+<!--  <div class="mb-5" data-aos="fade-up" data-aos-delay="200">-->
+<!--    <iframe style="border:0; width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+<!--  </div>&lt;!&ndash; End Google Maps &ndash;&gt;-->
+
+<!--  <div class="container" data-aos="fade-up" data-aos-delay="100">-->
+
+<!--    <div class="row gy-4">-->
+
+<!--      <div class="col-lg-4">-->
+<!--        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">-->
+<!--          <i class="bi bi-geo-alt flex-shrink-0"></i>-->
+<!--          <div>-->
+<!--            <h3>Location</h3>-->
+<!--            <p>A108 Adam Street, New York, NY 535022</p>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End Info Item &ndash;&gt;-->
+
+<!--        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">-->
+<!--          <i class="bi bi-telephone flex-shrink-0"></i>-->
+<!--          <div>-->
+<!--            <h3>Open Hours</h3>-->
+<!--            <p>Monday-Saturday:<br>11:00 AM - 2300 PM</p>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End Info Item &ndash;&gt;-->
+
+<!--        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">-->
+<!--          <i class="bi bi-telephone flex-shrink-0"></i>-->
+<!--          <div>-->
+<!--            <h3>Call Us</h3>-->
+<!--            <p>+1 5589 55488 55</p>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End Info Item &ndash;&gt;-->
+
+<!--        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">-->
+<!--          <i class="bi bi-envelope flex-shrink-0"></i>-->
+<!--          <div>-->
+<!--            <h3>Email Us</h3>-->
+<!--            <p>info&#64;example.com</p>-->
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End Info Item &ndash;&gt;-->
+
+<!--      </div>-->
+
+<!--      <div class="col-lg-8">-->
+<!--        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">-->
+<!--          <div class="row gy-4">-->
+
+<!--            <div class="col-md-6">-->
+<!--              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">-->
+<!--            </div>-->
+
+<!--            <div class="col-md-6 ">-->
+<!--              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">-->
+<!--            </div>-->
+
+<!--            <div class="col-md-12">-->
+<!--              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">-->
+<!--            </div>-->
+
+<!--            <div class="col-md-12">-->
+<!--              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>-->
+<!--            </div>-->
+
+<!--            <div class="col-md-12 text-center">-->
+<!--              <div class="loading">Loading</div>-->
+<!--              <div class="error-message"></div>-->
+<!--              <div class="sent-message">Your message has been sent. Thank you!</div>-->
+
+<!--              <button type="submit">Send Message</button>-->
+<!--            </div>-->
+
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>&lt;!&ndash; End Contact Form &ndash;&gt;-->
+
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--</section>&lt;!&ndash; /Contact Section &ndash;&gt;-->
+<div class="landing-page">
+  <div class="home-page">
+    <div class="div">
+      <img
+        loading="lazy"
+        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/a37b36276a5cfa80d82a92d9f2fe2b6e3b5eff4edf3b8333b3b3ea549afdbcfc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a37b36276a5cfa80d82a92d9f2fe2b6e3b5eff4edf3b8333b3b3ea549afdbcfc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a37b36276a5cfa80d82a92d9f2fe2b6e3b5eff4edf3b8333b3b3ea549afdbcfc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a37b36276a5cfa80d82a92d9f2fe2b6e3b5eff4edf3b8333b3b3ea549afdbcfc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a37b36276a5cfa80d82a92d9f2fe2b6e3b5eff4edf3b8333b3b3ea549afdbcfc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a37b36276a5cfa80d82a92d9f2fe2b6e3b5eff4edf3b8333b3b3ea549afdbcfc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a37b36276a5cfa80d82a92d9f2fe2b6e3b5eff4edf3b8333b3b3ea549afdbcfc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a37b36276a5cfa80d82a92d9f2fe2b6e3b5eff4edf3b8333b3b3ea549afdbcfc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+        class="img"
+      />
+<!--      <div class="header">-->
+<!--        <div class="div-2">-->
+<!--          <div class="menu">-->
+<!--            <div class="text">-->
+<!--              <div>Home</div>-->
+<!--              <div>Booking</div>-->
+<!--              <div>Destinations</div>-->
+<!--              <div>About Us</div>-->
+<!--              <div>Contact</div>-->
+<!--            </div>-->
+<!--            <img-->
+<!--              loading="lazy"-->
+<!--              src="https://cdn.builder.io/api/v1/image/assets/TEMP/442d4a623b136300a9a6629565bd5e745594bd429e66f6272979a178640fd7b0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--              class="img-2"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <div class="log-in">-->
+<!--            <div class="log-in-2">Log in</div>-->
+<!--            <div class="button">Sign up</div>-->
+<!--          </div>-->
+<!--        </div>-->
 <!--      </div>-->
     </div>
-  </div>
-  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d6b157f2b719f669d3bdf83f25902722da651f878514bf458b063a0582db601a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Login illustration" class="login-image"
-        style="  inset: 0;
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  height: 100%;
-  z-index: 1;" alt="" data-aos="fade-in">
-
-</section><!-- /Hero Section -->
-
-<section id="about" class="about section">
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row gy-4">
-      <div class="col-lg-6 order-1 order-lg-2">
-        <img src="https://www.designveloper.com/wp-content/uploads/2021/08/it-services-providers.jpeg" class="img-fluid about-img" alt="">
+    <div class="div-3">
+      <img
+        loading="lazy"
+        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/0bbd78bba37b59b0c3d630dfc3d5d366fe1c96f40439e680933852960c056554?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/0bbd78bba37b59b0c3d630dfc3d5d366fe1c96f40439e680933852960c056554?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/0bbd78bba37b59b0c3d630dfc3d5d366fe1c96f40439e680933852960c056554?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/0bbd78bba37b59b0c3d630dfc3d5d366fe1c96f40439e680933852960c056554?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/0bbd78bba37b59b0c3d630dfc3d5d366fe1c96f40439e680933852960c056554?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/0bbd78bba37b59b0c3d630dfc3d5d366fe1c96f40439e680933852960c056554?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/0bbd78bba37b59b0c3d630dfc3d5d366fe1c96f40439e680933852960c056554?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/0bbd78bba37b59b0c3d630dfc3d5d366fe1c96f40439e680933852960c056554?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+        class="img-3"
+      />
+      <div class="div-4">
+        <div class="heading">Morocco: A Unique Cultural Heritage</div>
+        <div class="search-bar">
+          <div class="icons-text-button">
+            <div class="icons-text">
+              <div class="icon-text">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/1df5ef68b6467efb882ec3c3372fae0ed3c1d98c577fae647327b9ded989060c?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                  class="img-4"
+                />
+                <div class="text-2">
+                  <div class="location">Location</div>
+                  <div class="where-are-you-going">Where are you going?</div>
+                </div>
+              </div>
+              <div class="icon-text">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/f891af40c0f59dc3de64e611ede4ad30e1b2a67d9a5184d25a7be71b8bf0ac67?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                  class="img-5"
+                />
+                <div class="text-3">
+                  <div class="date">Date</div>
+                  <div class="set-date">Set date</div>
+                </div>
+              </div>
+              <div class="icon-text">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/a8ce730057bcdaa37fbd51df0ed628d7d90609b878d9e528a62f9b11996fd651?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                  class="img-6"
+                />
+                <div class="text-4">
+                  <div class="category">Category</div>
+                  <div class="excursion-hotel-event">
+                    excursion , hotel , event
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button-2">
+              <div class="div-5">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/af77a26bbf0110f9e8ba378eec3fcdc7a022e66096a7128825395f1701181e14?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                  class="img-7"
+                />
+              </div>
+              <div class="search">Search</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-6 order-2 order-lg-1 content">
-        <h3 style="    color: var(--accent-color);
-    margin: 0;
-    font-size: 36px;
-    font-weight: 600;
-    font-family: var(--heading-font);">Providing Cutting-Edge IT Solutions</h3>
-        <p class="fst-italic">
-          We offer a comprehensive range of IT services, tailored to meet the needs of modern businesses and drive innovation.
-        </p>
-        <ul>
-          <li><i class="bi bi-check2-all"></i> <span>Expert software development and IT consulting.</span></li>
-          <li><i class="bi bi-check2-all"></i> <span>Customized solutions to enhance business efficiency.</span></li>
-          <li><i class="bi bi-check2-all"></i> <span>End-to-end support from project inception to deployment.</span></li>
-        </ul>
-        <p>
-          Our dedicated team of professionals is committed to delivering high-quality IT services that empower businesses to reach their full potential. Whether it's developing software, managing IT infrastructure, or providing technical support, we are here to help your business succeed in the digital age.
-        </p>
-        <a routerLink="/about" href="#" class="cta-btn" style="color: var(--default-color);border: 2px solid var(--accent-color);font-weight: 400;font-size: 14px;text-transform: uppercase;letter-spacing: 1px;display: inline-block;padding: 8px 30px;border-radius: 50px;transition: 0.3s;flex-shrink: 0;">Learn More About Our IT Services</a>
+    </div>
+    <div class="div-6">
+      <div class="div-7">
+        <div class="column">
+          <div class="div-8">
+            <div class="about-us">About Us</div>
+            <div
+              class="welcome-to-explore-culture-morocco-your-ultimate-guide-to-discovering-the-rich-and-diverse-cultural-heritage-of-morocco-our-mission-is-to-provide-an-immersive-and-authentic-experience-bringing-you-closer-to-the-vibrant-traditions-history-and-beauty-of-this-fascinating-country"
+            >
+              Welcome to Explore Culture Morocco, your ultimate guide to
+              discovering the rich and diverse cultural heritage of Morocco. Our
+              mission is to provide an immersive and authentic experience,
+              bringing you closer to the vibrant traditions, history, and beauty
+              of this fascinating country.
+            </div>
+            <div class="button-3">Book now</div>
+          </div>
+        </div>
+        <div class="column-2">
+          <img
+            loading="lazy"
+            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/edcc7139dcb43c84c1378602a0366bede11da9cf66c0eea24c016f2e17c0ecb1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/edcc7139dcb43c84c1378602a0366bede11da9cf66c0eea24c016f2e17c0ecb1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/edcc7139dcb43c84c1378602a0366bede11da9cf66c0eea24c016f2e17c0ecb1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/edcc7139dcb43c84c1378602a0366bede11da9cf66c0eea24c016f2e17c0ecb1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/edcc7139dcb43c84c1378602a0366bede11da9cf66c0eea24c016f2e17c0ecb1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/edcc7139dcb43c84c1378602a0366bede11da9cf66c0eea24c016f2e17c0ecb1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/edcc7139dcb43c84c1378602a0366bede11da9cf66c0eea24c016f2e17c0ecb1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/edcc7139dcb43c84c1378602a0366bede11da9cf66c0eea24c016f2e17c0ecb1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+            class="img-8"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="heading-2">Our Services</div>
+    <div class="div-9">
+      <div class="div-10">
+        <div class="column-3">
+          <div class="div-11">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8a43f34c4578680957266b63d523787aaeb6f751f639465ad7db1d7ed7408aa1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+              class="img-9"
+            />
+            <div class="hotel-booking">Hotel Booking</div>
+            <div class="find-and-book-the-best-hotels-across-morocco">
+              Find and book the best hotels across Morocco.
+            </div>
+          </div>
+        </div>
+        <div class="column-4">
+          <div class="div-12">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf82df18a29df372fdc1f6778224630bad1db087a1e03788a88a6256c8ca68e9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+              class="img-10"
+            />
+            <div class="best-flights">Best Flights</div>
+            <div
+              class="plan-and-book-excursions-to-explore-moroccos-stunning-landscapes"
+            >
+              Plan and book excursions to explore Morocco's stunning landscapes.
+            </div>
+          </div>
+        </div>
+        <div class="column-5">
+          <div class="div-13">
+            <img
+              loading="lazy"
+              srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/1cc662f46d38fe0cd271da6dcdc8b35f6d9c68b017700fde76bd0d45940128d0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/1cc662f46d38fe0cd271da6dcdc8b35f6d9c68b017700fde76bd0d45940128d0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/1cc662f46d38fe0cd271da6dcdc8b35f6d9c68b017700fde76bd0d45940128d0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/1cc662f46d38fe0cd271da6dcdc8b35f6d9c68b017700fde76bd0d45940128d0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/1cc662f46d38fe0cd271da6dcdc8b35f6d9c68b017700fde76bd0d45940128d0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/1cc662f46d38fe0cd271da6dcdc8b35f6d9c68b017700fde76bd0d45940128d0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/1cc662f46d38fe0cd271da6dcdc8b35f6d9c68b017700fde76bd0d45940128d0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/1cc662f46d38fe0cd271da6dcdc8b35f6d9c68b017700fde76bd0d45940128d0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+              class="img-11"
+            />
+            <div class="local-events">Local Events</div>
+            <div
+              class="discover-and-book-local-cultural-events-and-festivals-in-morocco"
+            >
+              Discover and book local cultural events and festivals in Morocco.
+            </div>
+          </div>
+        </div>
+        <div class="column-6">
+          <div class="div-14">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/10fd3a2fa40874600ad1bf580e3ebda85eefc3e64adcc2418b5858a3b50d50c7?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+              class="img-12"
+            />
+            <div class="discover-moroccan-culture">
+              Discover Moroccan Culture
+            </div>
+            <div class="learn-about-the-diverse-cultural-heritage-of-morocco">
+              Learn about the diverse cultural heritage of Morocco
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="heading-3">Top Destinations</div>
+    <div class="div-15">
+      <div class="div-16">
+        <div class="column-7">
+          <img
+            loading="lazy"
+            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/192c1dbccc33a75aede5aa7a3d15cb00b93d7e6cd271432367d0ca7c285ff80d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/192c1dbccc33a75aede5aa7a3d15cb00b93d7e6cd271432367d0ca7c285ff80d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/192c1dbccc33a75aede5aa7a3d15cb00b93d7e6cd271432367d0ca7c285ff80d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/192c1dbccc33a75aede5aa7a3d15cb00b93d7e6cd271432367d0ca7c285ff80d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/192c1dbccc33a75aede5aa7a3d15cb00b93d7e6cd271432367d0ca7c285ff80d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/192c1dbccc33a75aede5aa7a3d15cb00b93d7e6cd271432367d0ca7c285ff80d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/192c1dbccc33a75aede5aa7a3d15cb00b93d7e6cd271432367d0ca7c285ff80d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/192c1dbccc33a75aede5aa7a3d15cb00b93d7e6cd271432367d0ca7c285ff80d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+            class="img-13"
+          />
+        </div>
+        <div class="column-8">
+          <img
+            loading="lazy"
+            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/a4b469cdb0c8a29eb510992b39c5208cfae6935c584f6940e262887a20ad16fc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b469cdb0c8a29eb510992b39c5208cfae6935c584f6940e262887a20ad16fc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b469cdb0c8a29eb510992b39c5208cfae6935c584f6940e262887a20ad16fc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b469cdb0c8a29eb510992b39c5208cfae6935c584f6940e262887a20ad16fc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b469cdb0c8a29eb510992b39c5208cfae6935c584f6940e262887a20ad16fc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b469cdb0c8a29eb510992b39c5208cfae6935c584f6940e262887a20ad16fc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b469cdb0c8a29eb510992b39c5208cfae6935c584f6940e262887a20ad16fc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b469cdb0c8a29eb510992b39c5208cfae6935c584f6940e262887a20ad16fc?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+            class="img-14"
+          />
+        </div>
+        <div class="column-9">
+          <img
+            loading="lazy"
+            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/852f61d42abc9c74a498a49c6bcb598c76e07b5876770d5b2547a74161141db1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/852f61d42abc9c74a498a49c6bcb598c76e07b5876770d5b2547a74161141db1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/852f61d42abc9c74a498a49c6bcb598c76e07b5876770d5b2547a74161141db1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/852f61d42abc9c74a498a49c6bcb598c76e07b5876770d5b2547a74161141db1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/852f61d42abc9c74a498a49c6bcb598c76e07b5876770d5b2547a74161141db1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/852f61d42abc9c74a498a49c6bcb598c76e07b5876770d5b2547a74161141db1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/852f61d42abc9c74a498a49c6bcb598c76e07b5876770d5b2547a74161141db1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/852f61d42abc9c74a498a49c6bcb598c76e07b5876770d5b2547a74161141db1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+            class="img-15"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="frame">
+      <img
+        loading="lazy"
+        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/206305761dbb8dcf16a1d5b6da73e6c9096d66819bd1dc9a88770c4773b88cc0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/206305761dbb8dcf16a1d5b6da73e6c9096d66819bd1dc9a88770c4773b88cc0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/206305761dbb8dcf16a1d5b6da73e6c9096d66819bd1dc9a88770c4773b88cc0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/206305761dbb8dcf16a1d5b6da73e6c9096d66819bd1dc9a88770c4773b88cc0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/206305761dbb8dcf16a1d5b6da73e6c9096d66819bd1dc9a88770c4773b88cc0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/206305761dbb8dcf16a1d5b6da73e6c9096d66819bd1dc9a88770c4773b88cc0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/206305761dbb8dcf16a1d5b6da73e6c9096d66819bd1dc9a88770c4773b88cc0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/206305761dbb8dcf16a1d5b6da73e6c9096d66819bd1dc9a88770c4773b88cc0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+        class="img-16"
+      />
+      <div class="text-button">
+        <div class="exclusive-offer">Exclusive offer</div>
+        <div class="text-button-2">
+          <div class="book-your-holiday-with-complete-confidence">
+            Book your holiday with complete
+            <br />
+            confidence
+          </div>
+          <div class="button-4">Book Now</div>
+        </div>
+      </div>
+    </div>
+    <div class="heading-4">Popular Events</div>
+    <div class="div-17">
+      <div class="div-18">
+        <div class="column-10">
+          <div class="card-1">
+            <div class="bg">
+              <div class="div-19">
+                <img
+                  loading="lazy"
+                  srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/592b51605006aea2b5f4907436f89b3188153cb62da0c8f5d0d2972e30e73ee8?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/592b51605006aea2b5f4907436f89b3188153cb62da0c8f5d0d2972e30e73ee8?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/592b51605006aea2b5f4907436f89b3188153cb62da0c8f5d0d2972e30e73ee8?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/592b51605006aea2b5f4907436f89b3188153cb62da0c8f5d0d2972e30e73ee8?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/592b51605006aea2b5f4907436f89b3188153cb62da0c8f5d0d2972e30e73ee8?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/592b51605006aea2b5f4907436f89b3188153cb62da0c8f5d0d2972e30e73ee8?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/592b51605006aea2b5f4907436f89b3188153cb62da0c8f5d0d2972e30e73ee8?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/592b51605006aea2b5f4907436f89b3188153cb62da0c8f5d0d2972e30e73ee8?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                  class="img-17"
+                />
+                <div class="20-off">20% off</div>
+              </div>
+              <div class="text-5">
+                <div class="div-20">
+                  <div class="rabat-olm-suissi">Rabat , Olm Suissi</div>
+                  <div class="div-21">
+                    <div class="div-22">
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-18"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-19"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-20"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-21"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-22"
+                      />
+                    </div>
+                    <div class="1-review">(1 Review)</div>
+                  </div>
+                </div>
+                <div class="div-23">
+                  <div class="from">From</div>
+                  <div class="1200">$1200</div>
+                  <div class="960">$960</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column-11">
+          <div class="card-2">
+            <div class="div-24">
+              <img
+                loading="lazy"
+                srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/875fc61156faa927167f04da68967239eee9db7c3e47ec874a93d0028a8e4914?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/875fc61156faa927167f04da68967239eee9db7c3e47ec874a93d0028a8e4914?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/875fc61156faa927167f04da68967239eee9db7c3e47ec874a93d0028a8e4914?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/875fc61156faa927167f04da68967239eee9db7c3e47ec874a93d0028a8e4914?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/875fc61156faa927167f04da68967239eee9db7c3e47ec874a93d0028a8e4914?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/875fc61156faa927167f04da68967239eee9db7c3e47ec874a93d0028a8e4914?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/875fc61156faa927167f04da68967239eee9db7c3e47ec874a93d0028a8e4914?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/875fc61156faa927167f04da68967239eee9db7c3e47ec874a93d0028a8e4914?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                class="img-23"
+              />
+              <div class="div-25">
+                <div class="div-26">
+                  <div class="agadir-timitar">Agadir , Timitar</div>
+                  <div class="div-27">
+                    <div class="div-28">
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-24"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-25"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-26"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-27"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-28"
+                      />
+                    </div>
+                    <div class="1-review">(1 Review)</div>
+                  </div>
+                </div>
+                <div class="div-29">
+                  <div>From</div>
+                  <div>$800</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column-12">
+          <div class="card-3">
+            <div class="div-30">
+              <img
+                loading="lazy"
+                srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/b5ccaf5841a56d8c308f73a8eeb21a591dacff4a830799e529276ca0dba9bab5?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/b5ccaf5841a56d8c308f73a8eeb21a591dacff4a830799e529276ca0dba9bab5?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b5ccaf5841a56d8c308f73a8eeb21a591dacff4a830799e529276ca0dba9bab5?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/b5ccaf5841a56d8c308f73a8eeb21a591dacff4a830799e529276ca0dba9bab5?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/b5ccaf5841a56d8c308f73a8eeb21a591dacff4a830799e529276ca0dba9bab5?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b5ccaf5841a56d8c308f73a8eeb21a591dacff4a830799e529276ca0dba9bab5?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/b5ccaf5841a56d8c308f73a8eeb21a591dacff4a830799e529276ca0dba9bab5?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/b5ccaf5841a56d8c308f73a8eeb21a591dacff4a830799e529276ca0dba9bab5?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                class="img-29"
+              />
+              <div class="div-31">
+                <div class="div-32">
+                  <div class="marakech-international-festival">
+                    Marakech , International Festival
+                  </div>
+                  <div class="div-33">
+                    <div class="div-34">
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-30"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-31"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-32"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-33"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-34"
+                      />
+                    </div>
+                    <div class="1-review">(1 Review)</div>
+                  </div>
+                </div>
+                <div class="div-35">
+                  <div>From</div>
+                  <div>$850</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column-13">
+          <div class="card-4">
+            <div class="div-36">
+              <img
+                loading="lazy"
+                srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/ec1ac734f4560ffc0f68f003b4338d14583ecfa349c91b52f847bb506838598d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/ec1ac734f4560ffc0f68f003b4338d14583ecfa349c91b52f847bb506838598d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ec1ac734f4560ffc0f68f003b4338d14583ecfa349c91b52f847bb506838598d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/ec1ac734f4560ffc0f68f003b4338d14583ecfa349c91b52f847bb506838598d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/ec1ac734f4560ffc0f68f003b4338d14583ecfa349c91b52f847bb506838598d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ec1ac734f4560ffc0f68f003b4338d14583ecfa349c91b52f847bb506838598d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/ec1ac734f4560ffc0f68f003b4338d14583ecfa349c91b52f847bb506838598d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/ec1ac734f4560ffc0f68f003b4338d14583ecfa349c91b52f847bb506838598d?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                class="img-35"
+              />
+              <div class="div-37">
+                <div class="div-38">
+                  <div class="essaouira-gnaoua">Essaouira , Gnaoua</div>
+                  <div class="div-39">
+                    <div class="div-40">
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-36"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-37"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-38"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-39"
+                      />
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                        class="img-40"
+                      />
+                    </div>
+                    <div class="1-review">(1 Review)</div>
+                  </div>
+                </div>
+                <div class="div-41">
+                  <div>From</div>
+                  <div>$2200</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="heading-5">Explore our hotels</div>
+    <div class="div-42">
+      <div class="div-43">
+        <div class="column">
+          <div class="div-44">
+            <div class="hotel-mamounia-marakech">Hotel Mamounia , Marakech</div>
+            <div
+              class="experience-unparalleled-luxury-and-cultural-immersion-at-hotel-mamounia-marrakech-nestled-in-the-heart-of-the-city-this-iconic-hotel-offers-a-perfect-blend-of-moroccan-tradition-and-modern-comfort"
+            >
+              Experience unparalleled luxury and cultural immersion at Hotel
+              Mamounia, Marrakech. Nestled in the heart of the city, this iconic
+              hotel offers a perfect blend of Moroccan tradition and modern
+              comfort.
+            </div>
+            <div class="text-6">
+              <div class="div-45">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/605afb081ddba82096ab1c77b57f58d0904b9e51a5270494e8bac7e37df3097f?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                  class="img-41"
+                />
+                <div class="full-financial-protection">
+                  Full financial protection
+                </div>
+              </div>
+              <div class="div-46">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/605afb081ddba82096ab1c77b57f58d0904b9e51a5270494e8bac7e37df3097f?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                  class="img-42"
+                />
+                <div class="flexible-customisable-tour-options">
+                  Flexible & customisable tour options
+                </div>
+              </div>
+              <div class="div-47">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/605afb081ddba82096ab1c77b57f58d0904b9e51a5270494e8bac7e37df3097f?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+                  class="img-43"
+                />
+                <div class="hassle-free-seamless-travel-experience">
+                  Hassle-free & seamless travel experience
+                </div>
+              </div>
+            </div>
+            <div class="button-5">Book now</div>
+          </div>
+        </div>
+        <div class="column-14">
+          <div class="div-48">
+            <img
+              loading="lazy"
+              srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/8f1751a3027b011ecb565d04ff8b894d58a9956889cae59e34f83b1c2d5e990a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f1751a3027b011ecb565d04ff8b894d58a9956889cae59e34f83b1c2d5e990a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f1751a3027b011ecb565d04ff8b894d58a9956889cae59e34f83b1c2d5e990a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f1751a3027b011ecb565d04ff8b894d58a9956889cae59e34f83b1c2d5e990a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f1751a3027b011ecb565d04ff8b894d58a9956889cae59e34f83b1c2d5e990a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f1751a3027b011ecb565d04ff8b894d58a9956889cae59e34f83b1c2d5e990a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f1751a3027b011ecb565d04ff8b894d58a9956889cae59e34f83b1c2d5e990a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/8f1751a3027b011ecb565d04ff8b894d58a9956889cae59e34f83b1c2d5e990a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+              class="img-44"
+            />
+            <div class="from-1200">from $1200</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="div-49">
+      <img
+        loading="lazy"
+        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/6ebc7b9c454198facac8eec79b1490d1301d004912f9ba1127605fbad283fe06?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/6ebc7b9c454198facac8eec79b1490d1301d004912f9ba1127605fbad283fe06?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6ebc7b9c454198facac8eec79b1490d1301d004912f9ba1127605fbad283fe06?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/6ebc7b9c454198facac8eec79b1490d1301d004912f9ba1127605fbad283fe06?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/6ebc7b9c454198facac8eec79b1490d1301d004912f9ba1127605fbad283fe06?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6ebc7b9c454198facac8eec79b1490d1301d004912f9ba1127605fbad283fe06?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/6ebc7b9c454198facac8eec79b1490d1301d004912f9ba1127605fbad283fe06?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/6ebc7b9c454198facac8eec79b1490d1301d004912f9ba1127605fbad283fe06?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+        class="img-45"
+      />
+      <div class="div-50">
+        <div class="text-img">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/d9e21f335f6459c7f12f5933c8a1664e1c93057ee83e690d742b60a41917c083?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+            class="img-46"
+          />
+          <div class="discover-the-world-with-us">
+            Discover The World With Us
+            <br />
+          </div>
+        </div>
+        <div class="counter">
+          <div class="text-7">
+            <div class="div-51">
+              <div class="200-k">200k</div>
+              <div class="happy-travelers">Happy travelers</div>
+            </div>
+          </div>
+          <div class="text-8">
+            <div class="div-52">
+              <div class="400">400</div>
+              <div class="destinations">Destinations</div>
+            </div>
+          </div>
+          <div class="text-9">
+            <div class="div-53">
+              <div class="224">224</div>
+              <div class="hotels">Hotels</div>
+            </div>
+          </div>
+          <div class="div-54">
+            <div class="div-55">
+              <div class="100">100</div>
+              <div class="events">Events</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="heading-6">Our Team</div>
+    <div class="cards">
+      <div class="card-1-2">
+        <img
+          loading="lazy"
+          srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/73c7d28e56c8d100f7dc35ed7e3ccea414a98a6713313d7244cb115a6e42f0c1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/73c7d28e56c8d100f7dc35ed7e3ccea414a98a6713313d7244cb115a6e42f0c1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/73c7d28e56c8d100f7dc35ed7e3ccea414a98a6713313d7244cb115a6e42f0c1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/73c7d28e56c8d100f7dc35ed7e3ccea414a98a6713313d7244cb115a6e42f0c1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/73c7d28e56c8d100f7dc35ed7e3ccea414a98a6713313d7244cb115a6e42f0c1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/73c7d28e56c8d100f7dc35ed7e3ccea414a98a6713313d7244cb115a6e42f0c1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/73c7d28e56c8d100f7dc35ed7e3ccea414a98a6713313d7244cb115a6e42f0c1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/73c7d28e56c8d100f7dc35ed7e3ccea414a98a6713313d7244cb115a6e42f0c1?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+          class="img-47"
+        />
+        <div class="text-10">
+          <div class="imane-el-mazouz">Imane EL MAZOUZ</div>
+          <div class="director">Director</div>
+        </div>
+      </div>
+      <div class="card-2-2">
+        <img
+          loading="lazy"
+          srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/8ddd28487696fa721305b86d752f864092f7e5f3dbda4a86ed0a8bdca78e077a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/8ddd28487696fa721305b86d752f864092f7e5f3dbda4a86ed0a8bdca78e077a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8ddd28487696fa721305b86d752f864092f7e5f3dbda4a86ed0a8bdca78e077a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/8ddd28487696fa721305b86d752f864092f7e5f3dbda4a86ed0a8bdca78e077a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/8ddd28487696fa721305b86d752f864092f7e5f3dbda4a86ed0a8bdca78e077a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/8ddd28487696fa721305b86d752f864092f7e5f3dbda4a86ed0a8bdca78e077a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/8ddd28487696fa721305b86d752f864092f7e5f3dbda4a86ed0a8bdca78e077a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/8ddd28487696fa721305b86d752f864092f7e5f3dbda4a86ed0a8bdca78e077a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+          class="img-48"
+        />
+        <div class="text-11">
+          <div class="wissal-el-mazouz">Wissal EL MAZOUZ</div>
+          <div class="administator">Administator</div>
+        </div>
+      </div>
+      <div class="card-3-2">
+        <img
+          loading="lazy"
+          srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/e91ac8781c5afe1246207316ac0735b33b1ba25c45e305d76e2e63679e78e125?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/e91ac8781c5afe1246207316ac0735b33b1ba25c45e305d76e2e63679e78e125?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/e91ac8781c5afe1246207316ac0735b33b1ba25c45e305d76e2e63679e78e125?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/e91ac8781c5afe1246207316ac0735b33b1ba25c45e305d76e2e63679e78e125?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/e91ac8781c5afe1246207316ac0735b33b1ba25c45e305d76e2e63679e78e125?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/e91ac8781c5afe1246207316ac0735b33b1ba25c45e305d76e2e63679e78e125?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/e91ac8781c5afe1246207316ac0735b33b1ba25c45e305d76e2e63679e78e125?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/e91ac8781c5afe1246207316ac0735b33b1ba25c45e305d76e2e63679e78e125?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+          class="img-49"
+        />
+        <div class="text-12">
+          <div class="elizabeth-pollard">Elizabeth Pollard</div>
+          <div class="developper">Developper</div>
+        </div>
+      </div>
+      <div class="card-4-2">
+        <img
+          loading="lazy"
+          srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/2192e42dc61ab962b10e59f8317b9ac88a9910c84c49c9dc2e70bf3314b8e0f9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/2192e42dc61ab962b10e59f8317b9ac88a9910c84c49c9dc2e70bf3314b8e0f9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2192e42dc61ab962b10e59f8317b9ac88a9910c84c49c9dc2e70bf3314b8e0f9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/2192e42dc61ab962b10e59f8317b9ac88a9910c84c49c9dc2e70bf3314b8e0f9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/2192e42dc61ab962b10e59f8317b9ac88a9910c84c49c9dc2e70bf3314b8e0f9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2192e42dc61ab962b10e59f8317b9ac88a9910c84c49c9dc2e70bf3314b8e0f9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/2192e42dc61ab962b10e59f8317b9ac88a9910c84c49c9dc2e70bf3314b8e0f9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/2192e42dc61ab962b10e59f8317b9ac88a9910c84c49c9dc2e70bf3314b8e0f9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+          class="img-50"
+        />
+        <div class="text-13">
+          <div class="kan-hoover">Kan Hoover</div>
+          <div class="manager">Manager</div>
+        </div>
       </div>
     </div>
 
+<!--    -->
+<!--    <div class="div-56">-->
+<!--      <div class="div-57">-->
+<!--        <div class="div-58">-->
+<!--          <div class="div-59">-->
+<!--            <img-->
+<!--              loading="lazy"-->
+<!--              src="https://cdn.builder.io/api/v1/image/assets/TEMP/36659d5bdfe70a7fcabba607e04c17ba98d698bf90a0a4dc7536b696a6ddaaef?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--              class="img-51"-->
+<!--            />-->
+<!--            <div class="discover-morocco">DiscoverMorocco</div>-->
+<!--          </div>-->
+<!--          <div-->
+<!--            class="we-are-dedicated-to-bringing-you-the-best-of-moroccos-rich-cultural-heritage"-->
+<!--          >-->
+<!--            We are dedicated to bringing you the best of Morocco's rich cultural-->
+<!--            heritage-->
+<!--          </div>-->
+<!--          <div class="div-60">-->
+<!--            <img-->
+<!--              loading="lazy"-->
+<!--              src="https://cdn.builder.io/api/v1/image/assets/TEMP/06f3c1d8c2fe4a71bf2acbd13eedfba4941abb16ae7b5f23b8abe40849c7e329?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--              class="img-52"-->
+<!--            />-->
+<!--            <img-->
+<!--              loading="lazy"-->
+<!--              src="https://cdn.builder.io/api/v1/image/assets/TEMP/522ead8a90f61fd785169d3db00d6ecc6cdac8cf2128afda1c2127632a632ec8?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--              class="img-53"-->
+<!--            />-->
+<!--            <img-->
+<!--              loading="lazy"-->
+<!--              src="https://cdn.builder.io/api/v1/image/assets/TEMP/2518232728eb95d2af2296f4e7e0f3a406f86aef45cbb6dc4e62817edbb42d9a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--              class="img-54"-->
+<!--            />-->
+<!--            <img-->
+<!--              loading="lazy"-->
+<!--              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8440eb9658d69ccd9df595129b7b0f089433e6677f4b611062d10956db312f8c?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--              class="img-55"-->
+<!--            />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="div-61">-->
+<!--          <div class="page">Page</div>-->
+<!--          <div class="div-62">-->
+<!--            <div>Destination</div>-->
+<!--            <div class="packages">Packages</div>-->
+<!--            <div class="gallery">Gallery</div>-->
+<!--            <div class="tour-guide">Tour Guide</div>-->
+<!--            <div class="blog">Blog</div>-->
+<!--            <div class="fa-q">FaQ</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="div-63">-->
+<!--          <div class="links">Links</div>-->
+<!--          <div class="div-64">-->
+<!--            <div>Term Of Use</div>-->
+<!--            <div class="privacy-policy">Privacy Policy</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="div-65">-->
+<!--          <div class="contact-us">Contact Us</div>-->
+<!--          <div class="div-66">-->
+<!--            <div class="div-67">-->
+<!--              <img-->
+<!--                loading="lazy"-->
+<!--                src="https://cdn.builder.io/api/v1/image/assets/TEMP/473aba4de7ce17fcc08a93b8544c352d8fe9123d3edfa064511683b7e69e973a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--                class="img-56"-->
+<!--              />-->
+<!--              <div class="12-27181-9281">+12 27181 9281</div>-->
+<!--            </div>-->
+<!--            <div class="div-68">-->
+<!--              <img-->
+<!--                loading="lazy"-->
+<!--                src="https://cdn.builder.io/api/v1/image/assets/TEMP/084be5fe6e88fdc5df4d61f6d1424dfd30a8e693a36feb7a0a4ad07760b6cee9?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--                class="img-57"-->
+<!--              />-->
+<!--              <div class="discover-gmail-com">discover@gmail.com</div>-->
+<!--            </div>-->
+<!--            <div class="div-69">-->
+<!--              <img-->
+<!--                loading="lazy"-->
+<!--                src="https://cdn.builder.io/api/v1/image/assets/TEMP/2644952e82f7af4dec47f54f4053548ca9209d59c3ea123a20594b800401d932?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--                class="img-58"-->
+<!--              />-->
+<!--              <div class="beni-mellal-morocco">Beni Mellal , Morocco</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="div-70">-->
+<!--          <div class="booking-destination">Booking Destination</div>-->
+<!--          <div class="div-71">-->
+<!--            <div class="what-you-want-is-here-book-and-fly">-->
+<!--              What you want is here ! Book and fly-->
+<!--            </div>-->
+<!--            <div class="button-6">Booking now</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <img-->
+<!--        loading="lazy"-->
+<!--        src="https://cdn.builder.io/api/v1/image/assets/TEMP/ac149b8b104ff0733916eb5bf1dfc29e0b1a94c2949268e6a3e4fde50212e6ad?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"-->
+<!--        class="img-59"-->
+<!--      />-->
+<!--      <div class="copyright-2022-tourtle-all-right-reserved">-->
+<!--        Copyright . DiscoverMorocco ,All Right Reserved-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
+</div>
 
-</section><!-- /About Section -->
-
-<section id="why-us" class="why-us section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>WHY US</h2>
-    <p>Why Choose Our IT Services</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="card-item">
-          <span>01</span>
-          <h4><a href="" class="stretched-link">Experienced Team</a></h4>
-          <p>Our team is composed of IT experts with years of experience in delivering cutting-edge technology solutions.</p>
-        </div>
-      </div><!-- Card Item -->
-
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="card-item">
-          <span>02</span>
-          <h4><a href="" class="stretched-link">Tailored Solutions</a></h4>
-          <p>We offer personalized IT solutions that are designed to address the specific needs of your business.</p>
-        </div>
-      </div><!-- Card Item -->
-
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-item">
-          <span>03</span>
-          <h4><a href="" class="stretched-link">Comprehensive Support</a></h4>
-          <p>From initial consultation to deployment and maintenance, we provide full support to ensure your IT success.</p>
-        </div>
-      </div><!-- Card Item -->
-
-    </div>
-
-  </div>
-
-
-</section><!-- /Why Us Section -->
-
-
-<section id="testimonials" class="testimonials section dark-background" style="">
-
-  <img src="assets/img/events-bg.jpg" class="testimonials-bg" alt="">
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="swiper init-swiper">
-      <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": {
-            "delay": 5000
-          },
-          "slidesPerView": "auto",
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          }
-        }
-      </script>
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-            <h3>Michael Smith</h3>
-            <h4>Senior Account Manager</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>"Our experience with this IT service provider has been exceptional. The solutions they offered were impeccable, and the client support was top-notch. It has revolutionized the way we manage our technology and business operations."</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-            <h3>Linda Johnson</h3>
-            <h4>Financial Advisor</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>"The organization and features of this event are outstanding. I trust it for providing a seamless and enjoyable experience, and appreciate the smooth coordination with other event services."</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-            <h3>David Williams</h3>
-            <h4>Business Owner</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>"Managing event logistics has never been easier. The user-friendly interface and excellent support make this platform my go-to for all event needs."</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-            <h3>Emily Davis</h3>
-            <h4>Customer Service Specialist</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>"I have attended various events, but this one stands out for its reliability and ease of participation. It's a game-changer for enjoying both personal and professional events."</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-            <h3>Robert Brown</h3>
-            <h4>Entrepreneur</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>"The comprehensive features and exceptional participant support make this event platform an excellent choice for anyone looking to streamline their event management."</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div><!-- End testimonial item -->
-
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-
-  </div>
-
-</section><!-- End Testimonials Section -->
-
-
-
-
-<!-- Gallery Section -->
-<section id="gallery" class="gallery section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>IM</h2>
-    <p>Explore our equipments</p>
-  </div><!-- End Section Title -->
-
-  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row g-0">
-
-      <div class="col-lg-3 col-md-4">
-        <div class="gallery-item">
-          <a href="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" class="glightbox" data-gallery="images-gallery">
-            <img src="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" alt="" class="img-fluid">
-          </a>
-        </div>
-      </div><!-- End Gallery Item -->
-
-      <div class="col-lg-3 col-md-4">
-        <div class="gallery-item">
-          <a href="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" class="glightbox" data-gallery="images-gallery">
-            <img src="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" alt="" class="img-fluid">
-          </a>
-        </div>
-      </div><!-- End Gallery Item -->
-
-      <div class="col-lg-3 col-md-4">
-        <div class="gallery-item">
-          <a href="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" class="glightbox" data-gallery="images-gallery">
-            <img src="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" alt="" class="img-fluid">
-          </a>
-        </div>
-      </div><!-- End Gallery Item -->
-
-      <div class="col-lg-3 col-md-4">
-        <div class="gallery-item">
-          <a href="https://mssolutions.ca/wp-content/uploads/2022/05/Image-Webinaire-Article-3-1024x683.png" class="glightbox" data-gallery="images-gallery">
-            <img src="https://mssolutions.ca/wp-content/uploads/2022/05/Image-Webinaire-Article-3-1024x683.png" alt="" class="img-fluid">
-          </a>
-        </div>
-      </div><!-- End Gallery Item -->
-
-      <div class="col-lg-3 col-md-4">
-        <div class="gallery-item">
-          <a href="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" class="glightbox" data-gallery="images-gallery">
-            <img src="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" alt="" class="img-fluid">
-          </a>
-        </div>
-      </div><!-- End Gallery Item -->
-
-      <div class="col-lg-3 col-md-4">
-        <div class="gallery-item">
-          <a href="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" class="glightbox" data-gallery="images-gallery">
-            <img src="https://www.westana.com/wp-content/uploads/2018/08/Technology-Slider-1024x439-1.jpg" alt="" class="img-fluid">
-          </a>
-        </div>
-      </div><!-- End Gallery Item -->
-
-      <div class="col-lg-3 col-md-4">
-        <div class="gallery-item">
-          <a href="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" class="glightbox" data-gallery="images-gallery">
-            <img src="https://www.merchantmaverick.com/wp-content/uploads/2020/05/tech-equipment.jpg" alt="" class="img-fluid">
-          </a>
-        </div>
-      </div><!-- End Gallery Item -->
-
-      <div class="col-lg-3 col-md-4">
-        <div class="gallery-item">
-          <a href="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" class="glightbox" data-gallery="images-gallery">
-            <img src="https://njbmagazine.com/wp-content/uploads/2014/06/computers-775x500.jpg" alt="" class="img-fluid">
-          </a>
-        </div>
-      </div><!-- End Gallery Item -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Gallery Section -->
-<section id="contact" class="contact section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Contact Us</p>
-  </div><!-- End Section Title -->
-
-  <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-    <iframe style="border:0; width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div><!-- End Google Maps -->
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-4">
-        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-          <i class="bi bi-geo-alt flex-shrink-0"></i>
-          <div>
-            <h3>Location</h3>
-            <p>A108 Adam Street, New York, NY 535022</p>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-          <i class="bi bi-telephone flex-shrink-0"></i>
-          <div>
-            <h3>Open Hours</h3>
-            <p>Monday-Saturday:<br>11:00 AM - 2300 PM</p>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-          <i class="bi bi-telephone flex-shrink-0"></i>
-          <div>
-            <h3>Call Us</h3>
-            <p>+1 5589 55488 55</p>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-          <i class="bi bi-envelope flex-shrink-0"></i>
-          <div>
-            <h3>Email Us</h3>
-            <p>info&#64;example.com</p>
-          </div>
-        </div><!-- End Info Item -->
-
-      </div>
-
-      <div class="col-lg-8">
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
-              <button type="submit">Send Message</button>
-            </div>
-
-          </div>
-        </form>
-      </div><!-- End Contact Form -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Contact Section -->
 <app-footer></app-footer>

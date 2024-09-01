@@ -2,6 +2,7 @@ package com.tourist.service;
 
 import com.tourist.enums.Status;
 import com.tourist.exception.ClientNotFoundException;
+import com.tourist.exception.EventFullyBookedException;
 import com.tourist.exception.EventNotFoundException;
 import com.tourist.model.*;
 import com.tourist.repository.*;
@@ -35,7 +36,7 @@ public class ReservationService {
     @Autowired
     private ClientRepository clientRepository;
 
-    public Reservation reserveEvent(Long clientId, Long eventId, LocalDate dateTime) {
+    public Reservation reserveEvent(Long clientId, Long eventId, Long numberOfPerson ,LocalDate dateTime) throws EventFullyBookedException {
         Client client = clientRepository.findById(clientId)
                 .orElseThrow(() -> new ClientNotFoundException(clientId));
         Event event = eventRepository.findById(eventId)
@@ -44,13 +45,19 @@ public class ReservationService {
         Reservation reservation = new Reservation();
         reservation.setClient(client);
         reservation.setEvent(event);
+        reservation.setNumberOfPerson(numberOfPerson);
         reservation.setDateTime(dateTime);
+
         reservation.setStatus(Status.Confirmed);
+        if(event.getCapacity()<=0){
+            throw new EventFullyBookedException("Event is fully booked");
+        }
+        event.setCapacity(event.getCapacity()-1);
 
         return reservationRepository.save(reservation);
     }
 
-    public Reservation reserveExcursion(Long clientId, Long excursionId, LocalDate dateTime) {
+    public Reservation reserveExcursion(Long clientId, Long excursionId, Long numberOfPerson ,LocalDate dateTime) {
         Client client = clientRepository.findById(clientId)
                 .orElseThrow(() -> new ClientNotFoundException(clientId));
         Excursion excursion = excursionRepository.findById(excursionId)
@@ -59,14 +66,18 @@ public class ReservationService {
         Reservation reservation = new Reservation();
         reservation.setClient(client);
         reservation.setExcursion(excursion);
+        reservation.setNumberOfPerson(numberOfPerson);
         reservation.setDateTime(dateTime);
         reservation.setStatus(Status.Confirmed);
+        if(excursion.getCapacity()<=0){
+            throw new EventFullyBookedException("excursion is fully booked");
+        }
+        excursion.setCapacity(excursion.getCapacity()-1);
 
         return reservationRepository.save(reservation);
     }
 
-    // Reserve a hotel room
-    public Reservation reserveHotel(Long clientId, Long roomId, LocalDate checkInDate, LocalDate checkOutDate) {
+    public Reservation reserveHotel(Long clientId, Long roomId,Long numberOfPerson , LocalDate checkInDate, LocalDate checkOutDate ) {
         Client client = clientRepository.findById(clientId)
                 .orElseThrow(() -> new ClientNotFoundException(clientId));
         Room room = roomRepository.findById(roomId)
@@ -75,6 +86,7 @@ public class ReservationService {
         Reservation reservation = new Reservation();
         reservation.setClient(client);
         reservation.setRoom(room);
+        reservation.setNumberOfPerson(numberOfPerson);
         reservation.setCheckInDate(Date.valueOf(checkInDate));
         reservation.setCheckOutDate(Date.valueOf(checkOutDate));
         reservation.setReservedRoom(true);
