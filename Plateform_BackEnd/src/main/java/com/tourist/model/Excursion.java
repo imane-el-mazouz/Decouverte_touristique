@@ -21,7 +21,7 @@ public class Excursion {
     private Long idExcursion;
     private String name;
     private String description;
-    private String imgPath;  // Updated to store the image path
+    private String imgPath;
     private LocalDateTime dateTime;
     private String location;
     private Integer capacity;
