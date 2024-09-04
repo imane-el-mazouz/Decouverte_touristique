@@ -1,67 +1,180 @@
-<!--<header id="header" class="header fixed-top">-->
+<!--&lt;!&ndash;<header id="header" class="header fixed-top">&ndash;&gt;-->
 
-<!--  <div class="topbar d-flex align-items-center">-->
-<!--    <div class="container d-flex justify-content-center justify-content-md-between">-->
-<!--      <div class="contact-info d-flex align-items-center">-->
-<!--        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">it&#64;gmail.com</a></i>-->
-<!--        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 1111 11111 11</span></i>-->
-<!--      </div>-->
-<!--      <div class="languages d-none d-md-flex align-items-center">-->
-<!--        <ul>-->
-<!--          <li>En</li>-->
-<!--          <li><a href="#">Fr</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
+<!--&lt;!&ndash;  <div class="topbar d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="container d-flex justify-content-center justify-content-md-between">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="contact-info d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">it&#64;gmail.com</a></i>&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 1111 11111 11</span></i>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="languages d-none d-md-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li>En</li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li><a href="#">Fr</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&lt;!&ndash; End Top Bar &ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;  <div class="branding d-flex align-items-cente">&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div class="container position-relative d-flex align-items-center justify-content-between">&ndash;&gt;-->
+<!--&lt;!&ndash;      <a href="" class="logo d-flex align-items-center me-auto me-xl-0" style="text-decoration: none;">&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash; <img src="assets/img/logo.jpg" alt="">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <h1 class="sitename" style="color: var(&#45;&#45;accent-color); margin: 0; font-size: 26px; font-weight: 600; font-family: var(&#45;&#45;heading-font);">&ndash;&gt;-->
+<!--&lt;!&ndash;          IT-Company&ndash;&gt;-->
+<!--&lt;!&ndash;        </h1>&ndash;&gt;-->
+<!--&lt;!&ndash;      </a>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;      <nav id="navmenu" class="navmenu">&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li><a [routerLink]="['/home']" fragment="home" routerLinkActive="active">Home</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li><a href="#about">About</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li><a href="#menu">Why Choose Us</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li><a href="#specials">Our Services</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li><a href="#events">Our Users</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li><a href="#gallery">Gallery</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li><a href="#contact">Contact</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;      </nav>&ndash;&gt;-->
+
+<!--&lt;!&ndash;      <a class="btn-book-a-table d-none d-xl-block" routerLink="/login" routerLinkActive="active">{{ isLogin() ? "login" : "logout" }}</a>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</header>&ndash;&gt;-->
+<!--<header class="header-wrapper">-->
+<!--  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/feab29a3e181e5c51d3c4b494a40bb849d35ea6b8052aa3659d074666e215299?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Logo" class="logo">-->
+<!--  <nav class="header">-->
+<!--    <div class="nav-wrapper">-->
+<!--      <ul class="nav-menu">-->
+<!--        <li class="nav-items">Home</li>-->
+<!--        <li class="nav-items">Booking</li>-->
+<!--        <li class="nav-items">Destinations</li>-->
+<!--        <li class="nav-items">About Us</li>-->
+<!--        <li class="nav-items">Contact</li>-->
+<!--      </ul>-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/442d4a623b136300a9a6629565bd5e745594bd429e66f6272979a178640fd7b0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Menu" class="menu-icon">-->
 <!--    </div>-->
-<!--  </div>&lt;!&ndash; End Top Bar &ndash;&gt;-->
-
-<!--  <div class="branding d-flex align-items-cente">-->
-
-<!--    <div class="container position-relative d-flex align-items-center justify-content-between">-->
-<!--      <a href="" class="logo d-flex align-items-center me-auto me-xl-0" style="text-decoration: none;">-->
-<!--        &lt;!&ndash; <img src="assets/img/logo.jpg" alt="">&ndash;&gt;-->
-<!--        <h1 class="sitename" style="color: var(&#45;&#45;accent-color); margin: 0; font-size: 26px; font-weight: 600; font-family: var(&#45;&#45;heading-font);">-->
-<!--          IT-Company-->
-<!--        </h1>-->
-<!--      </a>-->
-
-
-<!--      <nav id="navmenu" class="navmenu">-->
-<!--        <ul>-->
-<!--          <li><a [routerLink]="['/home']" fragment="home" routerLinkActive="active">Home</a></li>-->
-<!--          <li><a href="#about">About</a></li>-->
-<!--          <li><a href="#menu">Why Choose Us</a></li>-->
-<!--          <li><a href="#specials">Our Services</a></li>-->
-<!--          <li><a href="#events">Our Users</a></li>-->
-<!--          <li><a href="#gallery">Gallery</a></li>-->
-<!--          <li><a href="#contact">Contact</a></li>-->
-<!--        </ul>-->
-<!--        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>-->
-<!--      </nav>-->
-
-<!--      <a class="btn-book-a-table d-none d-xl-block" routerLink="/login" routerLinkActive="active">{{ isLogin() ? "login" : "logout" }}</a>-->
-
+<!--    <div class="auth-buttons">-->
+<!--      <span class="login-text">Log in</span>-->
+<!--      <button class="signup-button">Sign up</button>-->
 <!--    </div>-->
-
-<!--  </div>-->
-
+<!--  </nav>-->
 <!--</header>-->
-<header class="header-wrapper">
-  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/feab29a3e181e5c51d3c4b494a40bb849d35ea6b8052aa3659d074666e215299?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Logo" class="logo">
-  <nav class="header">
-    <div class="nav-wrapper">
-      <ul class="nav-menu">
-        <li class="nav-items">Home</li>
-        <li class="nav-items">Booking</li>
-        <li class="nav-items">Destinations</li>
-        <li class="nav-items">About Us</li>
-        <li class="nav-items">Contact</li>
-      </ul>
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/442d4a623b136300a9a6629565bd5e745594bd429e66f6272979a178640fd7b0?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Menu" class="menu-icon">
-    </div>
-    <div class="auth-buttons">
-      <span class="login-text">Log in</span>
-      <button class="signup-button">Sign up</button>
-    </div>
+<style>
+  .home-page {
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    gap: 40px;
+    overflow: hidden;
+    align-items: center; /* Aligne les éléments verticalement */
+    padding-top: 6px;
+    padding-left: 17px;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-logo {
+    aspect-ratio: 1.38;
+    object-fit: contain;
+    object-position: center;
+    width: 128px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font: 600 20px Abhaya Libre SemiBold, -apple-system, Roboto, Helvetica, sans-serif;
+    flex: 1; /* Permet à l'en-tête de prendre l'espace restant */
+  }
+
+  .header-content {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto 0;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    color: rgba(20, 24, 62, 1);
+    justify-content: flex-start;
+  }
+
+  .menu-items {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .search-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+  }
+
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .login-button {
+    color: rgba(20, 24, 62, 1);
+  }
+
+  .signup-button {
+    border-radius: 12px;
+    background-color: rgba(20, 24, 62, 1);
+    min-height: 40px;
+    color: rgba(255, 255, 255, 1);
+    padding: 8px 24px;
+  }
+</style>
+
+<div class="home-page">
+  <nav class="navbar">
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/feab29a3e181e5c51d3c4b494a40bb849d35ea6b8052aa3659d074666e215299?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+      alt="Home Page Logo"
+      class="navbar-logo"
+    />
   </nav>
-</header>
+  <header class="header">
+    <div class="header-content">
+      <section class="menu">
+        <div class="menu-items">
+          <a href="#">Home</a>
+          <a href="#">Booking</a>
+          <a href="#">Destinations</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+        </div>
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/290797fa8826c30832bc74c14d96441d13c875e72395436e44da2e746737e3d7?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d"
+          alt="Search Icon"
+          class="search-icon"
+        />
+      </section>
+      <div class="auth-buttons">
+        <button class="login-button">Log in</button>
+        <button class="signup-button">Sign up</button>
+      </div>
+    </div>
+  </header>
+</div>
