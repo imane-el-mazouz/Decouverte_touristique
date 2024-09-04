@@ -27,4 +27,9 @@ public class ExcursionDTO {
     @OneToMany(mappedBy = "excursion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Reservation> reservations;
+
+
+
+    public ExcursionDTO(String name, String location, LocalDateTime dateTime) {
+    }
 }

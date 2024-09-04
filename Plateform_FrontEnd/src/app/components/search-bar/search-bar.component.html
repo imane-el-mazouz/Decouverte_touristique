@@ -1,0 +1,56 @@
+<div class="search-container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="location">Location:</label>
+      <input id="location" formControlName="location" placeholder="Enter location" />
+    </div>
+
+    <div>
+      <label for="date">Date:</label>
+      <input id="date" formControlName="date" type="date" />
+    </div>
+
+    <div>
+      <label for="category">Category:</label>
+      <select id="category" formControlName="category">
+        <option value="">--Select Category--</option>
+        <option value="Event">Event</option>
+        <option value="Excursion">Excursion</option>
+        <option value="Hotel">Hotel</option>
+      </select>
+    </div>
+
+    <button type="submit">Search</button>
+  </form>
+
+  <div *ngIf="searchResults">
+    <h2>Search Results</h2>
+
+<!--    <div *ngIf="searchResults.events.length > 0">-->
+<!--      <h3>Events</h3>-->
+<!--      <ul>-->
+<!--        <li *ngFor="let event of searchResults.events">-->
+<!--          {{ event.name }} - {{ event.location }} ({{ event.date }})-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+
+    <div *ngIf="searchResults.excursions.length > 0">
+      <h3>Excursions</h3>
+      <ul>
+        <li *ngFor="let excursion of searchResults.excursions">
+          {{ excursion.name }} - {{ excursion.location }} ({{ excursion.dateTime }})
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="searchResults.hotels.length > 0">
+      <h3>Hotels</h3>
+      <ul>
+        <li *ngFor="let hotel of searchResults.hotels">
+          {{ hotel.name }} - {{ hotel.location }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

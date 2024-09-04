@@ -1,0 +1,83 @@
+<!--<main class="main">-->
+<!--  <div class="signup-wrapper">-->
+<!--    <div class="signup-container">-->
+<!--      <form [formGroup]="signupForm" (ngSubmit)="signup()">-->
+<!--        <span class="login100-form-avatar">-->
+<!--          <img src="assets/img/team/team-1.jpg" alt="AVATAR">-->
+<!--        </span>-->
+<!--        <div class="form-group">-->
+<!--          <label for="name">Name:</label>-->
+<!--          <input type="text" id="name" formControlName="name" required />-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="username">Username:</label>-->
+<!--          <input type="text" id="username" formControlName="username" required />-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="password">Password:</label>-->
+<!--          <input type="password" id="password" formControlName="password" required />-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="phone">Phone:</label>-->
+<!--          <input type="text" id="phone" formControlName="phone" />-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="address">Address:</label>-->
+<!--          <input type="text" id="address" formControlName="address" />-->
+<!--        </div>-->
+<!--        <button type="submit">Sign Up</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</main>-->
+
+<body>
+<div class="container">
+  <div class="signup-form">
+    <div class="close-btn">
+      <span>&times;</span>
+    </div>
+    <h2>Sign up</h2>
+    <form>
+      <div class="input-group">
+        <label for="username">Your username</label>
+        <input type="text" id="username" placeholder="Enter your username">
+      </div>
+
+      <div class="input-group">
+        <label for="phone">Phone number</label>
+        <div class="phone-input">
+          <select id="country-code">
+            <option value="+1">🇺🇸 +1</option>
+            <!-- Add more country options here -->
+          </select>
+          <input type="tel" id="phone" placeholder="Enter your phone number">
+        </div>
+        <a href="#">Use email instead</a>
+      </div>
+
+      <div class="input-group">
+        <label >What's your date of birth?</label>
+        <div class="birthdate-input">
+          <select id="month">
+            <option>Month</option>
+            <!-- Add month options here -->
+          </select>
+          <select id="day">
+            <option>Day</option>
+            <!-- Add day options here -->
+          </select>
+          <select id="year">
+            <option>Year</option>
+            <!-- Add year options here -->
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="signup-btn">Sign Up</button>
+    </form>
+  </div>
+</div>
+</body>
+
+

@@ -21,4 +21,7 @@ public class HotelDTO {
     private Double averageRating;
     private Double price;
     private Double distance;
+
+    public HotelDTO(String name, CategoryHotel categoryHotel, String location) {
+    }
 }

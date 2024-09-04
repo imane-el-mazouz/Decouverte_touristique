@@ -21,4 +21,10 @@ public class EventDTO {
     private Integer capacity;
     private CategoryEvent category;
     private List<ReservationDTO> reservations;
+
+    public EventDTO(String name, String description, String imgPath, LocalDate date, String location, Integer capacity, CategoryEvent category, Object o) {
+    }
+
+    public EventDTO(String name, CategoryEvent category, String location, LocalDate date) {
+    }
 }
