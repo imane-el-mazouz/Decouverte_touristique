@@ -1,0 +1,37 @@
+<div class="dashboard-container">
+  <h2>Admin Dashboard</h2>
+
+  <div *ngIf="dashboardData; else loading">
+    <p><strong>Total Clients:</strong> {{ dashboardData.totalClients }}</p>
+    <p><strong>Total Events:</strong> {{ dashboardData.totalEvents }}</p>
+    <p><strong>Total Excursions:</strong> {{ dashboardData.totalExcursions }}</p>
+    <p><strong>Total Hotels:</strong> {{ dashboardData.totalHotels }}</p>
+    <p><strong>Total Rooms per Hotel:</strong> {{ dashboardData.totalRoomsPerHotel }}</p>
+    <p><strong>Total Reservations:</strong> {{ dashboardData.totalReservations }}</p>
+  </div>
+
+  <ng-template #loading>
+    <p>Loading dashboard data...</p>
+  </ng-template>
+
+  <h3>Update Admin Info</h3>
+  <form (ngSubmit)="updateAdmin()">
+    <label for="name">Name:</label>
+    <input id="name" [(ngModel)]="admin.name" name="name" type="text" required>
+
+    <label for="email">Email:</label>
+    <input id="email" [(ngModel)]="admin.email" name="email" type="email" required>
+
+    <label for="password">Password:</label>
+    <input id="password" [(ngModel)]="admin.password" name="password" type="password" required>
+
+    <label for="role">Role:</label>
+    <input id="role" [(ngModel)]="admin.role" name="role" type="text" required>
+
+    <button type="submit">Update Admin</button>
+  </form>
+
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+</div>

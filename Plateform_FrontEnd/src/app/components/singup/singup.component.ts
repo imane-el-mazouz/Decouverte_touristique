@@ -29,16 +29,19 @@ export class SignupComponent {
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
+      role: ['Client', Validators.required]
+
     });
   }
 
   signup(): void {
-    const { name, email, password } = this.signupForm.value;
-    let info : Person = this.signupForm.value;
-    this.http.post<{ accessToken: string, user: any }>('http://localhost:8082/api/auth/signup', {
+    const { name, email, password, role } = this.signupForm.value;
+
+    this.http.post<{ accessToken: string, person: any }>('http://localhost:8080/api/auth/signup', {
       name,
       email,
       password,
+      role
     }).subscribe(
       response => {
         this.authService.setToken(response.accessToken);
@@ -49,4 +52,5 @@ export class SignupComponent {
       }
     );
   }
+
 }

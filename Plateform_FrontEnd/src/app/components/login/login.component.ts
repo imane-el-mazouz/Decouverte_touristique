@@ -39,7 +39,7 @@ export class LoginComponent {
       return;
     }
 
-    this.http.post<{ accessToken: string, person: { role: string } }>('http://localhost:8082/api/auth/login', { email, password })
+    this.http.post<{ accessToken: string, person: { role: string } }>('http://localhost:8080/api/auth/login', { email, password })
       .subscribe(
         response => {
           this.authService.setToken(response.accessToken);
