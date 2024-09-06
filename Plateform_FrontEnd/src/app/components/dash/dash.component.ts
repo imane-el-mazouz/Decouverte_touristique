@@ -27,7 +27,6 @@ export class DashComponent implements OnInit{
     this.loadDashboard();
   }
 
-  // Load dashboard data
   loadDashboard(): void {
     this.adminService.getDashboard().subscribe(
       (data: DashAdmin) => {
@@ -41,7 +40,6 @@ export class DashComponent implements OnInit{
     );
   }
 
-  // Update admin information
   updateAdmin(): void {
     this.adminService.updateAdmin(this.admin.id, this.admin).subscribe(
       (updatedAdmin: Admin) => {

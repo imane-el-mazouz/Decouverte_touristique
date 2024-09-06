@@ -8,7 +8,7 @@ import {SearchResults} from "../../model/search/search-results";
 })
 export class SearchService {
 
-  private baseUrl = 'http://localhost:8082/api/search';
+  private baseUrl = 'http://localhost:8080/api/search';
 
   constructor(private http: HttpClient) { }
 
