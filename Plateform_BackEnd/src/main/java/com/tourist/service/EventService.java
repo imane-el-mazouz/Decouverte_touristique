@@ -83,19 +83,31 @@ public class EventService {
         return eventRepository.findEventByCategoryOrLocationOrDate(category, location, LocalDate.from(date));
     }
 
-    private static final String UPLOADED_FOLDER = "src/main/resources/img/";
-
-    public String saveImage(MultipartFile file) throws IOException {
-        String fileName = file.getOriginalFilename();
-        File directory = new File(UPLOADED_FOLDER);
-        if (!directory.exists()) {
-            directory.mkdirs();
-        }
-
-        File serverFile = new File(directory.getAbsolutePath() + File.separator + fileName);
-        file.transferTo(serverFile);
-        return "/img/" + fileName;
+   private static final String UPLOADED_FOLDER = "src/main/resources/img/";
+//
+//    public String saveImage(MultipartFile file) throws IOException {
+//        String fileName = file.getOriginalFilename();
+//        File directory = new File(UPLOADED_FOLDER);
+//        if (!directory.exists()) {
+//            directory.mkdirs();
+//        }
+//
+//        File serverFile = new File(directory.getAbsolutePath() + File.separator + fileName);
+//        file.transferTo(serverFile);
+//        return "/img/" + fileName;
+//    }
+public String saveImage(MultipartFile file) throws IOException {
+    String fileName = file.getOriginalFilename();
+    File directory = new File(UPLOADED_FOLDER);
+    if (!directory.exists()) {
+        directory.mkdirs();
     }
+
+    File serverFile = new File(directory.getAbsolutePath() + File.separator + fileName);
+    file.transferTo(serverFile);
+    return "/img/" + fileName;
+}
+
     public Event getEventById(Long id) {
         return eventRepository.findById(id) . orElseThrow(() -> new EventNotFoundException("not found"));
     }

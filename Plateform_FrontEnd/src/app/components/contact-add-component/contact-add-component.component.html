@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Add Contact</h2>
+  <form (ngSubmit)="addContact()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input id="firstName" [(ngModel)]="contact.firstName" name="firstName" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input id="fullName" [(ngModel)]="contact.fullName" name="fullName" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" [(ngModel)]="contact.email" name="email" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" [(ngModel)]="contact.message" name="message" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Contact</button>
+  </form>
+</div>

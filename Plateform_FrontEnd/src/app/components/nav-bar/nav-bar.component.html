@@ -73,15 +73,17 @@
   </div>
   <ul class="nav-links">
     <li><a [routerLink]="['/home']" fragment="home" routerLinkActive="active">Home</a></li>
-    <li><a href="#">Booking</a></li>
-    <li><a href="#">Destinations</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="">Contact</a></li>
+    <li><a [routerLink]="['/about']" fragment="about" routerLinkActive="active">About Us</a></li>
+
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Excursions</a></li>
+    <li><a href="#">Hotels</a></li>
+    <li><a [routerLink]="['/contact']" fragment="contact" routerLinkActive="active">Contact</a></li>
 
   </ul>
   <div class="search-login-signup">
-    <a href="#" class="login">Log in</a>
-    <a href="#" class="signup">Sign up</a>
+    <a [routerLink]="['/login']" fragment="home" routerLinkActive="active" class="login">Log in</a>
+    <a [routerLink]="['/signup']" fragment="home" routerLinkActive="active" class="signup">Sign up</a>
   </div>
 </nav>
 </body>

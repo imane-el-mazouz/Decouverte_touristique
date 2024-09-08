@@ -8,7 +8,7 @@ import {SearchResults} from "../../model/search/search-results";
 })
 export class SearchService {
 
-  private baseUrl = 'http://localhost:8080/api/search';
+  private apiUrl = 'http://localhost:8085/api/search';
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +27,6 @@ export class SearchService {
       params = params.set('category', category);
     }
 
-    return this.http.get<SearchResults>(this.baseUrl, { params });
+    return this.http.get<SearchResults>(this.apiUrl, { params });
   }
 }

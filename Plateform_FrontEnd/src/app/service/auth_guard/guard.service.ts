@@ -21,7 +21,7 @@ export class GuardService implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     const expectedRole = route.data['expectedRole'] as Role;
-    const userRole = this.authService.getUserRole();
+    const userRole = this.authService.getPersonRole();
 
     if (userRole && userRole === expectedRole) {
       return true;

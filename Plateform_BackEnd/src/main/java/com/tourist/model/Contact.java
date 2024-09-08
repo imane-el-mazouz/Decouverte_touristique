@@ -1,9 +1,6 @@
 package com.tourist.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +21,14 @@ public class Contact {
     private String fullName ;
     private String email ;
     private String message ;
+
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
 
 }

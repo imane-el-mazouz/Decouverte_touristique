@@ -1,0 +1,90 @@
+<div class="container">
+  <h2>Event List, Update & Delete</h2>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Image</th>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Distance</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let event of events">
+      <td>{{ event.name }}</td>
+      <td>{{ event.description }}</td>
+      <td>{{ event.location }}</td>
+      <td>
+        <img [src]="event.imgPath" alt="{{ event.name }}" style="width: 100px; height: auto;" />
+      </td>
+      <td>{{ event.date | date }}</td>
+      <td>{{ event.price | currency }}</td>
+      <td>{{ event.rating }}</td>
+      <td>{{ event.distance }}</td>
+      <td>{{ event.category }}</td>
+      <td>
+        <button class="btn btn-warning" (click)="editEvent(event)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteEvent(event.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Edit form (visible only in edit mode) -->
+  <div *ngIf="editMode" class="edit-form">
+    <h3>Edit Event</h3>
+    <form [formGroup]="eventForm" (ngSubmit)="updateEvent()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input formControlName="name" id="name" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea formControlName="description" id="description" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="file">Upload Image</label>
+        <input type="file" id="file" (change)="onFileChange($event)" />
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input formControlName="location" id="location" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input formControlName="date" id="date" type="date" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="capacity">Capacity</label>
+        <input formControlName="capacity" id="capacity" type="number" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input formControlName="price" id="price" type="number" step="0.01" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <input formControlName="rating" id="rating" type="number" step="0.1" min="0" max="5" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="distance">Distance</label>
+        <input formControlName="distance" id="distance" type="number" step="0.1" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select formControlName="category" id="category" class="form-control">
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </form>
+  </div>
+</div>

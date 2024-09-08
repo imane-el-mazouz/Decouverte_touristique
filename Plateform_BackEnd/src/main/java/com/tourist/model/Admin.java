@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 
 @Entity
 @DiscriminatorValue("Admin")
@@ -11,7 +13,7 @@ import lombok.Setter;
 @Setter
 public class Admin extends Person {
 
-
-
+    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contact> contacts;
 
 }

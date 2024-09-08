@@ -222,16 +222,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  width: 100%;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Abhaya Libre SemiBold;
+  width: 100%;
 }
 
 .hero {
   position: relative;
-  background-image: url('/assets/img/about.jpg');
+  background-image: url('/assets/img/morocco.jpg');
   background-size: cover;
   background-position: center;
   height: 500px;
@@ -239,17 +239,19 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .overlay {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
   padding: 50px;
   border-radius: 15px;
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 58px;
   margin-bottom: 20px;
 }
 
@@ -266,12 +268,15 @@ h1 {
 .input-group {
   display: flex;
   flex-direction: column;
+
 }
 
 .input-group label {
-  font-size: 14px;
+  font-size: 16px;
   color: #555;
   margin-bottom: 5px;
+  display: flex;
+  justify-content: start;
 }
 
 .input-group input {
@@ -285,12 +290,58 @@ h1 {
   background-color: #2E2F83;
   color: #fff;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  padding: 15px;
+  max-width: 100%;
 }
 
 .search-btn:hover {
-  background-color: #1C1C62;
+}
+
+#iconi , #icono , #icona {
+  width: 20px;
+}
+
+
+//about us
+element.style {
+  visibility: visible;
+  animation-delay: 0.3s;
+  animation-name: fadeInUp;
+}
+.row>* {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
+  margin-top: var(--bs-gutter-y);
+}
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+feuille de style user-agent
+div {
+  display: block;
+  unicode-bidi: isolate;
+}
+.g-5, .gy-5 {
+  --bs-gutter-y: 3rem;
+}
+.g-5, .gx-5 {
+  --bs-gutter-x: 3rem;
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y)* -1);
+  margin-right: calc(var(--bs-gutter-x) / -2);
+  margin-left: calc(var(--bs-gutter-x) / -2);
 }

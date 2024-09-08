@@ -7,6 +7,7 @@ import com.tourist.enums.CategoryEvent;
 import com.tourist.exception.EventAlreadyExistsException;
 import com.tourist.model.Event;
 import com.tourist.service.EventService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -106,4 +108,23 @@ public class EventController {
         List<Event> events = eventService.getAllEvents();
         return ResponseEntity.ok(events);
     }
+
+//    @PostMapping("/upload")
+//    @PreAuthorize("hasRole('Admin')")
+//
+//    public String uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
+//        return eventService.saveImage(file);
+//    }
+@PostMapping("/upload")
+public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) {
+    try {
+        String imageUrl = eventService.saveImage(file);
+        return ResponseEntity.ok(Collections.singletonMap("imageUrl", imageUrl));
+    } catch (IOException e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(Collections.singletonMap("error", "File upload failed"));
+    }
+}
+
+
 }

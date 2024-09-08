@@ -6,6 +6,10 @@ import {ClientDashComponent} from "./components/client-dash/client-dash.componen
 import {SearchBarComponent} from "./components/search-bar/search-bar.component";
 import {SignupComponent} from "./components/singup/singup.component";
 import {DashComponent} from "./components/dash/dash.component";
+import {ContactPageComponent} from "./components/contact-page/contact-page.component";
+import {ContactAddComponent} from "./components/contact-add-component/contact-add-component.component";
+import {EventFormComponentComponent} from "./components/event/event-form-component/event-form-component.component";
+import {EventListComponentComponent} from "./components/event/event-list-component/event-list-component.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,6 +19,10 @@ export const routes: Routes = [
   { path: 'dashboard', component: AdminComponent },
   { path: 'search', component: SearchBarComponent },
   { path: 'info', component: DashComponent },
+  { path: 'contacts', component: ContactPageComponent },
+  { path: 'addContact', component: ContactAddComponent },
+  { path: 'addEvent', component: EventFormComponentComponent },
+  { path: 'events', component: EventListComponentComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 
 

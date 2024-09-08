@@ -26,4 +26,7 @@ public class Client extends Person {
     @JsonIgnore
     private List<Review> reviews ;
 
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contact> contacts;
+
 }
