@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Add Excursion</h2>
+  <form [formGroup]="excursionForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="img">Image</label>
+      <input id="img" type="file" (change)="onFileChange($event)" />
+    </div>
+    <div class="form-group">
+      <label for="dateTime">Date and Time</label>
+      <input id="dateTime" type="datetime-local" formControlName="dateTime" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input id="location" formControlName="location" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="capacity">Capacity</label>
+      <input id="capacity" formControlName="capacity" type="number" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Excursion</button>
+  </form>
+</div>

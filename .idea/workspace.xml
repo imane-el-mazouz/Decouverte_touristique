@@ -5,49 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e3fd31-8393-44c8-8caf-2d681d6d67dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ContactController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/ContactMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/ContactRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/ContactService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V1__create_person_and_roles_and_contact_table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V2__Add_tradition_table_and_blog_tables.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V3__Add_contact_table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V4__Add_dash_admin_table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V5__Add_review_table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V6__Create_room_and_hotel_and_reservation_tables.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V7__Add_image_table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V8__add_client_id_to_contact.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/contactDTO/contact.dto.interface.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/contactDTO/contact.dto.interface.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/contact/contact.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/contact/contact.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/contact-service/contact-service.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/contact-service/contact-service.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d500d097-ac6a-4187-be6a-85c173988ed9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d500d097-ac6a-4187-be6a-85c173988ed9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V10__Create_Excursion_Table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/migration/V9__Create_event_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/HotelFilterDTO/dto-filter-hotel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/HotelFilterDTO/dto-filter-hotelspec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/EventController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/PersonRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/EventService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/MyConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/config/MyConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ExcursionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/ExcursionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/ExcursionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/ExcursionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/ExcursionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/ExcursionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/home-page/home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/home-page/home-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/home-page/home-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/home-page/home-page.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/nav-bar/nav-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/nav-bar/nav-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/singup/singup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/singup/singup.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/eventDTO/dto-event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/eventDTO/dto-event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/auth_guard/guard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/auth_guard/guard.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-form-component/event-form-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-form-component/event-form-component.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-form-component/event-form-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-form-component/event-form-component.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-list-component/event-list-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-list-component/event-list-component.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-list-component/event-list-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-list-component/event-list-component.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/blogDTO/dto-blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/blogDTO/dto-blog.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/excursionDTO/dto-excursion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/excursionDTO/dto-excursion.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/hotelDTO/dto-hotel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/hotelDTO/dto-hotel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/roomDTO/dto-room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/roomDTO/dto-room.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/traditionDTO/dto-tradition.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/traditionDTO/dto-tradition.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/room/room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/room/room.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/tradition/tradition.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/tradition/tradition.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/event-service/event-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/event-service/event-service.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/login_service/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/login_service/login.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/search/search-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/search/search-service.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/assets/img/about.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/assets/img/about2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/excursion-service/excursion-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/excursion-service/excursion-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/hotel-service/hotel-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/hotel-service/hotel-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +105,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Dell PC/Desktop/Decouverte_touristique/Plateform_FrontEnd/src/app/components/contact ",
+    "last_opened_file_path": "C:/Users/Dell PC/Desktop/Decouverte_touristique/Plateform_FrontEnd/src/app/dto",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -140,11 +121,11 @@
       <recent name="com.tourist.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\dto" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\contact " />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\dto\contactDTO" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\model\contact" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\service\contact-service" />
-      <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\dto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\event" />
@@ -207,7 +188,7 @@
       <workItem from="1725638203414" duration="526000" />
       <workItem from="1725641822127" duration="982000" />
       <workItem from="1725662415666" duration="14342000" />
-      <workItem from="1725752950519" duration="7333000" />
+      <workItem from="1725752950519" duration="21949000" />
     </task>
     <servers />
   </component>
@@ -229,15 +210,21 @@
           <properties field="role" class="com.tourist.model.Person" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/model/Excursion.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="4" />
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/SearchService.java</url>
+          <line>24</line>
+          <properties field="hotelRepository" class="com.tourist.service.SearchService" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/BlogService.java</url>
           <line>30</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/HotelService.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

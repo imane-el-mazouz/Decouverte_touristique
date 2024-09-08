@@ -4,12 +4,7 @@ import {Image} from "../../model/image/image";
 import {Hotel} from "../../model/hotel/hotel";
 
 
-export class DtoRoom {
-  id !: number;
-  type: Type;
-  price: number;
-  available: boolean;
-  images: Image[];
-  hotel: Hotel;
-  reservations: Reservation[];
+export class DtoFilterHotel {
+  minRating !: number;
+   maxRating !: number;
 }

@@ -10,6 +10,12 @@ import {ContactPageComponent} from "./components/contact-page/contact-page.compo
 import {ContactAddComponent} from "./components/contact-add-component/contact-add-component.component";
 import {EventFormComponentComponent} from "./components/event/event-form-component/event-form-component.component";
 import {EventListComponentComponent} from "./components/event/event-list-component/event-list-component.component";
+import {
+  ListExcursionsComponentComponent
+} from "./components/excursion/list-excursions-component/list-excursions-component.component";
+import {
+  AddExcursionComponentComponent
+} from "./components/excursion/add-excursion-component/add-excursion-component.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,6 +29,8 @@ export const routes: Routes = [
   { path: 'addContact', component: ContactAddComponent },
   { path: 'addEvent', component: EventFormComponentComponent },
   { path: 'events', component: EventListComponentComponent },
+  { path: 'excursions', component: ListExcursionsComponentComponent },
+  { path: 'addExcursion', component: AddExcursionComponentComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 
 

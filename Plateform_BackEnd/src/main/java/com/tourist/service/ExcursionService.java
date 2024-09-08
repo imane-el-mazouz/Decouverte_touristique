@@ -22,7 +22,7 @@ public class ExcursionService {
     @Autowired
     private ExcursionRepository excursionRepository;
 
-    private static final String IMAGE_DIRECTORY = "/path/to/your/image/directory";
+    private static final String IMAGE_DIRECTORY = "/path/to/Plateform_FrontEnd/src/assets/img";
 
     public Excursion saveExcursion(ExcursionDTO excursionDTO) throws IOException {
         MultipartFile imgFile = excursionDTO.getImg();
@@ -31,7 +31,7 @@ public class ExcursionService {
         Excursion excursion = new Excursion();
         excursion.setName(excursionDTO.getName());
         excursion.setDescription(excursionDTO.getDescription());
-        excursion.setImgPath(imgPath);  // Save the image path
+        excursion.setImgPath(imgPath);
         excursion.setDateTime(excursionDTO.getDateTime());
         excursion.setLocation(excursionDTO.getLocation());
         excursion.setCapacity(excursionDTO.getCapacity());
@@ -39,17 +39,33 @@ public class ExcursionService {
         return excursionRepository.save(excursion);
     }
 
-    private String saveImage(MultipartFile imgFile) throws IOException {
-        if (imgFile == null || imgFile.isEmpty()) {
-            return null;
-        }
-
-        String imgName = System.currentTimeMillis() + "_" + imgFile.getOriginalFilename();
-        Path path = Paths.get(IMAGE_DIRECTORY, imgName);
-        Files.write(path, imgFile.getBytes());
-
-        return imgName;
+//    private String saveImage(MultipartFile imgFile) throws IOException {
+//        if (imgFile == null || imgFile.isEmpty()) {
+//            return null;
+//        }
+//
+//        String imgName = System.currentTimeMillis() + "_" + imgFile.getOriginalFilename();
+//        Path path = Paths.get(IMAGE_DIRECTORY, imgName);
+//        Files.write(path, imgFile.getBytes());
+//
+//        return imgName;
+//    }
+public String saveImage(MultipartFile imgFile) throws IOException {
+    if (imgFile == null || imgFile.isEmpty()) {
+        return null;
     }
+    Path directoryPath = Paths.get(IMAGE_DIRECTORY);
+    if (!Files.exists(directoryPath)) {
+        Files.createDirectories(directoryPath);
+    }
+
+    String imgName = System.currentTimeMillis() + "_" + imgFile.getOriginalFilename();
+    Path path = directoryPath.resolve(imgName);
+    Files.write(path, imgFile.getBytes());
+
+    return imgName;
+}
+
 
     public List<Excursion> getAllExcursions() {
         return excursionRepository.findAll();
@@ -66,6 +82,7 @@ public class ExcursionService {
             return getAllExcursions();
         }
     }
+
     public List<Excursion> filterExcursionsByRating(Long minRating, Long maxRating) {
         return excursionRepository.findByRatingBetween(minRating, maxRating);
     }
@@ -87,11 +104,11 @@ public class ExcursionService {
 
         return excursionRepository.save(excursion);
     }
+
     public void deleteExcursion(Long id) {
         Excursion excursion = getExcursionById(id);
         excursionRepository.delete(excursion);
     }
-
-
-
 }
+
+

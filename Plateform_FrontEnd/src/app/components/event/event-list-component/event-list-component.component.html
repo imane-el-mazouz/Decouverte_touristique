@@ -4,6 +4,7 @@
   <table class="table table-striped">
     <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Description</th>
       <th>Location</th>
@@ -18,20 +19,21 @@
     </thead>
     <tbody>
     <tr *ngFor="let event of events">
+      <td>{{ event.id }}</td>
       <td>{{ event.name }}</td>
       <td>{{ event.description }}</td>
       <td>{{ event.location }}</td>
       <td>
         <img [src]="event.imgPath" alt="{{ event.name }}" style="width: 100px; height: auto;" />
       </td>
-      <td>{{ event.date | date }}</td>
+      <td>{{ event.date | date:'shortDate' }}</td>
       <td>{{ event.price | currency }}</td>
       <td>{{ event.rating }}</td>
       <td>{{ event.distance }}</td>
       <td>{{ event.category }}</td>
       <td>
         <button class="btn btn-warning" (click)="editEvent(event)">Edit</button>
-        <button class="btn btn-danger" (click)="deleteEvent(event.id)">Delete</button>
+        <button class="btn btn-danger" (click)="onDeleteEvent(event.id)">Delete</button>
       </td>
     </tr>
     </tbody>
@@ -51,7 +53,7 @@
       </div>
       <div class="form-group">
         <label for="file">Upload Image</label>
-        <input type="file" id="file" (change)="onFileChange($event)" />
+        <input type="file" id="file" (change)="onFileChange($event)" class="form-control" />
       </div>
       <div class="form-group">
         <label for="location">Location</label>

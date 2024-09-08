@@ -4,6 +4,7 @@ import com.tourist.dto.ExcursionDTO;
 import com.tourist.model.Excursion;
 import com.tourist.service.ExcursionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,23 @@ public class ExcursionController {
 
     @PostMapping("/add")
     @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<Excursion> addExcursion(@ModelAttribute ExcursionDTO excursionDTO) throws IOException {
+//    public ResponseEntity<Excursion> addExcursion(@ModelAttribute ExcursionDTO excursionDTO) throws IOException {
+//        Excursion excursion = excursionService.saveExcursion(excursionDTO);
+//        return ResponseEntity.ok(excursion);
+//    }
+    public ResponseEntity<Excursion> addExcursion(
+            @RequestParam("name") String name,
+            @RequestParam("description") String description,
+            @RequestParam("dateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateTime,
+            @RequestParam("location") String location,
+            @RequestParam("capacity") Integer capacity,
+            @RequestParam("rating") Long rating,
+            @RequestParam(value = "img", required = false) MultipartFile img
+    ) throws IOException {
+        ExcursionDTO excursionDTO = new ExcursionDTO(name, description, img != null ? img : null, dateTime, location, capacity, rating);
+        if (img != null) {
+            excursionService.saveImage(img);
+        }
         Excursion excursion = excursionService.saveExcursion(excursionDTO);
         return ResponseEntity.ok(excursion);
     }

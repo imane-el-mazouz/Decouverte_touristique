@@ -3,18 +3,18 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { EventService } from '../../../service/event-service/event-service.service';
 import { DtoEvent } from '../../../dto/eventDTO/dto-event';
 import { CategoryEvent } from '../../../enums/category-event';
-import { CurrencyPipe, DatePipe, NgForOf, NgIf } from "@angular/common";
+import { CurrencyPipe, DatePipe, NgForOf, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-event-list-component',
   templateUrl: './event-list-component.component.html',
   standalone: true,
   imports: [
-    NgForOf,
-    CurrencyPipe,
     DatePipe,
+    CurrencyPipe,
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    NgForOf
   ],
   styleUrls: ['./event-list-component.component.css']
 })
@@ -48,6 +48,7 @@ export class EventListComponentComponent implements OnInit {
     this.eventService.getAllEvents().subscribe({
       next: (events) => {
         this.events = events;
+        console.log('Loaded events:', this.events);
       },
       error: (err) => {
         console.error('Error loading events', err);
@@ -63,12 +64,18 @@ export class EventListComponentComponent implements OnInit {
 
   updateEvent(): void {
     if (this.selectedEvent && this.eventForm.valid) {
-      const updatedEvent: DtoEvent = { ...this.selectedEvent, ...this.eventForm.value };
+      const formValues = this.eventForm.value;
+      const updatedEvent: DtoEvent = { ...this.selectedEvent, ...formValues };
+
+      // Ensure date is an instance of Date
+      if (typeof updatedEvent.date === 'string') {
+        updatedEvent.date = new Date(updatedEvent.date);
+      }
 
       const formData = new FormData();
       formData.append('name', updatedEvent.name);
       formData.append('description', updatedEvent.description);
-      formData.append('date', updatedEvent.date.toISOString());
+      formData.append('date', updatedEvent.date.toISOString()); // Ensure date is converted to ISO string
       formData.append('location', updatedEvent.location);
       formData.append('capacity', updatedEvent.capacity.toString());
       formData.append('price', updatedEvent.price.toString());
@@ -91,9 +98,33 @@ export class EventListComponentComponent implements OnInit {
     }
   }
 
+
+  //
+  // deleteEvent(eventId: number): void {
+  //   if (!eventId) {
+  //     console.error("Event ID is invalid:", eventId);
+  //     return;
+  //   }
+  //
+  //   this.eventService.deleteEvent(eventId).subscribe({
+  //     next: () => {
+  //       console.log(`Event ${eventId} deleted successfully.`);
+  //       this.loadEvents();
+  //     },
+  //     error: (err) => {
+  //       console.error('Error deleting event', err);
+  //     }
+  //   });
+  // }
   deleteEvent(eventId: number): void {
+    if (!eventId) {
+      console.error("Event ID is invalid:", eventId);
+      return;
+    }
+
     this.eventService.deleteEvent(eventId).subscribe({
       next: () => {
+        console.log(`Event ${eventId} deleted successfully.`);
         this.loadEvents();
       },
       error: (err) => {
@@ -114,5 +145,20 @@ export class EventListComponentComponent implements OnInit {
     if (file) {
       this.fileToUpload = file;
     }
+  }
+
+  onDeleteEvent(id: number): void {
+    if (id === undefined || id === null) {
+      console.error('Invalid event ID');
+      return;
+    }
+    this.eventService.deleteEvent(id).subscribe(
+      () => {
+        this.loadEvents();
+      },
+      error => {
+        console.error('Error deleting event:', error);
+      }
+    );
   }
 }

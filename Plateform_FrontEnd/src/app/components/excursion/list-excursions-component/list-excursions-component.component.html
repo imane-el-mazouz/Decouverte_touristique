@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Excursions List</h2>
+
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input id="date" type="date" formControlName="date" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input id="location" formControlName="location" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+  <!-- Filter Form -->
+  <form [formGroup]="filterForm" (ngSubmit)="onFilter()">
+    <div class="form-group">
+      <label for="minRating">Min Rating</label>
+      <input id="minRating" formControlName="minRating" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="maxRating">Max Rating</label>
+      <input id="maxRating" formControlName="maxRating" type="number" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+  </form>
+
+  <!-- Excursions Table -->
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>imgPath</th>
+      <th>Date and Time</th>
+      <th>Location</th>
+      <th>Capacity</th>
+      <th>rating</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let excursion of excursions">
+      <td>{{ excursion.name }}</td>
+      <td>{{ excursion.description }}</td>
+      <td>{{ excursion.imgPath }}</td>
+      <td>{{ excursion.dateTime | date:'short' }}</td>
+      <td>{{ excursion.location }}</td>
+      <td>{{ excursion.capacity }}</td>
+      <td>{{ excursion.rating }}</td>
+      <td>
+        <button (click)="onUpdate(excursion.id, excursion)" class="btn btn-warning">Update</button>
+        <button (click)="onDelete(excursion.id)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>

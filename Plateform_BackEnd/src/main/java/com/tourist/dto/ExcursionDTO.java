@@ -18,7 +18,7 @@ import java.util.List;
 public class ExcursionDTO {
     private String name;
     private String description;
-    private MultipartFile img;  // Updated to handle image file
+    private MultipartFile img;
     private LocalDateTime dateTime;
     private String location;
     private Integer capacity;
@@ -31,5 +31,21 @@ public class ExcursionDTO {
 
 
     public ExcursionDTO(String name, String location, LocalDateTime dateTime) {
+        this.name = name ;
+        this.location= location;
+        this.dateTime = dateTime;
     }
+
+
+
+    public ExcursionDTO(String name, String description, MultipartFile img, LocalDateTime dateTime, String location, Integer capacity, Long rating) {
+        this.name = name;
+        this.description = description;
+        this.img = img;
+        this.dateTime = dateTime;
+        this.location = location;
+        this.capacity = capacity;
+        this.rating = rating;
+    }
+
 }

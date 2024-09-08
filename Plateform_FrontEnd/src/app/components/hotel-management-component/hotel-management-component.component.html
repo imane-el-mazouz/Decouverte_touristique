@@ -1,0 +1,74 @@
+<div class="hotel-management">
+
+  <!-- Barre de recherche et de filtrage -->
+  <div class="search-filter">
+    <input type="text" placeholder="Search hotels" [(ngModel)]="searchQuery" (ngModelChange)="searchHotels()" />
+    <input type="text" placeholder="Category" [(ngModel)]="categoryFilter" />
+    <input type="text" placeholder="Location" [(ngModel)]="locationFilter" />
+    <button (click)="filterHotels()">Filter</button>
+  </div>
+
+  <!-- Liste des hôtels -->
+  <div *ngIf="!selectedHotel">
+    <h2>Hotel List</h2>
+    <ul>
+      <li *ngFor="let hotel of hotels">
+        <span>{{ hotel.name }}</span>
+        <button (click)="viewHotelDetails(hotel.idHotel)">View Details</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Détails de l'hôtel et gestion des chambres -->
+  <div *ngIf="selectedHotel">
+    <h2>{{ selectedHotel.name }}</h2>
+    <p>{{ selectedHotel.description }}</p>
+    <button (click)="showAddRoomForm()">Add Room</button>
+    <button (click)="showHotelList()">Back to Hotel List</button>
+
+    <!-- Liste des chambres -->
+    <div *ngIf="rooms">
+      <h3>Rooms</h3>
+      <ul>
+        <li *ngFor="let room of rooms">
+          <span>{{ room.type }} - ${{ room.price }}</span>
+          <button (click)="editRoom(room.id)">Edit</button>
+          <button (click)="deleteRoom(room.id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Formulaire d'ajout/édition de chambre -->
+  <div *ngIf="showRoomForm">
+    <h3>{{ editRoomId ? 'Edit Room' : 'Add Room' }}</h3>
+    <form (ngSubmit)="addRoom()">
+      <label for="type">Type:</label>
+      <input id="type" [(ngModel)]="newRoom.type" name="type" required />
+
+      <label for="price">Price:</label>
+      <input id="price" [(ngModel)]="newRoom.price" name="price" type="number" required />
+
+      <button type="submit">{{ editRoomId ? 'Update Room' : 'Add Room' }}</button>
+    </form>
+    <button (click)="showRoomForm = false">Cancel</button>
+  </div>
+
+  <!-- Formulaire d'ajout d'hôtel -->
+  <div *ngIf="showHotelForm">
+    <h3>Add Hotel</h3>
+    <form (ngSubmit)="addHotel()">
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="newHotel.name" name="name" required />
+
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="newHotel.description" name="description"></textarea>
+
+      <label for="location">Location:</label>
+      <input id="location" [(ngModel)]="newHotel.location" name="location" required />
+
+      <button type="submit">Add Hotel</button>
+    </form>
+    <button (click)="showHotelForm = false">Cancel</button>
+  </div>
+</div>
