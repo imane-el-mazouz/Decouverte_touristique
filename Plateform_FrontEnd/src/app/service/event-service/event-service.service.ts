@@ -110,6 +110,8 @@ export class EventService {
     return this.http.post<string>(`${this.apiUrl}/upload`, formData);
   }
 
+
+
   getAllEvents(): Observable<DtoEvent[]> {
     return this.http.get<DtoEvent[]>(`${this.apiUrl}/all`, { headers: this.getHeaders() });
   }

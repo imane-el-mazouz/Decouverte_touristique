@@ -6,10 +6,10 @@ import {Hotel} from "../../model/hotel/hotel";
 
 export class DtoRoom {
   id !: number;
-  type: Type;
-  price: number;
-  available: boolean;
-  images: Image[];
-  hotel: Hotel;
-  reservations: Reservation[];
+  type !: Type;
+  price !: number;
+  available !: boolean;
+  images !: Image[];
+  hotel !: Hotel;
+  reservations: Reservation[] = [];
 }

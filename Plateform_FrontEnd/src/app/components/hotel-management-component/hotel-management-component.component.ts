@@ -1,26 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { HotelService } from '../services/hotel.service';
-import { HotelDTO } from '../model/hotel.dto';
-import { RoomDTO } from '../model/room.dto';
-import { HotelFilterDTO } from '../model/hotel-filter.dto';
+import { DtoHotel } from "../../dto/hotelDTO/dto-hotel";
+import { DtoRoom } from "../../dto/roomDTO/dto-room";
+import { HotelServiceService } from "../../service/hotel-service/hotel-service.service";
+import { DtoFilterHotel } from "../../dto/HotelFilterDTO/dto-filter-hotel";
+import {FormsModule} from "@angular/forms";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-hotel-management',
-  templateUrl: './hotel-management.component.html',
-  styleUrls: ['./hotel-management.component.scss']
+  templateUrl: './hotel-management-component.component.html',
+  standalone: true,
+  imports: [
+    FormsModule,
+    NgForOf,
+    NgIf
+  ],
+  styleUrls: ['./hotel-management-component.component.css']
 })
 export class HotelManagementComponent implements OnInit {
-  hotels: HotelDTO[] = [];
-  selectedHotel?: HotelDTO;
-  rooms: RoomDTO[] = [];
-  newHotel: HotelDTO = { name: '', description: '', location: '', categoryHotel: '', averageRating: 0, price: 0, distance: 0 };
-  newRoom: RoomDTO = { type: '', price: 0, available: true };
+  hotels: DtoHotel[] = [];
+  selectedHotel?: DtoHotel;
+  rooms: DtoRoom[] = [];
+  newHotel = {
+    distance: 0,
+    price: 0,
+    averageRating: 0,
+    name: '',
+    description: '',
+    location: ''
+  };
+  newRoom = {
+    price: 0,
+    available: true,
+    type: ''  // Added type field here
+  };
   searchQuery: string = '';
+  minRating?: number;
+  maxRating?: number;
   showRoomForm: boolean = false;
   showHotelForm: boolean = false;
   editRoomId?: number;
+  categoryFilter: string = '';
+  locationFilter: string = '';
+  private roomImages: File[] = [];
 
-  constructor(private hotelService: HotelService) { }
+  constructor(private hotelService: HotelServiceService) { }
 
   ngOnInit(): void {
     this.getAllHotels();
@@ -39,10 +63,12 @@ export class HotelManagementComponent implements OnInit {
     });
   }
 
-  getRooms(hotelId: number): void {
-    this.hotelService.listRoomsByHotelId(hotelId).subscribe(data => {
-      this.rooms = data;
-    });
+  getRooms(hotelId: number | undefined): void {
+    if (hotelId) {
+      this.hotelService.listRoomsByHotelId(hotelId).subscribe(data => {
+        this.rooms = data;
+      });
+    }
   }
 
   showHotelList(): void {
@@ -51,32 +77,43 @@ export class HotelManagementComponent implements OnInit {
 
   showAddRoomForm(): void {
     this.showRoomForm = true;
-    this.editRoomId = undefined; // Clear edit mode
+    this.editRoomId = undefined;
   }
 
   addRoom(): void {
     if (this.selectedHotel) {
       if (this.editRoomId) {
+        // Update existing room
         this.hotelService.updateRoom(this.editRoomId, this.newRoom).subscribe(() => {
-          this.getRooms(this.selectedHotel.idHotel);
-          this.showRoomForm = false;
-          this.newRoom = { type: '', price: 0, available: true };
-          this.editRoomId = undefined; // Clear edit mode
+          this.refreshRoomData();
+          this.resetRoomForm();
         });
       } else {
-        this.hotelService.addRoomToHotel(this.selectedHotel.idHotel, this.newRoom).subscribe(() => {
-          this.getRooms(this.selectedHotel.idHotel);
-          this.showRoomForm = false;
-          this.newRoom = { type: '', price: 0, available: true };
+        // Add new room with images
+        this.hotelService.addRoomToHotel(this.selectedHotel.id, this.newRoom, this.roomImages).subscribe(() => {
+          this.refreshRoomData();
+          this.resetRoomForm();
         });
       }
     }
   }
 
+// Helper functions to refresh data and reset form
+  refreshRoomData(): void {
+    this.getRooms(this.selectedHotel?.id);
+  }
+
+  resetRoomForm(): void {
+    this.showRoomForm = false;
+    this.newRoom = { price: 0, available: true, type: '' };
+    this.editRoomId = undefined;
+    this.roomImages = []; // Reset the images if you're handling them
+  }
+
   deleteRoom(roomId: number): void {
     if (this.selectedHotel) {
       this.hotelService.deleteRoom(roomId).subscribe(() => {
-        this.getRooms(this.selectedHotel.idHotel);
+        this.getRooms(this.selectedHotel?.id);
       });
     }
   }
@@ -93,13 +130,17 @@ export class HotelManagementComponent implements OnInit {
     this.hotelService.addHotel(this.newHotel).subscribe(() => {
       this.getAllHotels();
       this.showHotelForm = false;
-      this.newHotel = { name: '', description: '', location: '', categoryHotel: '', averageRating: 0, price: 0, distance: 0 };
+      this.newHotel = { name: '', description: '', location: '', averageRating: 0, price: 0, distance: 0 };
     });
   }
 
   searchHotels(): void {
-    if (this.searchQuery) {
-      const filter: HotelFilterDTO = { search: this.searchQuery };
+    if (this.searchQuery.trim()) {
+      const filter: DtoFilterHotel = {
+        search: this.searchQuery.trim(),
+        minRating: this.minRating,
+        maxRating: this.maxRating
+      };
       this.hotelService.filterHotels(filter).subscribe(data => {
         this.hotels = data;
       });
@@ -109,11 +150,14 @@ export class HotelManagementComponent implements OnInit {
   }
 
   filterHotels(): void {
-    if (this.categoryFilter || this.locationFilter) {
-      const filter: HotelFilterDTO = {
-        category: this.categoryFilter,
-        location: this.locationFilter
-      };
+    const filter: DtoFilterHotel = {
+      category: this.categoryFilter.trim(),
+      location: this.locationFilter.trim(),
+      minRating: this.minRating,
+      maxRating: this.maxRating
+    };
+
+    if (filter.category || filter.location || filter.minRating !== undefined || filter.maxRating !== undefined) {
       this.hotelService.filterHotels(filter).subscribe(data => {
         this.hotels = data;
       });

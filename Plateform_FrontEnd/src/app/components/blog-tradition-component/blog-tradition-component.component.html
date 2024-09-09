@@ -1,43 +1,84 @@
+<!--<div>-->
+<!--  <h2>Manage Traditions and Blogs</h2>-->
+
+<!--  <div>-->
+<!--    <h3>Create Tradition</h3>-->
+<!--    <form (ngSubmit)="createTradition()">-->
+<!--      <label for="city">City:</label>-->
+<!--      <input id="city" [(ngModel)]="newTradition.city" name="city" required />-->
+
+<!--      <label for="description">Description:</label>-->
+<!--      <input id="description" [(ngModel)]="newTradition.description" name="description" />-->
+
+<!--      <button type="submit">Create Tradition</button>-->
+<!--    </form>-->
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <h3>Add Blog to Tradition</h3>-->
+<!--    <form (ngSubmit)="addBlog()">-->
+<!--      <label for="traditionSelect">Select Tradition:</label>-->
+<!--      <select id="traditionSelect" [(ngModel)]="selectedTraditionId" name="traditionSelect" (change)="loadBlogs($event.target.value)">-->
+<!--        <option *ngFor="let tradition of traditions" [value]="tradition.id">{{ tradition.city }}</option>-->
+<!--      </select>-->
+
+<!--      <label for="blogName">Blog Name:</label>-->
+<!--      <input id="blogName" [(ngModel)]="newBlog.name" name="blogName" required />-->
+
+<!--      <label for="blogDescription">Blog Description:</label>-->
+<!--      <input id="blogDescription" [(ngModel)]="newBlog.description" name="blogDescription" />-->
+
+<!--      <button type="submit">Add Blog</button>-->
+<!--    </form>-->
+<!--  </div>-->
+
+<!--  <div *ngIf="selectedTraditionId !== null">-->
+<!--    <h3>Blogs for Tradition</h3>-->
+<!--    <ul>-->
+<!--      <li *ngFor="let blog of newBlog.tradition?.blogs">-->
+<!--        <strong>{{ blog.name }}</strong>: {{ blog.description }}-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</div>-->
 <div>
-  <h2>Manage Traditions and Blogs</h2>
+  <h2>Traditions</h2>
+  <ul>
+    <li *ngFor="let tradition of traditions" (click)="onSelectTradition(tradition.id)">
+      {{ tradition.city }} - {{ tradition.description }}
+    </li>
+  </ul>
 
-  <div>
-    <h3>Create Tradition</h3>
-    <form (ngSubmit)="createTradition()">
-      <label for="city">City:</label>
-      <input id="city" [(ngModel)]="newTradition.city" name="city" required />
+  <h3>Create New Tradition</h3>
+  <form (ngSubmit)="createTradition()">
+    <label>
+      City:
+      <input type="text" [(ngModel)]="newTradition.city" name="city" required>
+    </label>
+    <label>
+      Description:
+      <input type="text" [(ngModel)]="newTradition.description" name="description" required>
+    </label>
+    <button type="submit">Create Tradition</button>
+  </form>
 
-      <label for="description">Description:</label>
-      <input id="description" [(ngModel)]="newTradition.description" name="description" />
+  <h3>Blogs for Selected Tradition</h3>
+  <ul *ngIf="selectedTraditionId">
+    <li *ngFor="let blog of blogs">
+      {{ blog.name }} - {{ blog.description }}
+    </li>
+  </ul>
 
-      <button type="submit">Create Tradition</button>
-    </form>
-  </div>
-
-  <div>
-    <h3>Add Blog to Tradition</h3>
-    <form (ngSubmit)="addBlog()">
-      <label for="traditionSelect">Select Tradition:</label>
-      <select id="traditionSelect" [(ngModel)]="selectedTraditionId" name="traditionSelect" (change)="loadBlogs($event.target.value)">
-        <option *ngFor="let tradition of traditions" [value]="tradition.id">{{ tradition.city }}</option>
-      </select>
-
-      <label for="blogName">Blog Name:</label>
-      <input id="blogName" [(ngModel)]="newBlog.name" name="blogName" required />
-
-      <label for="blogDescription">Blog Description:</label>
-      <input id="blogDescription" [(ngModel)]="newBlog.description" name="blogDescription" />
-
-      <button type="submit">Add Blog</button>
-    </form>
-  </div>
-
-  <div *ngIf="selectedTraditionId !== null">
-    <h3>Blogs for Tradition</h3>
-    <ul>
-      <li *ngFor="let blog of newBlog.tradition?.blogs">
-        <strong>{{ blog.name }}</strong>: {{ blog.description }}
-      </li>
-    </ul>
-  </div>
+  <h3>Add New Blog</h3>
+  <form (ngSubmit)="addBlogToTradition()">
+    <label>
+      Name:
+      <input type="text" [(ngModel)]="newBlog.name" name="name" required>
+    </label>
+    <label>
+      Description:
+      <input type="text" [(ngModel)]="newBlog.description" name="description" required>
+    </label>
+    <button type="submit">Add Blog</button>
+  </form>
 </div>

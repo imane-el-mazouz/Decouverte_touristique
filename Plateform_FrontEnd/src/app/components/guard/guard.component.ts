@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './guard.component.scss'
 })
 export class GuardComponent {
-
 }

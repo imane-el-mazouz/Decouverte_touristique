@@ -9,8 +9,8 @@ export class Room {
   price!: number;
   available!: boolean;
   images: Image[] = [];
-  hotel: Hotel;
-  reservations: Reservation[];
+  hotel !: Hotel ;
+  reservations: Reservation[] = [];
 
 
 }

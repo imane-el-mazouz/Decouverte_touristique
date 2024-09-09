@@ -5,20 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e3fd31-8393-44c8-8caf-2d681d6d67dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/AdminMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/BlogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/ClientMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/EventMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/ExcursionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/PersonMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/ReservationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/ReviewMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/RoomMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/mapper/TraditionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d500d097-ac6a-4187-be6a-85c173988ed9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d500d097-ac6a-4187-be6a-85c173988ed9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/assets/img/qrcode.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/VisitorDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/blog-tradition-component/blog-tradition-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/blog-tradition-component/blog-tradition-component.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/blog-tradition-component/blog-tradition-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/blog-tradition-component/blog-tradition-component.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/guard/guard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/guard/guard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/singup/singup.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/singup/singup.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/HotelFilterDTO/dto-filter-hotel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/HotelFilterDTO/dto-filter-hotel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/roomDTO/dto-room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/roomDTO/dto-room.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/room/room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/room/room.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/blog-service/blog-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/blog-service/blog-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/event-service/event-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/event-service/event-service.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/hotel-service/hotel-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/hotel-service/hotel-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +102,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Dell PC/Desktop/Decouverte_touristique/Plateform_FrontEnd/src/app/dto",
+    "last_opened_file_path": "C:/Users/user/Desktop/Decouverte_touristique/Plateform_FrontEnd/src/assets/img",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -113,11 +118,11 @@
       <recent name="com.tourist.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\assets\img" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\dto" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\contact " />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\dto\contactDTO" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\model\contact" />
-      <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\service\contact-service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\event" />
@@ -181,7 +186,7 @@
       <workItem from="1725641822127" duration="982000" />
       <workItem from="1725662415666" duration="14342000" />
       <workItem from="1725752950519" duration="21949000" />
-      <workItem from="1725871241957" duration="1474000" />
+      <workItem from="1725871241957" duration="16919000" />
     </task>
     <servers />
   </component>
@@ -218,6 +223,11 @@
           <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/HotelService.java</url>
           <line>30</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/BlogService.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

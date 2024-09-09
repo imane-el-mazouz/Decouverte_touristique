@@ -1,76 +1,83 @@
-<!--<div class="limiter">-->
-<!--  <div class="container-login100">-->
-<!--    <div class="wrap-login100 p-t-85 p-b-20">-->
-<!--      <form [formGroup]="loginForm" (ngSubmit)="login()" class="login100-form validate-form">-->
-<!--        <span class="login100-form-title p-b-70">-->
-<!--          Login-->
-<!--        </span>-->
-<!--        <span class="login100-form-avatar">-->
-<!--          <img src="assets/img/team/team-1.jpg" alt="AVATAR">-->
-<!--        </span>-->
-<!--        <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Enter username">-->
-<!--          <input class="input100" type="text" id="email" formControlName="email" required>-->
-<!--          <span class="focus-input100" data-placeholder="email"></span>-->
-<!--        </div>-->
-<!--        <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">-->
-<!--          <input class="input100" type="password" id="password" formControlName="password" required>-->
-<!--          <span class="focus-input100" data-placeholder="Password"></span>-->
-<!--        </div>-->
-<!--        <div class="container-login100-form-btn">-->
-<!--          <button class="login100-form-btn" type="submit" [disabled]="loginForm.invalid">-->
-<!--            Login-->
-<!--          </button>-->
-<!--        </div>-->
 
-<!--      </form>-->
-<!--    </div>-->
+<!--<div class="login-wrapper">-->
+<!--  <div class="login-container">-->
+<!--    <section class="login-form-section">-->
+<!--      <div class="login-form-container">-->
+<!--        <header class="logo-container">-->
+<!--          <div class="logo-bar orange"></div>-->
+<!--          <div class="logo-bar blue"></div>-->
+<!--          <div class="logo-bar orange"></div>-->
+<!--          <div class="logo-bar blue"></div>-->
+<!--          <div class="logo-bar orange"></div>-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4590f88db43a0253d46304f22b5b526f45bde7538e46288f587ecae24f80b6df?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Company Logo" class="logo-image" />-->
+<!--        </header>-->
+<!--        <h1 class="login-title">Login into your account</h1>-->
+<!--        <form [formGroup]="loginForm" (ngSubmit)="login()">-->
+<!--          <div class="form-group">-->
+<!--            <label for="email" class="form-label">Email address</label>-->
+<!--            <div class="input-container">-->
+<!--              <input type="email" id="email" formControlName="email" class="form-input" placeholder="Enter your email" />-->
+<!--              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b77759bccf0c8171737b5391a65f90526ea3057606af8a03c900fcda12c4bd35?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Email Icon" class="input-icon" />-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label for="password" class="form-label">Password</label>-->
+<!--            <div class="input-container">-->
+<!--              <input type="password" id="password" formControlName="password" class="form-input" placeholder="Enter your password" />-->
+<!--              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6c91daad1c9ad1c0f984362de9c55d195dd132a87742d8b4a201fb75bbef034e?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Password Icon" class="input-icon" />-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <a href="#" class="forgot-password">Forgot password?</a>-->
+<!--          <button type="submit" class="login-button" [disabled]="loginForm.invalid">Login now</button>-->
+<!--        </form>-->
+<!--        <div class="divider">-->
+<!--          <span class="divider-line"></span>-->
+<!--          <span class="divider-text">OR</span>-->
+<!--          <span class="divider-line"></span>-->
+<!--        </div>-->
+<!--        <button class="signup-button">Signup now</button>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <aside class="login-image-container">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d6b157f2b719f669d3bdf83f25902722da651f878514bf458b063a0582db601a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Login illustration" class="login-image animated" />-->
+<!--    </aside>-->
 <!--  </div>-->
 <!--</div>-->
-<!--<div id="dropDownSelect1"></div>-->
-<div class="login-wrapper">
-  <div class="login-container">
-    <section class="login-form-section">
-      <div class="login-form-container">
-        <header class="logo-container">
-          <div class="logo-bar orange"></div>
-          <div class="logo-bar blue"></div>
-          <div class="logo-bar orange"></div>
-          <div class="logo-bar blue"></div>
-          <div class="logo-bar orange"></div>
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4590f88db43a0253d46304f22b5b526f45bde7538e46288f587ecae24f80b6df?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Company Logo" class="logo-image" />
-        </header>
-        <h1 class="login-title">Login into your account</h1>
-        <form [formGroup]="loginForm" (ngSubmit)="login()">
-          <div class="form-group">
-            <label for="email" class="form-label">Email address</label>
-            <div class="input-container">
-              <input type="email" id="email" formControlName="email" class="form-input" placeholder="Enter your email" />
-              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b77759bccf0c8171737b5391a65f90526ea3057606af8a03c900fcda12c4bd35?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Email Icon" class="input-icon" />
-            </div>
+
+<body>
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-content">
+      <h2 class="welcome-text">Welcome back</h2>
+      <p class="sub-text">We're so excited to see you again!</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="email" class="form-label">Email or phone number</label>
+          <div class="input-container">
+            <input type="text" id="email" formControlName="email" class="form-input" placeholder="Enter your email or phone number" />
           </div>
-          <div class="form-group">
-            <label for="password" class="form-label">Password</label>
-            <div class="input-container">
-              <input type="password" id="password" formControlName="password" class="form-input" placeholder="Enter your password" />
-              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6c91daad1c9ad1c0f984362de9c55d195dd132a87742d8b4a201fb75bbef034e?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Password Icon" class="input-icon" />
-            </div>
-          </div>
-          <a href="#" class="forgot-password">Forgot password?</a>
-          <button type="submit" class="login-button" [disabled]="loginForm.invalid">Login now</button>
-        </form>
-        <div class="divider">
-          <span class="divider-line"></span>
-          <span class="divider-text">OR</span>
-          <span class="divider-line"></span>
         </div>
-        <button class="signup-button">Signup now</button>
-      </div>
-    </section>
-    <aside class="login-image-container">
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d6b157f2b719f669d3bdf83f25902722da651f878514bf458b063a0582db601a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Login illustration" class="login-image animated" />
-    </aside>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-container">
+            <input type="password" id="password" formControlName="password" class="form-input" placeholder="Enter your password" />
+          </div>
+        </div>
+
+        <a href="#" class="forgot-password">Forget your password?</a>
+        <button type="submit" class="login-btn" [disabled]="loginForm.invalid">Log In</button>
+      </form>
+
+      <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+    </div>
+
+    <div class="qr-code-content">
+      <img src="assets/img/qrcode.png" alt="QR Code">
+      <p class="qr-text">Log in with QR code</p>
+      <small>Scan this with our App to log in instantly</small>
+    </div>
   </div>
 </div>
-
-
-
+</body>

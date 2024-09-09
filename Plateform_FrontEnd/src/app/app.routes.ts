@@ -16,6 +16,10 @@ import {
 import {
   AddExcursionComponentComponent
 } from "./components/excursion/add-excursion-component/add-excursion-component.component";
+import {HotelManagementComponent} from "./components/hotel-management-component/hotel-management-component.component";
+import {
+  TraditionBlogManagementComponent
+} from "./components/blog-tradition-component/blog-tradition-component.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,6 +35,8 @@ export const routes: Routes = [
   { path: 'events', component: EventListComponentComponent },
   { path: 'excursions', component: ListExcursionsComponentComponent },
   { path: 'addExcursion', component: AddExcursionComponentComponent },
+  { path: 'hotels', component: HotelManagementComponent },
+  { path: 'blogs', component: TraditionBlogManagementComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 
 
