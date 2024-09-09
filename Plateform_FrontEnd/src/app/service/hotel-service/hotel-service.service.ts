@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpEvent, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {DtoHotel} from "../../dto/hotelDTO/dto-hotel";
 import {DtoFilterHotel} from "../../dto/HotelFilterDTO/dto-filter-hotel";
+import {DtoRoom} from "../../dto/roomDTO/dto-room";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelServiceService {
-  private apiUrl = 'http://localhost:8080/api/hotels'; // URL de l'API backend pour les hôtels
-  private roomApiUrl = 'http://localhost:8080/api/rooms'; // URL de l'API backend pour les chambres
+  private apiUrl = 'http://localhost:8085/api/hotel';
+  private roomApiUrl = 'http://localhost:8085/api/room';
 
   constructor(private http: HttpClient) { }
 
@@ -34,7 +35,7 @@ export class HotelServiceService {
     return this.http.post<DtoHotel>(this.apiUrl, hotelDTO, { headers: this.getHeaders() });
   }
 
-  updateHotel(id: number, hotelDTO: DtoHotel): Observable<HotelDTO> {
+  updateHotel(id: number, hotelDTO: DtoHotel): Observable<DtoHotel> {
     return this.http.put<DtoHotel>(`${this.apiUrl}/${id}`, hotelDTO, { headers: this.getHeaders() });
   }
 
@@ -42,36 +43,36 @@ export class HotelServiceService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
   }
 
-  filterHotels(filterDTO: DtoFilterHotel): Observable<HotelDTO[]> {
+  filterHotels(filterDTO: DtoFilterHotel): Observable<[]> {
     return this.http.post<DtoHotel[]>(`${this.apiUrl}/filter`, filterDTO, { headers: this.getHeaders() });
   }
 
-  search(category: string, location: string): Observable<HotelDTO[]> {
-    return this.http.get<HotelDTO[]>(`${this.apiUrl}/search?category=${category}&location=${location}`, { headers: this.getHeaders() });
+  search(category: string, location: string): Observable<DtoHotel[]> {
+    return this.http.get<DtoHotel[]>(`${this.apiUrl}/search?category=${category}&location=${location}`, { headers: this.getHeaders() });
   }
 
 
-  addRoomToHotel(hotelId: number, roomDTO: RoomDTO, images: File[]): Observable<RoomDTO> {
+  addRoomToHotel(hotelId: number, roomDTO: DtoRoom, images: File[]): Observable<HttpEvent<DtoHotel>> {
     const formData = new FormData();
     formData.append('roomDTO', JSON.stringify(roomDTO));
     images.forEach(image => formData.append('images', image));
 
-    return this.http.post<RoomDTO>(`${this.roomApiUrl}/hotels/${hotelId}`, formData, {
+    return this.http.post<DtoHotel>(`${this.roomApiUrl}/hotels/${hotelId}`, formData, {
       headers: this.getHeaders(),
       reportProgress: true,
       observe: 'events'
     });
   }
 
-  listRoomsByHotelId(hotelId: number): Observable<RoomDTO[]> {
-    return this.http.get<RoomDTO[]>(`${this.roomApiUrl}/hotels/${hotelId}`, { headers: this.getHeaders() });
+  listRoomsByHotelId(hotelId: number): Observable<DtoRoom[]> {
+    return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotels/${hotelId}`, { headers: this.getHeaders() });
   }
 
-  getRoomById(id: number): Observable<RoomDTO> {
-    return this.http.get<RoomDTO>(`${this.roomApiUrl}/${id}`, { headers: this.getHeaders() });
+  getRoomById(id: number): Observable<DtoRoom> {
+    return this.http.get<DtoRoom>(`${this.roomApiUrl}/${id}`, { headers: this.getHeaders() });
   }
 
-  updateRoom(id: number, roomDTO: RoomDTO): Observable<void> {
+  updateRoom(id: number, roomDTO: DtoRoom): Observable<void> {
     return this.http.put<void>(`${this.roomApiUrl}/${id}`, roomDTO, { headers: this.getHeaders() });
   }
 
