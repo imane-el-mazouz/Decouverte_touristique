@@ -107,10 +107,12 @@ export class EventService {
     const formData = new FormData();
     formData.append('file', file);
 
-    return this.http.post<string>(`${this.apiUrl}/upload`, formData);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+
+    return this.http.post<string>(`${this.apiUrl}/upload`, formData, { headers });
   }
-
-
 
   getAllEvents(): Observable<DtoEvent[]> {
     return this.http.get<DtoEvent[]>(`${this.apiUrl}/all`, { headers: this.getHeaders() });
@@ -122,20 +124,18 @@ export class EventService {
 
   createEvent(event: DtoEvent, img: File | null): Observable<DtoEvent> {
     const formData: FormData = new FormData();
-    formData.append('name', event.name);
-    formData.append('description', event.description);
-    formData.append('imgPath', event.imgPath || '');
-    formData.append('date', new Date(event.date).toISOString());
-    formData.append('location', event.location);
-    formData.append('capacity', event.capacity.toString());
-    formData.append('price', event.price.toString());
-    formData.append('rating', event.rating.toString());
-    formData.append('distance', event.distance.toString());
-    formData.append('category', event.category.toString());
-    if (img) formData.append('img', img);
 
-    return this.http.post<DtoEvent>(this.apiUrl, formData);
+    // Ajout de l'objet EventDTO comme une chaîne JSON
+    formData.append('event', new Blob([JSON.stringify(event)], { type: 'application/json' }));
+
+    // Ajout de l'image si elle est disponible
+    if (img) {
+      formData.append('img', img);
+    }
+
+    return this.http.post<DtoEvent>(`${this.apiUrl}`, formData, { headers: this.getHeaders() });
   }
+
 
   updateEvent(id: number, formData: FormData): Observable<DtoEvent> {
     return this.http.put<DtoEvent>(`${this.apiUrl}/${id}`, formData, { headers: this.getHeaders() });

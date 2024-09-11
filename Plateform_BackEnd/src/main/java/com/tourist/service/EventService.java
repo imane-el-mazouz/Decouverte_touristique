@@ -36,9 +36,7 @@ public class EventService {
     }
 
     public Optional<Event> saveEvent(EventDTO eventDTO) {
-        if (eventRepository.existsById(eventDTO.getId())) {
-            throw new EventAlreadyExistsException("Event already exists with this ID: " + eventDTO.getId());
-        }
+        System.out.println(eventDTO.getCategory());
 
         Event event = new Event();
         event.setName(eventDTO.getName());
@@ -47,6 +45,7 @@ public class EventService {
         event.setDate(eventDTO.getDate());
         event.setLocation(eventDTO.getLocation());
         event.setCapacity(eventDTO.getCapacity());
+        event.setCategory(CategoryEvent.Sports);
 
         return Optional.of(eventRepository.save(event));
     }

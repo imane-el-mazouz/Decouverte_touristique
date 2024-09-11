@@ -66,7 +66,7 @@
     <textarea id="description" formControlName="description"></textarea>
 
     <label for="img">Image:</label>
-    <input id="img" type="file" (change)="onFileChange($event)">
+    <input #fileToUpload id="img" type="file" (change)="onFileChange($event)">
 
     <label for="date">Date:</label>
     <input id="date" formControlName="date" type="date">

@@ -53,11 +53,7 @@ public class EventController {
     @PostMapping
     @PreAuthorize("hasRole('Admin')")
     public ResponseEntity<Event> saveEvent(
-            @RequestPart("event") EventDTO eventDTO,
-            @RequestPart(value = "img", required = false) MultipartFile img) throws IOException {
-
-        String imgPath = (img != null) ? eventService.saveImage(img) : null;
-        eventDTO.setImgPath(imgPath);
+            @ModelAttribute("event") EventDTO eventDTO){
 
         Event savedEvent = eventService.saveEvent(eventDTO)
                 .orElseThrow(() -> new EventAlreadyExistsException("Event already exists with this ID"));
@@ -80,7 +76,7 @@ public class EventController {
             @RequestParam(value = "reservations", required = false) List<ReservationDTO> reservations) throws IOException {
 
         String imgPath = (img != null) ? eventService.saveImage(img) : null;
-        EventDTO eventDTO = new EventDTO(id, name, description, imgPath, date, location, capacity, category, reservations);
+        EventDTO eventDTO = new EventDTO(name, description, imgPath, date, location, capacity, category, reservations);
 
         Event updatedEvent = eventService.updateEvent(id, eventDTO);
         return ResponseEntity.ok(updatedEvent);
