@@ -7,6 +7,7 @@ import com.tourist.exception.EventAlreadyExistsException;
 import com.tourist.exception.EventNotFoundException;
 import com.tourist.model.Event;
 import com.tourist.repository.EventRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,7 +24,8 @@ import java.util.Optional;
 @Service
 public class EventService {
 
-    private final EventRepository eventRepository;
+    @Autowired
+    private EventRepository eventRepository;
     private final Path rootLocation = Paths.get("uploaded-images");
 
     @Autowired
@@ -35,7 +37,8 @@ public class EventService {
         }
     }
 
-    public Optional<Event> saveEvent(EventDTO eventDTO) {
+    public Event saveEvent(EventDTO eventDTO) {
+        System.out.println("EventDTO: " + eventDTO);
         System.out.println(eventDTO.getCategory());
 
         Event event = new Event();
@@ -45,10 +48,21 @@ public class EventService {
         event.setDate(eventDTO.getDate());
         event.setLocation(eventDTO.getLocation());
         event.setCapacity(eventDTO.getCapacity());
-        event.setCategory(CategoryEvent.Sports);
 
-        return Optional.of(eventRepository.save(event));
+        try {
+            CategoryEvent category = CategoryEvent.valueOf(String.valueOf(eventDTO.getCategory()));
+            event.setCategory(category);
+        } catch (IllegalArgumentException e) {
+            throw new EntityNotFoundException("Invalid category provided: " + eventDTO.getCategory());
+        }
+
+        event.setPrice(eventDTO.getPrice());
+        event.setRating(eventDTO.getRating());
+        event.setDistance(eventDTO.getDistance());
+
+        return eventRepository.save(event);
     }
+
 
     public void deleteEvent(Long id) {
         Event event = eventRepository.findById(id)
@@ -66,9 +80,14 @@ public class EventService {
         event.setDate(eventDTO.getDate());
         event.setLocation(eventDTO.getLocation());
         event.setCapacity(eventDTO.getCapacity());
+        event.setPrice(eventDTO.getPrice());
+        event.setRating(eventDTO.getRating());
+        event.setDistance(eventDTO.getDistance());
+        event.setCategory(eventDTO.getCategory());
 
         return eventRepository.save(event);
     }
+
 
     public List<Event> filterEvents(EventFilterDTO filterDTO) {
         return eventRepository.findAllByPriceBetweenAndRatingBetweenAndDistanceLessThan(

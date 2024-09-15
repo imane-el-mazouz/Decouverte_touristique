@@ -7,6 +7,7 @@ import com.tourist.enums.CategoryEvent;
 import com.tourist.exception.EventAlreadyExistsException;
 import com.tourist.model.Event;
 import com.tourist.service.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,8 @@ public class EventController {
 
     private final EventService eventService;
 
-    public EventController(EventService eventService){
+    @Autowired
+    public EventController(EventService eventService) {
         this.eventService = eventService;
     }
 
@@ -52,12 +54,8 @@ public class EventController {
 
     @PostMapping
     @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<Event> saveEvent(
-            @ModelAttribute("event") EventDTO eventDTO){
-
-        Event savedEvent = eventService.saveEvent(eventDTO)
-                .orElseThrow(() -> new EventAlreadyExistsException("Event already exists with this ID"));
-
+    public ResponseEntity<Event> saveEvent(@RequestBody EventDTO eventDTO){
+        Event savedEvent = eventService.saveEvent(eventDTO);
         return ResponseEntity.ok(savedEvent);
     }
 

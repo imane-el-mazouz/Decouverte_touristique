@@ -12,8 +12,9 @@
       <th>Date</th>
       <th>Price</th>
       <th>Rating</th>
-      <th>Distance</th>
       <th>Category</th>
+      <th>Capacity</th>
+      <th>Distance</th>
       <th>Actions</th>
     </tr>
     </thead>
@@ -29,15 +30,39 @@
       <td>{{ event.date | date:'shortDate' }}</td>
       <td>{{ event.price | currency }}</td>
       <td>{{ event.rating }}</td>
-      <td>{{ event.distance }}</td>
       <td>{{ event.category }}</td>
+      <td>{{ event.capacity }}</td>
+      <td>{{ event.distance }}</td>
+
       <td>
         <button class="btn btn-warning" (click)="editEvent(event)">Edit</button>
         <button class="btn btn-danger" (click)="onDeleteEvent(event.id)">Delete</button>
+        <button class="btn btn-success" (click)="showBookingForm(event)">Book</button>
       </td>
     </tr>
     </tbody>
   </table>
+
+  <div *ngIf="bookingFormVisible">
+    <h3>Book Event: {{ selectedEvent?.name }}</h3>
+    <form [formGroup]="bookingForm" (ngSubmit)="bookEvent()">
+      <div class="form-group">
+        <label for="numberOfPerson">Number of Persons</label>
+        <input formControlName="numberOfPerson" id="numberOfPerson" type="number" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="dateTime">Date</label>
+        <input formControlName="dateTime" id="dateTime" type="date" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary">Book</button>
+    </form>
+    <div *ngIf="bookingSuccess" class="alert alert-success mt-3">
+      Your booking was successful!
+    </div>
+    <div *ngIf="bookingError" class="alert alert-danger mt-3">
+      Sorry, the booking failed. Please try again.
+    </div>
+  </div>
 
   <!-- Edit form (visible only in edit mode) -->
   <div *ngIf="editMode" class="edit-form">
@@ -90,3 +115,6 @@
     </form>
   </div>
 </div>
+
+<app-event-form-component></app-event-form-component>
+<app-event-search-filter></app-event-search-filter>

@@ -4,6 +4,7 @@ import {Excursion} from "../../../model/excursion/excursion";
 import {ExcursionService} from "../../../service/excursion-service/excursion-service.service";
 import {DtoExcursion} from "../../../dto/excursionDTO/dto-excursion";
 import {DatePipe, NgForOf} from "@angular/common";
+import {AddExcursionComponentComponent} from "../add-excursion-component/add-excursion-component.component";
 
 @Component({
   selector: 'app-list-excursions-component',
@@ -11,7 +12,8 @@ import {DatePipe, NgForOf} from "@angular/common";
   imports: [
     ReactiveFormsModule,
     NgForOf,
-    DatePipe
+    DatePipe,
+    AddExcursionComponentComponent
   ],
   templateUrl: './list-excursions-component.component.html',
   styleUrl: './list-excursions-component.component.css'

@@ -92,6 +92,8 @@ import { DtoEvent } from '../../dto/eventDTO/dto-event';
 })
 export class EventService {
   private apiUrl = 'http://localhost:8085/api/event';
+  private baseUrl = 'http://localhost:8085/api/api/reservation';
+
 
   constructor(private http: HttpClient) {}
 
@@ -125,10 +127,8 @@ export class EventService {
   createEvent(event: DtoEvent, img: File | null): Observable<DtoEvent> {
     const formData: FormData = new FormData();
 
-    // Ajout de l'objet EventDTO comme une chaîne JSON
     formData.append('event', new Blob([JSON.stringify(event)], { type: 'application/json' }));
 
-    // Ajout de l'image si elle est disponible
     if (img) {
       formData.append('img', img);
     }
@@ -156,5 +156,9 @@ export class EventService {
     if (date) params.date = date.toISOString().split('T')[0];
 
     return this.http.get<DtoEvent[]>(`${this.apiUrl}/search`, { headers: this.getHeaders(), params });
+  }
+
+  bookEvent(bookingData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/event`, bookingData);
   }
 }

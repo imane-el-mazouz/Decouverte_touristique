@@ -20,6 +20,8 @@ import {HotelManagementComponent} from "./components/hotel-management-component/
 import {
   TraditionBlogManagementComponent
 } from "./components/blog-tradition-component/blog-tradition-component.component";
+import {GuardService} from "./service/auth_guard/guard.service";
+import {Role} from "./enums/role";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -37,8 +39,28 @@ export const routes: Routes = [
   { path: 'addExcursion', component: AddExcursionComponentComponent },
   { path: 'hotels', component: HotelManagementComponent },
   { path: 'blogs', component: TraditionBlogManagementComponent },
+
+
+
+  {
+    path: 'dashboard',
+    component: AdminComponent,
+    canActivate: [GuardService],
+    data: {expectedRole: Role.Admin},
+    children: [
+      { path: 'addEvent', component: EventFormComponentComponent },
+      { path: 'events', component: EventListComponentComponent },
+      { path: 'excursions', component: ListExcursionsComponentComponent },
+      { path: 'addExcursion', component: AddExcursionComponentComponent },
+      { path: 'hotels', component: HotelManagementComponent },
+      { path: 'blogs', component: TraditionBlogManagementComponent },
+      { path: 'client', component: ClientDashComponent },
+      { path: 'dashboard', component: AdminComponent },
+      { path: 'search', component: SearchBarComponent },
+      { path: 'info', component: DashComponent },
+      { path: 'contacts', component: ContactPageComponent },
+    ]
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
-
-
 
 ];
