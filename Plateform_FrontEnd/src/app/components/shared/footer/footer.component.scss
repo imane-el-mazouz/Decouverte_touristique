@@ -1,0 +1,146 @@
+//.footer { background-color: #14183e; align-self: stretch; display: flex; margin-top: 54px; width: 100%; flex-direction: column; padding: 151px 0 35px 70px; }
+//.footer-content { display: flex; width: 100%; max-width: 1300px; align-items: start; gap: 40px 65px; overflow: hidden; justify-content: space-between; flex-wrap: wrap; }
+//.footer-logo-section { display: flex; min-width: 240px; flex-direction: column; align-items: start; justify-content: start; width: 314px; }
+//.footer-logo-wrapper { display: flex; align-items: center; gap: 20px; color: #fff; white-space: nowrap; justify-content: start; font: 700 24px Quattrocento, sans-serif; }
+//.footer-logo { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; align-self: stretch; margin: auto 0; }
+//.footer-logo-text { align-self: stretch; margin: auto 0; }
+//.footer-description { color: #d5d9db; align-self: stretch; margin-top: 25px; font: 400 16px/21px Inter, sans-serif; }
+//.footer-social-icons { display: flex; margin-top: 25px; align-items: start; gap: 15px; justify-content: start; }
+//.social-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 24px; }
+//.footer-nav { display: flex; flex-direction: column; color: #d5d9db; justify-content: start; }
+//.footer-nav-title { font: 700 24px Quattrocento, sans-serif; }
+//.footer-nav-links { display: flex; margin-top: 25px; flex-direction: column; justify-content: start; font: 400 18px Quattrocento Sans, sans-serif; }
+//.footer-nav-link { margin-top: 15px; }
+//.footer-contact { display: flex; flex-direction: column; color: #d5d9db; justify-content: start; }
+//.footer-contact-title { font: 700 24px Quattrocento, sans-serif; }
+//.footer-contact-info { display: flex; margin-top: 25px; flex-direction: column; justify-content: start; font: 400 18px Quattrocento Sans, sans-serif; }
+//.contact-item { display: flex; align-items: center; gap: 20px; justify-content: start; }
+//.contact-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 24px; align-self: stretch; margin: auto 0; }
+//.contact-text { align-self: stretch; margin: auto 0; }
+//.footer-booking { display: flex; min-width: 240px; flex-direction: column; justify-content: start; width: 317px; }
+//.footer-booking-title { color: #d5d9db; font: 700 24px Quattrocento, sans-serif; }
+//.footer-booking-content { display: flex; margin-top: 25px; width: 100%; max-width: 317px; flex-direction: column; justify-content: start; }
+//.footer-booking-text { color: #d5d9db; font: 400 18px Quattrocento Sans, sans-serif; }
+//.footer-booking-cta { border-radius: 30px; background-color: #fd7401; margin-top: 50px; width: 100%; color: #fff; padding: 15px 10px; font: 700 24px Quattrocento, sans-serif; }
+//.footer-divider { aspect-ratio: 1000; object-fit: contain; object-position: center; width: 100%; stroke-width: 1px; stroke: #fff; align-self: end; margin-top: 62px; max-width: 1318px; }
+//.footer-copyright { color: #fff; align-self: center; margin: 34px 0 0 85px; font: 400 18px Quattrocento Sans, sans-serif; }
+//
+//
+//@media (max-width: 991px) {
+//  .footer { max-width: 100%; margin-top: 40px; padding: 100px 0 0 20px; }
+//  .footer-content { max-width: 100%; }
+//  .footer-logo-wrapper { white-space: initial; }
+//  .footer-booking-cta { margin-top: 40px; }
+//  .footer-divider { max-width: 100%; margin-top: 40px; }
+//  .footer-copyright { max-width: 100%; }
+//}
+footer {
+  background-color: #14183E;
+  color: white;
+  padding: 40px 20px;
+  font-family: 'Abhaya Libre ExtraBold';
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  grid-column: span 2;
+}
+
+.footer-logo h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.footer-logo p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.footer-links h3,
+.footer-contact h3,
+.footer-booking h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul,
+.footer-contact ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-contact li {
+  margin: 8px 0;
+}
+
+.footer-links a,
+.footer-contact i {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-contact li i {
+  margin-right: 10px;
+}
+
+.footer-booking p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.booking-btn {
+  display: inline-block;
+  background-color: #ff7d00;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.booking-btn:hover {
+  background-color: #e66900;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #14183E
+;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+}
+.social-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 24px; }
+.footer-social-icons { display: flex; margin-top: 25px; align-items: start; gap: 15px; justify-content: start; }
+.footer-logo-wrapper { display: flex; align-items: center; gap: 20px; color: #fff; white-space: nowrap; justify-content: start; font: 700 24px Quattrocento, sans-serif; }
+.footer-contact { display: flex; flex-direction: column; color: #d5d9db; justify-content: start; }
+
+
+.booking-btn{
+  border-radius: 30px;
+  background-color: #fd7401;
+  display: flex ;
+  justify-content: center ;
+  font-weight: 600 ;
+}
+.contact-item { display: flex; align-items: center; gap: 20px; justify-content: start; }
+.footer-contact-info { display: flex; margin-top: 25px; flex-direction: column; justify-content: start }

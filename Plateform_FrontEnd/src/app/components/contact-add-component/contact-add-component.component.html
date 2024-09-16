@@ -1,51 +1,119 @@
 <app-nav-bar></app-nav-bar>
+
 <section class="hero">
   <div class="overlay">
-    <h1>Morocco: A Unique <br> Cultural Heritage</h1>
-    <div class="search-bar">
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1df5ef68b6467efb882ec3c3372fae0ed3c1d98c577fae647327b9ded989060c?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" id="icono" />
-      <div class="input-group">
-        <label for="location">Location</label>
-        <input type="text" id="location" placeholder="Where are you going?">
+    <h1>Contact Us</h1>
+  </div>
+</section>
+<section class="contact-info">
+  <div class="info-box">
+    <i class="fas fa-phone-alt"></i>
+    <h3>Phone</h3>
+    <p>+212 01050599</p>
+    <p>+212 11111111</p>
+  </div>
+  <div class="info-box">
+    <i class="fas fa-map-marker-alt"></i>
+    <h3>Address</h3>
+    <p>7h Beni Mellal, Morocco</p>
+  </div>
+  <div class="info-box">
+    <i class="fas fa-envelope"></i>
+    <h3>Email</h3>
+    <p>discover&#64;outlook.com</p>
+    <p>morocco&#64;gmail.com</p>
+  </div>
+</section>
+
+<section class="blog-news">
+  <h2>News From Our Blog</h2>
+  <p>Everyday , new blog for our lovely morocco.</p>
+  <div class="blog-container">
+    <div class="blog-card">
+      <img src="assets/img/morocco.jpg" alt="Agadir">
+      <div class="blog-content">
+        <h4 class="h">Tours</h4>
+        <p class="h">What are the must-visit destinations in Agadir?</p>
+        <a href="#" class="h">Read more →</a>
       </div>
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f891af40c0f59dc3de64e611ede4ad30e1b2a67d9a5184d25a7be71b8bf0ac67?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon"id="icona" />
-
-      <div class="input-group">
-        <label for="date">Date</label>
-        <input type="date" id="date" placeholder="Set date">
+    </div>
+    <div class="blog-card">
+      <img src="assets/img/beach_hociema.jpg" alt="Saidia">
+      <div class="blog-content">
+        <h4 class="h">Adventure</h4>
+        <p class="h">Saidia welcomes more than 6 mln foreign tourists</p>
+        <a href="#" class="h">Read more →</a>
       </div>
-
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b4cbf35967b7bf802543f1a695c34be39a77f44a1e2b67567f97dd8efb0b7428?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" id="iconi" />
-
-      <div class="input-group">
-        <label for="category">Category</label>
-        <input type="text" id="category" placeholder="excursion, hotel, event">
+    </div>
+    <div class="blog-card">
+      <img src="assets/img/kech.webp" alt="Tourism">
+      <div class="blog-content">
+        <h4 class="h">Tourism & Travel</h4>
+        <p class="h">2024 will be a record year for tourism</p>
+        <a href="#" class="h">Read more →</a>
       </div>
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/af77a26bbf0110f9e8ba378eec3fcdc7a022e66096a7128825395f1701181e14?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-button-icon" />
-
-      <button class="search-btn">Search</button>
     </div>
   </div>
 </section>
-<div class="container">
-  <h2>Add Contact</h2>
-  <form (ngSubmit)="addContact()">
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input id="firstName" [(ngModel)]="contact.firstName" name="firstName" class="form-control" required />
+<div class="contact-section">
+  <h1>Contact Us</h1>
+  <div class="contact-container">
+    <form (ngSubmit)="addContact()" class="contact-form">
+      <h2>Billing Details</h2>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input id="firstName" [(ngModel)]="contact.firstName" name="firstName" class="form-control" placeholder="Input your First Name in Here" required />
+      </div>
+      <div class="form-group">
+        <label for="fullName">Last Name</label>
+        <input id="fullName" [(ngModel)]="contact.fullName" name="fullName" class="form-control" placeholder="Input your Last Name in Here" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input id="email" type="email" [(ngModel)]="contact.email" name="email" class="form-control" placeholder="Input your Email Address in Here" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" [(ngModel)]="contact.message" name="message" class="form-control" placeholder="your message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Contact Us</button>
+    </form>
+    <div class="contact-images">
+      <div class="image-wrapper">
+        <img src="assets/img/sahara.jpg" alt="Image 1">
+      </div>
+      <div class="image-wrapper">
+        <img src="assets/img/ouzoud.jpg" alt="Image 2">
+      </div>
+
+
     </div>
-    <div class="form-group">
-      <label for="fullName">Full Name</label>
-      <input id="fullName" [(ngModel)]="contact.fullName" name="fullName" class="form-control" required />
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input id="email" type="email" [(ngModel)]="contact.email" name="email" class="form-control" required />
-    </div>
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" [(ngModel)]="contact.message" name="message" class="form-control" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Add Contact</button>
-  </form>
+  </div>
 </div>
+
+
+<!--<div class="container">-->
+<!--  <h2>Add Contact</h2>-->
+<!--  <form (ngSubmit)="addContact()">-->
+<!--    <div class="form-group">-->
+<!--      <label for="firstName">First Name</label>-->
+<!--      <input id="firstName" [(ngModel)]="contact.firstName" name="firstName" class="form-control" required />-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="fullName">Full Name</label>-->
+<!--      <input id="fullName" [(ngModel)]="contact.fullName" name="fullName" class="form-control" required />-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="email">Email</label>-->
+<!--      <input id="email" type="email" [(ngModel)]="contact.email" name="email" class="form-control" required />-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="message">Message</label>-->
+<!--      <textarea id="message" [(ngModel)]="contact.message" name="message" class="form-control" required></textarea>-->
+<!--    </div>-->
+<!--    <button type="submit" class="btn btn-primary">Add Contact</button>-->
+<!--  </form>-->
+<!--</div>-->
+
+
+<app-footer></app-footer>

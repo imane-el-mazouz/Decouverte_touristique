@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import {LoginComponent} from "./components/login/login.component";
-import {HomePageComponent} from "./components/home-page/home-page.component";
+import {HomePageComponent} from "./components/shared/home-page/home-page.component";
 import {AdminComponent} from "./components/admin-dash/admin.component";
 import {ClientDashComponent} from "./components/client-dash/client-dash.component";
 import {SearchBarComponent} from "./components/search-bar/search-bar.component";
@@ -59,6 +59,7 @@ export const routes: Routes = [
       { path: 'search', component: SearchBarComponent },
       { path: 'info', component: DashComponent },
       { path: 'contacts', component: ContactPageComponent },
+
     ]
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' }

@@ -11,7 +11,7 @@ import { DashAdmin } from "../../model/DashAdmin/dash-admin";
 })
 export class AdminService {
 
-  private apiUrl = 'http://localhost:8082/api/dash';
+  private apiUrl = 'http://localhost:8085/api/dash';
 
   constructor(
     private http: HttpClient,

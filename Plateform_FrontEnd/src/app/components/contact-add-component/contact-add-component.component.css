@@ -1,0 +1,242 @@
+body {
+  font-family: Abhaya Libre SemiBold, serif ;
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+  background-image: url('/assets/img/culture.png');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay {
+  text-align: center;
+  padding: 50px;
+  border-radius: 15px;
+}
+
+h1 {
+  font-size: 58px;
+  margin-bottom: 20px;
+  font-family: Abhaya Libre SemiBold, serif
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-box {
+  text-align: center;
+}
+
+.info-box i {
+  font-size: 36px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.info-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.info-box p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.blog-news {
+  text-align: center;
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+
+.blog-news h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.blog-news p {
+  font-size: 16px;
+  margin-bottom: 40px;
+  color: #2E2F83;
+}
+
+.blog-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 50px;
+}
+
+.blog-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 30%;
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-content h4 {
+  font-size: 18px;
+  color: #777777;
+  margin-bottom: 10px;
+}
+
+.blog-content p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.blog-content a {
+  color: #2E2F83;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.blog-content a:hover {
+  text-decoration: underline;
+}
+
+.h{
+  display: flex;
+  justify-content: flex-start;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  color: #2d3945;
+  margin-top: 50px;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 50px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.contact-form {
+  width: 60%;
+}
+
+.contact-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2d3945;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+}
+
+textarea {
+  resize: none;
+  height: 150px;
+}
+
+button {
+  background-color: #2d3945;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1b2942;
+}
+
+.contact-images {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.image-wrapper {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

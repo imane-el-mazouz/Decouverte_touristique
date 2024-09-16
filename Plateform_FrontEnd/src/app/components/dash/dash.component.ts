@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Admin} from "../../model/admin/admin";
-import {DashAdmin} from "../../model/DashAdmin/dash-admin";
-import {AdminService} from "../../service/admin_service/admin-service.service";
-import {FormsModule} from "@angular/forms";
-import {NgIf} from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { Admin } from "../../model/admin/admin";
+import { DashAdmin } from "../../model/DashAdmin/dash-admin";
+import { AdminService } from "../../service/admin_service/admin-service.service";
+import { FormsModule } from "@angular/forms";
+import { NgIf } from "@angular/common";
 
 @Component({
   selector: 'app-dash',
@@ -13,9 +13,10 @@ import {NgIf} from "@angular/common";
     NgIf
   ],
   templateUrl: './dash.component.html',
-  styleUrl: './dash.component.css'
+  styleUrls: ['./dash.component.css'],
+  providers: [AdminService]
 })
-export class DashComponent implements OnInit{
+export class DashComponent implements OnInit {
 
   admin: Admin = new Admin();
   dashboardData: DashAdmin | undefined;

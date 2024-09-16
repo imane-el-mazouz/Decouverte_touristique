@@ -19,7 +19,7 @@ export class EventFormComponentComponent implements OnInit {
   eventForm: FormGroup;
   categories = Object.values(CategoryEvent);
   fileToUpload: File | null = null;
-  @ViewChild('fileToUpload') fileInput!: ElementRef<HTMLInputElement>; 
+  @ViewChild('fileToUpload') fileInput!: ElementRef<HTMLInputElement>;
 
   constructor(
     private fb: FormBuilder,
