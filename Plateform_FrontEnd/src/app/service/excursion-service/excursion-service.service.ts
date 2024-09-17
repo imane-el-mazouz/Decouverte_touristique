@@ -1,4 +1,3 @@
-// src/app/service/excursion.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -10,14 +9,15 @@ import {DtoExcursion} from "../../dto/excursionDTO/dto-excursion";
 })
 export class ExcursionService {
   private apiUrl = 'http://localhost:8085/api/excursion';
+  private baseUrl = 'http://localhost:8085/api/reservation';
 
   constructor(private http: HttpClient) {}
 
   private getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token');  // Retrieve the token from localStorage
+    const token = localStorage.getItem('token');
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`  // Include the token in the Authorization header
+      'Authorization': `Bearer ${token}`
     });
   }
 
@@ -26,9 +26,14 @@ export class ExcursionService {
     return throwError(() => new Error('Something went wrong'));
   }
 
+  // addExcursion(excursion: FormData): Observable<DtoExcursion> {
+  //   const headers = this.getHeaders();
+  //   return this.http.post<DtoExcursion>(`${this.apiUrl}`, excursion, { headers })
+  //     .pipe(catchError(this.handleError));
+  // }
   addExcursion(excursion: FormData): Observable<DtoExcursion> {
     const headers = this.getHeaders();
-    return this.http.post<DtoExcursion>(`${this.apiUrl}/add`, excursion, { headers })
+    return this.http.post<DtoExcursion>(`${this.apiUrl}`, excursion, { headers })
       .pipe(catchError(this.handleError));
   }
 
@@ -64,5 +69,10 @@ export class ExcursionService {
     const headers = this.getHeaders();
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`, { headers })
       .pipe(catchError(this.handleError));
+  }
+
+  bookExcursion(excursionId: number, userId: number): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.post(`${this.baseUrl}/excursion/${excursionId}`, { userId }, { headers });
   }
 }

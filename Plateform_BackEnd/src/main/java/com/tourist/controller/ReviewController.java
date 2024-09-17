@@ -11,6 +11,7 @@ import com.tourist.service.ClientService;
 import com.tourist.service.ReservationService;
 import com.tourist.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -48,23 +49,47 @@ public class ReviewController {
         return ResponseEntity.ok(reviews);
     }
 
-    @PreAuthorize("hasRole('Client')")
-    @PostMapping("/reservation/{reservationId}")
-    public ResponseEntity<Review> addReview(@PathVariable Long reservationId, @RequestBody ReviewDTO reviewDTO) {
-        if (reviewDTO.getRating() < 1 || reviewDTO.getRating() > 5) {
-            throw new RatingException("Rating must be between 1 and 5");
-        }
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = authentication.getName();
-        Client client = clientService.findByEmail(email);
-        Review review = new Review();
-        review.setRating(reviewDTO.getRating());
-        review.setComment(reviewDTO.getComment());
-        review.setClient(client);
-
-        Review createdReview = reviewService.addReview(reservationId, review);
-        return ResponseEntity.ok(createdReview);
+//    @PreAuthorize("hasRole('Client')")
+//    @PostMapping("/reservation/{reservationId}")
+//    public ResponseEntity<Review> addReview(@PathVariable Long reservationId, @RequestBody ReviewDTO reviewDTO) {
+//        if (reviewDTO.getRating() < 1 || reviewDTO.getRating() > 5) {
+//            throw new RatingException("Rating must be between 1 and 5");
+//        }
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String email = authentication.getName();
+//        Client client = clientService.findByEmail(email);
+//        Review review = new Review();
+//        review.setRating(reviewDTO.getRating());
+//        review.setComment(reviewDTO.getComment());
+//        review.setClient(client);
+//
+//        Review createdReview = reviewService.addReview(reservationId, review);
+//        return ResponseEntity.ok(createdReview);
+//    }
+@PreAuthorize("hasRole('Client')")
+@PostMapping("/reservation/{reservationId}")
+public ResponseEntity<Review> addReview(@PathVariable Long reservationId, @RequestBody ReviewDTO reviewDTO) {
+    if (reviewDTO.getRating() < 1 || reviewDTO.getRating() > 5) {
+        throw new RatingException("Rating must be between 1 and 5");
     }
+
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    String email = authentication.getName();
+    Client client = clientService.findByEmail(email);
+
+    if (client == null) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+    }
+
+    Review review = new Review();
+    review.setRating(reviewDTO.getRating());
+    review.setComment(reviewDTO.getComment());
+    review.setClient(client);
+
+    Review createdReview = reviewService.addReview(reservationId, review);
+    return ResponseEntity.ok(createdReview);
+}
+
 
 
 

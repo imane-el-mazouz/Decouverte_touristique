@@ -1,7 +1,159 @@
-<div class="hotel-management">
+<!--<div class="hotel-management">-->
 
+<!--  <div class="search-filter">-->
+<!--    <input type="text" placeholder="Search hotels"/>-->
+<!--    <input type="text" placeholder="Category" [(ngModel)]="categoryFilter" />-->
+<!--    <input type="text" placeholder="Location" [(ngModel)]="locationFilter" />-->
+<!--    <button (click)="filterHotels()">Filter</button>-->
+<!--  </div>-->
+
+<!--  <div *ngIf="!selectedHotel">-->
+<!--    <h2>Hotel List</h2>-->
+<!--    <ul>-->
+<!--      <li *ngFor="let hotel of hotels">-->
+<!--        <span>{{ hotel.name }}</span>-->
+<!--        <button (click)="viewHotelDetails(hotel.id)">View Details</button>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+
+<!--  <div *ngIf="selectedHotel">-->
+<!--    <h2>{{ selectedHotel.name }}</h2>-->
+<!--    <p>{{ selectedHotel.description }}</p>-->
+<!--    <button (click)="showAddRoomForm()">Add Room</button>-->
+<!--    <button (click)="showHotelList()">Back to Hotel List</button>-->
+
+<!--    <div *ngIf="rooms.length > 0">-->
+<!--      <h3>Rooms</h3>-->
+<!--      <ul>-->
+<!--        <li *ngFor="let room of rooms">-->
+<!--          <span>{{ room.type }} - ${{ room.price }} - {{ room.available ? 'Available' : 'Not Available' }}</span>-->
+<!--          <button (click)="editRoom(room.id)">Edit</button>-->
+<!--          <button (click)="deleteRoom(room.id)">Delete</button>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--    <div *ngIf="rooms.length === 0">-->
+<!--      <p>No rooms available.</p>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div *ngIf="showRoomForm">-->
+<!--    <h3>{{ editRoomId ? 'Edit Room' : 'Add Room' }}</h3>-->
+<!--    <form (ngSubmit)="addRoom()">-->
+<!--      <label for="type">Type:</label>-->
+<!--      <input id="type" [(ngModel)]="newRoom.type" name="type" required />-->
+
+<!--      <label for="price">Price:</label>-->
+<!--      <input id="" [(ngModel)]="newRoom.price" name="price" type="number" required />-->
+
+<!--      <label for="available">Available:</label>-->
+<!--      <input id="available" type="checkbox" [(ngModel)]="newRoom.available" name="available" />-->
+
+<!--      <button type="submit">{{ editRoomId ? 'Update Room' : 'Add Room' }}</button>-->
+<!--    </form>-->
+<!--    <button (click)="showRoomForm = false">Cancel</button>-->
+<!--  </div>-->
+
+<!--  <div *ngIf="showHotelForm">-->
+<!--    <h3>Add Hotel</h3>-->
+<!--    <form (ngSubmit)="addHotel()">-->
+<!--      <label for="name">Name:</label>-->
+<!--      <input id="name" [(ngModel)]="newHotel.name" name="name" required />-->
+
+<!--      <label for="description">Description:</label>-->
+<!--      <textarea id="description" [(ngModel)]="newHotel.description" name="description"></textarea>-->
+
+<!--      <label for="location">Location:</label>-->
+<!--      <input id="location" [(ngModel)]="newHotel.location" name="location" required />-->
+
+<!--      <label for="averageRating">Average Rating:</label>-->
+<!--      <input id="averageRating" [(ngModel)]="newHotel.averageRating" name="averageRating" type="number" step="0.1" min="0" max="5" />-->
+
+<!--      <label for="price">Price:</label>-->
+<!--      <input id="price" [(ngModel)]="newHotel.price" name="price" type="number" />-->
+
+<!--      <label for="distance">Distance:</label>-->
+<!--      <input id="distance" [(ngModel)]="newHotel.distance" name="distance" type="number" />-->
+
+<!--      <button type="submit">Add Hotel</button>-->
+<!--    </form>-->
+<!--    <button (click)="showHotelForm = false">Cancel</button>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="hotel-management">-->
+<!--  &lt;!&ndash; Existing code for search and filter &ndash;&gt;-->
+
+<!--  &lt;!&ndash; Hotel list &ndash;&gt;-->
+<!--  <div *ngIf="!selectedHotel">-->
+<!--    <h2>Hotel List</h2>-->
+<!--    <ul>-->
+<!--      <li *ngFor="let hotel of hotels">-->
+<!--        <span>{{ hotel.name }}</span>-->
+<!--        <button (click)="viewHotelDetails(hotel.id)">View Details</button>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+
+<!--  &lt;!&ndash; Hotel details and room management &ndash;&gt;-->
+<!--  <div *ngIf="selectedHotel">-->
+<!--    <h2>{{ selectedHotel.name }}</h2>-->
+<!--    <p>{{ selectedHotel.description }}</p>-->
+<!--    <button (click)="showAddRoomForm()">Add Room</button>-->
+<!--    <button (click)="showHotelList()">Back to Hotel List</button>-->
+
+<!--    &lt;!&ndash; Room list &ndash;&gt;-->
+<!--    <div *ngIf="rooms.length > 0">-->
+<!--      <h3>Rooms</h3>-->
+<!--      <ul>-->
+<!--        <li *ngFor="let room of rooms">-->
+<!--          <span>{{ room.type }} - ${{ room.price }} - {{ room.available ? 'Available' : 'Not Available' }}</span>-->
+<!--          <button (click)="editRoom(room.id)">Edit</button>-->
+<!--          <button (click)="deleteRoom(room.id)">Delete</button>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--    <div *ngIf="rooms.length === 0">-->
+<!--      <p>No rooms available.</p>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  &lt;!&ndash; Room form &ndash;&gt;-->
+<!--  <div *ngIf="showRoomForm">-->
+<!--    <h3>{{ editRoomId ? 'Edit Room' : 'Add Room' }}</h3>-->
+<!--    <form (ngSubmit)="addRoom()">-->
+<!--      <label for="type">Type:</label>-->
+<!--      <input id="type" [(ngModel)]="newRoom.type" name="type" required />-->
+
+<!--      <label for="price">Price:</label>-->
+<!--      <input id="price" [(ngModel)]="newRoom.price" name="price" type="number" required />-->
+
+<!--      <label for="available">Available:</label>-->
+<!--      <input id="available" type="checkbox" [(ngModel)]="newRoom.available" name="available" />-->
+
+<!--      <button type="submit">{{ editRoomId ? 'Update Room' : 'Add Room' }}</button>-->
+<!--    </form>-->
+<!--    <button (click)="showRoomForm = false">Cancel</button>-->
+<!--  </div>-->
+
+<!--  &lt;!&ndash; Hotel form &ndash;&gt;-->
+<!--  <div *ngIf="showHotelForm">-->
+<!--    <h3>Add Hotel</h3>-->
+<!--    <form (ngSubmit)="addHotel()">-->
+<!--      <label for="name">Name:</label>-->
+<!--      <input id="name" [(ngModel)]="newHotel.name" name="name" required />-->
+
+<!--      <label for="description">Description:</label>-->
+<!--      <textarea id="description" [(ngModel)]="newHotel.description" name="description"></textarea>-->
+
+<!--      <button type="submit">Add Hotel</button>-->
+<!--    </form>-->
+<!--    <button (click)="showHotelForm = false">Cancel</button>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="hotel-management">
   <div class="search-filter">
-    <input type="text" placeholder="Search hotels"/>
+    <input type="text" placeholder="Search hotels" />
     <input type="text" placeholder="Category" [(ngModel)]="categoryFilter" />
     <input type="text" placeholder="Location" [(ngModel)]="locationFilter" />
     <button (click)="filterHotels()">Filter</button>
@@ -42,10 +194,12 @@
     <h3>{{ editRoomId ? 'Edit Room' : 'Add Room' }}</h3>
     <form (ngSubmit)="addRoom()">
       <label for="type">Type:</label>
-      <input id="type" [(ngModel)]="newRoom.type" name="type" required />
+      <select id="type" [(ngModel)]="newRoom.type" name="type" required>
+        <option *ngFor="let type of roomTypes | keyvalue" [value]="type.value">{{ type.key }}</option>
+      </select>
 
       <label for="price">Price:</label>
-      <input id="" [(ngModel)]="newRoom.price" name="price" type="number" required />
+      <input id="price" [(ngModel)]="newRoom.price" name="price" type="number" required />
 
       <label for="available">Available:</label>
       <input id="available" type="checkbox" [(ngModel)]="newRoom.available" name="available" />
@@ -63,18 +217,6 @@
 
       <label for="description">Description:</label>
       <textarea id="description" [(ngModel)]="newHotel.description" name="description"></textarea>
-
-      <label for="location">Location:</label>
-      <input id="location" [(ngModel)]="newHotel.location" name="location" required />
-
-      <label for="averageRating">Average Rating:</label>
-      <input id="averageRating" [(ngModel)]="newHotel.averageRating" name="averageRating" type="number" step="0.1" min="0" max="5" />
-
-      <label for="price">Price:</label>
-      <input id="price" [(ngModel)]="newHotel.price" name="price" type="number" />
-
-      <label for="distance">Distance:</label>
-      <input id="distance" [(ngModel)]="newHotel.distance" name="distance" type="number" />
 
       <button type="submit">Add Hotel</button>
     </form>

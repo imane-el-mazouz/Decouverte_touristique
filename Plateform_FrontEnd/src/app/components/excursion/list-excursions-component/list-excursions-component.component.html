@@ -1,6 +1,7 @@
 <div class="container">
   <h2>Excursions List</h2>
 
+  <!-- Search Form -->
   <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
     <div class="form-group">
       <label for="date">Date</label>
@@ -13,7 +14,6 @@
     <button type="submit" class="btn btn-primary">Search</button>
   </form>
 
-  <!-- Filter Form -->
   <form [formGroup]="filterForm" (ngSubmit)="onFilter()">
     <div class="form-group">
       <label for="minRating">Min Rating</label>
@@ -52,11 +52,26 @@
       <td>
         <button (click)="onUpdate(excursion.id, excursion)" class="btn btn-warning">Update</button>
         <button (click)="onDelete(excursion.id)" class="btn btn-danger">Delete</button>
+        <button (click)="onBook(excursion.id)" class="btn btn-primary">Book</button>
       </td>
     </tr>
-
     </tbody>
   </table>
+
+  <div *ngIf="selectedExcursion">
+    <h3>Book Excursion: {{ selectedExcursion.name }}</h3>
+    <form [formGroup]="bookingForm" (ngSubmit)="onConfirmBooking()">
+      <div class="form-group">
+        <label for="userName">Your Name</label>
+        <input id="userName" formControlName="userName" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="userEmail">Your Email</label>
+        <input id="userEmail" formControlName="userEmail" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-success">Confirm Booking</button>
+    </form>
+  </div>
 </div>
 
 <app-add-excursion-component></app-add-excursion-component>

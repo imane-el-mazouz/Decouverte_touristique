@@ -9,7 +9,7 @@ export class DtoRoom {
   type !: Type;
   price !: number;
   available !: boolean;
-  images !: Image[];
+  images !: File[];
   hotel !: Hotel;
   reservations: Reservation[] = [];
 }

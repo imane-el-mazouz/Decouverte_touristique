@@ -34,113 +34,266 @@
 //  .footer-divider { max-width: 100%; margin-top: 40px; }
 //  .footer-copyright { max-width: 100%; }
 //}
-footer {
-  background-color: #14183E;
+
+/* General Footer Styles */
+.footer {
+  background-color: #0a1b48;
   color: white;
-  padding: 40px 20px;
-  font-family: 'Abhaya Libre ExtraBold';
+  padding: 50px 0;
+  font-family: Abhaya Libre SemiBold, serif;
 }
 
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+.footer-content {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
 }
 
-.footer-logo {
-  grid-column: span 2;
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.footer-logo h2 {
-  font-size: 24px;
-  margin: 10px 0;
+.brand-section,
+.footer-nav,
+.footer-links,
+.contact-section,
+.booking-section {
+  flex: 1;
+  margin: 20px;
+  min-width: 200px;
+  box-sizing: border-box;
 }
 
-.footer-logo p {
-  margin: 10px 0;
+/* Brand Section */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo-image {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.brand-description {
+  margin-bottom: 20px;
   font-size: 14px;
-  line-height: 1.5;
 }
 
-.social-links a {
-  margin: 0 10px;
-  color: white;
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Footer Navigation and Links */
+.footer-nav-title,
+.footer-links-title,
+.contact-title,
+.booking-title {
   font-size: 18px;
-  text-decoration: none;
+  margin-bottom: 20px;
 }
 
-.footer-links h3,
-.footer-contact h3,
-.footer-booking h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.footer-links ul,
-.footer-contact ul {
+.footer-nav-list,
+.footer-links-list,
+.contact-list {
   list-style-type: none;
   padding: 0;
 }
 
-.footer-links li,
-.footer-contact li {
-  margin: 8px 0;
+.footer-nav-item,
+.footer-link-item,
+.contact-item {
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
-.footer-links a,
-.footer-contact i {
-  color: white;
-  text-decoration: none;
+.contact-item {
+  display: flex;
+  align-items: center;
 }
 
-.footer-contact li i {
+.contact-icon {
+  width: 16px;
+  height: 16px;
   margin-right: 10px;
 }
 
-.footer-booking p {
-  margin: 10px 0;
-  font-size: 14px;
+/* Booking Section */
+.booking-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Abhaya Libre SemiBold", serif;
 }
 
-.booking-btn {
-  display: inline-block;
-  background-color: #ff7d00;
-  padding: 10px 20px;
+.booking-description {
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-family: "Abhaya Libre SemiBold", serif;
+}
+
+.booking-button {
+  background-color: #FD7401;
+  border: none;
   color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.booking-btn:hover {
-  background-color: #e66900;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid #14183E
-;
-  margin-top: 20px;
-}
-
-.footer-bottom p {
-  margin: 0;
+  padding: 10px 20px;
+  cursor: pointer;
   font-size: 14px;
+  font-family: "Abhaya Libre SemiBold", serif;
+  border-radius: 15px;
+  width: 170px;
 }
-.social-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 24px; }
-.footer-social-icons { display: flex; margin-top: 25px; align-items: start; gap: 15px; justify-content: start; }
-.footer-logo-wrapper { display: flex; align-items: center; gap: 20px; color: #fff; white-space: nowrap; justify-content: start; font: 700 24px Quattrocento, sans-serif; }
-.footer-contact { display: flex; flex-direction: column; color: #d5d9db; justify-content: start; }
 
-
-.booking-btn{
-  border-radius: 30px;
-  background-color: #fd7401;
-  display: flex ;
-  justify-content: center ;
-  font-weight: 600 ;
+.booking-button:hover {
+  background-color: #FD7401;
 }
-.contact-item { display: flex; align-items: center; gap: 20px; justify-content: start; }
-.footer-contact-info { display: flex; margin-top: 25px; flex-direction: column; justify-content: start }
+
+/* Footer Divider and Copyright */
+.footer-divider {
+  width: 100%;
+  margin: 20px 0;
+
+}
+
+.copyright {
+
+  font-size: 13px;
+  margin-top: 20px;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  margin-left: 420PX;
+
+}
+
+//
+//footer {
+//  background-color: #14183E;
+//  color: white;
+//  padding: 40px 20px;
+//  font-family: 'Abhaya Libre ExtraBold';
+//}
+//
+//
+//.footer-container {
+//  display: grid;
+//  grid-template-columns: repeat(5, 1fr);
+//  gap: 20px;
+//  max-width: 1200px;
+//  margin: 0 auto;
+//}
+//
+//.footer-logo {
+//  grid-column: span 2;
+//}
+//
+//.footer-logo h2 {
+//  font-size: 24px;
+//  margin: 10px 0;
+//}
+//
+//.footer-logo p {
+//  margin: 10px 0;
+//  font-size: 14px;
+//  line-height: 1.5;
+//}
+//
+//.social-links a {
+//  margin: 0 10px;
+//  color: white;
+//  font-size: 18px;
+//  text-decoration: none;
+//}
+//
+//.footer-links h3,
+//.footer-contact h3,
+//.footer-booking h3 {
+//  font-size: 18px;
+//  margin-bottom: 10px;
+//}
+//
+//.footer-links ul,
+//.footer-contact ul {
+//  list-style-type: none;
+//  padding: 0;
+//}
+//
+//.footer-links li,
+//.footer-contact li {
+//  margin: 8px 0;
+//}
+//
+//.footer-links a,
+//.footer-contact i {
+//  color: white;
+//  text-decoration: none;
+//}
+//
+//.footer-contact li i {
+//  margin-right: 10px;
+//}
+//
+//.footer-booking p {
+//  margin: 10px 0;
+//  font-size: 14px;
+//}
+//
+//.booking-btn {
+//  display: inline-block;
+//  background-color: #ff7d00;
+//  padding: 10px 20px;
+//  color: white;
+//  text-decoration: none;
+//  border-radius: 5px;
+//}
+//
+//.booking-btn:hover {
+//  background-color: #e66900;
+//}
+//
+//.footer-bottom {
+//  text-align: center;
+//  padding-top: 20px;
+//  border-top: 1px solid #14183E
+//;
+//  margin-top: 20px;
+//}
+//
+//.footer-bottom p {
+//  margin: 0;
+//  font-size: 14px;
+//}
+//.social-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 24px; }
+//.footer-social-icons { display: flex; margin-top: 25px; align-items: start; gap: 15px; justify-content: start; }
+//.footer-logo-wrapper { display: flex; align-items: center; gap: 20px; color: #fff; white-space: nowrap; justify-content: start; font: 700 24px Quattrocento, sans-serif; }
+//.footer-contact { display: flex; flex-direction: column; color: #d5d9db; justify-content: start; }
+//
+//
+//.booking-btn{
+//  border-radius: 30px;
+//  background-color: #fd7401;
+//  display: flex ;
+//  justify-content: center ;
+//  font-weight: 600 ;
+//}
+//.contact-item { display: flex; align-items: center; gap: 20px; justify-content: start; }
+//.footer-contact-info { display: flex; margin-top: 25px; flex-direction: column; justify-content: start }

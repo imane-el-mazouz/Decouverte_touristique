@@ -22,6 +22,7 @@ import {
 } from "./components/blog-tradition-component/blog-tradition-component.component";
 import {GuardService} from "./service/auth_guard/guard.service";
 import {Role} from "./enums/role";
+import {ReviewManagementComponent} from "./components/review-management/review-management.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -39,8 +40,7 @@ export const routes: Routes = [
   { path: 'addExcursion', component: AddExcursionComponentComponent },
   { path: 'hotels', component: HotelManagementComponent },
   { path: 'blogs', component: TraditionBlogManagementComponent },
-
-
+  { path: 'reviews', component: ReviewManagementComponent },
 
   {
     path: 'dashboard',
@@ -59,6 +59,7 @@ export const routes: Routes = [
       { path: 'search', component: SearchBarComponent },
       { path: 'info', component: DashComponent },
       { path: 'contacts', component: ContactPageComponent },
+      { path: 'reviews', component: ReviewManagementComponent },
 
     ]
   },

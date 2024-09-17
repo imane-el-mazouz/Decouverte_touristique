@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {Excursion} from "../../../model/excursion/excursion";
-import {ExcursionService} from "../../../service/excursion-service/excursion-service.service";
-import {DtoExcursion} from "../../../dto/excursionDTO/dto-excursion";
-import {DatePipe, NgForOf} from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { ExcursionService } from "../../../service/excursion-service/excursion-service.service";
+import { DtoExcursion } from "../../../dto/excursionDTO/dto-excursion";
+import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {AddExcursionComponentComponent} from "../add-excursion-component/add-excursion-component.component";
 
 @Component({
@@ -13,15 +12,18 @@ import {AddExcursionComponentComponent} from "../add-excursion-component/add-exc
     ReactiveFormsModule,
     NgForOf,
     DatePipe,
-    AddExcursionComponentComponent
+    AddExcursionComponentComponent,
+    NgIf
   ],
   templateUrl: './list-excursions-component.component.html',
-  styleUrl: './list-excursions-component.component.css'
+  styleUrls: ['./list-excursions-component.component.css']
 })
-export class ListExcursionsComponentComponent implements OnInit{
+export class ListExcursionsComponentComponent implements OnInit {
   excursions: DtoExcursion[] = [];
   searchForm: FormGroup;
   filterForm: FormGroup;
+  bookingForm: FormGroup;
+  selectedExcursion: DtoExcursion | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -35,6 +37,11 @@ export class ListExcursionsComponentComponent implements OnInit{
     this.filterForm = this.fb.group({
       minRating: [0],
       maxRating: [5]
+    });
+
+    this.bookingForm = this.fb.group({
+      userName: [''],
+      userEmail: ['']
     });
   }
 
@@ -77,6 +84,7 @@ export class ListExcursionsComponentComponent implements OnInit{
       error => console.error('Error updating excursion', error)
     );
   }
+
   onDelete(id: number): void {
     this.excursionService.deleteExcursion(id).subscribe(
       () => {
@@ -85,5 +93,18 @@ export class ListExcursionsComponentComponent implements OnInit{
       },
       error => console.error('Error deleting excursion', error)
     );
+  }
+
+  onBook(id: number): void {
+    this.selectedExcursion = this.excursions.find(excursion => excursion.id === id) || null;
+  }
+
+  onConfirmBooking(): void {
+    if (this.bookingForm.valid && this.selectedExcursion) {
+      const bookingDetails = this.bookingForm.value;
+      console.log('Booking confirmed for excursion:', this.selectedExcursion);
+      this.bookingForm.reset();
+      this.selectedExcursion = null;
+    }
   }
 }

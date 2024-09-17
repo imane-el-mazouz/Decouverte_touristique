@@ -30,14 +30,7 @@ export class HotelServiceService {
     return this.http.get<DtoHotel>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
   }
 
-  addHotel(hotelDTO: {
-    distance: number;
-    price: number;
-    averageRating: number;
-    name: string;
-    description: string;
-    location: string
-  }): Observable<DtoHotel> {
+  addHotel(hotelDTO: { name: string; description: string }): Observable<DtoHotel> {
     return this.http.post<DtoHotel>(this.apiUrl, hotelDTO, { headers: this.getHeaders() });
   }
 

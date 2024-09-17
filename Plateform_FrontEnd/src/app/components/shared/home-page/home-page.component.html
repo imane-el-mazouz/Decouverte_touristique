@@ -26,10 +26,184 @@
             <label for="category">Category</label>
             <input type="text" id="category" placeholder="excursion, hotel, event">
           </div>
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/af77a26bbf0110f9e8ba378eec3fcdc7a022e66096a7128825395f1701181e14?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-button-icon" />
-
-          <button class="search-btn">Search</button>
+          <button type="submit" class="search-button">
+            <span class="search-button-icon">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/af77a26bbf0110f9e8ba378eec3fcdc7a022e66096a7128825395f1701181e14?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-button-img" />
+            </span>Search
+          </button>
         </div>
+<!--        <style>-->
+<!--          .search-bar {-->
+<!--            border-radius: 20px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: space-between;-->
+<!--            padding: 21px 24px;-->
+<!--          }-->
+
+<!--          @media (max-width: 991px) {-->
+<!--            .search-bar {-->
+<!--              padding: 0 20px;-->
+<!--            }-->
+<!--          }-->
+
+<!--          .search-options {-->
+<!--            align-self: stretch;-->
+<!--            display: flex;-->
+<!--            min-width: 240px;-->
+<!--            width: 100%;-->
+<!--            align-items: center;-->
+<!--            gap: 40px 51px;-->
+<!--            justify-content: space-between;-->
+<!--            flex-wrap: wrap;-->
+<!--            flex: 1;-->
+<!--            flex-basis: 0%;-->
+<!--            margin: auto 0;-->
+<!--          }-->
+
+<!--          @media (max-width: 991px) {-->
+<!--            .search-options {-->
+<!--              max-width: 100%;-->
+<!--            }-->
+<!--          }-->
+
+<!--          .search-fields {-->
+<!--            align-self: stretch;-->
+<!--            display: flex;-->
+<!--            min-width: 240px;-->
+<!--            align-items: start;-->
+<!--            gap: 40px 134px;-->
+<!--            color: #000;-->
+<!--            justify-content: start;-->
+<!--            flex-wrap: wrap;-->
+<!--            margin: auto 0;-->
+<!--          }-->
+
+<!--          @media (max-width: 991px) {-->
+<!--            .search-fields {-->
+<!--              max-width: 100%;-->
+<!--            }-->
+<!--          }-->
+
+<!--          .search-field {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            gap: 12px;-->
+<!--            justify-content: start;-->
+<!--          }-->
+
+<!--          .search-icon {-->
+<!--            aspect-ratio: 1;-->
+<!--            object-fit: contain;-->
+<!--            object-position: center;-->
+<!--            width: 24px;-->
+<!--            align-self: stretch;-->
+<!--            margin: auto 0;-->
+<!--          }-->
+
+<!--          .search-text {-->
+<!--            align-self: stretch;-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            justify-content: start;-->
+<!--            margin: auto 0;-->
+<!--          }-->
+
+<!--          .search-label {-->
+<!--            font: 600 20px Abhaya Libre SemiBold, -apple-system, Roboto, Helvetica, sans-serif;-->
+<!--          }-->
+
+<!--          .search-input {-->
+<!--            margin-top: 12px;-->
+<!--            font: 400 16px Inter, sans-serif;-->
+<!--          }-->
+
+<!--          .search-button {-->
+<!--            border-radius: 12px;-->
+<!--            background-color: #14183e;-->
+<!--            align-self: stretch;-->
+<!--            display: flex;-->
+<!--            min-height: 40px;-->
+<!--            align-items: center;-->
+<!--            gap: 8px;-->
+<!--            justify-content: center;-->
+<!--            margin: auto 0;-->
+<!--            padding: 0 20px;-->
+<!--            color: #fff;-->
+<!--            font: 600 16px Abhaya Libre SemiBold, -apple-system, Roboto, Helvetica, sans-serif;-->
+<!--            cursor: pointer;-->
+<!--          }-->
+
+<!--          .search-button-icon {-->
+<!--            align-self: stretch;-->
+<!--            display: flex;-->
+<!--            align-items: start;-->
+<!--            gap: 8px;-->
+<!--            justify-content: start;-->
+<!--            width: 20px;-->
+<!--            margin: auto 0;-->
+<!--          }-->
+
+<!--          .search-button-img {-->
+<!--            aspect-ratio: 1;-->
+<!--            object-fit: contain;-->
+<!--            object-position: center;-->
+<!--            width: 20px;-->
+<!--          }-->
+
+<!--          .visually-hidden {-->
+<!--            position: absolute;-->
+<!--            width: 1px;-->
+<!--            height: 1px;-->
+<!--            padding: 0;-->
+<!--            margin: -1px;-->
+<!--            overflow: hidden;-->
+<!--            clip: rect(0, 0, 0, 0);-->
+<!--            white-space: nowrap;-->
+<!--            border: 0;-->
+<!--          }-->
+<!--        </style>-->
+
+<!--        <section class="search-bar">-->
+<!--          <form class="search-options">-->
+<!--            <div class="search-fields">-->
+<!--              <div class="search-field">-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1df5ef68b6467efb882ec3c3372fae0ed3c1d98c577fae647327b9ded989060c?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" />-->
+<!--                <div class="search-text">-->
+<!--                  <label for="location-input" class="search-label">Location</label>-->
+<!--                  <input type="text" id="location-input" class="search-input" placeholder="Where are you going?" />-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="search-field">-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f891af40c0f59dc3de64e611ede4ad30e1b2a67d9a5184d25a7be71b8bf0ac67?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" />-->
+<!--                <div class="search-text">-->
+<!--                  <label for="date-input" class="search-label">Date</label>-->
+<!--                  <input type="date" id="date-input" class="search-input" placeholder="Set date" />-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="search-field">-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b4cbf35967b7bf802543f1a695c34be39a77f44a1e2b67567f97dd8efb0b7428?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" />-->
+<!--                <div class="search-text">-->
+<!--                  <label for="category-select" class="search-label">Category</label>-->
+<!--                  <select id="category-select" class="search-input">-->
+<!--                    <option value="">excursion, hotel, event</option>-->
+<!--                    <option value="excursion">Excursion</option>-->
+<!--                    <option value="hotel">Hotel</option>-->
+<!--                    <option value="event">Event</option>-->
+<!--                  </select>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <button type="submit" class="search-button">-->
+<!--      <span class="search-button-icon">-->
+<!--        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/af77a26bbf0110f9e8ba378eec3fcdc7a022e66096a7128825395f1701181e14?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-button-img" />-->
+<!--      </span>-->
+<!--              Search-->
+<!--            </button>-->
+<!--          </form>-->
+<!--        </section>-->
       </div>
     </section>
     <section class="about-section">
@@ -74,6 +248,248 @@
       </div>
     </section>
 
+    <section class="top-destinations">
+      <h2 class="section-title">Top Destinations</h2>
+      <div class="destination-grid">
+        <div class="destination-row">
+          <div class="destination-column">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a60d28df21fef36a1c28cf0f5327f0bd55b708f53c9023cf192d27d403f02bfc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="destination-image" alt="Top destination 1" />
+          </div>
+          <div class="destination-column">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/2ae87fabb664e4ecdf20e73e3eaf1a2786aad28f7dff0fc206b0400cce18188f?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="destination-image" alt="Top destination 2" />
+          </div>
+          <div class="destination-column">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/3d8bb260b3970df6442cb7e936b99c18f82ddfb9e363be909d3e18a4f680e0d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="destination-image" alt="Top destination 3" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="exclusive-offer-container">
+      <div class="offer-frame">
+        <img loading="lazy" src="assets/img/chefchaoun.jpg" class="offer-image" alt="Exclusive holiday offer visual" />
+        <div class="offer-content">
+          <p class="offer-label">Exclusive offer</p>
+          <div class="offer-details">
+            <h2 class="offer-title">Book your holiday with complete <br /> confidence</h2>
+            <button class="cta-button">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="events-section">
+      <h2 class="section-title">Popular Events</h2>
+      <div class="event-cards">
+        <div class="card-container">
+          <article class="event-card">
+            <div class="card-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/730bc4edd4090db75ad209a9e3ea87f6f9423f50124a3e3f4b2ee90e9b9f5580?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rabat Olm Suissi event" class="card-image">
+              <span class="discount-badge">20% off</span>
+            </div>
+            <div class="card-content">
+              <h3 class="event-title">Rabat, Olm Suissi</h3>
+              <div class="rating-container">
+                <div class="star-rating">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                </div>
+                <span class="review-count">(1 Review)</span>
+              </div>
+              <div class="price-info">
+                <span>From</span>
+                <span class="original-price">$1200</span>
+                <span class="discounted-price">$960</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="card-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c6b8c8f8ef78ff0026083835fd7241c02aab78247d3411074cbe9dd29efe818?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Agadir Timitar event" class="card-image">
+            </div>
+            <div class="card-content">
+              <h3 class="event-title">Agadir, Timitar</h3>
+              <div class="rating-container">
+                <div class="star-rating">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                </div>
+                <span class="review-count">(1 Review)</span>
+              </div>
+              <div class="price-info">
+                <span>From</span>
+                <span>$800</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="card-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4828b66a7dcad4ef1c45992fd49d9b36247f1d95a8dd8d6273e5bbae9d7d21c0?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Marrakech International Festival" class="card-image">
+            </div>
+            <div class="card-content">
+              <h3 class="event-title">Marrakech, International Festival</h3>
+              <div class="rating-container">
+                <div class="star-rating">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                </div>
+                <span class="review-count">(1 Review)</span>
+              </div>
+              <div class="price-info">
+                <span>From</span>
+                <span>$850</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="card-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7778b57257495c816e97eddea742408d3f4c90267beeee387b1613c23351ba47?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Essaouira Gnaoua event" class="card-image">
+            </div>
+            <div class="card-content">
+              <h3 class="event-title">Essaouira, Gnaoua</h3>
+              <div class="rating-container">
+                <div class="star-rating">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/952572c5346621f75d9ee6ae6a3b0c4a37d34f8d01a9c2caceab7a3b54844434?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon">
+                </div>
+                <span class="review-count">(1 Review)</span>
+              </div>
+              <div class="price-info">
+                <span>From</span>
+                <span>$2200</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="explore-hotels">
+      <h2 class="section-heading">Explore our hotels</h2>
+      <div class="hotel-content">
+        <div class="hotel-layout">
+          <div class="hotel-info">
+            <h3 class="hotel-name">Hotel Mamounia, Marrakech</h3>
+            <p class="hotel-description">
+              Experience unparalleled luxury and cultural immersion at Hotel <br>
+              Mamounia, Marrakech. Nestled in the heart of the city, this iconic
+              <br> hotel offers a perfect blend of Moroccan tradition and modern <br>
+              comfort.
+            </p>
+            <ul class="feature-list">
+              <li class="feature-item">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/605afb081ddba82096ab1c77b57f58d0904b9e51a5270494e8bac7e37df3097f?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="feature-icon" alt="" />
+                <span class="feature-text">Full financial protection</span>
+              </li>
+              <li class="feature-item">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/605afb081ddba82096ab1c77b57f58d0904b9e51a5270494e8bac7e37df3097f?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="feature-icon" alt="" />
+                <span class="feature-text">Flexible & customisable tour options</span>
+              </li>
+              <li class="feature-item">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/605afb081ddba82096ab1c77b57f58d0904b9e51a5270494e8bac7e37df3097f?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="feature-icon" alt="" />
+                <span class="feature-text">Hassle-free & seamless travel experience</span>
+              </li>
+            </ul>
+            <button class="book-button">Book now</button>
+          </div>
+          <div class="hotel-image-container">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0cec9842da1c3049d5279b0b81afe7699f6bb837024305e1188a2eae21088d76?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="hotel-image" alt="Hotel Mamounia, Marrakech" />
+            <div class="price-tag">from $1200</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="discover-section">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e9829732528809e029a3e754174143e7bf3373e8d07689dff1af3d8b7b880cae?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="background-image" />
+      <div class="content-wrapper">
+        <header class="header-content">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c519f391c623420e676ae268708d45a1e49cd2f8bf0be29acd443b896592f3a9?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Discover icon" class="header-icon" />
+          <h1 class="header-title">Discover The World With Us</h1>
+        </header>
+        <div class="stats-container">
+          <div class="stat-item">
+            <span class="stat-number">200k</span>
+            <span class="stat-label">Happy travelers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">400</span>
+            <span class="stat-label">Destinations</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">224</span>
+            <span class="stat-label">Hotels</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100</span>
+            <span class="stat-label">Events</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-section">
+      <h2 class="team-heading">Our Team</h2>
+      <div class="team-cards">
+        <article class="team-card">
+          <div class="team-image-wrapper">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/769abbc336a015c3c1c757a97751e829876027f5b15b08bd0a9f48d9549c6c76?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="team-image" alt="Portrait of Imane EL MAZOUZ" />
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/2cb182c393f2fa2929ad27c2818526b31519c6f22b19fc41ae4272807be59f4f?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="team-image" alt="" />
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Imane EL MAZOUZ</h3>
+            <p class="team-role">Director</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div class="team-image-wrapper">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7705ddee976544b328d57add487d1c67cea7976c1a4a80f0c536b145336c7418?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="team-image" alt="Portrait of Wissal EL MAZOUZ" />
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/d94600b6f7a3359c8013b5ee642b8799489edf0cd8be82a41877ef7d6825313d?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="team-image" alt="" />
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Wissal EL MAZOUZ</h3>
+            <p class="team-role">Administrator</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div class="team-image-wrapper">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/600ed966e1edc2274f29ba80966663e57c6a9179e75412330e31065d871aa977?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="team-image" alt="Portrait of John Pollard" />
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/44fe6b4d68f443d08e209f8c8509915da3755129301cffaa4a0e97e3b90da36a?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="team-image" alt="" />
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">John Pollard</h3>
+            <p class="team-role">Developer</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div class="team-image-wrapper">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8ef1f01c3885bbc33edfe5d560ff6a17518dd5c5cc4463eacae4fa0b39292adf?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="team-image" alt="Portrait of Kan Hoover" />
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/646da5ae23e17b91dd46dac2f9057374128d40eeb0ef0cad1302f9f8ee038b02?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="team-image" alt="" />
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Kan Hoover</h3>
+            <p class="team-role">Manager</p>
+          </div>
+        </article>
+      </div>
+    </section>
     </body>
   </div>
 

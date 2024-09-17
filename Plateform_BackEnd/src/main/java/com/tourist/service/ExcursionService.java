@@ -22,24 +22,25 @@ public class ExcursionService {
     @Autowired
     private ExcursionRepository excursionRepository;
 
-    private static final String IMAGE_DIRECTORY = "/path/to/Plateform_FrontEnd/src/assets/img";
+    private static final String IMAGE_DIRECTORY = "/img2";
 
-    public Excursion saveExcursion(ExcursionDTO excursionDTO) throws IOException {
-        MultipartFile imgFile = excursionDTO.getImg();
-        String imgPath = saveImage(imgFile);
 
+
+    public Excursion saveExcursion(ExcursionDTO excursionDTO) {
         Excursion excursion = new Excursion();
         excursion.setName(excursionDTO.getName());
         excursion.setDescription(excursionDTO.getDescription());
-        excursion.setImgPath(imgPath);
+        excursion.setImgPath(excursionDTO.getImgPath());
         excursion.setDateTime(excursionDTO.getDateTime());
         excursion.setLocation(excursionDTO.getLocation());
         excursion.setCapacity(excursionDTO.getCapacity());
+        excursion.setRating(excursionDTO.getRating());
 
         return excursionRepository.save(excursion);
     }
 
-//    private String saveImage(MultipartFile imgFile) throws IOException {
+
+    //    private String saveImage(MultipartFile imgFile) throws IOException {
 //        if (imgFile == null || imgFile.isEmpty()) {
 //            return null;
 //        }
@@ -50,21 +51,27 @@ public class ExcursionService {
 //
 //        return imgName;
 //    }
-public String saveImage(MultipartFile imgFile) throws IOException {
-    if (imgFile == null || imgFile.isEmpty()) {
-        return null;
+//public String saveImage(MultipartFile imgFile) throws IOException {
+//    if (imgFile == null || imgFile.isEmpty()) {
+//        return null;
+//    }
+//    Path directoryPath = Paths.get(IMAGE_DIRECTORY);
+//    if (!Files.exists(directoryPath)) {
+//        Files.createDirectories(directoryPath);
+//    }
+//
+//    String imgName = System.currentTimeMillis() + "_" + imgFile.getOriginalFilename();
+//    Path path = directoryPath.resolve(imgName);
+//    Files.write(path, imgFile.getBytes());
+//
+//    return imgName;
+//}
+    public String saveImage(MultipartFile img) throws IOException {
+        String imgPath = "/src/main/resources/img2/" + img.getOriginalFilename();
+        Path path = Paths.get(imgPath);
+        Files.write(path, img.getBytes());
+        return imgPath;
     }
-    Path directoryPath = Paths.get(IMAGE_DIRECTORY);
-    if (!Files.exists(directoryPath)) {
-        Files.createDirectories(directoryPath);
-    }
-
-    String imgName = System.currentTimeMillis() + "_" + imgFile.getOriginalFilename();
-    Path path = directoryPath.resolve(imgName);
-    Files.write(path, imgFile.getBytes());
-
-    return imgName;
-}
 
 
     public List<Excursion> getAllExcursions() {
