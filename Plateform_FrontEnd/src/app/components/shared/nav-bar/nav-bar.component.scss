@@ -21,6 +21,8 @@
 //  .signup-button { padding: 0 20px; }
 //
 //}
+
+/* General reset */
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +31,6 @@
 
 body {
   font-family: Abhaya Libre SemiBold, serif;
-
 }
 
 .navbar {
@@ -39,15 +40,12 @@ body {
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
 }
 
 .logo img {
   height: 50px;
-  aspect-ratio: 1.38;
-  object-fit: contain;
-  object-position: center;
   width: 128px;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -96,3 +94,116 @@ body {
 .signup:hover {
   background-color: #1C1C62;
 }
+
+/* Hamburger Menu for Mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: #2E2F83;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+//* {
+//  margin: 0;
+//  padding: 0;
+//  box-sizing: border-box;
+//}
+//
+//body {
+//  font-family: Abhaya Libre SemiBold, serif;
+//
+//}
+//
+//.navbar {
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: center;
+//  padding: 20px;
+//  background-color: #fff;
+//  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+//
+//}
+//
+//.logo img {
+//  height: 50px;
+//  aspect-ratio: 1.38;
+//  object-fit: contain;
+//  object-position: center;
+//  width: 128px;
+//}
+//
+//.nav-links {
+//  list-style: none;
+//  display: flex;
+//  gap: 20px;
+//}
+//
+//.nav-links li a {
+//  text-decoration: none;
+//  color: #2E2F83;
+//  font-size: 18px;
+//}
+//
+//.nav-links li a:hover {
+//  text-decoration: underline;
+//}
+//
+//.search-login-signup {
+//  display: flex;
+//  align-items: center;
+//  gap: 15px;
+//}
+//
+//.search-bar {
+//  border: 1px solid #ccc;
+//  border-radius: 20px;
+//  padding: 5px 15px;
+//}
+//
+//.login {
+//  text-decoration: none;
+//  color: #2E2F83;
+//  font-size: 18px;
+//}
+//
+//.signup {
+//  text-decoration: none;
+//  background-color: #2E2F83;
+//  color: #fff;
+//  padding: 10px 20px;
+//  border-radius: 25px;
+//  font-size: 18px;
+//}
+//
+//.signup:hover {
+//  background-color: #1C1C62;
+//}

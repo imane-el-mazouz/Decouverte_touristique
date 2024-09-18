@@ -2,7 +2,7 @@
 
 <section class="hero">
   <div class="overlay">
-    <h1>Contact Us</h1>
+    <h1 style=" color: white ;">Contact Us</h1>
   </div>
 </section>
 <section class="contact-info">
@@ -60,13 +60,15 @@
   <div class="contact-container">
     <form (ngSubmit)="addContact()" class="contact-form">
       <h2>Billing Details</h2>
-      <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input id="firstName" [(ngModel)]="contact.firstName" name="firstName" class="form-control" placeholder="Input your First Name in Here" required />
-      </div>
-      <div class="form-group">
-        <label for="fullName">Last Name</label>
-        <input id="fullName" [(ngModel)]="contact.fullName" name="fullName" class="form-control" placeholder="Input your Last Name in Here" required />
+      <div style="display: flex ; gap: 20px">
+        <div class="form-group" style="width: 320px">
+          <label for="firstName">First Name</label>
+          <input id="firstName" [(ngModel)]="contact.firstName" name="firstName" class="form-control" placeholder="Input your First Name in Here" required />
+        </div>
+        <div class="form-group" style="width: 320px">
+          <label for="fullName">Last Name</label>
+          <input id="fullName" [(ngModel)]="contact.fullName" name="fullName" class="form-control" placeholder="Input your Last Name in Here" required />
+        </div>
       </div>
       <div class="form-group">
         <label for="email">Email Address</label>
@@ -74,23 +76,43 @@
       </div>
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" [(ngModel)]="contact.message" name="message" class="form-control" placeholder="your message" required></textarea>
+        <textarea id="message" [(ngModel)]="contact.message" name="message" class="form-control" placeholder="Your message" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Contact Us</button>
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+
     </form>
-    <div class="contact-images">
-      <div class="image-wrapper">
-        <img src="assets/img/sahara.jpg" alt="Image 1">
+    <div class="images-column">
+      <div class="image-container">
+        <div class="image-wrapper-left">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1ce4ed9c5f59425e97b6bb315a309c835d4215ed141cc387d202e0f578af97e?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Decorative image" class="image-left">
+        </div>
+        <div class="image-wrapper-right">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ebb84a1884e3853bd28b9d19dc2d87e74ac0cdff135fa54dc6c5ed59236527dc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Decorative image" class="image-right">
+        </div>
       </div>
-      <div class="image-wrapper">
-        <img src="assets/img/ouzoud.jpg" alt="Image 2">
-      </div>
-
-
     </div>
   </div>
 </div>
-
+<section class="subscribe-section">
+  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e9829732528809e029a3e754174143e7bf3373e8d07689dff1af3d8b7b880cae?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="background-image" alt="" />
+  <div class="content-wrapper">
+    <h2 class="subscribe-text">
+      Subscribe to get information, latest news and other interesting offers about us
+    </h2>
+    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c9710e0c4ea694149d81accc7f0157d6c4438d44ffd57172792c85480114a35?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="decorative-image" alt="" />
+  </div>
+  <form class="form-container">
+    <div class="input-wrapper">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/03aae23473b09ad935442d51c0961a46c9083d90371253daab99c7e3eee5e7fe?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="email-icon" alt="" />
+      <label for="emailInput" class="visually-hidden">Your email</label>
+      <input type="email" id="emailInput" class="email-input" placeholder="Your email" aria-label="Your email" required />
+    </div>
+    <button type="submit" class="subscribe-button">Subscribe</button>
+  </form>
+</section>
 
 <!--<div class="container">-->
 <!--  <h2>Add Contact</h2>-->

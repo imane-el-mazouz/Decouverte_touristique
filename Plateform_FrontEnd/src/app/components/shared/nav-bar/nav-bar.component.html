@@ -67,25 +67,48 @@
 <!--</header>-->
 
 <body>
+<!--<nav class="navbar">-->
+<!--  <div class="logo">-->
+<!--    <img src="assets/img/logo.png" alt="Discover Morocco Logo">-->
+<!--  </div>-->
+<!--  <ul class="nav-links">-->
+<!--    <li><a [routerLink]="['/home']" fragment="home" routerLinkActive="active">Home</a></li>-->
+<!--    <li><a [routerLink]="['/about']" fragment="about" routerLinkActive="active">About Us</a></li>-->
+
+<!--    <li><a [routerLink]="['/events']" fragment="home" routerLinkActive="active">Events</a></li>-->
+<!--    <li><a [routerLink]="['/excursions']" fragment="home" routerLinkActive="active">Excursions</a></li>-->
+<!--    <li><a [routerLink]="['/hotels']" fragment="home" routerLinkActive="active">Hotels</a></li>-->
+<!--    <li><a [routerLink]="['/addContact']" fragment="contact" routerLinkActive="active">Contact</a></li>-->
+
+<!--  </ul>-->
+<!--  <div class="search-login-signup">-->
+<!--    <a [routerLink]="['/login']" fragment="home" routerLinkActive="active" class="login">Log in</a>-->
+<!--    <a [routerLink]="['/signup']" fragment="home" routerLinkActive="active" class="signup">Sign up</a>-->
+<!--  </div>-->
+<!--</nav>-->
 <nav class="navbar">
   <div class="logo">
-    <img src="../../../../assets/img/logo.png" alt="Discover Morocco Logo">
+    <img src="assets/img/logo.png" alt="Discover Morocco Logo">
   </div>
-  <ul class="nav-links">
+  <div class="menu-toggle" id="mobile-menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+  <ul class="nav-links" id="nav-links">
     <li><a [routerLink]="['/home']" fragment="home" routerLinkActive="active">Home</a></li>
     <li><a [routerLink]="['/about']" fragment="about" routerLinkActive="active">About Us</a></li>
-
-    <li><a href="#">Events</a></li>
-    <li><a href="#">Excursions</a></li>
-    <li><a href="#">Hotels</a></li>
-    <li><a [routerLink]="['/contact']" fragment="contact" routerLinkActive="active">Contact</a></li>
-
+    <li><a [routerLink]="['/events-page']" fragment="home" routerLinkActive="active">Events</a></li>
+    <li><a [routerLink]="['/excursions']" fragment="home" routerLinkActive="active">Excursions</a></li>
+    <li><a [routerLink]="['/hotels']" fragment="home" routerLinkActive="active">Hotels</a></li>
+    <li><a [routerLink]="['/addContact']" fragment="contact" routerLinkActive="active">Contact</a></li>
   </ul>
   <div class="search-login-signup">
     <a [routerLink]="['/login']" fragment="home" routerLinkActive="active" class="login">Log in</a>
     <a [routerLink]="['/signup']" fragment="home" routerLinkActive="active" class="signup">Sign up</a>
   </div>
 </nav>
+
 </body>
 
 

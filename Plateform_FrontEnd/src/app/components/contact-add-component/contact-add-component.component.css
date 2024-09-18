@@ -1,6 +1,7 @@
 body {
   font-family: Abhaya Libre SemiBold, serif ;
   width: 100%;
+  margin: 0;
 }
 
 .hero {
@@ -28,6 +29,7 @@ h1 {
   font-size: 58px;
   margin-bottom: 20px;
   font-family: Abhaya Libre SemiBold, serif
+  ; color: white;
 }
 
 .contact-info {
@@ -141,8 +143,8 @@ body {
 h1 {
   text-align: center;
   font-size: 36px;
-  color: #2d3945;
-  margin-top: 50px;
+  color: #0a1b48;
+  margin-top: 10px;
 }
 
 .contact-section {
@@ -239,4 +241,199 @@ button:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.images-column { width: 36%; }
+.image-container { display: flex; gap: 20px; }
+.image-wrapper-left { width: 55%; }
+.image-wrapper-right { width: 45%; }
+.image-left { aspect-ratio: 0.66; object-fit: contain; width: 100%; border-radius: 233px; margin-right: -79px; }
+.image-right { aspect-ratio: 0.73; object-fit: contain; width: 100%; margin-top: 190px; }
+
+
+.success-message {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  animation: fadeIn 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.subscribe-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 350px;
+  padding: 20px 20px 30px 40px;
+  margin-right: 100px;
+  margin-left: 110px;
+  margin-bottom: 50px;
+
+}
+
+@media (max-width: 991px) {
+  .subscribe-section {
+    padding-left: 10px;
+  }
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20PX;
+}
+
+.content-wrapper {
+  position: relative;
+  align-self: end;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  align-items: flex-start;
+  gap: 20px; /* Reduced gap */
+  color: #fff;
+  text-align: center;
+  flex-wrap: wrap;
+  font: 600 20px/40px  "Abhaya Libre ExtraBold", serif;
+  margin-right: 80px;
+
+}
+
+@media (max-width: 991px) {
+  .content-wrapper {
+    max-width: 100%;
+  }
+}
+
+.subscribe-text {
+  align-self: end;
+  margin-top: 40px;
+  flex-grow: 1;
+  width: 600px;
+  font-family:Abhaya Libre ExtraBold, serif;
+}
+
+@media (max-width: 991px) {
+  .subscribe-text {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.decorative-image {
+  aspect-ratio: 0.94;
+  object-fit: contain;
+  object-position: center;
+  width: 60px;
+  border-radius: 50%;
+  align-self: start;
+}
+
+.form-container {
+  position: relative;
+  align-self: center;
+  display: flex;
+  margin-top: 60px; /* Reduced margin-top */
+  width: 600px; /* Reduced width */
+  max-width: 100%;
+  gap: 20px; /* Reduced gap */
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .form-container {
+    margin-top: 20px; /* Reduced margin-top */
+  }
+}
+
+.input-wrapper {
+  border-radius: 8px; /* Reduced border-radius */
+  background-color: #fff;
+  display: flex;
+  gap: 12px; /* Reduced gap */
+  color: #39425d;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-basis: auto;
+  padding: 20px; /* Reduced padding */
+  font: 700 12px "Abhaya Libre SemiBold", serif; /* Adjusted font size */
+}
+
+@media (max-width: 991px) {
+  .input-wrapper {
+    padding: 10px; /* Reduced padding for smaller screens */
+  }
+}
+
+.email-icon {
+  aspect-ratio: 1.14;
+  object-fit: contain;
+  object-position: center;
+  width: 20px; /* Reduced width */
+  border-radius: 0;
+}
+
+.email-input {
+  align-self: start;
+  flex-basis: auto;
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+}
+
+.subscribe-button {
+  border-radius: 8px; /* Reduced border-radius */
+  background-color: #fd7401;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  padding: 20px 40px; /* Reduced padding */
+  font: 600 14px Abhaya Libre, sans-serif; /* Adjusted font size */
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .subscribe-button {
+    white-space: initial;
+    padding: 10px 20px; /* Reduced padding for smaller screens */
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -1,0 +1,199 @@
+<app-nav-bar></app-nav-bar>
+<section class="hero">
+  <div class="overlay">
+    <h1>Explore Our Events</h1>
+    <section class="search-container">
+      <div class="search-bg">
+        <div class="search-content">
+          <div class="search-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3aaac8b5c6e706ec34c97b35ae12e6cb1834d548e23419f330120c04622c3da?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Location icon" class="search-icon" />
+            <div class="search-details">
+              <div class="search-label">
+                <span>Location</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />
+              </div>
+              <div class="search-value">Azilal</div>
+            </div>
+          </div>
+          <div class="search-divider" role="separator"></div>
+          <div class="search-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Calendar icon" class="search-icon" />
+            <div class="search-details">
+              <div class="search-label">
+                <span>Date</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />
+              </div>
+              <div class="search-value">26 Oct, 2024</div>
+            </div>
+          </div>
+          <button class="search-button" aria-label="Search">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" />
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<!--<section class="events-container" >-->
+<!--  <header class="events-header">-->
+<!--    <h2 class="events-title">Our Events</h2>-->
+<!--    <div class="events-icons">-->
+<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0be4f5ae517fb455396a4b0d7af4bc7bf793de43906db4c47433085ebb2d9941?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-icon" alt="" />-->
+<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/363ec222dcaa41986982fe7d4fe42c6754d8b686330570a3039ec56d3f6faf61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-icon" alt="" />-->
+<!--    </div>-->
+<!--    <div class="events-icons">-->
+<!--      <ng-container *ngFor="let icon of getVisibleIcons()">-->
+<!--        <img loading="lazy" [src]="icon" class="event-icon" alt="Event icon" />-->
+<!--      </ng-container>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Pagination &ndash;&gt;-->
+<!--    <div class="pagination">-->
+<!--      <button class="pagination-btn" (click)="prevPage()" [disabled]="isPrevDisabled()">Previous</button>-->
+<!--      <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>-->
+<!--      <button class="pagination-btn" (click)="nextPage()" [disabled]="isNextDisabled()">Next</button>-->
+<!--    </div>-->
+<!--    <div class="pagination">-->
+<!--      <button class="pagination-btn" id="prev-btn" disabled>Previous</button>-->
+<!--      <span class="pagination-info" id="page-info">Page 1 of 2</span>-->
+<!--      <button class="pagination-btn" id="next-btn">Next</button>-->
+<!--    </div>-->
+<!--  </header>-->
+<!--  <div class="events-list">-->
+<!--    <article class="event-card">-->
+<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b52887050f70a579d63d67c8a54c32bfc221f1888c33da90bb32617a157b0c51?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="International Festival in Mhamid El Ghizlane, Essaouira" />-->
+<!--      <div class="event-details">-->
+<!--        <div class="event-content">-->
+<!--          <h3 class="event-name">International Festival</h3>-->
+<!--          <p class="event-location">Mhamid El Ghizlane , Essaouira</p>-->
+<!--          <div class="event-rating">-->
+<!--            <div class="rating-content">-->
+<!--              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />-->
+<!--              <span>4</span>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <p class="event-price">$200</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </article>-->
+<!--    <article class="event-card">-->
+<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1aa94dd5dbd1c62c4dcbe90535e72c08d66364c14f02b9335869d28aabcc38cb?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="International Film Festival in Marrakech" />-->
+<!--      <div class="event-details">-->
+<!--        <div class="event-content">-->
+<!--          <h3 class="event-name">International Film Festival</h3>-->
+<!--          <p class="event-location">Marakech</p>-->
+<!--          <div class="event-rating">-->
+<!--            <div class="rating-content">-->
+<!--              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />-->
+<!--              <span>4</span>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <p class="event-price">$400</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </article>-->
+<!--    <article class="event-card">-->
+<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5825d116f3a31eb2d14348cea8413faad375cc7173e95f4ce7053c9793a02dde?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="Gitex Africa in Marrakech" />-->
+<!--      <div class="event-details">-->
+<!--        <div class="event-content">-->
+<!--          <h3 class="event-name">Gitex Africa</h3>-->
+<!--          <p class="event-location">Marakech</p>-->
+<!--          <div class="event-rating">-->
+<!--            <div class="rating-content">-->
+<!--              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />-->
+<!--              <span>4</span>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="price-details">-->
+<!--            <p class="price-amount">$100</p>-->
+<!--            <p class="tour-duration">10 days tour</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </article>-->
+<!--  </div>-->
+<!--  <div class="pagination-container">-->
+<!--    <ul class="pagination">-->
+<!--      <li class="active">1</li>-->
+<!--      <li>2</li>-->
+<!--      <li>3</li>-->
+<!--      <li>Next</li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+
+<section class="events-container" >
+  <header class="events-header">
+    <h2 class="events-title">Our Events</h2>
+    <div class="events-icons">
+      <ng-container *ngFor="let icon of getVisibleIcons()">
+        <img [src]="icon" class="event-icon" alt="Event icon" loading="lazy" />
+      </ng-container>
+    </div>
+
+    <div class="pagination">
+      <button class="pagination-btn" (click)="prevPage()" [disabled]="isPrevDisabled()">Previous</button>
+      <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>
+      <button class="pagination-btn" (click)="nextPage()" [disabled]="isNextDisabled()">Next</button>
+    </div>
+  </header>
+
+  <div class="events-list">
+    <article class="event-card">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b52887050f70a579d63d67c8a54c32bfc221f1888c33da90bb32617a157b0c51?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="International Festival in Mhamid El Ghizlane, Essaouira" />
+      <div class="event-details">
+        <div class="event-content">
+          <h3 class="event-name">International Festival</h3>
+          <p class="event-location">Mhamid El Ghizlane , Essaouira</p>
+          <div class="event-rating">
+            <div class="rating-content">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />
+              <span>4</span>
+            </div>
+          </div>
+          <p class="event-price">$200</p>
+        </div>
+      </div>
+    </article>
+    <article class="event-card">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1aa94dd5dbd1c62c4dcbe90535e72c08d66364c14f02b9335869d28aabcc38cb?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="International Film Festival in Marrakech" />
+      <div class="event-details">
+        <div class="event-content">
+          <h3 class="event-name">International Film Festival</h3>
+          <p class="event-location">Marakech</p>
+          <div class="event-rating">
+            <div class="rating-content">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />
+              <span>4</span>
+            </div>
+          </div>
+          <p class="event-price">$400</p>
+        </div>
+      </div>
+    </article>
+    <article class="event-card">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5825d116f3a31eb2d14348cea8413faad375cc7173e95f4ce7053c9793a02dde?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="Gitex Africa in Marrakech" />
+      <div class="event-details">
+        <div class="event-content">
+          <h3 class="event-name">Gitex Africa</h3>
+          <p class="event-location">Marakech</p>
+          <div class="event-rating">
+            <div class="rating-content">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />
+              <span>4</span>
+            </div>
+          </div>
+          <div class="price-details">
+            <p class="price-amount">$100</p>
+            <p class="tour-duration">10 days tour</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+</section>
+<app-footer></app-footer>

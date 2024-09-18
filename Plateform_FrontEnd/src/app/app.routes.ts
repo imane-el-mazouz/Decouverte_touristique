@@ -23,6 +23,8 @@ import {
 import {GuardService} from "./service/auth_guard/guard.service";
 import {Role} from "./enums/role";
 import {ReviewManagementComponent} from "./components/review-management/review-management.component";
+import {AboutPageComponent} from "./components/about-page/about-page.component";
+import {EventPageComponent} from "./components/event-page/event-page.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -41,6 +43,8 @@ export const routes: Routes = [
   { path: 'hotels', component: HotelManagementComponent },
   { path: 'blogs', component: TraditionBlogManagementComponent },
   { path: 'reviews', component: ReviewManagementComponent },
+  { path: 'about', component: AboutPageComponent },
+  { path: 'events-page', component: EventPageComponent },
 
   {
     path: 'dashboard',

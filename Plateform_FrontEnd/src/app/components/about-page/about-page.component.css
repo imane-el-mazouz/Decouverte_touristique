@@ -1,0 +1,746 @@
+body , html{
+   font-family: Abhaya Libre SemiBold, serif ;
+   width: 100%;
+   margin: 0;
+ }
+
+.hero {
+  position: relative;
+  background-image: url('/assets/img/about.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.about-balise {
+  font-size: 35px;
+  margin-bottom: 20px;color: #2E2F83  ;
+  margin-right: 110PX;
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.overlay {
+  text-align: center;
+  padding: 50px;
+  border-radius: 15px;
+}
+
+h1 {
+  font-size: 58px;
+  margin-bottom: 20px;
+  font-family: Abhaya Libre SemiBold, serif
+}
+
+/*subscribe section*/
+
+.subscribe-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 350px;
+  padding: 20px 20px 30px 40px;
+  margin-right: 100px;
+  margin-left: 110px;
+  margin-bottom: 50px;
+
+}
+
+@media (max-width: 991px) {
+  .subscribe-section {
+    padding-left: 10px;
+  }
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20PX;
+}
+
+.content-wrapper {
+  position: relative;
+  align-self: end;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  align-items: flex-start;
+  gap: 20px; /* Reduced gap */
+  color: #fff;
+  text-align: center;
+  flex-wrap: wrap;
+  font: 600 20px/40px  "Abhaya Libre ExtraBold", serif;
+  margin-right: 80px;
+
+}
+
+@media (max-width: 991px) {
+  .content-wrapper {
+    max-width: 100%;
+  }
+}
+
+.subscribe-text {
+  align-self: end;
+  margin-top: 40px;
+  flex-grow: 1;
+  width: 600px;
+  font-family:Abhaya Libre ExtraBold, serif;
+}
+
+@media (max-width: 991px) {
+  .subscribe-text {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.decorative-image {
+  aspect-ratio: 0.94;
+  object-fit: contain;
+  object-position: center;
+  width: 60px;
+  border-radius: 50%;
+  align-self: start;
+}
+
+.form-container {
+  position: relative;
+  align-self: center;
+  display: flex;
+  margin-top: 60px; /* Reduced margin-top */
+  width: 600px; /* Reduced width */
+  max-width: 100%;
+  gap: 20px; /* Reduced gap */
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .form-container {
+    margin-top: 20px; /* Reduced margin-top */
+  }
+}
+
+.input-wrapper {
+  border-radius: 8px; /* Reduced border-radius */
+  background-color: #fff;
+  display: flex;
+  gap: 12px; /* Reduced gap */
+  color: #39425d;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-basis: auto;
+  padding: 20px; /* Reduced padding */
+  font: 700 12px "Abhaya Libre SemiBold", serif; /* Adjusted font size */
+}
+
+@media (max-width: 991px) {
+  .input-wrapper {
+    padding: 10px; /* Reduced padding for smaller screens */
+  }
+}
+
+.email-icon {
+  aspect-ratio: 1.14;
+  object-fit: contain;
+  object-position: center;
+  width: 20px; /* Reduced width */
+  border-radius: 0;
+}
+
+.email-input {
+  align-self: start;
+  flex-basis: auto;
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+}
+
+.subscribe-button {
+  border-radius: 8px; /* Reduced border-radius */
+  background-color: #fd7401;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  padding: 20px 40px; /* Reduced padding */
+  font: 600 14px Abhaya Libre, sans-serif; /* Adjusted font size */
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .subscribe-button {
+    white-space: initial;
+    padding: 10px 20px; /* Reduced padding for smaller screens */
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*about section*/
+.about-us {
+  border-radius: 0;
+  padding: 20px 0;
+}
+.about-container {
+  display: flex;
+  gap: 10px;
+}
+.image-column, .content-column {
+  width: 50%;
+}
+.about-image {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 70%;
+  margin-left: 100PX;
+  border-radius: 0;
+
+}
+.content-wrapper {
+  display: flex;
+  margin-top: 50px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-description {
+  color: #777;
+  font: 500 20px/30px 'Abhaya Libre SemiBold',  serif;
+}
+.insight-container {
+  display: flex;
+  margin-top: 15px;
+  width: 100%;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.insight-item {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  text-align: center;
+}
+.insight-number {
+  color: #fd7401;
+  font: 700 30px 'Abhaya Libre ExtraBold', serif;
+}
+.insight-label {
+  color: #777777;
+  font: 400 14px 'Abhaya Libre', serif;
+}
+
+@media (max-width: 991px) {
+  .about-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .image-column, .content-column {
+    width: 100%;
+  }
+  .about-image {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+  .content-wrapper {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+  .about-description, .insight-container {
+    max-width: 100%;
+  }
+  .insight-item {
+    white-space: initial;
+  }
+}
+
+
+/**/
+
+.section-items {
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.background-wrapper {
+  background-color: #f7f8fc;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+@media (max-width: 991px) {
+  .background-wrapper {
+    max-width: 100%;
+    padding: 50px 20px;
+  }
+}
+
+.content-container {
+  display: flex;
+  margin-bottom: -12px;
+  width: 1170px;
+  max-width: 100%;
+  flex-direction: column;
+}
+
+.text-area {
+  align-self: flex-end;
+  margin-right: 40px;
+  width: 767px;
+  max-width: 100%;
+}
+
+.flex-box {
+  gap: 10px;
+  display: flex;
+}
+
+.text-section {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 70%;
+  margin-left: 0;
+}
+
+.text-wrapper-alt {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.title-main {
+  color: #fa7436;
+  font: 700 36px/1 Abhaya Libre SemiBold, serif;
+}
+
+.subtitle-description {
+  color: #666;
+  text-align: center;
+  align-self: center;
+  margin-top: 16px;
+  font: 400 16px/28px Poppins, sans-serif;
+}
+
+.image-area {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 26%;
+  margin-left: 20px;
+}
+
+.top-img {
+  aspect-ratio: 1.37;
+  object-fit: contain;
+  object-position: center;
+  width: 150px;
+  max-width: 100%;
+}
+
+.image-gallery-section {
+  margin-top: 50px;
+}
+
+.gallery-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 22%; /* Les trois images prendront la même largeur */
+}
+
+.gallery-img {
+  aspect-ratio: 1.33;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  border-radius: 0;
+  flex-grow: 1;
+}
+
+
+/*SERVICES*/
+.services-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.services-heading {
+  color: #14183e;
+  text-align: center;
+  text-transform: capitalize;
+  font: 700 30px 'Abhaya Libre SemiBold', serif;
+  margin-bottom: 30px;
+}
+
+.services-container {
+  width: 100%;
+}
+
+.services-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  justify-content: center;
+  overflow-x: auto; /* Allow horizontal scrolling if necessary */
+  padding: 10px; /* Optional: adds padding around the grid */
+}
+
+.service-card {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.service-title {
+  color: #1e1d4c;
+  font: italic 700 20px 'Abhaya Libre SemiBold', serif;
+  margin-bottom: 15px;
+}
+
+.service-description {
+  color: #5e6282;
+  font: 500 16px/24px 'Abhaya Libre SemiBold', serif;
+}
+
+@media (max-width: 991px) {
+  .services-heading {
+    font-size: 30px;
+  }
+  .services-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Space between cards in column layout */
+  }
+  .service-card {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin-bottom: 30px;
+  }
+}
+
+/* */
+.testimonial-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-header {
+  align-self: center;
+  display: flex;
+  min-height: 80px;
+  width: 80%;
+  max-width: 800px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-label {
+  color: #fd7401;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font: 500 14px "Abhaya Libre SemiBold", serif;
+}
+
+.testimonial-title {
+  color: #2E2F83;
+  text-align: center;
+  margin-top: 4px;
+  font: 800 36px Abhaya Libre ExtraBold, serif;
+}
+
+.testimonial-cards {
+  display: flex;
+  margin-top: 20px;
+  min-height: 400px;
+  width: 100%;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  border-radius: 12px;
+  border: 1px solid #fafafa;
+  background: #fff;
+  box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.03);
+  align-self: stretch;
+  min-width: 240px;
+  width: 280px;
+  padding: 20px 30px;
+}
+
+.quote-icon {
+  width: 30px;
+  align-self: flex-end;
+  margin-top: -10px;
+}
+
+.avatar {
+  width: 70px;
+  border-radius: 50%;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.testimonial-author {
+  align-self: center;
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Abhaya Libre SemiBold", serif;
+}
+
+.author-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.author-title {
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.rating {
+  width: 70px;
+  margin-top: 4px;
+}
+
+.testimonial-content {
+  margin-top: 10px;
+  font: 400 14px/19px "Abhaya Libre SemiBold" ,serif;
+}
+
+@media (max-width: 991px) {
+  .testimonial-title {
+    font-size: 28px;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+  }
+}
+
+
+
+.subscribe-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 350px;
+  padding: 20px 20px 30px 40px;
+  margin-right: 100px;
+  margin-left: 110px;
+  margin-bottom: 50px;
+
+}
+
+@media (max-width: 991px) {
+  .subscribe-section {
+    padding-left: 10px;
+  }
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20PX;
+}
+
+.content-wrapper {
+  position: relative;
+  align-self: end;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  align-items: flex-start;
+  gap: 20px; /* Reduced gap */
+  color: #fff;
+  text-align: center;
+  flex-wrap: wrap;
+  font: 600 20px/40px  "Abhaya Libre ExtraBold", serif;
+  margin-right: 80px;
+
+}
+
+@media (max-width: 991px) {
+  .content-wrapper {
+    max-width: 100%;
+  }
+}
+
+.subscribe-text {
+  align-self: end;
+  margin-top: 40px;
+  flex-grow: 1;
+  width: 600px;
+  font-family:Abhaya Libre ExtraBold, serif;
+}
+
+@media (max-width: 991px) {
+  .subscribe-text {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.decorative-image {
+  aspect-ratio: 0.94;
+  object-fit: contain;
+  object-position: center;
+  width: 60px;
+  border-radius: 50%;
+  align-self: start;
+}
+
+.form-container {
+  position: relative;
+  align-self: center;
+  display: flex;
+  margin-top: 60px; /* Reduced margin-top */
+  width: 600px; /* Reduced width */
+  max-width: 100%;
+  gap: 20px; /* Reduced gap */
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .form-container {
+    margin-top: 20px; /* Reduced margin-top */
+  }
+}
+
+.input-wrapper {
+  border-radius: 8px; /* Reduced border-radius */
+  background-color: #fff;
+  display: flex;
+  gap: 12px; /* Reduced gap */
+  color: #39425d;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-basis: auto;
+  padding: 20px; /* Reduced padding */
+  font: 700 12px "Abhaya Libre SemiBold", serif; /* Adjusted font size */
+}
+
+@media (max-width: 991px) {
+  .input-wrapper {
+    padding: 10px; /* Reduced padding for smaller screens */
+  }
+}
+
+.email-icon {
+  aspect-ratio: 1.14;
+  object-fit: contain;
+  object-position: center;
+  width: 20px; /* Reduced width */
+  border-radius: 0;
+}
+
+.email-input {
+  align-self: start;
+  flex-basis: auto;
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+}
+
+.subscribe-button {
+  border-radius: 8px; /* Reduced border-radius */
+  background-color: #fd7401;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  padding: 20px 40px; /* Reduced padding */
+  font: 600 14px Abhaya Libre, sans-serif; /* Adjusted font size */
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .subscribe-button {
+    white-space: initial;
+    padding: 10px 20px; /* Reduced padding for smaller screens */
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
