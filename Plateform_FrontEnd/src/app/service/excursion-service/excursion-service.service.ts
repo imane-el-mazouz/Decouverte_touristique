@@ -4,6 +4,10 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {DtoExcursion} from "../../dto/excursionDTO/dto-excursion";
 
+export class ExcursionResponse {
+  items: DtoExcursion[] = [];
+  total: number = 0;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +41,13 @@ export class ExcursionService {
       .pipe(catchError(this.handleError));
   }
 
+  // getAllExcursions(): Observable<DtoExcursion[]> {
+  //   const headers = this.getHeaders();
+  //   return this.http.get<DtoExcursion[]>(`${this.apiUrl}/all`, { headers })
+  //     .pipe(catchError(this.handleError));
+  // }
+
+  // Adjust method to return DtoExcursion[]
   getAllExcursions(): Observable<DtoExcursion[]> {
     const headers = this.getHeaders();
     return this.http.get<DtoExcursion[]>(`${this.apiUrl}/all`, { headers })

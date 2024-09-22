@@ -25,6 +25,7 @@ import {Role} from "./enums/role";
 import {ReviewManagementComponent} from "./components/review-management/review-management.component";
 import {AboutPageComponent} from "./components/about-page/about-page.component";
 import {EventPageComponent} from "./components/event-page/event-page.component";
+import {ExcursionPageComponent} from "./components/excursion/excursion-page/excursion-page.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -45,6 +46,7 @@ export const routes: Routes = [
   { path: 'reviews', component: ReviewManagementComponent },
   { path: 'about', component: AboutPageComponent },
   { path: 'events-page', component: EventPageComponent },
+  { path: 'excursions-page', component: ExcursionPageComponent },
 
   {
     path: 'dashboard',

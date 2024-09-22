@@ -5,26 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e3fd31-8393-44c8-8caf-2d681d6d67dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/assets/img/rating.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/assets/img/rating0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/about-page/about-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/about-page/about-page.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/about-page/about-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/about-page/about-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/about-page/about-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/about-page/about-page.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/contact-add-component/contact-add-component.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event-page/event-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event-page/event-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event-page/event-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event-page/event-page.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event-page/event-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event-page/event-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/excursion/list-excursions-component/list-excursions-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/excursion/list-excursions-component/list-excursions-component.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/shared/nav-bar/nav-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/shared/nav-bar/nav-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/shared/nav-bar/nav-bar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/shared/nav-bar/nav-bar.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/Diagramme de cas d'utilisation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/Tableau vierge (3).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/Tableau vierge (6).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/Tableau vierge - Page 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/addBreakdown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/app.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/merzouga.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/seq client.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/use-cases admin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/excursionDTO/dto-excursion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/excursionDTO/dto-excursion.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/excursion-service/excursion-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/excursion-service/excursion-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/review-service/review-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/review-service/review-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +104,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Decouverte_touristique/Plateform_FrontEnd/src/assets/img",
+    "last_opened_file_path": "C:/Users/user/Desktop/Decouverte_touristique/Plateform_FrontEnd/src/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -122,18 +121,18 @@
       <recent name="com.tourist.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\assets" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\assets\img" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\resources" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\dto" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\contact " />
-      <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\dto\contactDTO" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\assets\img" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\model\review" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\shared" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\event" />
       <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\contact " />
-      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\dash" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.tourist.mapper" />
@@ -194,7 +193,8 @@
       <workItem from="1726063613354" duration="4527000" />
       <workItem from="1726073946755" duration="619000" />
       <workItem from="1726429601021" duration="29720000" />
-      <workItem from="1726646987239" duration="20925000" />
+      <workItem from="1726646987239" duration="21305000" />
+      <workItem from="1726754289617" duration="15365000" />
     </task>
     <servers />
   </component>

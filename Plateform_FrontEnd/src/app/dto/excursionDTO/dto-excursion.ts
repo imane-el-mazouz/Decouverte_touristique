@@ -1,3 +1,5 @@
+import {Excursion} from "../../model/excursion/excursion";
+
 export class DtoExcursion {
   id !: number ;
   name !: string ;
@@ -7,5 +9,8 @@ export class DtoExcursion {
   location !: string ;
   capacity !: number;
   rating !: number ;
+
+  items: Excursion[] = [] ;
+  total: number = 0;
 
 }

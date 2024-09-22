@@ -1,0 +1,193 @@
+<app-nav-bar></app-nav-bar>
+<section class="hero">
+  <div class="overlay">
+    <h1>Our Excursions</h1>
+    <section class="search-container">
+      <div class="search-bg">
+        <div class="search-content">
+          <div class="search-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3aaac8b5c6e706ec34c97b35ae12e6cb1834d548e23419f330120c04622c3da?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Location icon" class="search-icon" />
+            <div class="search-details">
+              <div class="search-label">
+                <span>Location</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />
+              </div>
+              <div class="search-value">Azilal</div>
+            </div>
+          </div>
+          <div class="search-divider" role="separator"></div>
+          <div class="search-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Calendar icon" class="search-icon" />
+            <div class="search-details">
+              <div class="search-label">
+                <span>Date</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />
+              </div>
+              <div class="search-value">26 Oct, 2024</div>
+            </div>
+          </div>
+          <button class="search-button" aria-label="Search">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" />
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+<!--<section class="excursion-section">-->
+<!--  <h1 class="heading">Excursions</h1>-->
+<!--  <div class="excursion-container">-->
+<!--    <div *ngFor="let card of excursions" class="excursion-card">-->
+<!--      <img [src]="card.imgPath || 'assets/img/excursion.jpg'" alt="Excursion image" class="excursion-image">-->
+<!--      <h3 class="excursion-title">{{ card.location }}</h3>-->
+<!--      <p class="description-event">{{ card.description }}</p>-->
+<!--      <button class="button-book" (click)="bookExcursion(card.id)">Book Now!</button>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="pagination">-->
+<!--    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>-->
+<!--    <span>Page {{ currentPage }} of {{ totalPages }}</span>-->
+<!--    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>-->
+<!--  </div>-->
+
+<!--  <div *ngIf="confirmationMessage" class="confirmation-message">-->
+<!--    <p>{{ confirmationMessage }}</p>-->
+<!--  </div>-->
+<!--  <div *ngIf="errorMessage" class="error-message">-->
+<!--    <p>{{ errorMessage }}</p>-->
+<!--  </div>-->
+<!--  <div *ngIf="reviewMessage" class="review-message">-->
+<!--    <p>{{ reviewMessage }}</p>-->
+<!--  </div>-->
+<!--</section>-->
+<section class="excursion-section">
+  <h1 class="section-title">Excursions</h1>
+  <div class="excursion-container">
+    <div *ngFor="let card of excursions" class="excursion-card">
+<!--      <img [src]="card.imgPath || 'assets/img/excursion.jpg'" alt="Excursion image" class="excursion-image">-->
+      <div class="excursion-details">
+        <h3 class="excursion-title">{{ card.location }}</h3>
+        <p class="description-event">{{ card.description }}</p>
+        <button class="button-book" (click)="bookExcursion(card.id)">Book Now!</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="confirmationMessage" class="confirmation-message">
+    <p>{{ confirmationMessage }}</p>
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+  <div *ngIf="reviewMessage" class="review-message">
+    <p>{{ reviewMessage }}</p>
+  </div>
+</section>
+
+
+
+
+<section class="booking-section">
+  <h1 class="heading">Book Now!</h1>
+  <div class="wrapper-content">
+    <div class="layout-columns">
+      <div class="column">
+        <form class="form-booking" (ngSubmit)="bookExcursion(card.id)">
+          <h2 class="heading-form">Event Details</h2>
+          <div class="group-form">
+            <label for="personCount" class="label-form">Number of Persons</label>
+            <input type="number" id="personCount" class="input-form" [(ngModel)]="bookingData.numberOfPerson" name="personCount" placeholder="Input number of persons" required />
+          </div>
+<!--          <div class="group-form">-->
+<!--            <label for="dateTime" class="label-form">Date & Time</label>-->
+<!--            <input type="datetime-local" id="dateTime" class="input-form" [(ngModel)]="bookingData.dateTime" name="dateTime" required />-->
+<!--          </div>-->
+          <button type="submit" class="button-book">Book Now!</button>
+        </form>
+        <div *ngIf="confirmationMessage" class="confirmation-message">
+          <p>{{ confirmationMessage }}</p>
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+          <p>{{ errorMessage }}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="bookingConfirmed" class="review-section">
+      <h3 class="heading-form">Rate the Event</h3>
+      <div class="rating">
+        <div class="rating-star" *ngFor="let star of stars; let i = index">
+      <span
+        class="material-icons"
+        [class.filled]="i < review.rating"
+        (click)="setRating(i + 1)"
+      >
+        star
+      </span>
+          <span
+            class="material-icons"
+            [class.empty]="i >= review.rating"
+            (click)="setRating(i + 1)"
+          >
+        star_border
+      </span>
+        </div>
+      </div>
+      <textarea
+        class="input-form"
+        [(ngModel)]="review.comment"
+        name="reviewComment"
+        placeholder="Leave your comment"
+      ></textarea>
+      <button type="button" class="button-book" (click)="saveReview()">Submit Review</button>
+      <div *ngIf="reviewMessage" class="review-message">
+        <p>{{ reviewMessage }}</p>
+      </div>
+    </div>
+
+
+    <div class="column">
+      <article class="card-event">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4eaea4a79370e36d896c5d488f04ad6371dbefc2208d4a3dcb8f5ff62c9fd2b7?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Event location" class="image-event" />
+        <div class="details-event">
+          <h3 class="heading-event">Agadir, Timitar</h3>
+          <div class="rating">
+            <div class="rating-star">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+            </div>
+          </div>
+          <p class="count-review" style="margin-top: 25px;">(0 reviews)</p>
+          <p class="count" style="margin-top: 25px;">From $800</p>
+
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="subscribe-section">
+  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e9829732528809e029a3e754174143e7bf3373e8d07689dff1af3d8b7b880cae?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="background-image" alt="" />
+  <div class="content-wrapper">
+    <h2 class="subscribe-text">
+      Subscribe to get information, latest news and other interesting offers about us
+    </h2>
+    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c9710e0c4ea694149d81accc7f0157d6c4438d44ffd57172792c85480114a35?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="decorative-image" alt="" />
+  </div>
+  <form class="form-container">
+    <div class="input-wrapper">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/03aae23473b09ad935442d51c0961a46c9083d90371253daab99c7e3eee5e7fe?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="email-icon" alt="" />
+      <label for="emailInput" class="visually-hidden">Your email</label>
+      <input type="email" id="emailInput" class="email-input" placeholder="Your email" aria-label="Your email" required />
+    </div>
+    <button type="submit" class="subscribe-button">Subscribe</button>
+  </form>
+</section>
+
+
+<app-footer></app-footer>

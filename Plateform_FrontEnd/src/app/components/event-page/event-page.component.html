@@ -194,6 +194,180 @@
       </div>
     </article>
   </div>
-
 </section>
+
+<!--<section class="book-now-section">-->
+<!--  <h1 class="main-title">Book Now!</h1>-->
+<!--  <div class="content-wrapper">-->
+<!--    <div class="two-column-layout">-->
+<!--      <div class="column">-->
+<!--        <form class="booking-form">-->
+<!--          <h2 class="form-title">Event Details</h2>-->
+<!--          <div class="form-row">-->
+<!--            <div class="form-group">-->
+<!--              <mat-form-field appearance="fill">-->
+<!--                <mat-label>First Name</mat-label>-->
+<!--                <input matInput placeholder="Input your First Name" />-->
+<!--              </mat-form-field>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <mat-form-field appearance="fill">-->
+<!--                <mat-label>Last Name</mat-label>-->
+<!--                <input matInput placeholder="Input your Last Name" />-->
+<!--              </mat-form-field>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="form-group">-->
+<!--            <mat-form-field appearance="fill">-->
+<!--              <mat-label>Email Address</mat-label>-->
+<!--              <input matInput type="email" placeholder="Input your Email Address" />-->
+<!--            </mat-form-field>-->
+<!--          </div>-->
+
+<!--          <div class="form-group">-->
+<!--            <mat-form-field appearance="fill">-->
+<!--              <mat-label>Phone Number</mat-label>-->
+<!--              <input matInput type="tel" placeholder="Input your Phone Number" />-->
+<!--            </mat-form-field>-->
+<!--          </div>-->
+
+<!--          <div class="form-group">-->
+<!--            <mat-form-field appearance="fill">-->
+<!--              <mat-label>Number of Person</mat-label>-->
+<!--              <input matInput type="number" placeholder="Input number of persons" />-->
+<!--            </mat-form-field>-->
+<!--          </div>-->
+
+<!--          <button mat-raised-button class="book-now-btn" color="primary">Book Now!</button>-->
+<!--        </form>-->
+
+<!--      </div>-->
+<!--      <div class="column">-->
+<!--        <article class="event-card">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4eaea4a79370e36d896c5d488f04ad6371dbefc2208d4a3dcb8f5ff62c9fd2b7?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Event location image" class="event-image" />-->
+<!--          <div class="event-details">-->
+<!--            <h3 class="event-title">Agadir, Timitar</h3>-->
+<!--            <div class="rating">-->
+<!--              <div class="star-rating">-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <p class="review-count">(1 Review)</p>-->
+<!--            <div class="price-info">-->
+<!--              <span class="price-label">From</span>-->
+<!--              <span class="price-value">$800</span>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </article>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<section class="booking-section">
+  <h1 class="heading">Book Now!</h1>
+  <div class="wrapper-content">
+    <div class="layout-columns">
+      <div class="column">
+        <form class="form-booking" (ngSubmit)="bookEvent()">
+          <h2 class="heading-form">Event Details</h2>
+          <div class="group-form">
+            <label for="personCount" class="label-form">Number of Persons</label>
+            <input type="number" id="personCount" class="input-form" [(ngModel)]="bookingData.numberOfPerson" name="personCount" placeholder="Input number of persons" required />
+          </div>
+          <div class="group-form">
+            <label for="dateTime" class="label-form">Date & Time</label>
+            <input type="datetime-local" id="dateTime" class="input-form" [(ngModel)]="bookingData.dateTime" name="dateTime" required />
+          </div>
+          <button type="submit" class="button-book">Book Now!</button>
+        </form>
+        <div *ngIf="confirmationMessage" class="confirmation-message">
+          <p>{{ confirmationMessage }}</p>
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+          <p>{{ errorMessage }}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="bookingConfirmed" class="review-section">
+      <h3 class="heading-form">Rate the Event</h3>
+      <div class="rating">
+        <div class="rating-star" *ngFor="let star of stars; let i = index">
+      <span
+        class="material-icons"
+        [class.filled]="i < review.rating"
+        (click)="setRating(i + 1)"
+      >
+        star
+      </span>
+          <span
+            class="material-icons"
+            [class.empty]="i >= review.rating"
+            (click)="setRating(i + 1)"
+          >
+        star_border
+      </span>
+        </div>
+      </div>
+      <textarea
+        class="input-form"
+        [(ngModel)]="review.comment"
+        name="reviewComment"
+        placeholder="Leave your comment"
+      ></textarea>
+      <button type="button" class="button-book" (click)="saveReview()">Submit Review</button>
+      <div *ngIf="reviewMessage" class="review-message">
+        <p>{{ reviewMessage }}</p>
+      </div>
+    </div>
+
+
+     <div class="column">
+        <article class="card-event">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4eaea4a79370e36d896c5d488f04ad6371dbefc2208d4a3dcb8f5ff62c9fd2b7?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Event location" class="image-event" />
+          <div class="details-event">
+            <h3 class="heading-event">Agadir, Timitar</h3>
+            <div class="rating">
+              <div class="rating-star">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="star" class="icon-star" />
+              </div>
+            </div>
+            <p class="count-review" style="margin-top: 25px;">(0 reviews)</p>
+            <p class="count" style="margin-top: 25px;">From $800</p>
+
+          </div>
+        </article>
+      </div>
+    </div>
+</section>
+
+<section class="subscribe-section">
+  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e9829732528809e029a3e754174143e7bf3373e8d07689dff1af3d8b7b880cae?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="background-image" alt="" />
+  <div class="content-wrapper">
+    <h2 class="subscribe-text">
+      Subscribe to get information, latest news and other interesting offers about us
+    </h2>
+    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c9710e0c4ea694149d81accc7f0157d6c4438d44ffd57172792c85480114a35?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="decorative-image" alt="" />
+  </div>
+  <form class="form-container">
+    <div class="input-wrapper">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/03aae23473b09ad935442d51c0961a46c9083d90371253daab99c7e3eee5e7fe?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="email-icon" alt="" />
+      <label for="emailInput" class="visually-hidden">Your email</label>
+      <input type="email" id="emailInput" class="email-input" placeholder="Your email" aria-label="Your email" required />
+    </div>
+    <button type="submit" class="subscribe-button">Subscribe</button>
+  </form>
+</section>
+
+
 <app-footer></app-footer>
