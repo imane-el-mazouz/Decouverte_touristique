@@ -1,25 +1,106 @@
-<body>
-<div class="container">
-  <div class="signup-form">
-    <div class="close-btn">
-      <span>&times;</span>
+<!--<body>-->
+<!--<div class="container">-->
+<!--  <div class="signup-form">-->
+<!--    <div class="close-btn">-->
+<!--      <span>&times;</span>-->
+<!--    </div>-->
+<!--    <h2>Sign Up</h2>-->
+<!--    <form [formGroup]="signupForm" (ngSubmit)="signup()">-->
+<!--      <div class="input-group">-->
+<!--        <label for="name">Name:</label>-->
+<!--        <input type="text" id="name" formControlName="name" required />-->
+<!--      </div>-->
+<!--      <div class="input-group">-->
+<!--        <label for="email">Your Email:</label>-->
+<!--        <input type="email" id="email" formControlName="email" placeholder="Enter your email" required />-->
+<!--      </div>-->
+<!--      <div class="input-group">-->
+<!--        <label for="password">Password:</label>-->
+<!--        <input type="password" id="password" formControlName="password" required />-->
+<!--      </div>-->
+<!--      <button type="submit" class="signup-btn">Sign Up</button>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</body>-->
+
+
+<section class="sign-up-container">
+  <div class="content-wrapper">
+    <div class="two-column-layout">
+      <div class="image-column">
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f299c68d6ffd3d6751df1f96963f23bf6ce79c7852a4e85f3193c16aaed7eb0c?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="hero-image" alt="Sign up hero image" />
+      </div>
+      <div class="form-column">
+        <div class="form-wrapper">
+          <header class="form-header">
+            <h1 class="form-title">Sign Up</h1>
+            <p class="form-subtitle">Let's get you all set up so you can access your personal account.</p>
+          </header>
+          <form class="form-fields" [formGroup]="signupForm" (ngSubmit)="signup()">
+            <div class="input-row">
+              <div class="input-field">
+                <div class="input-wrapper">
+                  <div class="input-content">
+                    <label for="name" class="input-label">Name</label>
+                    <input type="text" id="name" formControlName="name" class="input-text" placeholder="Enter your name" required />
+                  </div>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-wrapper">
+                  <div class="input-content">
+                    <label for="email" class="input-label">Email</label>
+                    <input type="email" id="email" formControlName="email" class="input-text" placeholder="Enter your email" required />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="password-field">
+                <div class="password-wrapper">
+                  <div class="password-content">
+                    <label for="password" class="password-label">Password</label>
+                    <input type="password" id="password" formControlName="password" class="password-text" placeholder="Enter your password" required />
+                  </div>
+                  <div class="password-icon">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/242dc03c90748ac0b099759beaac904f52dbde465c61c081dbfe10f52681245a?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="icon" alt="Toggle password visibility" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="terms-agreement">
+              <input type="checkbox" id="termsAgreement" formControlName="terms" class="visually-hidden" required />
+              <label for="termsAgreement" class="terms-text">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1bec477041224fb7fc3922fecf0f0268dca8625a91ef0c7f9a15c09f74890b18?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="checkbox-icon" alt="" />
+                I agree to all the <span class="highlighted-text">Terms</span> and <span class="highlighted-text">Privacy Policies</span>
+              </label>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="submit-button">
+                <span class="button-text">Create Account</span>
+              </button>
+              <p class="login-link">Already have an account? <a href="#" class="login-link-text">Login</a></p>
+            </div>
+          </form>
+          <div class="divider">
+            <div class="divider-line"></div>
+            <span class="divider-text">Or Sign up with</span>
+            <div class="divider-line"></div>
+          </div>
+          <div class="social-login">
+            <button class="social-button">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6964e21b964315781cd7a7f9b14a6e19dc3aaec471c51f0af92fe4ce1848ab67?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="social-icon" alt="Sign up with Facebook" />
+            </button>
+            <button class="social-button">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7fc01828144597380a8cd1c5dd257adb3af0864562ff59d48bafc198564511a2?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="social-icon" alt="Sign up with Google" />
+            </button>
+            <button class="social-button">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ceaa2c9029c4aac99aed5ad0a374c640c52eb44335f2d6955262b3f81db91c82?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="social-icon" alt="Sign up with Apple" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <h2>Sign Up</h2>
-    <form [formGroup]="signupForm" (ngSubmit)="signup()">
-      <div class="input-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" formControlName="name" required />
-      </div>
-      <div class="input-group">
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" formControlName="email" placeholder="Enter your email" required />
-      </div>
-      <div class="input-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" formControlName="password" required />
-      </div>
-      <button type="submit" class="signup-btn">Sign Up</button>
-    </form>
   </div>
-</div>
-</body>
+</section>

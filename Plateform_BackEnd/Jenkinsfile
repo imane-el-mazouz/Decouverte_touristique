@@ -1,0 +1,68 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_COMPOSE_FILE = 'docker-compose.yml'
+        IMAGE_NAME = 'tourist-app'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/imane-el-mazouz/Decouverte_touristique.git'
+            }
+        }
+
+        stage('Build Application') {
+            steps {
+                sh './mvnw clean package'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh "docker build -t ${IMAGE_NAME} ."
+                }
+            }
+        }
+
+        stage('Run Docker Compose') {
+            steps {
+                script {
+                    sh "docker-compose -f ${DOCKER_COMPOSE_FILE} up -d"
+                }
+            }
+        }
+
+        stage('Test Application') {
+            steps {
+                script {
+                    sh 'curl -f http://localhost:8080/health || exit 1'
+                }
+            }
+        }
+
+        stage('Clean Up') {
+            steps {
+                script {
+                    sh "docker-compose -f ${DOCKER_COMPOSE_FILE} down"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline finished.'
+        }
+
+        success {
+            echo 'Pipeline executed successfully.'
+        }
+
+        failure {
+            echo 'error.'
+        }
+    }
+}

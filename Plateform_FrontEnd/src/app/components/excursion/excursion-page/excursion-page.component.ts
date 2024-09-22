@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 import { Excursion } from "../../../model/excursion/excursion";
 import { DtoExcursion } from "../../../dto/excursionDTO/dto-excursion";
 import {map} from "rxjs";
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-excursion-page',
@@ -65,7 +66,6 @@ export class ExcursionPageComponent implements OnInit {
     } as Excursion;
   }
 
-// In your component
   ngOnInit() {
     this.excursionService.getAllExcursions().pipe(
       map((data: DtoExcursion[]) => data.map(this.transformDtoToExcursion))
@@ -75,7 +75,29 @@ export class ExcursionPageComponent implements OnInit {
       },
       error => console.error('Error loading excursions', error)
     );
+
+    this.initMap();
   }
+
+  private map: L.Map | undefined;
+
+  hotels = [
+    {
+      name: "CVK Park Bosphorus Hotel Istanbul",
+      coords: [41.0381, 28.9901],
+      price: "$240/night",
+    },
+    {
+      name: "Eresin Hotels Sultanahmet",
+      coords: [41.0065, 28.9767],
+      price: "$104/night",
+    },
+    {
+      name: "Eresin Hotels Sultanahmet Boutique",
+      coords: [41.007, 28.978],
+      price: "$104/night",
+    }
+  ];
 
 
 
@@ -145,5 +167,16 @@ export class ExcursionPageComponent implements OnInit {
         this.reviewMessage = 'There was an error submitting your review. Please try again.';
       }
     );
+  }
+
+  private initMap(): void {
+    this.map = L.map('map').setView([41.015137, 28.979530], 13); // Coordonnées d'Istanbul
+
+    // Ajouter les tuiles (tiles) OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(this.map);
+
+
   }
 }

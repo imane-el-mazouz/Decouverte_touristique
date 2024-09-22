@@ -1,83 +1,181 @@
 
-<!--<div class="login-wrapper">-->
-<!--  <div class="login-container">-->
-<!--    <section class="login-form-section">-->
-<!--      <div class="login-form-container">-->
-<!--        <header class="logo-container">-->
-<!--          <div class="logo-bar orange"></div>-->
-<!--          <div class="logo-bar blue"></div>-->
-<!--          <div class="logo-bar orange"></div>-->
-<!--          <div class="logo-bar blue"></div>-->
-<!--          <div class="logo-bar orange"></div>-->
-<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4590f88db43a0253d46304f22b5b526f45bde7538e46288f587ecae24f80b6df?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Company Logo" class="logo-image" />-->
-<!--        </header>-->
-<!--        <h1 class="login-title">Login into your account</h1>-->
-<!--        <form [formGroup]="loginForm" (ngSubmit)="login()">-->
-<!--          <div class="form-group">-->
-<!--            <label for="email" class="form-label">Email address</label>-->
-<!--            <div class="input-container">-->
-<!--              <input type="email" id="email" formControlName="email" class="form-input" placeholder="Enter your email" />-->
-<!--              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b77759bccf0c8171737b5391a65f90526ea3057606af8a03c900fcda12c4bd35?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Email Icon" class="input-icon" />-->
-<!--            </div>-->
+<!--<body>-->
+<!--<div class="login-container">-->
+<!--  <div class="login-box">-->
+<!--    <div class="login-content">-->
+<!--      <h2 class="welcome-text">Welcome back</h2>-->
+<!--      <p class="sub-text">We're so excited to see you again!</p>-->
+
+<!--      <form [formGroup]="loginForm" (ngSubmit)="login()">-->
+<!--        <div class="form-group">-->
+<!--          <label for="email" class="form-label">Email or phone number</label>-->
+<!--          <div class="input-container">-->
+<!--            <input type="text" id="email" formControlName="email" class="form-input" placeholder="Enter your email or phone number" />-->
 <!--          </div>-->
-<!--          <div class="form-group">-->
-<!--            <label for="password" class="form-label">Password</label>-->
-<!--            <div class="input-container">-->
-<!--              <input type="password" id="password" formControlName="password" class="form-input" placeholder="Enter your password" />-->
-<!--              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6c91daad1c9ad1c0f984362de9c55d195dd132a87742d8b4a201fb75bbef034e?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Password Icon" class="input-icon" />-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <a href="#" class="forgot-password">Forgot password?</a>-->
-<!--          <button type="submit" class="login-button" [disabled]="loginForm.invalid">Login now</button>-->
-<!--        </form>-->
-<!--        <div class="divider">-->
-<!--          <span class="divider-line"></span>-->
-<!--          <span class="divider-text">OR</span>-->
-<!--          <span class="divider-line"></span>-->
 <!--        </div>-->
-<!--        <button class="signup-button">Signup now</button>-->
-<!--      </div>-->
-<!--    </section>-->
-<!--    <aside class="login-image-container">-->
-<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d6b157f2b719f669d3bdf83f25902722da651f878514bf458b063a0582db601a?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Login illustration" class="login-image animated" />-->
-<!--    </aside>-->
+
+<!--        <div class="form-group">-->
+<!--          <label for="password" class="form-label">Password</label>-->
+<!--          <div class="input-container">-->
+<!--            <input type="password" id="password" formControlName="password" class="form-input" placeholder="Enter your password" />-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <a href="#" class="forgot-password">Forget your password?</a>-->
+<!--        <button type="submit" class="login-btn" [disabled]="loginForm.invalid">Log In</button>-->
+<!--      </form>-->
+
+<!--      <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Sign up</a></p>-->
+<!--    </div>-->
+
+<!--    <div class="qr-code-content">-->
+<!--      <img src="assets/img/qrcode.png" alt="QR Code">-->
+<!--      <p class="qr-text">Log in with QR code</p>-->
+<!--      <small>Scan this with our App to log in instantly</small>-->
+<!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
+<!--</body>-->
+<style>
+  .login-container { background-color: #fff; overflow: hidden; padding: 32px 80px 104px 12px; width: 100% }
+  @media (max-width: 991px) { .login-container { padding: 0 20px 100px 0; } }
+  .login-content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Ajustez la largeur maximale si nécessaire */
+    margin: 0 auto;
+    margin-top: -110px;
+    margin-left: 97PX;
+  }
+  .login-form {
+    width: 100%;
+    max-width: 500px; /* Largeur maximale du formulaire */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  @media (max-width: 991px) { .login-content { flex-direction: column; align-items: stretch; gap: 0; } }
+  .login-form-column { display: flex; flex-direction: column; line-height: normal; width: 50%; margin-left: 0; }
+  @media (max-width: 991px) { .login-form-column { width: 100%; } }
+  .login-form-wrapper { display: flex; flex-direction: column; }
+  @media (max-width: 991px) { .login-form-wrapper { max-width: 100%; margin-top: 40px; } }
+  .logo { aspect-ratio: 1.38; object-fit: contain; object-position: center; width: 128px; max-width: 100%; }
+  .form-content { align-self: flex-end; display: flex; margin-top: 79px; width: 512px; max-width: 100%; flex-direction: column; }
+  @media (max-width: 991px) { .form-content { margin-top: 40px; } }
+  .form-header { display: flex; width: 100%; flex-direction: column; }
+  @media (max-width: 991px) { .form-header { max-width: 100%; } }
+  .login-title { color: #14183e; font: 700 35px Abhaya Libre ExtraBold, serif; }
+  .login-subtitle { color: #121; opacity: 0.75; margin-top: 16px; font: 400 16px Montserrat, sans-serif; }
+  .form-fields { display: flex; margin-top: 48px; width: 100%; flex-direction: column; }
+  @media (max-width: 991px) { .form-fields { max-width: 100%; margin-top: 40px; } }
+  .input-group { display: flex; width: 100%; flex-direction: column; }
+  @media (max-width: 991px) { .input-group { max-width: 100%; } }
+  .text-field { border-radius: 4px; border: 1px solid #79747e; background-color: #fff; display: flex; width: 100%; flex-direction: column; padding: 8px 16px; margin-bottom: 24px; }
+  @media (max-width: 991px) { .text-field { max-width: 100%; } }
+  .input-wrapper { position: relative; display: flex; min-height: 40px; width: 100%; flex-direction: column; }
+  .input-text { align-self: stretch; font-size: 16px; font-family: Montserrat, sans-serif; }
+  .label-text { background-color: #fff; position: absolute; font-size: 14px; font-family: Montserrat, sans-serif; left: -4px; top: -16px; padding: 0 4px; }
+  .password-field { position: relative; }
+  .password-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; }
+  .password-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 24px; }
+  .form-options { display: flex; align-items: center; justify-content: space-between; font: 500 14px Montserrat, sans-serif; margin-bottom: 40px; }
+  @media (max-width: 991px) { .form-options { max-width: 100%; flex-wrap: wrap; } }
+  .remember-me { display: flex; align-items: center; gap: 8px; color: #121; }
+  .checkbox-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 24px; }
+  .forgot-password { color: #fd7401; text-align: right; }
+  .login-actions { display: flex; width: 100%; flex-direction: column; font: 14px Montserrat, sans-serif; }
+  @media (max-width: 991px) { .login-actions { max-width: 100%; } }
+  .login-button { border-radius: 4px; background-color: #fd7401; color: #121; font-weight: 600; padding: 16px; text-align: center; margin-bottom: 16px; }
+  .signup-link { color: #fd7401; text-align: center; font-weight: 500; }
+  .login-divider { display: flex; margin-top: 40px; width: 100%; align-items: center; gap: 16px; color: #121; font: 400 14px Montserrat, sans-serif; }
+  @media (max-width: 991px) { .login-divider { max-width: 100%; } }
+  .divider-line { background-color: rgba(17, 34, 17, 0.25); height: 1px; flex: 1; }
+  .divider-text { opacity: 0.5; }
+  .social-login { display: flex; margin-top: 40px; width: 100%; gap: 16px; }
+  @media (max-width: 991px) { .social-login { max-width: 100%; flex-wrap: wrap; } }
+  .social-button { justify-content: center; align-items: center; border-radius: 4px; border: 1px solid #8dd3bb; display: flex; flex: 1; padding: 16px 24px; }
+  @media (max-width: 991px) { .social-button { padding: 16px 20px; } }
+  .social-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 24px; }
+  .image-column { display: flex; flex-direction: column; line-height: normal; width: 50%; margin-left: 20px; }
+  @media (max-width: 991px) { .image-column { width: 100%; } }
+  .login-image { aspect-ratio: 0.76; object-fit: contain; object-position: center; width: 100%;max-width: 500px;  flex-grow: 1;margin-top: 161px }
+  @media (max-width: 991px) { .login-image { max-width: 100%; margin-top: 40px; } }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
 
-<body>
-<div class="login-container">
-  <div class="login-box">
-    <div class="login-content">
-      <h2 class="welcome-text">Welcome back</h2>
-      <p class="sub-text">We're so excited to see you again!</p>
-
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <div class="form-group">
-          <label for="email" class="form-label">Email or phone number</label>
-          <div class="input-container">
-            <input type="text" id="email" formControlName="email" class="form-input" placeholder="Enter your email or phone number" />
+<section class="login-container">
+  <div class="login-content">
+    <div class="login-form-column">
+      <div class="login-form-wrapper">
+        <div class="form-content">
+          <header class="form-header">
+            <h1 class="login-title">Login</h1>
+            <p class="login-subtitle">Login to access your Golobe account</p>
+          </header>
+          <form class="form-fields">
+            <div class="input-group">
+              <div class="text-field">
+                <div class="input-wrapper">
+                  <input type="email" id="email" class="input-text" placeholder="john.doe@gmail.com" required>
+                  <label for="email" class="label-text">Email</label>
+                </div>
+              </div>
+              <div class="text-field password-field">
+                <div class="input-wrapper">
+                  <input type="password" id="password" class="input-text" placeholder="••••••••••••••••••••••••" required>
+                  <label for="password" class="label-text">Password</label>
+                  <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/242dc03c90748ac0b099759beaac904f52dbde465c61c081dbfe10f52681245a?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="password-icon">
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-options">
+              <label class="remember-me">
+                <input type="checkbox" class="visually-hidden">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1bec477041224fb7fc3922fecf0f0268dca8625a91ef0c7f9a15c09f74890b18?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="checkbox-icon">
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="forgot-password">Forgot Password</a>
+            </div>
+            <div class="login-actions">
+              <button type="submit" class="login-button">Login</button>
+              <p class="signup-link">Don't have an account? <a href="#" style="font-weight: 600; color: #fd7401;">Sign up</a></p>
+            </div>
+          </form>
+          <div class="login-divider">
+            <div class="divider-line"></div>
+            <span class="divider-text">Or login with</span>
+            <div class="divider-line"></div>
+          </div>
+          <div class="social-login">
+            <button class="social-button" aria-label="Login with Facebook">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7801fbea496dc51ca3b70e3dfb946fc34d027948fccb7a8ef44f4de0f1384fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon">
+            </button>
+            <button class="social-button" aria-label="Login with Google">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7fc01828144597380a8cd1c5dd257adb3af0864562ff59d48bafc198564511a2?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon">
+            </button>
+            <button class="social-button" aria-label="Login with Apple">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/05cfacf3e63557364865a890553d52383d1fd6f384db5ac442bfd3560424c5cd?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon">
+            </button>
           </div>
         </div>
-
-        <div class="form-group">
-          <label for="password" class="form-label">Password</label>
-          <div class="input-container">
-            <input type="password" id="password" formControlName="password" class="form-input" placeholder="Enter your password" />
-          </div>
-        </div>
-
-        <a href="#" class="forgot-password">Forget your password?</a>
-        <button type="submit" class="login-btn" [disabled]="loginForm.invalid">Log In</button>
-      </form>
-
-      <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+      </div>
     </div>
-
-    <div class="qr-code-content">
-      <img src="assets/img/qrcode.png" alt="QR Code">
-      <p class="qr-text">Log in with QR code</p>
-      <small>Scan this with our App to log in instantly</small>
+    <div class="image-column">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae9a35008d6d47a06e0ed106b500ac0e90595c6299669d571cc1541cc915d272?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Decorative travel image" class="login-image">
     </div>
   </div>
-</div>
-</body>
+</section>
