@@ -26,6 +26,8 @@ public class BlogController {
         return ResponseEntity.ok(blogs);
     }
 
+
+
     @PostMapping("/add/{traditionId}")
     @PreAuthorize("hasRole('Admin')")
     public ResponseEntity<Blog> addBlogToTradition(@PathVariable Long traditionId, @RequestBody Blog blog) {

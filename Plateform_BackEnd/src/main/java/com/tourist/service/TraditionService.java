@@ -43,4 +43,8 @@ public class TraditionService {
     public List<Tradition> listTraditions() {
         return traditionRepository.findAll();
     }
+
+    public List<Tradition> findTraditionsByCity(String city) {
+        return traditionRepository.findByCity(city);
+    }
 }

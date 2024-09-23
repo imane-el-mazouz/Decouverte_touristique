@@ -1,25 +1,44 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import {HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth_service/auth-service.service';
-import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthInterceptorService implements HttpInterceptor {
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class AuthInterceptorService implements HttpInterceptor {
+//
+//   constructor(private authService: AuthService) { }
+//
+//   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+//     const authToken = this.authService.getToken();
+//
+//     if (authToken) {
+//       const clonedReq = req.clone({
+//         headers: req.headers.set('Authorization', `Bearer ${authToken}`)
+//       });
+//       return next.handle(clonedReq);
+//     }
+//
+//     return next.handle(req);
+//   }
+// }
 
-  constructor(private authService: AuthService) { }
+
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const authToken = this.authService.getToken();
+    const token = localStorage.getItem('token');
 
-    if (authToken) {
-      const clonedReq = req.clone({
-        headers: req.headers.set('Authorization', 'Bearer ' + authToken)
-      });
-      return next.handle(clonedReq);
-    }
-    return next.handle(req);
+    const cloned = req.clone({
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token || ''}`
+      })
+    });
+
+    return next.handle(cloned);
   }
 }

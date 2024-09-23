@@ -36,4 +36,14 @@ public class TraditionController {
         List<Tradition> traditions = traditionService.listTraditions();
         return ResponseEntity.ok(traditions);
     }
+
+    @GetMapping("/search")
+    @PreAuthorize("hasRole('Admin') or hasRole('Client')")
+    public ResponseEntity<List<Tradition>> searchTraditionsByCity(@RequestParam("city") String city) {
+        List<Tradition> traditions = traditionService.findTraditionsByCity(city);
+        if (traditions.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(traditions);
+    }
 }

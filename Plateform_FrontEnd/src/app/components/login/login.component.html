@@ -115,6 +115,70 @@
   }
 </style>
 
+<!--<section class="login-container">-->
+<!--  <div class="login-content">-->
+<!--    <div class="login-form-column">-->
+<!--      <div class="login-form-wrapper">-->
+<!--        <div class="form-content">-->
+<!--          <header class="form-header">-->
+<!--            <h1 class="login-title">Login</h1>-->
+<!--            <p class="login-subtitle">Login to access your Golobe account</p>-->
+<!--          </header>-->
+<!--          <form class="form-fields">-->
+<!--            <div class="input-group">-->
+<!--              <div class="text-field">-->
+<!--                <div class="input-wrapper">-->
+<!--                  <input type="email" id="email" class="input-text" placeholder="john.doe@gmail.com" required>-->
+<!--                  <label for="email" class="label-text">Email</label>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="text-field password-field">-->
+<!--                <div class="input-wrapper">-->
+<!--                  <input type="password" id="password" class="input-text" placeholder="••••••••••••••••••••••••" required>-->
+<!--                  <label for="password" class="label-text">Password</label>-->
+<!--                  <button type="button" class="password-toggle" aria-label="Toggle password visibility">-->
+<!--                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/242dc03c90748ac0b099759beaac904f52dbde465c61c081dbfe10f52681245a?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="password-icon">-->
+<!--                  </button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-options">-->
+<!--              <label class="remember-me">-->
+<!--                <input type="checkbox" class="visually-hidden">-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1bec477041224fb7fc3922fecf0f0268dca8625a91ef0c7f9a15c09f74890b18?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="checkbox-icon">-->
+<!--                <span>Remember me</span>-->
+<!--              </label>-->
+<!--              <a href="#" class="forgot-password">Forgot Password</a>-->
+<!--            </div>-->
+<!--            <div class="login-actions">-->
+<!--              <button type="submit" class="login-button">Login</button>-->
+<!--              <p class="signup-link">Don't have an account? <a href="#" style="font-weight: 600; color: #fd7401;">Sign up</a></p>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--          <div class="login-divider">-->
+<!--            <div class="divider-line"></div>-->
+<!--            <span class="divider-text">Or login with</span>-->
+<!--            <div class="divider-line"></div>-->
+<!--          </div>-->
+<!--          <div class="social-login">-->
+<!--            <button class="social-button" aria-label="Login with Facebook">-->
+<!--              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7801fbea496dc51ca3b70e3dfb946fc34d027948fccb7a8ef44f4de0f1384fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon">-->
+<!--            </button>-->
+<!--            <button class="social-button" aria-label="Login with Google">-->
+<!--              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7fc01828144597380a8cd1c5dd257adb3af0864562ff59d48bafc198564511a2?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon">-->
+<!--            </button>-->
+<!--            <button class="social-button" aria-label="Login with Apple">-->
+<!--              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/05cfacf3e63557364865a890553d52383d1fd6f384db5ac442bfd3560424c5cd?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon">-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="image-column">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae9a35008d6d47a06e0ed106b500ac0e90595c6299669d571cc1541cc915d272?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Decorative travel image" class="login-image">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
 <section class="login-container">
   <div class="login-content">
     <div class="login-form-column">
@@ -124,34 +188,34 @@
             <h1 class="login-title">Login</h1>
             <p class="login-subtitle">Login to access your Golobe account</p>
           </header>
-          <form class="form-fields">
+          <form class="form-fields" [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="input-group">
               <div class="text-field">
                 <div class="input-wrapper">
-                  <input type="email" id="email" class="input-text" placeholder="john.doe@gmail.com" required>
+                  <input type="email" id="email" formControlName="email" class="input-text" placeholder="john.doe@gmail.com" required />
                   <label for="email" class="label-text">Email</label>
                 </div>
               </div>
               <div class="text-field password-field">
                 <div class="input-wrapper">
-                  <input type="password" id="password" class="input-text" placeholder="••••••••••••••••••••••••" required>
+                  <input type="password" id="password" formControlName="password" class="input-text" placeholder="••••••••••••••••••••••••" required />
                   <label for="password" class="label-text">Password</label>
                   <button type="button" class="password-toggle" aria-label="Toggle password visibility">
-                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/242dc03c90748ac0b099759beaac904f52dbde465c61c081dbfe10f52681245a?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="password-icon">
+                    <img src="assets/img/password-icon.png" alt="" class="password-icon" />
                   </button>
                 </div>
               </div>
             </div>
             <div class="form-options">
               <label class="remember-me">
-                <input type="checkbox" class="visually-hidden">
-                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1bec477041224fb7fc3922fecf0f0268dca8625a91ef0c7f9a15c09f74890b18?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="checkbox-icon">
+                <input type="checkbox" class="visually-hidden" />
+                <img src="assets/img/checkbox-icon.png" alt="" class="checkbox-icon" />
                 <span>Remember me</span>
               </label>
               <a href="#" class="forgot-password">Forgot Password</a>
             </div>
             <div class="login-actions">
-              <button type="submit" class="login-button">Login</button>
+              <button type="submit" class="login-button" [disabled]="loginForm.invalid">Login</button>
               <p class="signup-link">Don't have an account? <a href="#" style="font-weight: 600; color: #fd7401;">Sign up</a></p>
             </div>
           </form>
@@ -162,20 +226,20 @@
           </div>
           <div class="social-login">
             <button class="social-button" aria-label="Login with Facebook">
-              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7801fbea496dc51ca3b70e3dfb946fc34d027948fccb7a8ef44f4de0f1384fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7801fbea496dc51ca3b70e3dfb946fc34d027948fccb7a8ef44f4de0f1384fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon" />
             </button>
             <button class="social-button" aria-label="Login with Google">
-              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7fc01828144597380a8cd1c5dd257adb3af0864562ff59d48bafc198564511a2?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7fc01828144597380a8cd1c5dd257adb3af0864562ff59d48bafc198564511a2?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon" />
             </button>
             <button class="social-button" aria-label="Login with Apple">
-              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/05cfacf3e63557364865a890553d52383d1fd6f384db5ac442bfd3560424c5cd?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/05cfacf3e63557364865a890553d52383d1fd6f384db5ac442bfd3560424c5cd?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="social-icon" />
             </button>
           </div>
         </div>
       </div>
     </div>
     <div class="image-column">
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae9a35008d6d47a06e0ed106b500ac0e90595c6299669d571cc1541cc915d272?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Decorative travel image" class="login-image">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae9a35008d6d47a06e0ed106b500ac0e90595c6299669d571cc1541cc915d272?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Decorative travel image" class="login-image" />
     </div>
   </div>
 </section>
