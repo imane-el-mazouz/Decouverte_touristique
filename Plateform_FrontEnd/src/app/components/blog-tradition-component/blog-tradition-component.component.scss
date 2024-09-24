@@ -1,19 +1,94 @@
-/*.search-container {*/
-/*  display: flex;*/
-/*  justify-content: flex-end; !* Aligns items to the end *!*/
-/*  margin-bottom: 20px; !* Adds space below the container *!*/
-/*}*/
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
 
-/*mat-form-field {*/
-/*  width: 100%;*/
-/*  max-width: 300px; !* Limits the width of the form field *!*/
-/*  margin-right: 16px; !* Adds space between the input field and the button *!*/
-/*}*/
+.search-container, .form-container {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-/*input {*/
-/*  font-size: 14px; !* Adjusts the font size within the input *!*/
-/*}*/
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-/*button {*/
-/*  align-self: center; !* Aligns the button in the center vertically *!*/
-/*}*/
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.form-field input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.search-button, .submit-button, .edit-button, .delete-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button {
+  background-color: #28a745;
+  margin-right: 10px;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.search-button:hover, .submit-button:hover, .edit-button:hover, .delete-button:hover {
+  background-color: #0056b3;
+}
+
+.traditions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.traditions-table th, .traditions-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.traditions-table th {
+  background-color: #007bff;
+  color: white;
+  text-align: left;
+}
+
+.traditions-table td {
+  background-color: #f9f9f9;
+}
+
+.traditions-table tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s ease;
+}

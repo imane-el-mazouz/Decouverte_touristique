@@ -1,0 +1,438 @@
+<app-nav-bar></app-nav-bar>
+<section class="hero">
+  <div class="overlay">
+    <h1>Morocco's Traditions</h1>
+    <section class="search-container">
+      <div class="search-bg">
+        <div class="search-content">
+          <div class="search-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3aaac8b5c6e706ec34c97b35ae12e6cb1834d548e23419f330120c04622c3da?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Location icon" class="search-icon" />
+            <div class="search-details">
+              <div class="search-label">
+                <span>Location</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />
+              </div>
+              <div class="search-value">
+                <input type="text" (input)="onCityChange($event)" placeholder="Search by City" />
+              </div>
+            </div>
+          </div>
+          <button class="search-button" aria-label="Search">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" />
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<!--<style>-->
+<!--  .blog-section { gap: 20px;-->
+<!--    display: flex; }-->
+<!--  .blog-content { display: flex; flex-direction: column; line-height: normal; width: 76%; }-->
+<!--  .blog-header { border-radius: 0; z-index: 10; display: flex; margin-right: -369px; width: 100%; flex-direction: column; }-->
+<!--  .blog-title { color:  #fa7436; align-self: center; font: 600 48px/1 "Abhaya Libre SemiBold" }-->
+<!--  .blog-subtitle { color: #666; text-align: center; align-self: center; margin-top: 19px; font: 400 18px/32px Poppins, sans-serif; }-->
+<!--  .blog-grid { margin-top: 48px; display: flex; gap: 20px; }-->
+<!--  .blog-card { border-radius: 16px; background-color: #fefcfb; box-shadow: 0 16px 80px rgba(254, 147, 94, 0.2); display: flex; width: 100%; flex-direction: column; align-items: center; font-family: Poppins, sans-serif; padding: 0 1px 24px; }-->
+<!--  .card-image { aspect-ratio: 1.13; object-fit: contain; object-position: center; width: 100%; border-radius: 16px; align-self: stretch; }-->
+<!--  .card-content { display: flex; margin-top: 24px; width: 319px; max-width: 100%; gap: 20px; font-size: 24px; line-height: 1; justify-content: space-between; }-->
+<!--  .card-location { color: #222; font-weight: 500; }-->
+<!--  .card-price { color :#fa7436; font-weight: 600; }-->
+<!--  .card-details { display: flex; margin-top: 16px; width: 319px; max-width: 100%; gap: 20px; font-size: 16px; color:#666; justify-content: space-between; }-->
+<!--  .trip-duration { display: flex; gap: 18px; font-weight: 500; }-->
+<!--  .duration-icon { aspect-ratio: 1.19; object-fit: contain; object-position: center; width: 19px; margin: auto 0; }-->
+<!--  .rating { display: flex; gap: 9px; font-weight: 400; text-align: center; }-->
+<!--  .rating-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 16px; border-radius: 10px; margin: auto 0; }-->
+<!--  .blog-sidebar { display: flex; flex-direction: column; line-height: normal; width: 24%; }-->
+<!--  .sidebar-card { border-radius: 0; display: flex; margin-top: 676px; flex-grow: 1; flex-direction: column; font-family: Poppins, sans-serif; }-->
+
+<!--  @media (max-width: 991px) {-->
+<!--    .blog-section { flex-direction: column; align-items: stretch; gap: 0; }-->
+<!--    .blog-content, .blog-sidebar { width: 100%; }-->
+<!--    .blog-header { max-width: 100%; }-->
+<!--    .blog-title { font-size: 40px; }-->
+<!--    .blog-grid { max-width: 100%; margin-top: 40px; flex-direction: column; }-->
+<!--    .blog-card, .sidebar-card { margin-top: 30px; }-->
+<!--    .card-content, .card-details { white-space: initial; }-->
+<!--  }-->
+<!--</style>-->
+<style>
+  .blog-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .blog-content {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .blog-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .blog-title {
+    color: #fa7436;
+    font: 600 36px/1 "Abhaya Libre SemiBold";
+  }
+
+  .blog-subtitle {
+    color: #666;
+    margin-top: 10px;
+    font: 400 16px/24px Poppins, sans-serif;
+  }
+
+  .blog-card {
+    border-radius: 12px;
+    background-color: #fefcfb;
+    box-shadow: 0 8px 24px rgba(254, 147, 94, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    max-width: 300px; /* Fixed width to prevent shrinking */
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .card-image {
+    aspect-ratio: 1.13;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .card-description {
+    color: #999;
+    font-size: 14px;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  .card-location {
+    color: #222;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .card-price {
+    color: #fa7436;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  .card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+    color: #666;
+    font-size: 14px;
+  }
+
+  .trip-duration, .rating {
+    display: flex;
+    align-items: center;
+  }
+
+  .duration-icon, .rating-icon {
+    width: 14px;
+    margin-right: 6px;
+  }
+
+  .blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 991px) {
+    .blog-section {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .blog-content {
+      grid-template-columns: 1fr; /* Stack cards in one column on smaller screens */
+    }
+
+    .blog-header {
+      max-width: 100%;
+    }
+
+    .blog-title {
+      font-size: 28px;
+    }
+
+    .blog-card {
+      margin-top: 20px;
+      max-width: none; /* Remove fixed width on smaller screens */
+    }
+  }
+</style>
+
+
+
+<!--<section class="blog-section">-->
+<!--  <div class="blog-content">-->
+<!--    <header class="blog-header">-->
+<!--      <h2 class="blog-title">Our <span style="color: #fa7436;">blogs</span></h2>-->
+<!--      <p class="blog-subtitle">Explore beauty of Morocco</p>-->
+<!--    </header>-->
+<!--    <div class="blog-grid">-->
+<!--      <article class="blog-card">-->
+<!--        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d7410759ca83c5cd52d1ea975d126289cc8f3b4f3f3e15294f8284f563183cf?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="London cityscape" class="card-image">-->
+<!--        <div class="card-content">-->
+<!--          <h3 class="card-location">London,UK</h3>-->
+<!--          <p class="card-price">$2,42k</p>-->
+<!--        </div>-->
+<!--        <div class="card-details">-->
+<!--          <div class="trip-duration">-->
+<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/097de82a16d0ebf1998f1224e3beb0a33c2e6489ba21306c80d9e10afb89ae36?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--            <span>07 Days Trip</span>-->
+<!--          </div>-->
+<!--          <div class="rating">-->
+<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--            <span>4.7</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </article>-->
+<!--      <article class="blog-card">-->
+<!--        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e74577c5486125758e4ecb5543d66666f24d164d5383c808eaed2bb1a5c3fbb5?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Osaka cityscape" class="card-image">-->
+<!--        <div class="card-content">-->
+<!--          <h3 class="card-location">Osaka,Japan</h3>-->
+<!--          <p class="card-price">$5,42k</p>-->
+<!--        </div>-->
+<!--        <div class="card-details">-->
+<!--          <div class="trip-duration">-->
+<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/208e481f252f94cb3e6709108910bec40835fd0262358e0324987ac730fc3485?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--            <span>10 Days Trip</span>-->
+<!--          </div>-->
+<!--          <div class="rating">-->
+<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--            <span>4.8</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </article>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<section class="blog-section">
+  <header class="blog-header">
+    <h2 class="blog-title">Our <span style="color: #fa7436;">blogs</span></h2>
+    <p class="blog-subtitle">Explore beauty of Morocco</p>
+  </header>
+  <div class="blog-content">
+    <article *ngFor="let blog of blogs" class="blog-card">
+      <img [src]="blog.imageUrl" alt="{{ blog.city }} cityscape" class="card-image">
+      <div class="card-content">
+        <h3 class="card-location">{{ blog.city }}, {{ blog.country }}</h3>
+        <p class="card-price">{{ blog.price }}</p>
+      </div>
+      <div class="card-details">
+        <div class="trip-duration">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/097de82a16d0ebf1998f1224e3beb0a33c2e6489ba21306c80d9e10afb89ae36?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">
+          <span>{{ blog.duration }}</span>
+        </div>
+        <div class="rating">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">
+          <span>{{ blog.rating }}</span>
+        </div>
+      </div>
+      <p class="card-description">{{ blog.description }}</p>
+    </article>
+  </div>
+</section>
+
+<!--<section class="blog-section">-->
+<!--  <header class="blog-header">-->
+<!--    <h2 class="blog-title">Our <span style="color: #fa7436;">blogs</span></h2>-->
+<!--    <p class="blog-subtitle">Explore beauty of Morocco</p>-->
+<!--  </header>-->
+<!--  <div class="blog-content">-->
+<!--    <article class="blog-card">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d7410759ca83c5cd52d1ea975d126289cc8f3b4f3f3e15294f8284f563183cf?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="London cityscape" class="card-image">-->
+<!--      <div class="card-content">-->
+<!--        <h3 class="card-location">London, UK</h3>-->
+<!--        <p class="card-price">$2,42k</p>-->
+<!--      </div>-->
+<!--      <div class="card-details">-->
+<!--        <div class="trip-duration">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/097de82a16d0ebf1998f1224e3beb0a33c2e6489ba21306c80d9e10afb89ae36?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--          <span>07 Days Trip</span>-->
+<!--        </div>-->
+<!--        <div class="rating">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--          <span>4.7</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <p class="card-description">Food</p> &lt;!&ndash; Example description &ndash;&gt;-->
+<!--    </article>-->
+<!--    <article class="blog-card">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e74577c5486125758e4ecb5543d66666f24d164d5383c808eaed2bb1a5c3fbb5?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Osaka cityscape" class="card-image">-->
+<!--      <div class="card-content">-->
+<!--        <h3 class="card-location">Osaka, Japan</h3>-->
+<!--        <p class="card-price">$5,42k</p>-->
+<!--      </div>-->
+<!--      <div class="card-details">-->
+<!--        <div class="trip-duration">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/208e481f252f94cb3e6709108910bec40835fd0262358e0324987ac730fc3485?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--          <span>10 Days Trip</span>-->
+<!--        </div>-->
+<!--        <div class="rating">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--          <span>4.8</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <p class="card-description">Tradition</p> &lt;!&ndash; Example description &ndash;&gt;-->
+<!--    </article>-->
+<!--    <article class="blog-card">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d7410759ca83c5cd52d1ea975d126289cc8f3b4f3f3e15294f8284f563183cf?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="London cityscape" class="card-image">-->
+<!--      <div class="card-content">-->
+<!--        <h3 class="card-location">London, UK</h3>-->
+<!--        <p class="card-price">$2,42k</p>-->
+<!--      </div>-->
+<!--      <div class="card-details">-->
+<!--        <div class="trip-duration">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/097de82a16d0ebf1998f1224e3beb0a33c2e6489ba21306c80d9e10afb89ae36?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--          <span>07 Days Trip</span>-->
+<!--        </div>-->
+<!--        <div class="rating">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--          <span>4.7</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <p class="card-description">Food</p> &lt;!&ndash; Example description &ndash;&gt;-->
+<!--    </article>-->
+<!--    <article class="blog-card">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d7410759ca83c5cd52d1ea975d126289cc8f3b4f3f3e15294f8284f563183cf?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="London cityscape" class="card-image">-->
+<!--      <div class="card-content">-->
+<!--        <h3 class="card-location">London, UK</h3>-->
+<!--        <p class="card-price">$2,42k</p>-->
+<!--      </div>-->
+<!--      <div class="card-details">-->
+<!--        <div class="trip-duration">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/097de82a16d0ebf1998f1224e3beb0a33c2e6489ba21306c80d9e10afb89ae36?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--          <span>07 Days Trip</span>-->
+<!--        </div>-->
+<!--        <div class="rating">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--          <span>4.7</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <p class="card-description">Food</p> &lt;!&ndash; Example description &ndash;&gt;-->
+<!--    </article>-->
+<!--  </div>-->
+<!--  <div class="blog-content">-->
+<!--    <article class="blog-card">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d7410759ca83c5cd52d1ea975d126289cc8f3b4f3f3e15294f8284f563183cf?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="London cityscape" class="card-image">-->
+<!--      <div class="card-content">-->
+<!--        <h3 class="card-location">London, UK</h3>-->
+<!--        <p class="card-price">$2,42k</p>-->
+<!--      </div>-->
+<!--      <div class="card-details">-->
+<!--        <div class="trip-duration">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/097de82a16d0ebf1998f1224e3beb0a33c2e6489ba21306c80d9e10afb89ae36?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--          <span>07 Days Trip</span>-->
+<!--        </div>-->
+<!--        <div class="rating">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--          <span>4.7</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <p class="card-description">Food</p> &lt;!&ndash; Example description &ndash;&gt;-->
+<!--    </article>-->
+<!--    <article class="blog-card">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e74577c5486125758e4ecb5543d66666f24d164d5383c808eaed2bb1a5c3fbb5?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Osaka cityscape" class="card-image">-->
+<!--      <div class="card-content">-->
+<!--        <h3 class="card-location">Osaka, Japan</h3>-->
+<!--        <p class="card-price">$5,42k</p>-->
+<!--      </div>-->
+<!--      <div class="card-details">-->
+<!--        <div class="trip-duration">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/208e481f252f94cb3e6709108910bec40835fd0262358e0324987ac730fc3485?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--          <span>10 Days Trip</span>-->
+<!--        </div>-->
+<!--        <div class="rating">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--          <span>4.8</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <p class="card-description">Tradition</p>-->
+<!--    </article>-->
+<!--    <article class="blog-card">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d7410759ca83c5cd52d1ea975d126289cc8f3b4f3f3e15294f8284f563183cf?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="London cityscape" class="card-image">-->
+<!--      <div class="card-content">-->
+<!--        <h3 class="card-location">London, UK</h3>-->
+<!--        <p class="card-price">$2,42k</p>-->
+<!--      </div>-->
+<!--      <div class="card-details">-->
+<!--        <div class="trip-duration">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/097de82a16d0ebf1998f1224e3beb0a33c2e6489ba21306c80d9e10afb89ae36?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--          <span>07 Days Trip</span>-->
+<!--        </div>-->
+<!--        <div class="rating">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--          <span>4.7</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <p class="card-description">Food</p> &lt;!&ndash; Example description &ndash;&gt;-->
+<!--    </article>-->
+<!--    <article class="blog-card">-->
+<!--      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d7410759ca83c5cd52d1ea975d126289cc8f3b4f3f3e15294f8284f563183cf?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="London cityscape" class="card-image">-->
+<!--      <div class="card-content">-->
+<!--        <h3 class="card-location">London, UK</h3>-->
+<!--        <p class="card-price">$2,42k</p>-->
+<!--      </div>-->
+<!--      <div class="card-details">-->
+<!--        <div class="trip-duration">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/097de82a16d0ebf1998f1224e3beb0a33c2e6489ba21306c80d9e10afb89ae36?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Duration icon" class="duration-icon">-->
+<!--          <span>07 Days Trip</span>-->
+<!--        </div>-->
+<!--        <div class="rating">-->
+<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61f7fcbee0f1f03a44949524ed0981ecf239e02c1fdde53126965facdac53b49?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating star" class="rating-icon">-->
+<!--          <span>4.7</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <p class="card-description">Food</p> &lt;!&ndash; Example description &ndash;&gt;-->
+<!--    </article>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+
+<section class="subscribe-section">
+  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e9829732528809e029a3e754174143e7bf3373e8d07689dff1af3d8b7b880cae?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="background-image" alt="" />
+  <div class="content-wrapper">
+    <h2 class="subscribe-text">
+      Subscribe to get information, latest news and other interesting offers about us
+    </h2>
+    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c9710e0c4ea694149d81accc7f0157d6c4438d44ffd57172792c85480114a35?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="decorative-image" alt="" />
+  </div>
+  <form class="form-container">
+    <div class="input-wrapper">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/03aae23473b09ad935442d51c0961a46c9083d90371253daab99c7e3eee5e7fe?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="email-icon" alt="" />
+      <label for="emailInput" class="visually-hidden">Your email</label>
+      <input type="email" id="emailInput" class="email-input" placeholder="Your email" aria-label="Your email" required />
+    </div>
+    <button type="submit" class="subscribe-button">Subscribe</button>
+  </form>
+</section>
+
+
+<app-footer></app-footer>
