@@ -62,9 +62,10 @@ export class HotelServiceService {
   }
 
 
-  listRoomsByHotelId(hotelId: number): Observable<DtoRoom[]> {
-    return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotels/${hotelId}`, { headers: this.getHeaders() });
+  listRoomsByHotelId(idHotel: number): Observable<DtoRoom[]> {
+    return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotel/${idHotel}`, { headers: this.getHeaders() });
   }
+
 
   getRoomById(id: number): Observable<DtoRoom> {
     return this.http.get<DtoRoom>(`${this.roomApiUrl}/${id}`, { headers: this.getHeaders() });
@@ -77,4 +78,12 @@ export class HotelServiceService {
   deleteRoom(id: number): Observable<void> {
     return this.http.delete<void>(`${this.roomApiUrl}/${id}`, { headers: this.getHeaders() });
   }
+
+  // getHotelById(id: number): Observable<DtoHotel> {
+  //   return this.http.get<DtoHotel>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
+  // }
+  //
+  // listRoomsByHotelId(hotelId: number): Observable<DtoRoom[]> {
+  //   return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotels/${hotelId}`, { headers: this.getHeaders() });
+  // }
 }

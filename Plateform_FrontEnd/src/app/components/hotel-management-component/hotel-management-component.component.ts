@@ -196,7 +196,7 @@ export class HotelManagementComponent implements OnInit {
   editRoomId: number | null = null;
   showRoomForm = false;
   showHotelForm = false;
-  newHotel: DtoHotel = { id: 0, name: '', description: '', img: '', location: '', categoryHotel: CategoryHotel.traditional, price: 0, averageRating: 0, distance: 0, rooms: [] };
+  newHotel: DtoHotel = { idHotel: 0, name: '', description: '', img: '', location: '', categoryHotel: CategoryHotel.traditional, price: 0, averageRating: 0, distance: 0, rooms: [] };
 
   readonly roomTypes = Type;
   searchQuery: string = '';
@@ -239,18 +239,18 @@ export class HotelManagementComponent implements OnInit {
 
   // In hotel-management.component.ts
   addRoom() {
-    const { id, name, description, img, location, categoryHotel } = this.selectedHotel!;
+    const { idHotel, name, description, img, location, categoryHotel } = this.selectedHotel!;
     const roomDTO = {
       price: this.newRoom.price,
       available: this.newRoom.available,
       type: this.newRoom.type
     };
 
-    this.hotelService.addRoomToHotel(this.selectedHotel!.id, roomDTO, this.newRoom.images).subscribe(event => {
+    this.hotelService.addRoomToHotel(this.selectedHotel!.idHotel, roomDTO, this.newRoom.images).subscribe(event => {
       if (event.type === HttpEventType.UploadProgress) {
         console.log(`Progress: ${Math.round((event.loaded / event.total!) * 100)}%`);
       } else if (event.type === HttpEventType.Response) {
-        this.loadRooms(this.selectedHotel!.id);
+        this.loadRooms(this.selectedHotel!.idHotel);
         this.showRoomForm = false;
       }
     });
@@ -267,7 +267,7 @@ export class HotelManagementComponent implements OnInit {
 
   deleteRoom(id: number) {
     this.hotelService.deleteRoom(id).subscribe(() => {
-      this.loadRooms(this.selectedHotel!.id);
+      this.loadRooms(this.selectedHotel!.idHotel);
     });
   }
 

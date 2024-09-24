@@ -4,6 +4,8 @@ import {CurrencyPipe, NgForOf, NgIf} from "@angular/common";
 import {FooterComponent} from "../shared/footer/footer.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TraditionBlogService} from "../../service/blog-service/blog-service.service";
+import {Tradition} from "../../model/tradition/tradition";
+import {Blog} from "../../model/blog/blog";
 
 @Component({
   selector: 'app-tradition-page',
@@ -22,16 +24,21 @@ import {TraditionBlogService} from "../../service/blog-service/blog-service.serv
 })
 export class TraditionPageComponent implements OnInit {
   @Input() events: any[] = [];
+  @Output() searchEvent = new EventEmitter<string>();
+
   filteredEvents: any[] = [];
   city: string = '';
+  blogs: Blog[] = [];
 
-  @Output() searchEvent = new EventEmitter<string>();
+  traditions: Tradition [] = [];
+  searchCity: any;
 
   constructor(private traditionService: TraditionBlogService) {
   }
 
   ngOnInit(): void {
     this.filteredEvents = this.events;
+    this.getTraditions();
   }
 
   filterEvents(searchTerm: string): void {
@@ -59,4 +66,34 @@ export class TraditionPageComponent implements OnInit {
     this.filterByCity(city);
   }
 
+
+  private getTraditions() {
+    this.traditionService.getAllTraditions().subscribe(traditions => {
+      this.traditions = traditions;
+    });
+  }
+
+  viewBlogs(traditionId: number | null) {
+    this.traditionService.getBlogsByTraditionId(traditionId).subscribe(blogs => {
+      this.blogs = blogs;
+      console.log('Blogs for Tradition:', blogs);
+    });
+  }
+
+  searchTraditions() {
+    console.log('Searching for city:', this.searchCity);
+    if (this.searchCity.trim()) {
+      this.traditionService.searchTraditionsByCity(this.searchCity).subscribe(
+        (traditions) => {
+          console.log('Search results:', traditions);
+          this.traditions = traditions;
+        },
+        (error) => {
+          console.error('Search error:', error);
+        }
+      );
+    } else {
+      this.getTraditions();
+    }
+  }
 }

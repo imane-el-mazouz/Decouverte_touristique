@@ -8,7 +8,7 @@ body , html{
 }
 .hero {
   position: relative;
-  background-image: url('/assets/img/fes.jpg');
+  background-image: url('/assets/img/back-hotel.jpg');
   background-size: cover;
   background-position: center;
   height: 400px;
@@ -44,14 +44,14 @@ h1 {
 }
 
 //search-bar
-  .search-container {
-    max-width: 417px;
-    font: 12px "Abhaya Libre SemiBold", serif;
-    display: flex;
-    justify-content: center;
-    margin-left: 30px;
+.search-container {
+  max-width: 417px;
+  font: 12px "Abhaya Libre SemiBold", serif;
+  display: flex;
+  justify-content: center;
+  margin-left: 30px;
 
-  }
+}
 
 
 .search-bg {
@@ -120,7 +120,7 @@ h1 {
 }
 
 //events
-  .events-container { display: flex; flex-direction: column; }
+.events-container { display: flex; flex-direction: column; }
 .events-header {
   display: flex;
   width: 100%;
@@ -166,73 +166,73 @@ h1 {
   .event-price { white-space: initial; }
 }
 //.pagination-container {
-  //  display: flex;
-  //  justify-content: center;
-  //  margin-top: 20px;
-  //}
+//  display: flex;
+//  justify-content: center;
+//  margin-top: 20px;
+//}
 //.pagination {
-  //  display: flex;
-  //  list-style-type: none;
-  //  gap: 5px;
-  //}
+//  display: flex;
+//  list-style-type: none;
+//  gap: 5px;
+//}
 //.pagination li {
-  //  padding: 5px 10px;
-  //  border: 1px solid #ddd;
-  //  cursor: pointer;
-  //}
+//  padding: 5px 10px;
+//  border: 1px solid #ddd;
+//  cursor: pointer;
+//}
 //.pagination li.active {
-  //  background-color: #fd7401;
-  //  color: white;
-  //  border-color: #fd7401;
-  //}
+//  background-color: #fd7401;
+//  color: white;
+//  border-color: #fd7401;
+//}
 
 
 
 //pagination
-  .events-container {
-    .events-icons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+.events-container {
+  .events-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
-    .pagination {
-      margin: 1em 0;
-      display: flex;
-      justify-content: center;
+  .pagination {
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
 
-      .pagination-btn {
-        margin: 0 5px;
-        padding: 10px 15px;
-        border: none;
-        cursor: pointer;
-        background-color: #007bff;
-        color: white;
+    .pagination-btn {
+      margin: 0 5px;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
 
-        &:disabled {
-          background-color: #cccccc;
-          cursor: not-allowed;
-        }
+      &:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
       }
     }
   }
+}
 
 //subscribe section
 
-    /* subscribe section */
+/* subscribe section */
 
-  .subscribe-section {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-height: 350px;
-    padding: 20px 20px 30px 40px;
-    margin-right: 100px;
-    margin-left: 110px;
-    margin-bottom: 50px;
+.subscribe-section {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 350px;
+  padding: 20px 20px 30px 40px;
+  margin-right: 100px;
+  margin-left: 110px;
+  margin-bottom: 50px;
 
-  }
+}
 
 @media (max-width: 991px) {
   .subscribe-section {
@@ -387,16 +387,16 @@ h1 {
 
 //booking
 
-  .heading {
-    color: #14183e;
-    font: 800 30px "Abhaya Libre SemiBold", serif;
-    margin: 0 auto 30px auto;
-    text-align: center;
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 50px;
-    margin-top: 41px
-  }
+.heading {
+  color: #14183e;
+  font: 800 30px "Abhaya Libre SemiBold", serif;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 50px;
+  margin-top: 41px
+}
 
 .wrapper-content {
   display: flex;
@@ -531,13 +531,13 @@ count-review{
 
 //review
 
-  .review-section {
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #e1e1e1;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
+.review-section {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
 
 .review-section h3 {
   font: 700 18px "Abhaya Libre SemiBold", serif;
@@ -598,131 +598,190 @@ count-review{
   color: #155724;
   text-align: center;
 }
+ //
 
+// hotels
 
-.blog-section {
+.explore-hotels {
   display: flex;
   flex-direction: column;
+  border-radius: 0;
+}
+
+.section-heading {
+  color: #14183e;
+  text-align: center;
+  text-transform: capitalize;
+  font: 700 30px "Abhaya Libre SemiBold", serif;
+  margin-bottom: 4px;
+  margin-top: 45px;
+}
+
+.hotel-content {
+  margin-top: 75px;
+  width: 100%;
+  margin-left: 23px;
+}
+
+.hotel-layout {
+  display: flex;
   gap: 40px;
-  padding: 20px;
 }
 
-.blog-content {
+.hotel-info {
   display: flex;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  width: 100%;
+  flex-direction: column;
+  align-items: start;
+  font-family: Abhaya Libre SemiBold, serif;
+  color: #000;
+  font-weight: 90;
 }
 
-.blog-header {
+.hotel-name {
+  font-size: 19px;
   text-align: center;
-  margin-bottom: 20px;
+  font-family: Abhaya Libre SemiBold, serif;
 }
 
-.blog-title {
-  color: #fa7436;
-  font: 600 36px/1 "Abhaya Libre SemiBold";
+.hotel-description {
+  align-self: stretch;
+  margin-top: 32px;
+  font: 400 18px Abhaya Libre SemiBold, serif;
 }
 
-.blog-subtitle {
-  color: #666;
-  margin-top: 10px;
-  font: 400 16px/24px Poppins, sans-serif;
+.feature-list {
+  display: flex;
+  margin-top: 43px;
+  flex-direction: column;
+  align-items: start;
+  font: 600 14px Abhaya Libre SemiBold, serif;
+  justify-content: start;
 }
 
-.blog-card {
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: start;
+}
+
+.feature-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 28px;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.feature-text {
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.book-button {
+  align-self: stretch;
   border-radius: 12px;
-  background-color: #fefcfb;
-  box-shadow: 0 8px 24px rgba(254, 147, 94, 0.2);
+  background-color: #14183e;
+  margin-top: 70px;
+  min-height: 60px;
+  color: #fff;
+  padding: 0 40px;
+  border: none;
+  cursor: pointer;
+  font: 500 20px Abhaya Libre SemiBold, serif;
+  width: 180px;
+
+}
+
+.hotel-image-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 12px;
-  max-width: 300px; /* Fixed width to prevent shrinking */
+  border-radius: 30px;
+  position: relative;
+  min-height: 447px;
   width: 100%;
-  margin: 0 auto;
+  overflow: hidden;
+  align-items: end;
+  color: #000;
+  padding: 32px 70px 369px;
+  font: 600 20px Abhaya Libre , serif;
 }
 
-.card-image {
-  aspect-ratio: 1.13;
+.hotel-image {
+
+  position: absolute;
+  inset: 0;
+  height: 400px;
+  width: 600px;
   object-fit: cover;
-  width: 100%;
-  border-radius: 12px;
+  object-position: center;
+  border-radius: 14px;
 }
 
-.card-description {
-  color: #999;
-  font-size: 14px;
-  margin-top: 8px;
-  text-align: center;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 12px;
-  width: 100%;
-}
-
-.card-location {
-  color: #222;
-  font-weight: 500;
-  font-size: 16px;
-}
-
-.card-price {
-  color: #fa7436;
-  font-weight: 600;
-  font-size: 20px;
-}
-
-.card-details {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 12px;
-  color: #666;
-  font-size: 14px;
-}
-
-.trip-duration, .rating {
-  display: flex;
-  align-items: center;
-}
-
-.duration-icon, .rating-icon {
-  width: 14px;
-  margin-right: 6px;
-}
-
-.blog-sidebar {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 20px;
+.price-tag {
+  position: relative;
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: #fff;
+  min-height: 46px;
+  padding: 11px 16px;
 }
 
 @media (max-width: 991px) {
-  .blog-section {
+  .section-heading {
+    max-width: 100%;
+    font-size: 40px;
+  }
+
+  .hotel-content {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .hotel-layout {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
   }
 
-  .blog-content {
-    grid-template-columns: 1fr; /* Stack cards in one column on smaller screens */
+  .hotel-info {
+    max-width: 100%;
+    margin-top: 40px;
   }
 
-  .blog-header {
+  .hotel-description {
     max-width: 100%;
   }
 
-  .blog-title {
-    font-size: 28px;
+  .feature-list {
+    max-width: 100%;
+    margin-top: 40px;
   }
 
-  .blog-card {
-    margin-top: 20px;
-    max-width: none; /* Remove fixed width on smaller screens */
+  .book-button {
+    margin-top: 40px;
+    padding: 0 20px;
   }
+
+  .hotel-image-container {
+    max-width: 100%;
+    margin-top: 40px;
+    padding: 0 20px 100px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

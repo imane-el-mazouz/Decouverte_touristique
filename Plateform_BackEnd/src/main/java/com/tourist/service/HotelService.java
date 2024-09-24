@@ -79,7 +79,7 @@ public class HotelService {
 
         List<Room> updatedRooms = hotelDTO.getRooms().stream()
                 .map(this::convertToEntity)
-                .collect(Collectors.toList());
+                .toList();
 
         hotel.getRooms().clear();
         hotel.getRooms().addAll(updatedRooms);

@@ -27,6 +27,7 @@ import {AboutPageComponent} from "./components/about-page/about-page.component";
 import {EventPageComponent} from "./components/event-page/event-page.component";
 import {ExcursionPageComponent} from "./components/excursion/excursion-page/excursion-page.component";
 import {TraditionPageComponent} from "./components/tradition-page/tradition-page.component";
+import {HotelPageComponent} from "./components/hotel-page/hotel-page.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -49,6 +50,7 @@ export const routes: Routes = [
   { path: 'events-page', component: EventPageComponent },
   { path: 'excursions-page', component: ExcursionPageComponent },
   { path: 'tradition-page', component: TraditionPageComponent },
+  { path: 'hotel-page', component: HotelPageComponent },
 
   {
     path: 'dashboard',

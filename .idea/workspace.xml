@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e3fd31-8393-44c8-8caf-2d681d6d67dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d500d097-ac6a-4187-be6a-85c173988ed9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d500d097-ac6a-4187-be6a-85c173988ed9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/HotelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/blog-tradition-component/blog-tradition-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/blog-tradition-component/blog-tradition-component.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/blog-tradition-component/blog-tradition-component.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/blog-tradition-component/blog-tradition-component.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/shared/nav-bar/nav-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/shared/nav-bar/nav-bar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/tradition-page/tradition-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/tradition-page/tradition-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/tradition-page/tradition-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/tradition-page/tradition-page.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/tradition-page/tradition-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/tradition-page/tradition-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/hotel/hotel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/hotel/hotel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/room/room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/room/room.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/hotel-service/hotel-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/hotel-service/hotel-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +192,7 @@
       <workItem from="1727023062956" duration="1607000" />
       <workItem from="1727030632963" duration="10466000" />
       <workItem from="1727119627915" duration="5980000" />
-      <workItem from="1727185771888" duration="11048000" />
+      <workItem from="1727185771888" duration="17773000" />
     </task>
     <servers />
   </component>

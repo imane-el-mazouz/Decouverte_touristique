@@ -3,7 +3,7 @@ import {CategoryHotel} from "../../enums/category-hotel";
 import {Room} from "../room/room";
 
 export class Hotel {
-  id !: number ;
+  idHotel !: number ;
   name !: string ;
   description !: string ;
   img !: string ;

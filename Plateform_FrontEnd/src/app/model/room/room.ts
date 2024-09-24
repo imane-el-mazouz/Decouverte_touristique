@@ -10,6 +10,7 @@ export class Room {
   available!: boolean;
   images: Image[] = [];
   hotel !: Hotel ;
+
   reservations: Reservation[] = [];
 
 
