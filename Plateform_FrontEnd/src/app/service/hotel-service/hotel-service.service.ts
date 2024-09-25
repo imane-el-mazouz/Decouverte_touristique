@@ -86,4 +86,13 @@ export class HotelServiceService {
   // listRoomsByHotelId(hotelId: number): Observable<DtoRoom[]> {
   //   return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotels/${hotelId}`, { headers: this.getHeaders() });
   // }
+  reserveHotel(roomId: number, numberOfPerson: number, checkInDate: string, checkOutDate: string): Observable<any> {
+    const body = {
+      roomId,
+      numberOfPerson,
+      checkInDate,
+      checkOutDate
+    };
+    return this.http.post(`${this.apiUrl}/hotel`, body, { headers: this.getHeaders() });
+  }
 }

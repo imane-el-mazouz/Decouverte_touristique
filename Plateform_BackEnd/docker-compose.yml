@@ -2,7 +2,7 @@
 #
 #services:
 #  app:
-#    image: openjdk:21
+#    image: openjdk:17
 #    container_name: tourist-app
 #    build:
 #      context: .
@@ -10,12 +10,10 @@
 #    ports:
 #      - "8085:8085"
 #    environment:
-#      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/tourist?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+#      SPRING_DATASOURCE_URL: jdbc:mysql://db:3315/tourist?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
 #      SPRING_DATASOURCE_USERNAME: root
 #      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-#      #SPRING_JPA_HIBERNATE_DDL_AUTO: update
 #      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
-#
 #    depends_on:
 #      - tourist
 #    networks:
@@ -28,7 +26,7 @@
 #      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 #      MYSQL_DATABASE: tourist
 #    ports:
-#      - "3306:3306"
+#      - "3316:3315"
 #    volumes:
 #      - db-data:/var/lib/mysql
 #    networks:
@@ -40,3 +38,69 @@
 #
 #volumes:
 #  db-data:
+
+version: "3.8"
+
+services:
+  server:
+    build: .
+    restart: always
+    container_name: tourist-app
+    ports:
+      - "8085:8085"
+    depends_on:
+      - tourist_db
+    networks:
+      - tourism-network
+
+  tourist_db:
+    image: mysql:8.0
+    container_name: tourist
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: tourist
+    ports:
+      - "3315:3306"
+    volumes:
+      - tourist-db:/var/lib/mysql
+    networks:
+      - tourism-network
+
+networks:
+  tourism-network:
+    driver: bridge
+
+volumes:
+  tourist-db:
+
+
+#services:
+#  tourist-app:
+#    build: ./Plateform_BackEnd
+#    ports:
+#      - "8085:8085"
+#    depends_on:
+#      - tourist_db
+#    networks:
+#      - tourism-network
+#
+#  tourist_db:
+#    image: mysql:8.0
+#    container_name: tourist
+#    environment:
+#      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+#      MYSQL_DATABASE: tourist
+#    ports:
+#      - "3315:3306"
+#    volumes:
+#      - tourist:/var/lib/mysql
+#    networks:
+#      - tourism-network
+#
+#networks:
+#  tourism-network:
+#    driver: bridge
+#
+#volumes:
+#  tourist:
+
