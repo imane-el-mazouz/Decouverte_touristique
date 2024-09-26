@@ -28,10 +28,9 @@ public class RoomController {
     public ResponseEntity<?> addRoomToHotel(
             @PathVariable Long hotelId,
             @RequestPart("room") RoomDTO roomDTO,
-            @RequestPart(value = "images", required = false) MultipartFile[] images) {
+            @RequestPart("images") MultipartFile[] images) {
 
         try {
-           // System.out.println(Arrays.toString(Arrays.stream(images).toArray()));
             RoomDTO newRoom = roomService.addRoomToHotel(hotelId, roomDTO, images);
             return ResponseEntity.status(HttpStatus.CREATED).body(newRoom);
         } catch (RuntimeException e) {

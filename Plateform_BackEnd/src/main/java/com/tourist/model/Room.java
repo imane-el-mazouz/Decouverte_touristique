@@ -24,9 +24,12 @@ public class Room {
      private Long price;
      private boolean available;
 
-     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-     private List<Image> images;
-
+//     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//     private List<Image> images;
+@ElementCollection
+@CollectionTable(name = "annonce_images", joinColumns = @JoinColumn(name = "annonce_id"))
+@Column(name = "image_url")
+private List<String> images;
 
      @ManyToOne()
      @JoinColumn(name = "hotel_id")

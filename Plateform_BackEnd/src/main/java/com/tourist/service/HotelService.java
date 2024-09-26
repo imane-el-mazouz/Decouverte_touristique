@@ -124,15 +124,38 @@ public class HotelService {
                 .build();
     }
 
-    private Room convertToEntity(RoomDTO roomDTO) {
-        Room room = new Room();
-        room.setId(roomDTO.getId());
-        room.setType(roomDTO.getType());
-        room.setPrice(roomDTO.getPrice());
-        room.setAvailable(roomDTO.isAvailable());
-        room.setImages(roomDTO.getImages());
-        return room;
-    }
+//    private Room convertToEntity(RoomDTO roomDTO) {
+//        Room room = new Room();
+//        room.setId(roomDTO.getId());
+//        room.setType(roomDTO.getType());
+//        room.setPrice(roomDTO.getPrice());
+//        room.setAvailable(roomDTO.isAvailable());
+//
+//        // Convertir les URLs des images en objets Image avant de les ajouter à la chambre
+//        List<Image> images = roomDTO.getImageUrls().stream()
+//                .map(url -> {
+//                    Image image = new Image();
+//                    image.setImageUrl(url);
+//                    image.setRoom(room); // Associer l'image à la chambre
+//                    return image;
+//                })
+//                .collect(Collectors.toList());
+//        room.setImages(images);
+//
+//        return room;
+//    }
+private Room convertToEntity(RoomDTO roomDTO) {
+    Room room = new Room();
+    room.setId(roomDTO.getId());
+    room.setType(roomDTO.getType());
+    room.setPrice(roomDTO.getPrice());
+    room.setAvailable(roomDTO.isAvailable());
+
+    room.setImages(roomDTO.getImageUrls());
+
+    return room;
+}
+
 
     private RoomDTO convertToDTO(Room room) {
         return RoomDTO.builder()
@@ -140,7 +163,9 @@ public class HotelService {
                 .type(room.getType())
                 .price(room.getPrice())
                 .available(room.isAvailable())
-                .images(room.getImages())
+                .imageUrls(room.getImages()) // Directly use the list of image URLs
                 .build();
     }
+
+
 }
