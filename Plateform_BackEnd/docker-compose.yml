@@ -1,51 +1,8 @@
-#version: '3.8'
-#
-#services:
-#  app:
-#    image: openjdk:17
-#    container_name: tourist-app
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    ports:
-#      - "8085:8085"
-#    environment:
-#      SPRING_DATASOURCE_URL: jdbc:mysql://db:3315/tourist?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
-#      SPRING_DATASOURCE_USERNAME: root
-#      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-#      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
-#    depends_on:
-#      - tourist
-#    networks:
-#      - tourism-network
-#
-#  tourist:
-#    image: mysql:8.0
-#    container_name: tourist
-#    environment:
-#      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-#      MYSQL_DATABASE: tourist
-#    ports:
-#      - "3316:3315"
-#    volumes:
-#      - db-data:/var/lib/mysql
-#    networks:
-#      - tourism-network
-#
-#networks:
-#  tourism-network:
-#    driver: bridge
-#
-#volumes:
-#  db-data:
-
 version: "3.8"
 
 services:
   server:
     build: .
-    restart: always
-    container_name: tourist-app
     ports:
       - "8085:8085"
     depends_on:
@@ -54,11 +11,10 @@ services:
       - tourism-network
 
   tourist_db:
-    image: mysql:8.0
-    container_name: tourist
+    image: "mysql:latest"
     environment:
+      MYSQL_DATABASE: tourist_db
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: tourist
     ports:
       - "3315:3306"
     volumes:
@@ -72,35 +28,3 @@ networks:
 
 volumes:
   tourist-db:
-
-
-#services:
-#  tourist-app:
-#    build: ./Plateform_BackEnd
-#    ports:
-#      - "8085:8085"
-#    depends_on:
-#      - tourist_db
-#    networks:
-#      - tourism-network
-#
-#  tourist_db:
-#    image: mysql:8.0
-#    container_name: tourist
-#    environment:
-#      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-#      MYSQL_DATABASE: tourist
-#    ports:
-#      - "3315:3306"
-#    volumes:
-#      - tourist:/var/lib/mysql
-#    networks:
-#      - tourism-network
-#
-#networks:
-#  tourism-network:
-#    driver: bridge
-#
-#volumes:
-#  tourist:
-

@@ -186,6 +186,6 @@
             </plugin>
 
         </plugins>
-         <finalName>app</finalName>
+         <finalName>tourist</finalName>
     </build>
 </project>
