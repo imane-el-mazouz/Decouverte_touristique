@@ -6,6 +6,35 @@
   <component name="ChangeListManager">
     <list default="true" id="f1e3fd31-8393-44c8-8caf-2d681d6d67dc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/HotelFilterDTO/dto-filter-hotel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/HotelFilterDTO/dto-filter-hotel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/HotelFilterDTO/dto-filter-hotelspec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/HotelFilterDTO/dto-filter-hotelspec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/adminDTO/dto-admin.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/adminDTO/dto-admin.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/adminDTO/dto-admin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/adminDTO/dto-admin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/blogDTO/dto-blog.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/blogDTO/dto-blog.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/blogDTO/dto-blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/blogDTO/dto-blog.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/clientDTO/dto-client.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/clientDTO/dto-client.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/clientDTO/dto-client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/clientDTO/dto-client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/contactDTO/contact.dto.interface.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/contactDTO/contact.dto.interface.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/contactDTO/contact.dto.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/contactDTO/contact.dto.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/eventDTO/dto-event.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/eventDTO/dto-event.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/eventDTO/dto-event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/eventDTO/dto-event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/excursionDTO/dto-excursion.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/excursionDTO/dto-excursion.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/excursionDTO/dto-excursion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/excursionDTO/dto-excursion.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/hotelDTO/dto-hotel.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/hotelDTO/dto-hotel.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/hotelDTO/dto-hotel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/hotelDTO/dto-hotel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/personDTO/dto-person.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/personDTO/dto-person.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/personDTO/dto-person.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/personDTO/dto-person.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/reservationDTO/dto-reservation.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/reservationDTO/dto-reservation.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/reservationDTO/dto-reservation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/reservationDTO/dto-reservation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/roomDTO/dto-room.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/roomDTO/dto-room.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/roomDTO/dto-room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/roomDTO/dto-room.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/traditionDTO/dto-tradition.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/traditionDTO/dto-tradition.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/traditionDTO/dto-tradition.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/traditionDTO/dto-tradition.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/visitorDTO/dto-visitor.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/visitorDTO/dto-visitor.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/visitorDTO/dto-visitor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/core/dto/visitorDTO/dto-visitor.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +80,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Docker.Plateform_BackEnd.server: Compose Deployment.executor": "Run",
+    "Docker.Plateform_BackEnd.tourist_db: Compose Deployment.executor": "Run",
     "Docker.Plateform_BackEnd: Compose Deployment.executor": "Run",
     "HTTP Request.generated-requests | #1.executor": "Run",
     "JUnit.AdminTest.executor": "Run",
@@ -91,7 +121,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Decouverte_touristique/Plateform_BackEnd",
+    "last_opened_file_path": "C:/Users/user/Desktop/Decouverte_touristique/Plateform_FrontEnd/src/app/core",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -113,18 +143,18 @@
       <recent name="com.tourist.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\core" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\assets" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\assets\img" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_BackEnd\src\main\resources" />
-      <recent name="C:\Users\Dell PC\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\dto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\feature" />
+      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\core" />
+      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\model" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src" />
       <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app" />
-      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\assets\img" />
-      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\model\review" />
-      <recent name="C:\Users\user\Desktop\Decouverte_touristique\Plateform_FrontEnd\src\app\components\shared" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.tourist.mapper" />
@@ -134,7 +164,7 @@
       <recent name="com.tourist.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.Plateform_BackEnd.server: Compose Deployment">
+  <component name="RunManager" selected="Docker.Plateform_BackEnd.tourist_db: Compose Deployment">
     <configuration name="PlateformBackEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="Plateform_BackEnd" />
@@ -171,6 +201,19 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="Plateform_BackEnd.tourist_db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="tourist_db" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="Plateform_BackEnd/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml" />
       <method v="2" />
@@ -187,12 +230,14 @@
     </configuration>
     <list>
       <item itemvalue="Docker.Plateform_BackEnd.server: Compose Deployment" />
+      <item itemvalue="Docker.Plateform_BackEnd.tourist_db: Compose Deployment" />
       <item itemvalue="Docker.Plateform_BackEnd: Compose Deployment" />
       <item itemvalue="npm.start" />
       <item itemvalue="Spring Boot.PlateformBackEndApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.Plateform_BackEnd.tourist_db: Compose Deployment" />
         <item itemvalue="Docker.Plateform_BackEnd.server: Compose Deployment" />
         <item itemvalue="Docker.Plateform_BackEnd: Compose Deployment" />
         <item itemvalue="Spring Boot.PlateformBackEndApplication" />
@@ -235,7 +280,7 @@
       <workItem from="1727030632963" duration="10466000" />
       <workItem from="1727119627915" duration="5980000" />
       <workItem from="1727185771888" duration="26364000" />
-      <workItem from="1727369800098" duration="11494000" />
+      <workItem from="1727369800098" duration="13685000" />
     </task>
     <servers />
   </component>
