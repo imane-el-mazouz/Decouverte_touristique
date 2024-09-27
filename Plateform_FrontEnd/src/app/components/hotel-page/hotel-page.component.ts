@@ -104,7 +104,7 @@ export class HotelPageComponent implements OnInit {
 
   loadRooms(hotelId: number) {
     this.hotelService.listRoomsByHotelId(hotelId)
-      .subscribe((data) => {
+        .subscribe((data) => {
         this.rooms = data;
       }, (error) => {
         console.error('Error loading rooms', error);

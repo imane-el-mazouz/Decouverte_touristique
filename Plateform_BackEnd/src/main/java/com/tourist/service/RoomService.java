@@ -54,7 +54,7 @@ public RoomDTO addRoomToHotel(Long hotelId, RoomDTO roomDTO, MultipartFile[] ima
     room.setType(roomDTO.getType());
     room.setPrice(roomDTO.getPrice());
     room.setAvailable(roomDTO.isAvailable());
-    room.setImages(imageUrls); // Setting image URLs instead of the list from roomDTO
+    room.setImages(imageUrls);
     room.setHotel(hotel);
 
     Room savedRoom = roomRepository.save(room);

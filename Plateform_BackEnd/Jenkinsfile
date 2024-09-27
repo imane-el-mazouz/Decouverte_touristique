@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/imane-el-mazouz/Decouverte_touristique.git'
+               git branch: 'main', url: 'https://github.com/imane-el-mazouz/Decouverte_touristique.git'
             }
         }
 

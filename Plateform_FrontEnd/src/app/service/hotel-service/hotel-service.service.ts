@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { DtoHotel } from "../../dto/hotelDTO/dto-hotel";
 import { DtoFilterHotel } from "../../dto/HotelFilterDTO/dto-filter-hotel";
 import { DtoRoom } from "../../dto/roomDTO/dto-room";
+import { Type } from "../../enums/type";
 
 @Injectable({
   providedIn: 'root'
@@ -50,19 +51,34 @@ export class HotelServiceService {
     return this.http.get<DtoHotel[]>(`${this.apiUrl}/search?category=${category}&location=${location}`, { headers: this.getHeaders() });
   }
 
-  addRoomToHotel(hotelId: number, roomDTO: { price: number; available: boolean }, images: File[]): Observable<HttpEvent<HttpEvent<DtoHotel>>> {
+  // addRoomToHotel(hotelId: number, roomDTO: { price: number; available: boolean; type: string }, images: File[]): Observable<HttpEvent<any>> {
+  //   const formData = new FormData();
+  //   formData.append('roomDTO', JSON.stringify(roomDTO));
+  //   images.forEach(image => formData.append('images', image));
+  //
+  //   return this.http.post<HttpEvent<any>>(`${this.roomApiUrl}/add/${hotelId}`, formData, {
+  //     headers: this.getHeaders(),
+  //     reportProgress: true,
+  //     observe: 'events'
+  //   });
+  // }
+  addRoomToHotel(hotelId: number, roomDTO: { price: number; available: boolean; type: Type }, images: File[]): Observable<HttpEvent<any>> {
     const formData = new FormData();
-    formData.append('roomDTO', JSON.stringify(roomDTO));
+    formData.append('room', JSON.stringify(roomDTO));
     images.forEach(image => formData.append('images', image));
 
-    return this.http.post<HttpEvent<DtoHotel>>(`${this.roomApiUrl}/hotels/${hotelId}`, formData, {
+    return this.http.post<HttpEvent<any>>(`${this.roomApiUrl}/add/${hotelId}`, formData, {
       reportProgress: true,
       observe: 'events'
     });
   }
 
 
-  listRoomsByHotelId(idHotel: number): Observable<DtoRoom[]> {
+
+
+
+
+  listRoomsByHotelId(idHotel: number | undefined): Observable<DtoRoom[]> {
     return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotel/${idHotel}`, { headers: this.getHeaders() });
   }
 

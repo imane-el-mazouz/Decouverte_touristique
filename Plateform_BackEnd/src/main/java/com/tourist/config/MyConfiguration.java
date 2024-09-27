@@ -17,14 +17,21 @@ public class MyConfiguration implements WebMvcConfigurer {
 
   @Configuration
   public static class WebConfig implements WebMvcConfigurer {
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//      registry.addMapping("/**")
+//              .allowedOrigins("*")
+//              .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+//              .allowedHeaders("*");
+//    }
+
     @Override
     public void addCorsMappings(CorsRegistry registry) {
       registry.addMapping("/**")
-              .allowedOrigins("*")
-              .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+              .allowedOrigins("http://localhost:4200")
+              .allowedMethods("*")
               .allowedHeaders("*");
     }
-
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -39,13 +46,15 @@ public class MyConfiguration implements WebMvcConfigurer {
       CorsConfiguration configuration = new CorsConfiguration();
       configuration.setAllowedOrigins(List.of("http://localhost:4200"));
       configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-      configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
-      configuration.setExposedHeaders(List.of("Authorization"));
+//      configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
+//      configuration.setExposedHeaders(List.of("Authorization"));
       configuration.setAllowCredentials(true);
       UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
       source.registerCorsConfiguration("/**", configuration);
       return source;
     }
+
+
 
 
   }

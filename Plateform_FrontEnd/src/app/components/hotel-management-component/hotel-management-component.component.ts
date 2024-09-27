@@ -198,6 +198,7 @@ export class HotelManagementComponent implements OnInit {
   showHotelForm = false;
   newHotel: DtoHotel = { idHotel: 0, name: '', description: '', img: '', location: '', categoryHotel: CategoryHotel.traditional, price: 0, averageRating: 0, distance: 0, rooms: [] };
 
+
   readonly roomTypes = Type;
   searchQuery: string = '';
   minRating?: number;
@@ -225,7 +226,7 @@ export class HotelManagementComponent implements OnInit {
     });
   }
 
-  loadRooms(hotelId: number) {
+  loadRooms(hotelId: number | undefined) {
     this.hotelService.listRoomsByHotelId(hotelId).subscribe(rooms => {
       this.rooms = rooms;
     });
@@ -237,23 +238,42 @@ export class HotelManagementComponent implements OnInit {
     this.editRoomId = null;
   }
 
-  // In hotel-management.component.ts
   addRoom() {
-    const { idHotel, name, description, img, location, categoryHotel } = this.selectedHotel!;
     const roomDTO = {
       price: this.newRoom.price,
       available: this.newRoom.available,
       type: this.newRoom.type
     };
 
-    this.hotelService.addRoomToHotel(this.selectedHotel!.idHotel, roomDTO, this.newRoom.images).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        console.log(`Progress: ${Math.round((event.loaded / event.total!) * 100)}%`);
-      } else if (event.type === HttpEventType.Response) {
-        this.loadRooms(this.selectedHotel!.idHotel);
-        this.showRoomForm = false;
+    if (this.editRoomId) {
+      this.hotelService.updateRoom(this.editRoomId, roomDTO).subscribe({
+        next: () => {
+          this.loadRooms(this.selectedHotel?.idHotel);
+          this.resetRoomForm();
+        },
+        error: error => {
+          console.error('Error updating room:', error);
+        }
+      });
+    } else {
+      if (this.selectedHotel) {
+        this.hotelService.addRoomToHotel(this.selectedHotel.idHotel, roomDTO, this.roomImages).subscribe({
+          next: event => {
+            if (event.type === HttpEventType.UploadProgress && event.total) {
+              const progress = Math.round((100 * event.loaded) / event.total);
+              console.log(`Room upload progress: ${progress}%`);
+            } else if (event.type === HttpEventType.Response) {
+              console.log('Room added successfully:', event.body);
+              this.loadRooms(this.selectedHotel?.idHotel);
+              this.resetRoomForm();
+            }
+          },
+          error: error => {
+            console.error('Error adding room:', error);
+          }
+        });
       }
-    });
+    }
   }
 
 
@@ -283,11 +303,18 @@ export class HotelManagementComponent implements OnInit {
   }
 
   onFileChange(event: any) {
-    const files = event.target.files as FileList;
-    this.newRoom.images = Array.from(files);
+    if (event.target.files) {
+      this.newRoom.images = Array.from(event.target.files);
+    }
   }
 
   filterHotels() {
 
+  }
+
+  private resetRoomForm() {
+    this.newRoom = { id: 0, type: Type.individual, price: 0, available: true, images: [], hotel: {} as DtoHotel, reservations: [] };
+    this.showRoomForm = false;
+    this.editRoomId = null;
   }
 }

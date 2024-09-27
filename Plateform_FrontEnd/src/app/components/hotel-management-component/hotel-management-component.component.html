@@ -203,7 +203,7 @@
 
       <label for="available">Available:</label>
       <input id="available" type="checkbox" [(ngModel)]="newRoom.available" name="available" />
-
+      <input type="file" (change)="onFileChange($event)" multiple>
       <button type="submit">{{ editRoomId ? 'Update Room' : 'Add Room' }}</button>
     </form>
     <button (click)="showRoomForm = false">Cancel</button>

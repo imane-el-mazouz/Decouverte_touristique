@@ -28,9 +28,13 @@ public class RoomController {
     public ResponseEntity<?> addRoomToHotel(
             @PathVariable Long hotelId,
             @RequestPart("room") RoomDTO roomDTO,
-            @RequestPart("images") MultipartFile[] images) {
+            @RequestPart("images") @Nullable MultipartFile[] images) {
 
         try {
+            if (images == null || images.length == 0) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No images provided");
+            }
+
             RoomDTO newRoom = roomService.addRoomToHotel(hotelId, roomDTO, images);
             return ResponseEntity.status(HttpStatus.CREATED).body(newRoom);
         } catch (RuntimeException e) {
@@ -39,6 +43,7 @@ public class RoomController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred");
         }
     }
+
 
 
     @GetMapping("/hotel/{hotelId}")
