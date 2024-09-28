@@ -2,64 +2,57 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_COMPOSE_FILE = 'docker-compose.yml'    // Docker compose file name
-        IMAGE_NAME = 'tourist-app'                     // Docker image name
-        DOCKER_HUB_REPO = 'imane1233333333333333/discover' // DockerHub repository
-        SONARQUBE_TOKEN = credentials('SonarToken')    // SonarQube Token from Jenkins credentials
-        DOCKER_CREDENTIAL_ID = 'credential-id'         // DockerHub credentials from Jenkins credentials
-        SONAR = 'SonarServer'                          // SonarQube server name configured in Jenkins
+        DOCKER_COMPOSE_FILE = 'docker-compose.yml'
+        IMAGE_NAME = 'tourist-app'
+        DOCKER_HUB_REPO = 'imane1233333333333333/discover'
+        DOCKER_CREDENTIAL_ID = 'docker-credentials-id'
+        SONAR_TOKEN = credentials('SonarQubeToken')
+        SONAR = 'SONAR'
     }
 
     stages {
-
-        // Stage 1: Checkout the code from GitHub
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/imane-el-mazouz/Decouverte_touristique.git'
             }
         }
 
-        // Stage 2: Build and run unit tests
         stage('Build and Test') {
             steps {
                 dir('Plateform_BackEnd') {
-                    // For Windows
                     bat 'mvn clean install'
                     bat 'mvn test'
-                    // For Linux, replace bat with sh (uncomment the next two lines if using Linux)
-                    // sh 'mvn clean install'
-                    // sh 'mvn test'
                 }
             }
         }
 
-        // Stage 3: Run SonarQube analysis for code quality checks
         stage('SonarQube Analysis') {
             steps {
                 dir('Plateform_BackEnd') {
                     withSonarQubeEnv(SONAR) {
-                        bat "mvn sonar:sonar -Dsonar.token=${SONARQUBE_TOKEN}"
-                        // For Linux, replace bat with sh (uncomment the next line if using Linux)
-                        // sh "mvn sonar:sonar -Dsonar.token=${SONARQUBE_TOKEN}"
+                        bat "mvn sonar:sonar -Dsonar.token=${SONAR_TOKEN}"
                     }
                 }
             }
         }
 
-        // Stage 4: Build Docker Image
         stage('Build Docker Images') {
             steps {
                 script {
                     dir('Plateform_BackEnd') {
                         bat "docker build -t ${IMAGE_NAME} ."
-                        // For Linux, replace bat with sh (uncomment the next line if using Linux)
-                        // sh "docker build -t ${IMAGE_NAME} ."
                     }
                 }
             }
         }
+         stage('Verify Docker Installation') {
+                    steps {
+                        script {
+                            bat 'docker --version'
+                        }
+                    }
+                }
 
-        // Stage 5: Tag and Push Docker Images to Docker Hub
         stage('Tag and Push Docker Images') {
             steps {
                 script {
@@ -69,24 +62,16 @@ pipeline {
                             docker tag ${IMAGE_NAME}:latest ${imageName}
                             docker push ${imageName}
                         """
-                        // For Linux, replace bat with sh (uncomment the next line if using Linux)
-                        // sh """
-                        //     docker tag ${IMAGE_NAME}:latest ${imageName}
-                        //     docker push ${imageName}
-                        // """
                     }
                 }
             }
         }
 
-        // Stage 6: Run Docker Compose to deploy the application
         stage('Run Docker Compose') {
             steps {
                 script {
                     dir('Plateform_BackEnd') {
                         bat "docker-compose -f ${DOCKER_COMPOSE_FILE} up -d"
-                        // For Linux, replace bat with sh (uncomment the next line if using Linux)
-                        // sh "docker-compose -f ${DOCKER_COMPOSE_FILE} up -d"
                     }
                 }
             }
@@ -95,7 +80,7 @@ pipeline {
 
     post {
         always {
-            cleanWs()  // Clean workspace after pipeline execution
+            cleanWs()
         }
         success {
             echo 'Pipeline completed successfully!'

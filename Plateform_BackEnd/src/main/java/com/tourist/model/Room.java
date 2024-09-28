@@ -27,7 +27,7 @@ public class Room {
 //     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 //     private List<Image> images;
 @ElementCollection
-@CollectionTable(name = "annonce_images", joinColumns = @JoinColumn(name = "annonce_id"))
+@CollectionTable(name = "room_image")
 @Column(name = "image_url")
 private List<String> images;
 

@@ -18,9 +18,9 @@ public class RoomDTO {
     private Type type;
     private Long price;
     private boolean available;
-    private List<String> imageUrls; // Store image URLs as Strings
-    private Hotel hotel; // Include hotel for potential future use
-    private List<Reservation> reservations; // Include reservations for future use
+    private List<String> imageUrls;
+    private Hotel hotel;
+    private List<Reservation> reservations;
 
     // Constructor without Hotel and Reservations
     public RoomDTO(Type type, Long price, boolean available, List<String> imageUrls) {

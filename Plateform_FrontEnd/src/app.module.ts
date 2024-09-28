@@ -40,7 +40,7 @@
 //   bootstrap: []
 // })
 // export class AppModule { }
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule, provideClientHydration} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -68,7 +68,8 @@ import { AuthInterceptor } from './app/service/auth_interceptor/auth-interceptor
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    provideClientHydration()
   ],
   bootstrap: []
 })
