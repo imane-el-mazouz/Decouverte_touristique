@@ -24,8 +24,10 @@ public class HotelController {
         this.hotelService = hotelService;
     }
 
+
+
     @GetMapping
-    @PreAuthorize("hasRole('Admin')")
+    @PreAuthorize("hasRole('Client') or hasRole('Admin')")
     public ResponseEntity<List<HotelDTO>> getAllHotels() {
         return ResponseEntity.ok(hotelService.getAllHotels());
     }
@@ -37,7 +39,7 @@ public class HotelController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('Admin')")
+    @PreAuthorize("hasRole('Client') or hasRole('Admin')")
     public ResponseEntity<HotelDTO> getHotelById(@PathVariable Long id) {
         return ResponseEntity.ok(hotelService.getHotelById(id));
     }

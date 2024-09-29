@@ -25,14 +25,22 @@ public class MyConfiguration implements WebMvcConfigurer {
 //              .allowedHeaders("*");
 //    }
 
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//      registry.addMapping("/**")
+//              .allowedOrigins("http://localhost:4200")
+//              .allowedMethods("*")
+//              .allowedHeaders("*");
+//    }
     @Override
     public void addCorsMappings(CorsRegistry registry) {
       registry.addMapping("/**")
               .allowedOrigins("http://localhost:4200")
-              .allowedMethods("*")
+              .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
               .allowedHeaders("*");
-    }
+//              .allowCredentials(true);
 
+    }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
       registry.addResourceHandler("/images/**")

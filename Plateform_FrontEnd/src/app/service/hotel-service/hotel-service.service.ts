@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpEvent, HttpEventType, HttpHeaders} from "@angular/common/http";
-import {Observable, tap} from "rxjs";
+import {Observable, tap, throwError} from "rxjs";
 import { Type } from "../../enums/type";
 import {DtoHotel} from "../../dto/hotelDTO/dto-hotel";
 import {DtoFilterHotel} from "../../dto/HotelFilterDTO/dto-filter-hotel";
 import {DtoRoom} from "../../dto/roomDTO/dto-room";
 import {AuthService} from "../auth_service/auth-service.service";
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -16,25 +17,15 @@ export class HotelServiceService {
 
   constructor(private http: HttpClient , private authService : AuthService) { }
 
-  // private getHeaders(): HttpHeaders {
-  //   const token = localStorage.getItem('token');
-  //   return new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${token}`
-  //   });
-  // }
-  private getHeaders(isFormData = false): HttpHeaders {
+  private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('token');
-    let headers = new HttpHeaders({
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-
-    if (!isFormData) {
-      headers = headers.append('Content-Type', 'application/json');
-    }
-
-    return headers;
   }
+
+
 
   getAllHotels(): Observable<DtoHotel[]> {
     return this.http.get<DtoHotel[]>(this.apiUrl, { headers: this.getHeaders() });
@@ -64,6 +55,7 @@ export class HotelServiceService {
     return this.http.get<DtoHotel[]>(`${this.apiUrl}/search?category=${category}&location=${location}`, { headers: this.getHeaders() });
   }
 
+
   // addRoomToHotel(hotelId: number, roomDTO: { price: number; available: boolean; type: string }, images: File[]): Observable<HttpEvent<any>> {
   //   const formData = new FormData();
   //   formData.append('roomDTO', JSON.stringify(roomDTO));
@@ -76,26 +68,68 @@ export class HotelServiceService {
   //   });
   // }
 
-  addRoomToHotel(hotelId: number, roomDTO: DtoRoom, images: File[]): Observable<HttpEvent<any>> {
+  // addRoomToHotel(hotelId: number, room: DtoRoom, images: File[]): Observable<HttpEvent<any>> {
+  //   const formData = new FormData();
+  //   formData.append('room', new Blob([JSON.stringify(room)], { type: 'application/json' }));
+  //
+  //   images.forEach(file => formData.append('images', file, file.name));
+  //
+  //   return this.http.post<HttpEvent<any>>(`${this.roomApiUrl}/create/${hotelId}`, formData, {
+  //     observe: 'events'
+  //   }).pipe(
+  //     catchError(error => {
+  //       console.error('Error during API call:', error);
+  //       return throwError(error);
+  //     })
+  //   );
+  // }
+
+  createRoomRequest(hotelId: number, room: DtoRoom, roomImages: File[]): Observable<any> {
     const formData = new FormData();
+    formData.append('room', JSON.stringify(room));
 
-    // Append the room DTO as a Blob
-    formData.append('room', new Blob([JSON.stringify(roomDTO)], { type: 'application/json' }));
-
-    // Append images to the FormData
-    images.forEach(image => {
-      formData.append('images', image, image.name);
+    // Append each image file to the form data
+    roomImages.forEach((image, index) => {
+      formData.append(`image${index}`, image);
     });
 
-    // Use the getHeaders method to fetch the headers
-    const headers = this.getHeaders(true); // Pass true to indicate FormData
-
-    return this.http.post<HttpEvent<any>>(`${this.roomApiUrl}/create/${hotelId}`, formData, {
+    return this.http.post(`${this.roomApiUrl}/create/${hotelId}`, formData, {
       reportProgress: true,
-      observe: 'events',
-      headers: headers // Include the headers in the request
+      observe: 'events'
     });
   }
+
+
+
+  private getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+
+  // const formData: FormData = new FormData();
+    // formData.append('roomDTO', JSON.stringify(room)); // Make sure the key matches what the backend expects
+    //
+    // images.forEach(image => {
+    //   formData.append('images', image, image.name);
+    // });
+    // const headers = new HttpHeaders({
+    //   'Authorization': `Bearer ${localStorage.getItem('token')}`
+    // });
+    //
+    // return this.http.post<HttpEvent<any>>(`${this.roomApiUrl}/create/${hotelId}`, formData, {
+    //   headers,
+    //   reportProgress: true,
+    //   observe: 'events'
+    // }).pipe(
+    //   catchError(error => {
+    //     console.error('Error occurred:', error); // Log the error
+    //     return throwError(error); // Rethrow the error for further handling
+    //   })
+    // );
+
+
+
+
 
   listRoomsByHotelId(idHotel: number | undefined): Observable<DtoRoom[]> {
     return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotel/${idHotel}`, { headers: this.getHeaders() });
@@ -103,7 +137,7 @@ export class HotelServiceService {
 
 
   getRoomById(id: number): Observable<DtoRoom> {
-    return this.http.get<DtoRoom>(`${this.roomApiUrl}/${id}`, { headers: this.getHeaders() });
+    return this.http.get<DtoRoom>(`${this.roomApiUrl}/get/${id}`, { headers: this.getHeaders() });
   }
 
   updateRoom(id: number, roomDTO: { price: number; available: boolean }): Observable<void> {

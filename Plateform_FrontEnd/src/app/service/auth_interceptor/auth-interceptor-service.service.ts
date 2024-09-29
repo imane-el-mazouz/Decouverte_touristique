@@ -41,4 +41,25 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(cloned);
   }
+
+
+  // intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  //   let token: string | null = null;
+  //
+  //   if (typeof localStorage !== 'undefined') {
+  //     token = localStorage.getItem('jwt');
+  //   }
+  //
+  //   if (token) {
+  //     const cloned = req.clone({
+  //       setHeaders: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     });
+  //     return next.handle(cloned);
+  //   }
+  //
+  //   return next.handle(req);
+  // }
+
 }

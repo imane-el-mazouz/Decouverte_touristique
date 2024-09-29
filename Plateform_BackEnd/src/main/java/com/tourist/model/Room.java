@@ -26,10 +26,11 @@ public class Room {
 
 //     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 //     private List<Image> images;
-@ElementCollection
-@CollectionTable(name = "room_image")
-@Column(name = "image_url")
-private List<String> images;
+     @ElementCollection
+     @CollectionTable(name = "room_image", joinColumns = @JoinColumn(name = "room_id"))
+     @Column(name = "image_url")
+     private List<String> images = new ArrayList<>();
+
 
      @ManyToOne()
      @JoinColumn(name = "hotel_id")

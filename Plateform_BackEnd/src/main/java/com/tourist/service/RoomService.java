@@ -7,6 +7,7 @@ import com.tourist.model.Hotel;
 import com.tourist.model.Room;
 import com.tourist.repository.HotelRepository;
 import com.tourist.repository.RoomRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,22 +29,6 @@ public class RoomService {
         this.hotelRepository = hotelRepository;
         this.cloudinaryService = cloudinaryService;
     }
-
-//    public AnnonceResponseDTO createAnnonce(AnnonceCreateDTO annonceDTO, Utilisateur user, MultipartFile[] images) throws IOException {
-//        List<String> imageUrls = cloudinaryService.uploadImages(images);
-//
-//        Annonce annonce = new Annonce();
-//        annonce.setTitle(annonceDTO.getTitle());
-//        annonce.setDescription(annonceDTO.getDescription());
-//        annonce.setPrice(annonceDTO.getPrice());
-//        annonce.setCategory(annonceDTO.getCategory());
-//        annonce.setCreationDate(LocalDateTime.now());
-//        annonce.setDisponibilite(annonceDTO.getDisponibilite());
-//        annonce.setImages(imageUrls);
-//        annonce.setVendeur(user);
-//        annonce = annonceRepository.save(annonce);
-//        return mapToResponseDTO(annonce);
-//    }
 @Transactional
 public RoomDTO addRoomToHotel(Long hotelId, RoomDTO roomDTO, MultipartFile[] images) {
     Hotel hotel = hotelRepository.findById(hotelId)
@@ -64,60 +49,75 @@ public RoomDTO addRoomToHotel(Long hotelId, RoomDTO roomDTO, MultipartFile[] ima
             savedRoom.getType(),
             savedRoom.getPrice(),
             savedRoom.isAvailable(),
-            savedRoom.getImages() // Include the saved image URLs
+            savedRoom.getImages()
     );
 }
 
-//        return new RoomDTO(
-//                savedRoom.getId(),
-//                savedRoom.getType(),
-//                savedRoom.getPrice(),
-//                savedRoom.isAvailable(),
-//                imageList != null ? imageList.stream().map(Image::getImageUrl).collect(Collectors.toList()) : Collections.emptyList() // Return image URLs in DTO
-//        );
-
-
-//    private List<Image> processImages(MultipartFile[] images, Room room) {
-//        return Stream.of(images)
-//                .map(file -> {
-//                    CloudinaryResponse response = cloudinaryService.uploadFile(file);
-//                    return createImageEntity(response, room);
-//                })
-//                .collect(Collectors.toList());
-//    }
-//
-//    private Image createImageEntity(CloudinaryResponse response, Room room) {
-//        Image image = new Image();
-//        image.setImageUrl(response.getUrl());
-//        image.setCloudinaryImageId(response.getPublicId());
-//        image.setRoom(room);
-//        return image;
-//    }
-
     public List<RoomDTO> listRoomsByHotelId(Long hotelId) {
-        // Retrieve the list of rooms by hotel ID
         List<Room> rooms = roomRepository.findByHotel_IdHotel(hotelId);
 
-        // Convert each Room entity to RoomDTO and process image URLs
         return rooms.stream()
                 .map(room -> {
-                    List<String> imageUrls = room.getImages(); // Get image URLs
+                    List<String> imageUrls = room.getImages();
 
-                    // Reverse the order of image URLs (optional, based on your needs)
                     Collections.reverse(imageUrls);
 
-                    // Map the Room entity to RoomDTO
                     return new RoomDTO(
                             room.getId(),
                             room.getType(),
                             room.getPrice(),
                             room.isAvailable(),
-                            imageUrls, // Reversed image URLs
-                            room.getHotel(), // Set the hotel if needed
-                            room.getReservations() // Set reservations if needed
+                            imageUrls,
+                            room.getHotel(),
+                            room.getReservations()
                     );
                 })
-                .collect(Collectors.toList()); // Collect the result as a list of RoomDTOs
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public RoomDTO updateRoom(Long roomId, RoomDTO roomDTO, MultipartFile[] images) {
+        Room room = roomRepository.findById(roomId)
+                .orElseThrow(() -> new EntityNotFoundException("roomId with this id id not exist"));
+
+        if (roomDTO != null) {
+            room.setType(roomDTO.getType());
+            room.setPrice(roomDTO.getPrice());
+            room.setAvailable(roomDTO.isAvailable());
+        }
+
+        if (images != null && images.length > 0) {
+            List<String> imageUrls = cloudinaryService.uploadFile(images);
+            room.setImages(imageUrls);
+        }
+
+        Room updatedRoom = roomRepository.save(room);
+
+        return new RoomDTO(
+                updatedRoom.getId(),
+                updatedRoom.getType(),
+                updatedRoom.getPrice(),
+                updatedRoom.isAvailable(),
+                updatedRoom.getImages()
+        );
+    }
+
+    @Transactional
+    public void deleteRoom(Long roomId) {
+        roomRepository.deleteById(roomId);
+    }
+    @Transactional(readOnly = true)
+    public RoomDTO getRoomById(Long roomId) {
+        Room room = roomRepository.findById(roomId)
+                .orElseThrow(() -> new EntityNotFoundException("Room not found with id: " + roomId));
+
+        return new RoomDTO(
+                room.getId(),
+                room.getType(),
+                room.getPrice(),
+                room.isAvailable(),
+                room.getImages()
+        );
     }
 
 
@@ -144,5 +144,7 @@ public RoomDTO addRoomToHotel(Long hotelId, RoomDTO roomDTO, MultipartFile[] ima
 //                })
 //                .collect(Collectors.toList());
 //    }
+
+
 
 }

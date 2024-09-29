@@ -168,17 +168,16 @@
 // }
 
 
-
-
-import { Component, OnInit } from '@angular/core';
-import { HotelServiceService } from '../../service/hotel-service/hotel-service.service';
-import { DtoHotel } from '../../dto/hotelDTO/dto-hotel';
-import { DtoRoom } from '../../dto/roomDTO/dto-room';
-import { Type } from '../../enums/type';
-import { CategoryHotel } from '../../enums/category-hotel';
+import {Component, OnInit} from '@angular/core';
+import {HotelServiceService} from '../../service/hotel-service/hotel-service.service';
+import {DtoHotel} from '../../dto/hotelDTO/dto-hotel';
+import {DtoRoom} from '../../dto/roomDTO/dto-room';
+import {Type} from '../../enums/type';
+import {CategoryHotel} from '../../enums/category-hotel';
 import {FormsModule} from "@angular/forms";
-import {KeyValuePipe, NgForOf, NgIf} from "@angular/common";
+import {DatePipe, KeyValuePipe, NgForOf, NgIf} from "@angular/common";
 import {HttpEvent, HttpEventType} from "@angular/common/http";
+import {DtoFilterHotel} from "../../dto/HotelFilterDTO/dto-filter-hotel";
 
 @Component({
   selector: 'app-hotel-management',
@@ -188,7 +187,8 @@ import {HttpEvent, HttpEventType} from "@angular/common/http";
     FormsModule,
     NgIf,
     NgForOf,
-    KeyValuePipe
+    KeyValuePipe,
+    DatePipe
   ],
   styleUrls: ['./hotel-management-component.component.css']
 })
@@ -196,12 +196,13 @@ export class HotelManagementComponent implements OnInit {
   hotels: DtoHotel[] = [];
   selectedHotel: DtoHotel | null = null;
   rooms: DtoRoom[] = [];
+  images: string[] = [];
   newRoom: DtoRoom = {
     id: 0,
     type: Type.individual,
     price: 0,
     available: true,
-    images: [], // Change from single File to an array for multiple images
+    images: [],
     hotel: {} as DtoHotel,
     reservations: []
   };
@@ -210,7 +211,7 @@ export class HotelManagementComponent implements OnInit {
   showHotelForm = false;
   newHotel: DtoHotel = { idHotel: 0, name: '', description: '', img: '', location: '', categoryHotel: CategoryHotel.traditional, price: 0, averageRating: 0, distance: 0, rooms: [] };
 
-
+  hotelId: number | undefined;
   readonly roomTypes = Type;
   private roomImages: File[] = [];
 
@@ -219,6 +220,8 @@ export class HotelManagementComponent implements OnInit {
   maxRating?: number;
   categoryFilter: string = '';
   locationFilter: string = '';
+
+
   private roomImage?: File;
 
   constructor(private hotelService: HotelServiceService) { }
@@ -240,9 +243,43 @@ export class HotelManagementComponent implements OnInit {
     });
   }
 
+
   loadRooms(hotelId: number | undefined) {
     this.hotelService.listRoomsByHotelId(hotelId).subscribe(rooms => {
       this.rooms = rooms;
+    });
+  }
+
+
+
+  createRoom() {
+    if (!this.selectedHotel) {
+      console.error('No hotel selected');
+      return;
+    }
+
+    // Validate room data
+    if (!this.newRoom.type || this.newRoom.price <= 0) {
+      console.error('Invalid room data');
+      return;
+    }
+
+    // Check if images are provided
+    if (this.roomImages.length === 0) {
+      console.warn('No images uploaded');
+    }
+
+    // Call the hotel service to create a room
+    this.hotelService.createRoomRequest(this.selectedHotel.idHotel, this.newRoom, this.roomImages).subscribe({
+      next: (response) => {
+        console.log('Room created successfully', response);
+        this.loadRooms(this.selectedHotel?.idHotel); // Refresh room list after adding
+        this.resetRoomForm(); // Clear form fields after submission
+      },
+      error: (error) => {
+        console.error('Error creating room', error);
+        // Handle errors appropriately based on status code
+      }
     });
   }
 
@@ -253,47 +290,11 @@ export class HotelManagementComponent implements OnInit {
       type: Type.individual,
       price: 0,
       available: true,
-      images: [], // Initialize as an empty array
+      images: [],
       hotel: {} as DtoHotel,
       reservations: []
     };
     this.editRoomId = null;
-  }
-
-  addRoom() {
-    if (this.selectedHotel) {
-      const roomDTO: DtoRoom = {
-        id: 0, // or another suitable default value
-        price: this.newRoom.price,
-        available: this.newRoom.available,
-        type: this.newRoom.type,
-        images: this.roomImages.map(file => URL.createObjectURL(file)), // Convert files to URLs
-        hotel: this.selectedHotel, // Assuming the hotel object is needed
-        reservations: [] // Initialize as an empty array or fetch the reservations if necessary
-      };
-
-
-      this.hotelService.addRoomToHotel(this.selectedHotel.idHotel, roomDTO, this.roomImages).subscribe({
-        next: (event: HttpEvent<any>) => {
-          if (event.type === HttpEventType.UploadProgress && event.total) {
-            const progress = Math.round((100 * event.loaded) / event.total);
-            console.log(`Room upload progress: ${progress}%`);
-          } else if (event.type === HttpEventType.Response) {
-            console.log('Room added successfully:', event.body);
-            this.loadRooms(this.selectedHotel?.idHotel); // Refresh the room list
-            this.resetRoomForm(); // Reset form after submission
-          }
-        },
-        error: (error) => {
-          console.error('Error adding room:', error);
-          if (error.error) {
-            console.error('Backend Error:', error.error.message || error.error);
-          }
-        }
-      });
-    } else {
-      console.warn('No selected hotel to add room to');
-    }
   }
 
   editRoom(id: number) {
@@ -304,9 +305,27 @@ export class HotelManagementComponent implements OnInit {
     });
   }
 
-  deleteRoom(id: number) {
+  updateRoom() {
+    if (this.editRoomId !== null) {
+      this.hotelService.updateRoom(this.editRoomId, this.newRoom).subscribe(() => {
+        this.loadHotels(); // Reload hotels or rooms to reflect changes
+        this.showRoomForm = false; // Hide the form after updating
+        this.editRoomId = null; // Reset edit ID
+        this.newRoom = {images: [], reservations: [], type: Type.individual, id: 0, price: 0, available: true }; // Reset the form
+      });
+    }
+  }
+
+
+
+  deleteRoom(id: number): void {
     this.hotelService.deleteRoom(id).subscribe(() => {
       this.loadRooms(this.selectedHotel!.idHotel);
+    });
+  }
+  deleteHotel(id: number): void {
+    this.hotelService.deleteHotel(id).subscribe(() => {
+      this.loadHotels();
     });
   }
 
@@ -318,19 +337,35 @@ export class HotelManagementComponent implements OnInit {
     this.hotelService.addHotel(this.newHotel).subscribe(() => {
       this.loadHotels();
       this.showHotelForm = false;
+      this.resetHotel();
     });
   }
 
   onFileChange(event: any) {
     if (event.target.files) {
-      this.roomImages = Array.from<File>(event.target.files); // Store all selected files
+      this.roomImages = Array.from<File>(event.target.files);
     }
   }
 
-
   filterHotels() {
+    const filterDTO: DtoFilterHotel = {
+      category: this.categoryFilter.trim(),
+      location: this.locationFilter.trim(),
+      minRating: this.minRating,
+      maxRating: this.maxRating
+    };
 
+    this.hotelService.filterHotels(filterDTO).subscribe(data => {
+      this.hotels = data;
+    });
   }
+
+  searchHotels() {
+    this.hotelService.search(this.categoryFilter, this.locationFilter).subscribe(data => {
+      this.hotels = data;
+    });
+  }
+
 
   private resetRoomForm() {
     this.newRoom = {
@@ -338,11 +373,33 @@ export class HotelManagementComponent implements OnInit {
       type: Type.individual,
       price: 0,
       available: true,
-      images: [], // Initialize as an empty array
+      images: [],
       hotel: {} as DtoHotel,
       reservations: []
     };
     this.showRoomForm = false;
     this.editRoomId = null;
+    this.roomImages = [];
   }
+
+  private resetHotel() {
+    this.newHotel = { idHotel: 0, name: '', description: '', img: '', location: '', categoryHotel: CategoryHotel.traditional, price: 0, averageRating: 0, distance: 0, rooms: [] };
+  }
+
+  editHotel(id: number) {
+    this.hotelService.getHotelById(id).subscribe(hotel => {
+      this.newHotel = hotel;
+      this.showHotelForm = true;
+    });
+  }
+
+  updateHotel() {
+    this.hotelService.updateHotel(this.newHotel.idHotel, this.newHotel).subscribe(() => {
+      this.loadHotels();
+      this.showHotelForm = false;
+      this.resetHotel();
+    });
+  }
+
+  protected readonly CategoryHotel = CategoryHotel;
 }

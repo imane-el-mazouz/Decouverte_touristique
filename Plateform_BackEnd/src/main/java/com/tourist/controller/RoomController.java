@@ -29,7 +29,7 @@ public class RoomController {
 
 
     @GetMapping("/hotel/{hotelId}")
-    @PreAuthorize("hasRole('Admin')")
+    @PreAuthorize("hasRole('Client') or hasRole('Admin')")
     public ResponseEntity<List<RoomDTO>> listRoomsByHotelId(@PathVariable Long hotelId) {
             List<RoomDTO> rooms = roomService.listRoomsByHotelId(hotelId);
             return new ResponseEntity<>(rooms, HttpStatus.OK);
@@ -50,7 +50,11 @@ public class RoomController {
 //    }
 
 
-    @PostMapping(value = "/create/{hotelId}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE}, produces = MediaType.APPLICATION_JSON_VALUE)
+//    @PostMapping(value = "/create/{hotelId}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE}, produces = MediaType.APPLICATION_JSON_VALUE
+//    @PostMapping(value = "/create/{hotelId}",  consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/create/{hotelId}" ,consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
+            headers = "Content-Type=multipart/form-data")
+
     @PreAuthorize("hasRole('Admin')")
     public ResponseEntity<RoomDTO> addRoomToHotel(@PathVariable("hotelId") Long hotelId,
                                                   @RequestParam(value = "room", required = false) String roomDTOJson,
@@ -73,41 +77,37 @@ public class RoomController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+    @PutMapping("/{roomId}")
+    @PreAuthorize("hasRole('Admin')")
+    public ResponseEntity<RoomDTO> updateRoom(@PathVariable Long roomId,
+                                              @RequestParam(value = "room", required = false) String roomDTOJson,
+                                              @RequestParam(value = "images", required = false) MultipartFile[] images) {
+        try {
+            RoomDTO roomDTO = null;
+            if (roomDTOJson != null) {
+                roomDTO = new ObjectMapper().readValue(roomDTOJson, RoomDTO.class);
+            }
+            RoomDTO updatedRoomDTO = roomService.updateRoom(roomId, roomDTO, images);
+            return ResponseEntity.ok(updatedRoomDTO);
+        } catch (JsonProcessingException e) {
+            return ResponseEntity.badRequest().body(null);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
 
+    @DeleteMapping("/{roomId}")
+    @PreAuthorize("hasRole('Admin')")
+    public ResponseEntity<Void> deleteRoom(@PathVariable Long roomId) {
+        roomService.deleteRoom(roomId);
+        return ResponseEntity.noContent().build();
+    }
 
-//    @PostMapping(value = "/add/{hotelId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-//    @PreAuthorize("hasRole('Admin')")
-//    public ResponseEntity<RoomDTO> addRoomToHotel(@PathVariable("hotelId") Long hotelId,
-//                                                  @RequestParam("room") String roomDTOJson,
-//                                                  @RequestParam("images") MultipartFile[] images) {
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        RoomDTO roomDTO;
-//        try {
-//            roomDTO = objectMapper.readValue(roomDTOJson, RoomDTO.class);
-//        } catch (JsonProcessingException e) {
-//            System.out.println("Failed to parse RoomDTO JSON: " + e.getMessage());
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-//
-//        System.out.println("User has role Admin: " + SecurityContextHolder.getContext().getAuthentication().getAuthorities());
-//        System.out.println("Hotel ID: " + hotelId);
-//        System.out.println("Received RoomDTO: " + roomDTO);
-//        System.out.println("Price: " + roomDTO.getPrice());
-//        System.out.println("Available: " + roomDTO.isAvailable());
-//        System.out.println("Type: " + roomDTO.getType());
-//        System.out.println("Number of images received: " + images.length);
-//
-//        for (int i = 0; i < images.length; i++) {
-//            MultipartFile image = images[i];
-//            System.out.println("Image " + (i + 1) + ":");
-//            System.out.println(" - Original Filename: " + image.getOriginalFilename());
-//            System.out.println(" - Content Type: " + image.getContentType());
-//            System.out.println(" - Size: " + image.getSize() + " bytes");
-//        }
-//        RoomDTO savedRoomDTO = roomService.addRoomToHotel(hotelId, roomDTO, images);
-//        return new ResponseEntity<>(savedRoomDTO, HttpStatus.OK);
-//    }
-//
-
+    @GetMapping("/get/{roomId}")
+    @PreAuthorize("hasRole('Client') or hasRole('Admin')")
+    public ResponseEntity<RoomDTO> getRoomById(@PathVariable Long roomId) {
+        RoomDTO roomDTO = roomService.getRoomById(roomId);
+        return ResponseEntity.ok(roomDTO);
+    }
 }
 

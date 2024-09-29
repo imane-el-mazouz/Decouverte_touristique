@@ -22,7 +22,6 @@ public class RoomDTO {
     private Hotel hotel;
     private List<Reservation> reservations;
 
-    // Constructor without Hotel and Reservations
     public RoomDTO(Type type, Long price, boolean available, List<String> imageUrls) {
         this.type = type;
         this.price = price;
@@ -30,7 +29,6 @@ public class RoomDTO {
         this.imageUrls = imageUrls;
     }
 
-    // Simplified Constructor without images, hotel, or reservations
     public RoomDTO(Long id, Type type, Long price, boolean available) {
         this.id = id;
         this.type = type;
@@ -43,7 +41,8 @@ public class RoomDTO {
         this.type = type;
         this.price = price;
         this.available = available;
-        this.imageUrls = images; // Assigning the images parameter to the imageUrls field
+        this.imageUrls = images;
     }
+
 
 }
