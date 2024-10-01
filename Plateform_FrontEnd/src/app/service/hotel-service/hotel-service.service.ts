@@ -27,6 +27,9 @@ export class HotelServiceService {
 
 
 
+
+
+
   getAllHotels(): Observable<DtoHotel[]> {
     return this.http.get<DtoHotel[]>(this.apiUrl, { headers: this.getHeaders() });
   }
@@ -164,4 +167,23 @@ export class HotelServiceService {
     };
     return this.http.post(`${this.apiUrl}/hotel`, body, { headers: this.getHeaders() });
   }
+
+  addRoomToHotel(hotelId: number, room: string, images: File[]): Observable<any> {
+    const formData = new FormData();
+
+    formData.append('room', JSON.stringify(room));
+
+    images.forEach(image => {
+      formData.append('images', image, image.name);
+    });
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    });
+
+    return this.http.post<any>(`${this.roomApiUrl}/create/${hotelId}`, formData, { headers })
+
+  }
+
+
 }

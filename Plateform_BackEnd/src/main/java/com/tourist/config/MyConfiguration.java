@@ -15,8 +15,8 @@ import java.util.List;
 @Configuration
 public class MyConfiguration implements WebMvcConfigurer {
 
-  @Configuration
-  public static class WebConfig implements WebMvcConfigurer {
+//  @Configuration
+//  public static class WebConfig implements WebMvcConfigurer {
 //    @Override
 //    public void addCorsMappings(CorsRegistry registry) {
 //      registry.addMapping("/**")
@@ -37,7 +37,9 @@ public class MyConfiguration implements WebMvcConfigurer {
       registry.addMapping("/**")
               .allowedOrigins("http://localhost:4200")
               .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-              .allowedHeaders("*");
+              .allowedHeaders("*")
+              .exposedHeaders("")
+              .maxAge(3000);
 //              .allowCredentials(true);
 
     }
@@ -65,5 +67,5 @@ public class MyConfiguration implements WebMvcConfigurer {
 
 
 
-  }
+
 }

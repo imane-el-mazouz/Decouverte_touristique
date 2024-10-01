@@ -151,13 +151,31 @@
 <!--    <button (click)="showHotelForm = false">Cancel</button>-->
 <!--  </div>-->
 <!--</div>-->
-<div class="hotel-management">
 <!--  <div class="search-filter">-->
 <!--    <input type="text" placeholder="Search hotels" />-->
 <!--    <input type="text" placeholder="Category" [(ngModel)]="categoryFilter" />-->
 <!--    <input type="text" placeholder="Location" [(ngModel)]="locationFilter" />-->
 <!--    <button (click)="filterHotels()">Filter</button>-->
 <!--  </div>-->
+
+<!--    <div *ngIf="rooms.length > 0">-->
+<!--      <h3>Rooms</h3>-->
+<!--      <ul>-->
+<!--        <li *ngFor="let room of rooms">-->
+<!--          <span>{{ room.type }} - ${{ room.price }} - {{ room.available ? 'Available' : 'Not Available' }}</span>-->
+<!--          <div *ngIf="room.images && room.images.length > 0">-->
+<!--            <h4>Images:</h4>-->
+<!--            <div *ngFor="let image of room.images">-->
+<!--              <img [src]="image" alt="Room Image" width="150px" height="100px">-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <button (click)="editRoom(room.id)">Edit</button>-->
+<!--          <button (click)="deleteRoom(room.id)">Delete</button>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<div class="hotel-management">
 
   <div>
     <div>
@@ -175,13 +193,16 @@
 
       <button (click)="searchHotels()">Search</button>
     </div>
+
     <ul>
       <li *ngFor="let hotel of hotels">
-        {{ hotel.name }} <button (click)="viewHotelDetails(hotel.idHotel)">View</button>
+        {{ hotel.name }}
+        <button (click)="viewHotelDetails(hotel.idHotel)">View</button>
         <button (click)="deleteHotel(hotel.idHotel)">Delete</button>
         <button (click)="editHotel(hotel.idHotel)">Edit</button>
       </li>
     </ul>
+
     <button (click)="showHotelForm = true">Add Hotel</button>
   </div>
 
@@ -201,23 +222,6 @@
     <button (click)="showAddRoomForm()">Add Room</button>
     <button (click)="showHotelList()">Back to Hotel List</button>
 
-<!--    <div *ngIf="rooms.length > 0">-->
-<!--      <h3>Rooms</h3>-->
-<!--      <ul>-->
-<!--        <li *ngFor="let room of rooms">-->
-<!--          <span>{{ room.type }} - ${{ room.price }} - {{ room.available ? 'Available' : 'Not Available' }}</span>-->
-<!--          <div *ngIf="room.images && room.images.length > 0">-->
-<!--            <h4>Images:</h4>-->
-<!--            <div *ngFor="let image of room.images">-->
-<!--              <img [src]="image" alt="Room Image" width="150px" height="100px">-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <button (click)="editRoom(room.id)">Edit</button>-->
-<!--          <button (click)="deleteRoom(room.id)">Delete</button>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
     <div *ngIf="rooms.length > 0">
       <h3>Rooms</h3>
       <table>
@@ -240,18 +244,19 @@
           <td>${{ room.price }}</td>
           <td>{{ room.available ? 'Available' : 'Not Available' }}</td>
           <td>
-              <img *ngFor="let image of room.images" [src]="image" alt="Room Image" width="50px" height="50px">
+            <img *ngFor="let image of room.images" [src]="image" alt="Room Image" width="50px" height="50px" />
           </td>
           <td>
             <span *ngIf="room.hotel">{{ room.hotel.name }}</span>
             <span *ngIf="!room.hotel">No hotel</span>
           </td>
           <td>
+            <ul>
               <li *ngFor="let reservation of room.reservations">
-                {{ reservation.client.name }} ({{ reservation.checkInDate | date:'shortDate' }})
+                {{ reservation.client.name }} ({{ reservation.checkInDate | date: 'shortDate' }})
               </li>
+            </ul>
           </td>
-
           <td>
             <button (click)="editRoom(room.id)">Edit</button>
             <button (click)="deleteRoom(room.id)">Delete</button>
@@ -259,7 +264,6 @@
         </tr>
         </tbody>
       </table>
-
     </div>
 
     <div *ngIf="rooms.length === 0">
@@ -281,14 +285,12 @@
       <label for="available">Available:</label>
       <input id="available" type="checkbox" [(ngModel)]="newRoom.available" name="available" />
 
-      <input type="file" (change)="onFileChange($event)" multiple>
+      <input type="file" (change)="onFileChange($event)" multiple />
       <button type="submit">{{ editRoomId ? 'Update Room' : 'Add Room' }}</button>
     </form>
     <button (click)="showRoomForm = false">Cancel</button>
   </div>
 
-
-  <!-- Hotel form template -->
   <form *ngIf="showHotelForm" (ngSubmit)="newHotel.idHotel ? updateHotel() : addHotel()">
     <input [(ngModel)]="newHotel.name" name="name" placeholder="Hotel Name" required />
     <textarea [(ngModel)]="newHotel.description" name="description" placeholder="Description" required></textarea>

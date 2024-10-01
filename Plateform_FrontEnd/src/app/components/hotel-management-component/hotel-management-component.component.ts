@@ -1,173 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { DtoHotel } from "../../dto/hotelDTO/dto-hotel";
-// import { DtoRoom } from "../../dto/roomDTO/dto-room";
-// import { HotelServiceService } from "../../service/hotel-service/hotel-service.service";
-// import { DtoFilterHotel } from "../../dto/HotelFilterDTO/dto-filter-hotel";
-// import {FormsModule} from "@angular/forms";
-// import {NgForOf, NgIf} from "@angular/common";
-//
-// @Component({
-//   selector: 'app-hotel-management',
-//   templateUrl: './hotel-management-component.component.html',
-//   standalone: true,
-//   imports: [
-//     FormsModule,
-//     NgForOf,
-//     NgIf
-//   ],
-//   styleUrls: ['./hotel-management-component.component.css']
-// })
-// export class HotelManagementComponent implements OnInit {
-//   hotels: DtoHotel[] = [];
-//   selectedHotel?: DtoHotel;
-//   rooms: DtoRoom[] = [];
-//   newHotel = {
-//     distance: 0,
-//     price: 0,
-//     averageRating: 0,
-//     name: '',
-//     description: '',
-//     location: ''
-//   };
-//   newRoom = {
-//     price: 0,
-//     available: true,
-//     type: ''  // Added type field here
-//   };
-//   searchQuery: string = '';
-//   minRating?: number;
-//   maxRating?: number;
-//   showRoomForm: boolean = false;
-//   showHotelForm: boolean = false;
-//   editRoomId?: number;
-//   categoryFilter: string = '';
-//   locationFilter: string = '';
-//   private roomImages: File[] = [];
-//
-//   constructor(private hotelService: HotelServiceService) { }
-//
-//   ngOnInit(): void {
-//     this.getAllHotels();
-//   }
-//
-//   getAllHotels(): void {
-//     this.hotelService.getAllHotels().subscribe(data => {
-//       this.hotels = data;
-//     });
-//   }
-//
-//   viewHotelDetails(hotelId: number): void {
-//     this.hotelService.getHotelById(hotelId).subscribe(data => {
-//       this.selectedHotel = data;
-//       this.getRooms(hotelId);
-//     });
-//   }
-//
-//   getRooms(hotelId: number | undefined): void {
-//     if (hotelId) {
-//       this.hotelService.listRoomsByHotelId(hotelId).subscribe(data => {
-//         this.rooms = data;
-//       });
-//     }
-//   }
-//
-//   showHotelList(): void {
-//     this.selectedHotel = undefined;
-//   }
-//
-//   showAddRoomForm(): void {
-//     this.showRoomForm = true;
-//     this.editRoomId = undefined;
-//   }
-//
-//   addRoom(): void {
-//     if (this.selectedHotel) {
-//       if (this.editRoomId) {
-//         // Update existing room
-//         this.hotelService.updateRoom(this.editRoomId, this.newRoom).subscribe(() => {
-//           this.refreshRoomData();
-//           this.resetRoomForm();
-//         });
-//       } else {
-//         // Add new room with images
-//         this.hotelService.addRoomToHotel(this.selectedHotel.id, this.newRoom, this.roomImages).subscribe(() => {
-//           this.refreshRoomData();
-//           this.resetRoomForm();
-//         });
-//       }
-//     }
-//   }
-//
-// // Helper functions to refresh data and reset form
-//   refreshRoomData(): void {
-//     this.getRooms(this.selectedHotel?.id);
-//   }
-//
-//   resetRoomForm(): void {
-//     this.showRoomForm = false;
-//     this.newRoom = { price: 0, available: true, type: '' };
-//     this.editRoomId = undefined;
-//     this.roomImages = []; // Reset the images if you're handling them
-//   }
-//
-//   deleteRoom(roomId: number): void {
-//     if (this.selectedHotel) {
-//       this.hotelService.deleteRoom(roomId).subscribe(() => {
-//         this.getRooms(this.selectedHotel?.id);
-//       });
-//     }
-//   }
-//
-//   editRoom(roomId: number): void {
-//     this.hotelService.getRoomById(roomId).subscribe(data => {
-//       this.newRoom = data;
-//       this.showRoomForm = true;
-//       this.editRoomId = roomId;
-//     });
-//   }
-//
-//   addHotel(): void {
-//     this.hotelService.addHotel(this.newHotel).subscribe(() => {
-//       this.getAllHotels();
-//       this.showHotelForm = false;
-//       this.newHotel = { name: '', description: '', location: '', averageRating: 0, price: 0, distance: 0 };
-//     });
-//   }
-//
-//   searchHotels(): void {
-//     if (this.searchQuery.trim()) {
-//       const filter: DtoFilterHotel = {
-//         search: this.searchQuery.trim(),
-//         minRating: this.minRating,
-//         maxRating: this.maxRating
-//       };
-//       this.hotelService.filterHotels(filter).subscribe(data => {
-//         this.hotels = data;
-//       });
-//     } else {
-//       this.getAllHotels();
-//     }
-//   }
-//
-//   filterHotels(): void {
-//     const filter: DtoFilterHotel = {
-//       category: this.categoryFilter.trim(),
-//       location: this.locationFilter.trim(),
-//       minRating: this.minRating,
-//       maxRating: this.maxRating
-//     };
-//
-//     if (filter.category || filter.location || filter.minRating !== undefined || filter.maxRating !== undefined) {
-//       this.hotelService.filterHotels(filter).subscribe(data => {
-//         this.hotels = data;
-//       });
-//     } else {
-//       this.getAllHotels();
-//     }
-//   }
-// }
-
-
 import {Component, OnInit} from '@angular/core';
 import {HotelServiceService} from '../../service/hotel-service/hotel-service.service';
 import {DtoHotel} from '../../dto/hotelDTO/dto-hotel';
@@ -176,7 +6,6 @@ import {Type} from '../../enums/type';
 import {CategoryHotel} from '../../enums/category-hotel';
 import {FormsModule} from "@angular/forms";
 import {DatePipe, KeyValuePipe, NgForOf, NgIf} from "@angular/common";
-import {HttpEvent, HttpEventType} from "@angular/common/http";
 import {DtoFilterHotel} from "../../dto/HotelFilterDTO/dto-filter-hotel";
 
 @Component({
@@ -197,6 +26,7 @@ export class HotelManagementComponent implements OnInit {
   selectedHotel: DtoHotel | null = null;
   rooms: DtoRoom[] = [];
   images: string[] = [];
+  roomImages: File[] = [];
   newRoom: DtoRoom = {
     id: 0,
     type: Type.individual,
@@ -209,20 +39,31 @@ export class HotelManagementComponent implements OnInit {
   editRoomId: number | null = null;
   showRoomForm = false;
   showHotelForm = false;
-  newHotel: DtoHotel = { idHotel: 0, name: '', description: '', img: '', location: '', categoryHotel: CategoryHotel.traditional, price: 0, averageRating: 0, distance: 0, rooms: [] };
+  newHotel: DtoHotel = {
+    idHotel: 0,
+    name: '',
+    description: '',
+    img: '',
+    location: '',
+    categoryHotel: CategoryHotel.traditional,
+    price: 0,
+    averageRating: 0,
+    distance: 0,
+    rooms: []
+  };
 
   hotelId: number | undefined;
-  readonly roomTypes = Type;
-  private roomImages: File[] = [];
+  roomTypes = {
+    individual: 'individual',
+    couple: 'couple',
+    familial: 'familial'
+  };
 
   searchQuery: string = '';
   minRating?: number;
   maxRating?: number;
   categoryFilter: string = '';
   locationFilter: string = '';
-
-
-  private roomImage?: File;
 
   constructor(private hotelService: HotelServiceService) { }
 
@@ -243,13 +84,11 @@ export class HotelManagementComponent implements OnInit {
     });
   }
 
-
   loadRooms(hotelId: number | undefined) {
-    this.hotelService.listRoomsByHotelId(hotelId).subscribe(rooms => {
+    this.hotelService.listRoomsByHotelId(hotelId!).subscribe(rooms => {
       this.rooms = rooms;
     });
   }
-
 
 
   createRoom() {
@@ -258,29 +97,28 @@ export class HotelManagementComponent implements OnInit {
       return;
     }
 
-    // Validate room data
-    if (!this.newRoom.type || this.newRoom.price <= 0) {
-      console.error('Invalid room data');
-      return;
-    }
+    const formData = new FormData();
+    formData.append('room', JSON.stringify(this.newRoom));
+    formData.append('type', this.newRoom.type);
+    formData.append('price', this.newRoom.price.toString());
+    formData.append('available', this.newRoom.available.toString());
 
-    // Check if images are provided
-    if (this.roomImages.length === 0) {
+    if (this.roomImages && this.roomImages.length > 0) { // Ensure roomImages is not undefined
+      this.roomImages.forEach(image => {
+        formData.append('images', image, image.name);
+      });
+    } else {
       console.warn('No images uploaded');
     }
 
-    // Call the hotel service to create a room
-    this.hotelService.createRoomRequest(this.selectedHotel.idHotel, this.newRoom, this.roomImages).subscribe({
-      next: (response) => {
-        console.log('Room created successfully', response);
-        this.loadRooms(this.selectedHotel?.idHotel); // Refresh room list after adding
-        this.resetRoomForm(); // Clear form fields after submission
-      },
-      error: (error) => {
-        console.error('Error creating room', error);
-        // Handle errors appropriately based on status code
-      }
-    });
+    this.hotelService.addRoomToHotel(this.selectedHotel.idHotel, JSON.stringify(this.newRoom), this.roomImages)
+      .subscribe({
+        next: (response) => {
+          console.log('Room created successfully', response);
+          this.loadRooms(this.selectedHotel?.idHotel);
+          this.resetRoomForm();
+        },
+      });
   }
 
   showAddRoomForm() {
@@ -296,7 +134,6 @@ export class HotelManagementComponent implements OnInit {
     };
     this.editRoomId = null;
   }
-
   editRoom(id: number) {
     this.hotelService.getRoomById(id).subscribe(room => {
       this.newRoom = room;
@@ -307,25 +144,36 @@ export class HotelManagementComponent implements OnInit {
 
   updateRoom() {
     if (this.editRoomId !== null) {
-      this.hotelService.updateRoom(this.editRoomId, this.newRoom).subscribe(() => {
-        this.loadHotels(); // Reload hotels or rooms to reflect changes
-        this.showRoomForm = false; // Hide the form after updating
-        this.editRoomId = null; // Reset edit ID
-        this.newRoom = {images: [], reservations: [], type: Type.individual, id: 0, price: 0, available: true }; // Reset the form
+      this.hotelService.updateRoom(this.editRoomId, this.newRoom).subscribe({
+        next: () => {
+          this.loadHotels();
+          this.showRoomForm = false;
+          this.editRoomId = null;
+          this.resetRoomForm();
+        },
+        error: (error) => {
+          console.error('Error updating room', error);
+        }
       });
     }
   }
 
-
-
   deleteRoom(id: number): void {
-    this.hotelService.deleteRoom(id).subscribe(() => {
-      this.loadRooms(this.selectedHotel!.idHotel);
+    this.hotelService.deleteRoom(id).subscribe({
+      next: () => {
+        this.loadRooms(this.selectedHotel!.idHotel);
+      },
+      error: (error) => {
+        console.error('Error deleting room', error);
+      }
     });
   }
+
   deleteHotel(id: number): void {
-    this.hotelService.deleteHotel(id).subscribe(() => {
-      this.loadHotels();
+    this.hotelService.deleteHotel(id).subscribe({
+      next: () => {
+        this.loadHotels();
+      }
     });
   }
 
@@ -334,10 +182,15 @@ export class HotelManagementComponent implements OnInit {
   }
 
   addHotel() {
-    this.hotelService.addHotel(this.newHotel).subscribe(() => {
-      this.loadHotels();
-      this.showHotelForm = false;
-      this.resetHotel();
+    this.hotelService.addHotel(this.newHotel).subscribe({
+      next: () => {
+        this.loadHotels();
+        this.showHotelForm = false;
+        this.resetHotel();
+      },
+      error: (error) => {
+        console.error('Error adding hotel', error);
+      }
     });
   }
 
@@ -366,7 +219,6 @@ export class HotelManagementComponent implements OnInit {
     });
   }
 
-
   private resetRoomForm() {
     this.newRoom = {
       id: 0,
@@ -383,7 +235,18 @@ export class HotelManagementComponent implements OnInit {
   }
 
   private resetHotel() {
-    this.newHotel = { idHotel: 0, name: '', description: '', img: '', location: '', categoryHotel: CategoryHotel.traditional, price: 0, averageRating: 0, distance: 0, rooms: [] };
+    this.newHotel = {
+      idHotel: 0,
+      name: '',
+      description: '',
+      img: '',
+      location: '',
+      categoryHotel: CategoryHotel.traditional,
+      price: 0,
+      averageRating: 0,
+      distance: 0,
+      rooms: []
+    };
   }
 
   editHotel(id: number) {
@@ -394,10 +257,15 @@ export class HotelManagementComponent implements OnInit {
   }
 
   updateHotel() {
-    this.hotelService.updateHotel(this.newHotel.idHotel, this.newHotel).subscribe(() => {
-      this.loadHotels();
-      this.showHotelForm = false;
-      this.resetHotel();
+    this.hotelService.updateHotel(this.newHotel.idHotel, this.newHotel).subscribe({
+      next: () => {
+        this.loadHotels();
+        this.showHotelForm = false;
+        this.resetHotel();
+      },
+      error: (error) => {
+        console.error('Error updating hotel', error);
+      }
     });
   }
 
