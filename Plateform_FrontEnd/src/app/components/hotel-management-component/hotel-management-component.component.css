@@ -1,41 +1,4 @@
 /* Table Container */
-div {
-  margin: 20px;
-}
-
-/* Table Style */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-/* Table Header Style */
-thead {
-  background-color: #f4f4f4;
-  text-align: left;
-}
-
-th {
-  padding: 10px;
-  border-bottom: 2px solid #ddd;
-}
-
-/* Table Body Style */
-tbody {
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-
-  tr:hover {
-    background-color: #f1f1f1;
-  }
-}
-
-td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
 
 /* Image Style */
 img {
