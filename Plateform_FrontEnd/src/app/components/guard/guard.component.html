@@ -5,23 +5,102 @@
 <!--    <p class="error">Access denied</p>-->
 <!--  </div>-->
 <!--</div>-->
+<style>
+  .error-container {
+    border-radius: 0;
+    display: flex;
+    max-width: 913px;
+    flex-direction: column;
+    font-family: 'Josefin Sans', sans-serif;
+  }
 
+  .error-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 644px;
+    width: 100%;
+    align-items: start;
+    font-size: 24px;
+    color: #152970;
+    font-weight: 700;
+    white-space: nowrap;
+    padding: 547px 70px 73px;
+  }
 
-<section class="error-page">
-  <div class="error-background">
-    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b2abe9493e2a5774cc591c244c29c82af074c32f7fa3fdecc647726642f9ae0b?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="" class="error-image" />
-    <div class="error-content">
-      <h1 class="error-title">404</h1>
-      <p class="error-message">Sorry, we were unable to find that page</p>
-      <form class="search-form" role="search">
-        <label class="visually-hidden">Search</label>
-        <div class="search-input">
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/19390e02f10a1ece1e86f15e3fc06f7f7a562a45d4b49ca24ac43409a057783c?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Search" class="search-icon" />
-        </div>
-      </form>
-      <p class="home-link">
-        Start from <a href="/" class="underline">home page</a>
-      </p>
+  @media (max-width: 991px) {
+    .error-content {
+      max-width: 100%;
+      white-space: initial;
+      padding: 100px 20px 0;
+    }
+  }
+
+  .error-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .error-text {
+    position: relative;
+    display: flex;
+    gap: 14px;
+  }
+
+  @media (max-width: 991px) {
+    .error-text {
+      white-space: initial;
+    }
+  }
+
+  .back-home-button {
+    border-radius: 3px;
+    background: #fb2e86;
+    align-self: center;
+    z-index: 10;
+    margin-top: -11px;
+    width: 165px;
+    max-width: 100%;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.6;
+    padding: 9px 30px;
+  }
+
+  @media (max-width: 991px) {
+    .back-home-button {
+      padding: 0 20px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<section class="error-container">
+  <div class="error-content">
+    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1bbe32020c252802daddcb963f95e609369edd4360b3ad4414eccbb46b6bb6b5?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="error-image" />
+    <div class="error-text">
+      <span>oo</span>
+      <span>s!</span>
     </div>
   </div>
+  <a href="#" class="back-home-button" role="button" tabindex="0">
+    <span class="visually-hidden">Navigate back to home page</span>
+    Back To Home
+  </a>
 </section>

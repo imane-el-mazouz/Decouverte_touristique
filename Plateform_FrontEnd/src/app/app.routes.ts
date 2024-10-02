@@ -28,6 +28,7 @@ import {EventPageComponent} from "./components/event-page/event-page.component";
 import {ExcursionPageComponent} from "./components/excursion/excursion-page/excursion-page.component";
 import {TraditionPageComponent} from "./components/tradition-page/tradition-page.component";
 import {HotelPageComponent} from "./components/hotel-page/hotel-page.component";
+import {GuardComponent} from "./components/guard/guard.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -51,6 +52,7 @@ export const routes: Routes = [
   { path: 'excursions-page', component: ExcursionPageComponent },
   { path: 'tradition-page', component: TraditionPageComponent },
   { path: 'hotel-page', component: HotelPageComponent },
+  { path: 'access-denied', component: GuardComponent },
 
   {
     path: 'dashboard',

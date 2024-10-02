@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import {Router, RouterLink} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {AuthService} from "../../service/auth_service/auth-service.service";
+import {DividerModule} from "primeng/divider";
+import {ButtonDirective} from "primeng/button";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,9 @@ import {AuthService} from "../../service/auth_service/auth-service.service";
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+    DividerModule,
+    ButtonDirective
   ],
   styleUrls: ['./login.component.scss']
 })

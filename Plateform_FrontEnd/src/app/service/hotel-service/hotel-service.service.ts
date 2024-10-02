@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpEvent, HttpEventType, HttpHeaders} from "@angular/common/http";
-import {Observable, tap, throwError} from "rxjs";
+import {Observable, of, tap, throwError} from "rxjs";
 import { Type } from "../../enums/type";
 import {DtoHotel} from "../../dto/hotelDTO/dto-hotel";
 import {DtoFilterHotel} from "../../dto/HotelFilterDTO/dto-filter-hotel";
@@ -14,6 +14,7 @@ import {catchError} from "rxjs/operators";
 export class HotelServiceService {
   private apiUrl = 'http://localhost:8085/api/hotel';
   private roomApiUrl = 'http://localhost:8085/api/room';
+  private bookingUrl = 'http://localhost:8085/api/reservation';
 
   constructor(private http: HttpClient , private authService : AuthService) { }
 
@@ -135,8 +136,15 @@ export class HotelServiceService {
 
 
   listRoomsByHotelId(idHotel: number | undefined): Observable<DtoRoom[]> {
-    return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotel/${idHotel}`, { headers: this.getHeaders() });
+    // return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotel/${idHotel}`, { headers: this.getHeaders() });
+    return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotel/${idHotel}` , { headers: this.getHeaders() }).pipe(
+      catchError((error) => {
+        console.error('Error fetching rooms:', error);
+        return of([]);
+      })
+    );
   }
+
 
 
   getRoomById(id: number): Observable<DtoRoom> {
