@@ -8,7 +8,7 @@ import { Review } from '../../model/review/review';
   providedIn: 'root'
 })
 export class ReviewService {
-  private apiUrl = 'http://localhost:8085/api/review';
+  private reviewUrl = 'http://localhost:8085/api/review';
 
   constructor(private http: HttpClient) {}
 
@@ -21,22 +21,22 @@ export class ReviewService {
   }
 
   getAllReviews(): Observable<Review[]> {
-    return this.http.get<Review[]>(`${this.apiUrl}/all`, { headers: this.getHeaders() })
+    return this.http.get<Review[]>(`${this.reviewUrl}/all`, { headers: this.getHeaders() })
       .pipe(catchError(this.handleError));
   }
 
   getReviewById(id: number): Observable<Review> {
-    return this.http.get<Review>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() })
+    return this.http.get<Review>(`${this.reviewUrl}/${id}`, { headers: this.getHeaders() })
       .pipe(catchError(this.handleError));
   }
 
   addReview(reservationId: number, review: Review): Observable<Review> {
-    return this.http.post<Review>(`${this.apiUrl}/reservation/${reservationId}`, review, { headers: this.getHeaders() })
+    return this.http.post<Review>(`${this.reviewUrl}/reservation/${reservationId}`, review, { headers: this.getHeaders() })
       .pipe(catchError(this.handleError));
   }
 
   deleteReview(id: number | undefined): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`, { headers: this.getHeaders() })
+    return this.http.delete<void>(`${this.reviewUrl}/delete/${id}`, { headers: this.getHeaders() })
       .pipe(catchError(this.handleError));
   }
 

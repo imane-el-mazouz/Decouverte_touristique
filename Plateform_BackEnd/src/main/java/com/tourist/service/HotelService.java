@@ -53,10 +53,14 @@ public class HotelService {
     }
 
     public List<HotelDTO> filterHotels(HotelFilterDTO filterDTO) {
-        return hotelRepository.findAllByAverageRatingBetween(
-                filterDTO.getMinRating(), filterDTO.getMaxRating()
-        ).stream().map(this::convertToDTO).collect(Collectors.toList());
+        Long minRating = filterDTO.getMinRating() != null ? filterDTO.getMinRating() : 0L;
+        Long maxRating = filterDTO.getMaxRating() != null ? filterDTO.getMaxRating() : 5L;
+
+        List<Hotel> hotels = hotelRepository.findAllByAverageRatingBetween(minRating, maxRating);
+        return hotels.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
+
+
 
     public HotelDTO getHotelById(Long id) {
         Hotel hotel = hotelRepository.findById(id)

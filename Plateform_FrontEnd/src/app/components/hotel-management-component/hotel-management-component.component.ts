@@ -10,6 +10,7 @@ import {DtoFilterHotel} from "../../dto/HotelFilterDTO/dto-filter-hotel";
 import {TableModule} from "primeng/table";
 import {Button} from "primeng/button";
 import {TagModule} from "primeng/tag";
+import {AutoCompleteCompleteEvent, AutoCompleteModule} from "primeng/autocomplete";
 
 @Component({
   selector: 'app-hotel-management',
@@ -25,12 +26,24 @@ import {TagModule} from "primeng/tag";
     Button,
     CurrencyPipe,
     TagModule,
-    NgClass
+    NgClass,
+    AutoCompleteModule
   ],
   styleUrls: ['./hotel-management-component.component.css']
 })
 export class HotelManagementComponent implements OnInit {
   hotels: DtoHotel[] = [];
+  // categorySearch = Object.values(CategoryHotel);
+  categorySearch: string = '';
+  locationSearch!: string;
+
+  filteredCategories: string[] = [];
+  filteredLocations: string[] = [];
+  categoryFilter!: string;
+  locationFilter!: string;
+  minRating!: number;
+  maxRating!: number;
+
   selectedHotel: DtoHotel | null = null;
   rooms: DtoRoom[] = [];
   images: string[] = [];
@@ -64,12 +77,9 @@ export class HotelManagementComponent implements OnInit {
   hotelId: number | undefined;
 
   searchQuery: string = '';
-  minRating?: number;
-  maxRating?: number;
-  categoryFilter: string = '';
-  locationFilter: string = '';
-  protected selectedHotelId !: number;
 
+  protected selectedHotelId !: number;
+  categories = Object.values(CategoryHotel);
   constructor(private hotelService: HotelServiceService) { }
 
   ngOnInit() {
@@ -192,24 +202,24 @@ export class HotelManagementComponent implements OnInit {
     }
   }
 
-  filterHotels() {
-    const filterDTO: DtoFilterHotel = {
-      category: this.categoryFilter.trim(),
-      location: this.locationFilter.trim(),
-      minRating: this.minRating,
-      maxRating: this.maxRating
-    };
+  // filterHotels() {
+  //   const filterDTO: DtoFilterHotel = {
+  //     category: this.categoryFilter.trim(),
+  //     location: this.locationFilter.trim(),
+  //     minRating: this.minRating,
+  //     maxRating: this.maxRating
+  //   };
+  //
+  //   this.hotelService.filterHotels(filterDTO).subscribe(data => {
+  //     this.hotels = data;
+  //   });
+  // }
 
-    this.hotelService.filterHotels(filterDTO).subscribe(data => {
-      this.hotels = data;
-    });
-  }
-
-  searchHotels() {
-    this.hotelService.search(this.categoryFilter, this.locationFilter).subscribe(data => {
-      this.hotels = data;
-    });
-  }
+  // searchHotels() {
+  //   this.hotelService.search(this.categoryFilter, this.locationFilter).subscribe(data => {
+  //     this.hotels = data;
+  //   });
+  // }
 
   deleteRoom(roomId: number): void {
     this.hotelService.deleteRoom(roomId).subscribe({
@@ -226,8 +236,8 @@ export class HotelManagementComponent implements OnInit {
   getRoomById(roomId: number): void {
     this.hotelService.getRoomById(roomId).subscribe({
       next: (room) => {
-        this.editRoom = room; // Set the room to edit
-        this.showRoomForm = true; // Show the form for editing
+        this.editRoom = room;  // Assigner les données récupérées à editRoom
+        this.showRoomForm = true; // Afficher le formulaire pour l'édition
       },
       error: (error) => {
         console.error('Error fetching room', error);
@@ -235,16 +245,37 @@ export class HotelManagementComponent implements OnInit {
     });
   }
 
+
+  // updateRoom(): void {
+  //   if (this.editRoom) {
+  //     this.hotelService.updateRoom(this.editRoom.id, {
+  //       price: this.editRoom.price,
+  //       available: this.editRoom.available
+  //     }).subscribe({
+  //       next: () => {
+  //         console.log('Room updated successfully');
+  //         this.loadRooms(this.selectedHotelId!); // Reload rooms for the hotel
+  //         this.resetRoomForm(); // Reset form after updating
+  //       },
+  //       error: (error) => {
+  //         console.error('Error updating room', error);
+  //       }
+  //     });
+  //   }
+  // }
+
   updateRoom(): void {
     if (this.editRoom) {
       this.hotelService.updateRoom(this.editRoom.id, {
         price: this.editRoom.price,
-        available: this.editRoom.available
+        available: this.editRoom.available,
+        type: this.editRoom.type,
+        images: this.editRoom.images
       }).subscribe({
         next: () => {
           console.log('Room updated successfully');
-          this.loadRooms(this.selectedHotelId!); // Reload rooms for the hotel
-          this.resetRoomForm(); // Reset form after updating
+          this.loadRooms(this.selectedHotelId!);  // Recharger les chambres après la mise à jour
+          this.resetRoomForm(); // Réinitialiser le formulaire après la mise à jour
         },
         error: (error) => {
           console.error('Error updating room', error);
@@ -253,20 +284,7 @@ export class HotelManagementComponent implements OnInit {
     }
   }
 
-  // private resetRoomForm() {
-  //   this.newRoom = {
-  //     id: 0,
-  //     type: Type.individual,
-  //     price: 0,
-  //     available: true,
-  //     images: [],
-  //     hotel: {} as DtoHotel,
-  //     reservations: []
-  //   };
-  //   this.showRoomForm = false;
-  //   this.editRoomId = null;
-  //   this.roomImages = [];
-  // }
+
 
   private resetHotel() {
     this.newHotel = {
@@ -303,7 +321,7 @@ export class HotelManagementComponent implements OnInit {
     });
   }
 
-  protected readonly CategoryHotel = CategoryHotel;
+
 
   showAddRoomForm(hotelId: number) {
     this.selectedHotelId = hotelId;
@@ -322,6 +340,62 @@ export class HotelManagementComponent implements OnInit {
     this.selectedHotelId! = 0;
   }
 
+  bookRoom(roomId: number): void {
+    const numberOfPerson = prompt('Enter number of persons:', '1');
+    const checkInDate = prompt('Enter check-in date (YYYY-MM-DD):');
+    const checkOutDate = prompt('Enter check-out date (YYYY-MM-DD):');
+
+    if (numberOfPerson && checkInDate && checkOutDate) {
+      this.hotelService.reserveHotel(roomId, +numberOfPerson, checkInDate, checkOutDate)
+        .subscribe({
+          next: (response) => {
+            console.log('Room booked successfully', response);
+            alert('Room booked successfully!');
+          },
+          error: (error) => {
+            console.error('Error booking room', error);
+            alert('Error booking room: ' + error.message);
+          }
+        });
+    } else {
+      alert('Booking canceled. Please fill all details.');
+    }
+  }
 
 
+  searchHotels() {
+    this.hotelService.search(this.categorySearch, this.locationSearch).subscribe((hotels) => {
+      this.hotels = hotels;
+    });
+  }
+
+  // Filter hotels using the filter API with multiple parameters
+  filterHotels() {
+    const filterDTO: DtoFilterHotel = {
+      minRating: this.minRating,
+      maxRating: this.maxRating
+    };
+
+    this.hotelService.filterHotels(filterDTO).subscribe((hotels) => {
+      this.hotels = hotels;
+    });
+  }
+
+
+  // Methods to provide category and location suggestions for auto-complete
+  searchCategories(event: any) {
+    const query = event.query;
+    this.filteredCategories = this.categories.filter(category =>
+      category.toLowerCase().includes(query.toLowerCase())
+    );
+  }
+
+  searchLocations(event: any) {
+    const query = event.query;
+    // Assuming you have a list of locations to filter from
+    const locations = ['New York', 'Paris', 'London', 'Tokyo']; // Example locations
+    this.filteredLocations = locations.filter(location =>
+      location.toLowerCase().includes(query.toLowerCase())
+    );
+  }
 }

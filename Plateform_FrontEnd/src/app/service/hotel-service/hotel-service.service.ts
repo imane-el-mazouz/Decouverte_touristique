@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpEvent, HttpEventType, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpEvent, HttpEventType, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable, of, tap, throwError} from "rxjs";
 import { Type } from "../../enums/type";
 import {DtoHotel} from "../../dto/hotelDTO/dto-hotel";
@@ -51,13 +51,28 @@ export class HotelServiceService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
   }
 
+  // filterHotels(filterDTO: DtoFilterHotel): Observable<DtoHotel[]> {
+  //   const params = new HttpParams()
+  //     .set('minRating', filterDTO.minRating ? filterDTO.minRating.toString() : '')
+  //     .set('maxRating', filterDTO.maxRating ? filterDTO.maxRating.toString() : '');
+  //
+  //   return this.http.post<DtoHotel[]>(`${this.apiUrl}/filter`, { headers: this.getHeaders(), params });
+  // }
+
+
   filterHotels(filterDTO: DtoFilterHotel): Observable<DtoHotel[]> {
-    return this.http.post<DtoHotel[]>(`${this.apiUrl}/filter`, filterDTO, { headers: this.getHeaders() });
+    return this.http.post<DtoHotel[]>(
+      `${this.apiUrl}/filter`,
+      filterDTO,
+      { headers: this.getHeaders() }
+    );
   }
+
 
   search(category: string, location: string): Observable<DtoHotel[]> {
     return this.http.get<DtoHotel[]>(`${this.apiUrl}/search?category=${category}&location=${location}`, { headers: this.getHeaders() });
   }
+
 
 
   // addRoomToHotel(hotelId: number, roomDTO: { price: number; available: boolean; type: string }, images: File[]): Observable<HttpEvent<any>> {
@@ -151,7 +166,7 @@ export class HotelServiceService {
     return this.http.get<DtoRoom>(`${this.roomApiUrl}/get/${id}`, { headers: this.getHeaders() });
   }
 
-  updateRoom(id: number, roomDTO: { price: number; available: boolean }): Observable<void> {
+  updateRoom(id: number, roomDTO: { images: string[]; price: number; available: boolean; type: Type }): Observable<void> {
     return this.http.put<void>(`${this.roomApiUrl}/${id}`, roomDTO, { headers: this.getHeaders() });
   }
 
@@ -173,7 +188,7 @@ export class HotelServiceService {
       checkInDate,
       checkOutDate
     };
-    return this.http.post(`${this.apiUrl}/hotel`, body, { headers: this.getHeaders() });
+    return this.http.post(`${this.bookingUrl}/hotel`, body, { headers: this.getHeaders() });
   }
 
   // addRoomToHotel(hotelId: number, room: string, images: File[]): Observable<any> {

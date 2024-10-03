@@ -9,16 +9,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/502011e1-8773-49c2-b720-4c9354eb9361.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/502011e1-8773-49c2-b720-4c9354eb9361.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/Jenkinsfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/guard/guard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/guard/guard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/HotelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/HotelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/HotelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/roomDTO/dto-room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/roomDTO/dto-room.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/HotelFilterDTO/dto-filter-hotel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/HotelFilterDTO/dto-filter-hotel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/hotel-service/hotel-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/hotel-service/hotel-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/review-service/review-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/review-service/review-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +117,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\user\\Desktop\\Decouverte_touristique\\Plateform_FrontEnd\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\i\\Desktop\\Decouverte_touristique\\Plateform_FrontEnd\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -251,6 +249,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -295,11 +301,23 @@
       <workItem from="1727856324750" duration="3126000" />
       <workItem from="1727860099390" duration="8189000" />
       <workItem from="1727875724862" duration="10104000" />
+      <workItem from="1727904221973" duration="7555000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

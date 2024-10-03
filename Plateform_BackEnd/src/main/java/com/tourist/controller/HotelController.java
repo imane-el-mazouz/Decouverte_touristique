@@ -57,12 +57,14 @@ public class HotelController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/filter")
+    @PostMapping("/filter")
     @PreAuthorize("hasRole('Client') or hasRole('Admin')")
-    public ResponseEntity<List<HotelDTO>> filterHotels(HotelFilterDTO filterDTO) {
+    public ResponseEntity<List<HotelDTO>> filterHotels(@RequestBody HotelFilterDTO filterDTO) {
         List<HotelDTO> hotels = hotelService.filterHotels(filterDTO);
         return ResponseEntity.ok(hotels);
     }
+
+
     @GetMapping("/search")
     @PreAuthorize("hasRole('Client') or hasRole('Admin')")
     public ResponseEntity<List<HotelDTO>> searchHotels(
