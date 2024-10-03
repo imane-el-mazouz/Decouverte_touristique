@@ -33,7 +33,6 @@ import {AutoCompleteCompleteEvent, AutoCompleteModule} from "primeng/autocomplet
 })
 export class HotelManagementComponent implements OnInit {
   hotels: DtoHotel[] = [];
-  // categorySearch = Object.values(CategoryHotel);
   categorySearch: string = '';
   locationSearch!: string;
 

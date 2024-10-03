@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HotelServiceService } from '../../service/hotel-service/hotel-service.service';
@@ -6,11 +6,16 @@ import { ReservationService } from '../../service/reservation-service/reservatio
 import { ReviewService } from '../../service/review-service/review-service.service';
 import { Hotel } from '../../model/hotel/hotel';
 import { DtoRoom } from '../../dto/roomDTO/dto-room';
-import {CurrencyPipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import {CurrencyPipe, JsonPipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import {NavBarComponent} from "../shared/nav-bar/nav-bar.component";
 import {FooterComponent} from "../shared/footer/footer.component";
 import {DtoHotel} from "../../dto/hotelDTO/dto-hotel";
 import {HttpClient} from "@angular/common/http";
+import {DtoFilterHotel} from "../../dto/HotelFilterDTO/dto-filter-hotel";
+import {TableModule} from "primeng/table";
+import {ButtonDirective} from "primeng/button";
+import {MatPaginator, PageEvent} from "@angular/material/paginator";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-hotel-page',
@@ -23,11 +28,23 @@ import {HttpClient} from "@angular/common/http";
     FooterComponent,
     NgIf,
     NgClass,
-    FormsModule
+    FormsModule,
+    TableModule,
+    ButtonDirective,
+    JsonPipe,
+    MatPaginator
   ],
   styleUrls: ['./hotel-page.component.scss']
 })
 export class HotelPageComponent implements OnInit {
+  totalItems: number = 0; // Total number of items to be paginated
+  pageSize = 5; // Default page size
+  currentPage = 0; // Start with the first page
+  dataSource = new MatTableDataSource<Hotel>([]); // Initialize the data source
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  totalRooms: number = 0;
+  totalPages: number = 0;
+  itemsPerPage = 5;
   stars = [1, 2, 3, 4, 5];
   hotels: Hotel[] = [];
   hotel: Hotel = new Hotel();
@@ -50,6 +67,13 @@ export class HotelPageComponent implements OnInit {
     checkOutDate: ''
   };
 
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+
+
+  showRooms: boolean = false;
+  minRating?: number;
+  maxRating?: number;
+  private showBookingForm: boolean | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -89,6 +113,7 @@ export class HotelPageComponent implements OnInit {
   ngOnInit(): void {
     this.loadHotels();
     console.log('Hotels:', this.hotels);
+    this.route.paramMap.subscribe(params => {});
   }
 
   loadHotels(): void {
@@ -111,18 +136,19 @@ export class HotelPageComponent implements OnInit {
       });
   }
 
-  showBookingForm(roomId: number) {
-    this.selectedRoomId = roomId;
-  }
+  // showBookingForm(roomId: number) {
+  //   this.selectedRoomId = roomId;
+  // }
 
 
   viewRooms(hotel: Hotel): void {
     console.log('Hotel object:', hotel);
-    if (hotel && hotel.idHotel) {
+    if (hotel && hotel) {
       this.hotelService.listRoomsByHotelId(hotel.idHotel).subscribe(
         rooms => {
           this.rooms = rooms;
-          console.log('Rooms:', this.rooms);
+          console.log('Rooms data:', this.rooms);
+          this.showRooms = true;
         },
         error => {
           console.error('Error loading rooms', error);
@@ -159,7 +185,6 @@ export class HotelPageComponent implements OnInit {
   //     this.errorMessage = 'Please fill out the form correctly.';
   //   }
   // }
-
   bookRoom() {
     if (!this.selectedRoomId) {
       this.errorMessage = 'Please select a room.';
@@ -177,12 +202,21 @@ export class HotelPageComponent implements OnInit {
       .subscribe(response => {
         this.bookingConfirmed = true;
         this.confirmationMessage = 'Booking confirmed!';
-        this.selectedRoomId = null; // Reset after booking
+        this.resetBookingForm(); // Call method to reset form
       }, error => {
         this.errorMessage = 'Failed to book room: ' + error.message;
       });
   }
 
+  resetBookingForm() {
+    this.bookingData = {
+      numberOfPersons: 0,
+      checkInDate: '',
+      checkOutDate: ''
+    };
+    this.selectedRoomId = null; // Reset the selected room
+    this.showBookingForm = false; // Hide the booking form if needed
+  }
 
   confirmBooking() {
     const { numberOfPersons, checkInDate, checkOutDate } = this.bookingData;
@@ -224,5 +258,30 @@ export class HotelPageComponent implements OnInit {
     this.review.rating = number;
   }
 
+  filterHotels(): void {
+    const filterDTO: DtoFilterHotel = {
+      minRating: this.minRating,
+      maxRating: this.maxRating
+    };
 
+    this.hotelService.filterHotels(filterDTO)
+      .subscribe((data: DtoHotel[]) => {
+        this.hotels = data;
+      });
+  }
+
+  viewReviews(roomId: number) {
+    console.log("Viewing reviews for room with ID:", roomId);
+  }
+
+  addReview(roomId: number) {
+    console.log("Adding review for room with ID:", roomId);
+  }
+
+
+  pageChanged(event: PageEvent) {
+    this.currentPage = event.pageIndex + 1; // pageIndex is 0-based
+    this.itemsPerPage = event.pageSize;
+    this.loadHotels(); // or your method to fetch data
+  }
 }

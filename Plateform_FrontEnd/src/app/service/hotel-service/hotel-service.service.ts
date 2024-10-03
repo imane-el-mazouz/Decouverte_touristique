@@ -7,6 +7,7 @@ import {DtoFilterHotel} from "../../dto/HotelFilterDTO/dto-filter-hotel";
 import {DtoRoom} from "../../dto/roomDTO/dto-room";
 import {AuthService} from "../auth_service/auth-service.service";
 import {catchError} from "rxjs/operators";
+import {Review} from "../../model/review/review";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ export class HotelServiceService {
   private apiUrl = 'http://localhost:8085/api/hotel';
   private roomApiUrl = 'http://localhost:8085/api/room';
   private bookingUrl = 'http://localhost:8085/api/reservation';
+  private reviewUrl = 'http://localhost:8085/api/review';
+
 
   constructor(private http: HttpClient , private authService : AuthService) { }
 
@@ -215,4 +218,14 @@ export class HotelServiceService {
     return this.http.post<any>(`${this.roomApiUrl}/create/${hotelId}`, formData, { headers });
   }
 
+
+  deleteReview(id: number | undefined): Observable<void> {
+    return this.http.delete<void>(`${this.reviewUrl}/delete/${id}`, { headers: this.getHeaders() })
+  }
+
+  getAllReviews(): Observable<Review[]> {
+    return this.http.get<Review[]>(`${this.reviewUrl}/all`, { headers: this.getHeaders() })
+  }
+
 }
+
