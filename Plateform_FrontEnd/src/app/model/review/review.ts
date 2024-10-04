@@ -4,6 +4,6 @@ export interface Review {
   rating: number;
   comment: string;
   date?: Date;
-  client?: { id?: number; email?: string };
+  client?: { id?: number; email?: string ;name: string;};
   reservation?: { id?: number };
 }

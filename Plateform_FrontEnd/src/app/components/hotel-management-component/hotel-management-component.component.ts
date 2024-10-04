@@ -391,7 +391,6 @@ export class HotelManagementComponent implements OnInit {
 
   searchLocations(event: any) {
     const query = event.query;
-    // Assuming you have a list of locations to filter from
     const locations = ['New York', 'Paris', 'London', 'Tokyo']; // Example locations
     this.filteredLocations = locations.filter(location =>
       location.toLowerCase().includes(query.toLowerCase())

@@ -22,6 +22,7 @@ export class ReviewManagementComponent implements OnInit {
   @Input() reservationId!: number;
   review: Review = { rating: 1, comment: '' };
   isEditMode: boolean = false;
+  private roomId!: number;
 
   constructor(
     private reviewService: ReviewService,
@@ -44,7 +45,7 @@ export class ReviewManagementComponent implements OnInit {
   }
 
   loadReviews(): void {
-    this.reviewService.getAllReviews().subscribe(
+    this.reviewService.getAllReviews(this.roomId).subscribe(
       (reviews) => this.reviews = reviews,
       (error) => console.error('Error loading reviews', error)
     );

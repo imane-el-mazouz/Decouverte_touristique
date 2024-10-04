@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HotelServiceService } from '../../service/hotel-service/hotel-service.service';
 import { ReservationService } from '../../service/reservation-service/reservation-service.service';
@@ -16,6 +16,7 @@ import {TableModule} from "primeng/table";
 import {ButtonDirective} from "primeng/button";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
+import {Review} from "../../model/review/review";
 
 @Component({
   selector: 'app-hotel-page',
@@ -32,7 +33,8 @@ import {MatTableDataSource} from "@angular/material/table";
     TableModule,
     ButtonDirective,
     JsonPipe,
-    MatPaginator
+    MatPaginator,
+    ReactiveFormsModule
   ],
   styleUrls: ['./hotel-page.component.scss']
 })
@@ -50,30 +52,31 @@ export class HotelPageComponent implements OnInit {
   hotel: Hotel = new Hotel();
   reservationId?: number;
   idHotel?: number;
-  bookingForm: FormGroup;
   review = { rating: 0, comment: '' };
-  confirmationMessage: string = '';
-  errorMessage: string = '';
-  bookingConfirmed: boolean = false;
-  reviewMessage: string = '';
+  reviews: Review[] = []; // Un tableau d'avis vides
+  newReview: { rating: number; comment: string } = { rating: 0, comment: '' }; // Nouvelle structure pour ajouter un avis
+
+  errorMessage: string | null = null;  reviewMessage: string = '';
   location: string = '';
   category: string = '';
   categories: string[] = ['bohemian', 'traditional'];
   rooms: any[] = [];
-  selectedRoomId: number | null = null;
   bookingData = {
     numberOfPersons: 1,
     checkInDate: '',
     checkOutDate: ''
   };
 
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 
-
+  confirmationMessage: string | null = null;
+  bookingConfirmed: boolean = false;
   showRooms: boolean = false;
   minRating?: number;
   maxRating?: number;
-  private showBookingForm: boolean | undefined;
+  bookingForm: FormGroup;
+  selectedReservationId!: number;
 
   constructor(
     private fb: FormBuilder,
@@ -85,12 +88,11 @@ export class HotelPageComponent implements OnInit {
     private http: HttpClient
   ) {
     this.bookingForm = this.fb.group({
-      roomId: [0, Validators.required],
-      numberOfPerson: [0, [Validators.required, Validators.min(1)]],
+      roomId: [null, Validators.required],
+      numberOfPersons: [0, [Validators.required, Validators.min(1)]],
       checkInDate: ['', Validators.required],
       checkOutDate: ['', Validators.required]
-    }
-    );
+    });
   }
   searchHotels() {
     console.log('Category:', this.category);
@@ -185,74 +187,31 @@ export class HotelPageComponent implements OnInit {
   //     this.errorMessage = 'Please fill out the form correctly.';
   //   }
   // }
+  showBookingForm: boolean = false;
+  selectedRoomId: number = 1;
+  showAddReviewForm: any;
+  roomId!: number;
+
+  showBookingFormForRoom(roomId: number) {
+    this.selectedRoomId = roomId;
+    this.showBookingForm = true;
+  }
+
   bookRoom() {
-    if (!this.selectedRoomId) {
-      this.errorMessage = 'Please select a room.';
-      return;
-    }
+    if (this.selectedRoomId !== null) {
+      console.log('Booking room:', this.selectedRoomId, this.bookingData);
 
-    if (this.bookingData.checkInDate >= this.bookingData.checkOutDate) {
-      this.errorMessage = 'Check-out date must be after check-in date.';
-      return;
-    }
-
-    const { numberOfPersons, checkInDate, checkOutDate } = this.bookingData;
-
-    this.hotelService.reserveHotel(this.selectedRoomId, numberOfPersons, checkInDate, checkOutDate)
-      .subscribe(response => {
-        this.bookingConfirmed = true;
-        this.confirmationMessage = 'Booking confirmed!';
-        this.resetBookingForm(); // Call method to reset form
-      }, error => {
-        this.errorMessage = 'Failed to book room: ' + error.message;
-      });
-  }
-
-  resetBookingForm() {
-    this.bookingData = {
-      numberOfPersons: 0,
-      checkInDate: '',
-      checkOutDate: ''
-    };
-    this.selectedRoomId = null; // Reset the selected room
-    this.showBookingForm = false; // Hide the booking form if needed
-  }
-
-  confirmBooking() {
-    const { numberOfPersons, checkInDate, checkOutDate } = this.bookingData;
-
-    if (this.selectedRoomId) {
-      this.hotelService.reserveHotel(this.selectedRoomId, numberOfPersons, checkInDate, checkOutDate)
-        .subscribe(
-          (response) => {
-            this.bookingConfirmed = true;
-            this.confirmationMessage = 'Booking successful!';
-          },
-          (error) => {
-            this.errorMessage = 'Booking failed. Please try again.';
-          }
-        );
+      this.confirmationMessage = `Reservation confirmed for room ID ${this.selectedRoomId}`;
+      this.errorMessage = null;
+      this.showBookingForm = false;
+      alert('Booking successful! Your reservation has been confirmed.');
     } else {
-      this.errorMessage = 'Room ID is missing.';
+      this.errorMessage = 'No room selected for booking!';
+      this.confirmationMessage = null;
     }
   }
 
-  saveReview(): void {
-    if (this.reservationId) {
-      this.reviewService.addReview(this.reservationId, this.review).subscribe(
-        response => {
-          console.log('Review submitted successfully', response);
-          this.reviewMessage = 'Your review was submitted successfully!';
-        },
-        error => {
-          console.error('Error submitting review', error);
-          this.reviewMessage = 'There was an error submitting your review. Please try again.';
-        }
-      );
-    } else {
-      this.errorMessage = 'Reservation ID is missing';
-    }
-  }
+
 
   setRating(number: number): void {
     this.review.rating = number;
@@ -271,17 +230,44 @@ export class HotelPageComponent implements OnInit {
   }
 
   viewReviews(roomId: number) {
-    console.log("Viewing reviews for room with ID:", roomId);
+    this.reviewService.getAllReviews(roomId).subscribe(
+      (reviews) => {
+        console.log("Reviews for room:", reviews);
+        this.reviews = reviews;
+      },
+      (error) => {
+        console.error("Error fetching reviews:", error);
+      }
+    );
   }
 
+
   addReview(roomId: number) {
-    console.log("Adding review for room with ID:", roomId);
+    const reviewData = {
+      rating: this.newReview.rating,
+      comment: this.newReview.comment
+    };
+
+    this.reviewService.addReview(roomId, reviewData).subscribe(
+      (response) => {
+        console.log("Review added successfully:", response);
+        alert("Review added successfully!");
+        this.viewReviews(roomId);
+      },
+      (error) => {
+        console.error("Error adding review:", error);
+        alert("Error adding review.");
+      }
+    );
   }
 
 
   pageChanged(event: PageEvent) {
-    this.currentPage = event.pageIndex + 1; // pageIndex is 0-based
+    this.currentPage = event.pageIndex + 1;
     this.itemsPerPage = event.pageSize;
-    this.loadHotels(); // or your method to fetch data
+    this.loadHotels();
   }
+
+
+
 }

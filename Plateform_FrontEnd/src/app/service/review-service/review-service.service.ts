@@ -20,7 +20,7 @@ export class ReviewService {
     });
   }
 
-  getAllReviews(): Observable<Review[]> {
+    getAllReviews(roomId: number): Observable<Review[]> {
     return this.http.get<Review[]>(`${this.reviewUrl}/all`, { headers: this.getHeaders() })
       .pipe(catchError(this.handleError));
   }

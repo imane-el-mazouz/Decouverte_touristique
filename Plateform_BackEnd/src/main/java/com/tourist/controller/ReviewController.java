@@ -49,26 +49,35 @@ public class ReviewController {
         return ResponseEntity.ok(reviews);
     }
 
-//    @PreAuthorize("hasRole('Client')")
-//    @PostMapping("/reservation/{reservationId}")
-//    public ResponseEntity<Review> addReview(@PathVariable Long reservationId, @RequestBody ReviewDTO reviewDTO) {
-//        if (reviewDTO.getRating() < 1 || reviewDTO.getRating() > 5) {
-//            throw new RatingException("Rating must be between 1 and 5");
-//        }
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String email = authentication.getName();
-//        Client client = clientService.findByEmail(email);
-//        Review review = new Review();
-//        review.setRating(reviewDTO.getRating());
-//        review.setComment(reviewDTO.getComment());
-//        review.setClient(client);
-//
-//        Review createdReview = reviewService.addReview(reservationId, review);
-//        return ResponseEntity.ok(createdReview);
+//@PreAuthorize("hasRole('Client')")
+//@PostMapping("/reservation/{reservationId}")
+//public ResponseEntity<Review> addReview(@PathVariable Long reservationId, @RequestBody ReviewDTO reviewDTO) {
+//    if (reviewDTO.getRating() < 1 || reviewDTO.getRating() > 5) {
+//        throw new RatingException("Rating must be between 1 and 5");
 //    }
+//
+//    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//    String email = authentication.getName();
+//    Client client = clientService.findByEmail(email);
+//
+//    if (client == null) {
+//        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+//    }
+//
+//    Review review = new Review();
+//    review.setRating(reviewDTO.getRating());
+//    review.setComment(reviewDTO.getComment());
+//    review.setClient(client);
+//
+//    Review createdReview = reviewService.addReview(reservationId, review);
+//    return ResponseEntity.ok(createdReview);
+//}
 @PreAuthorize("hasRole('Client')")
-@PostMapping("/reservation/{reservationId}")
-public ResponseEntity<Review> addReview(@PathVariable Long reservationId, @RequestBody ReviewDTO reviewDTO) {
+@PostMapping("/room/{roomId}/add-review")
+public ResponseEntity<Review> addReview(
+        @PathVariable Long roomId,
+        @RequestBody ReviewDTO reviewDTO) {
+
     if (reviewDTO.getRating() < 1 || reviewDTO.getRating() > 5) {
         throw new RatingException("Rating must be between 1 and 5");
     }
@@ -81,16 +90,22 @@ public ResponseEntity<Review> addReview(@PathVariable Long reservationId, @Reque
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 
+    Optional<Reservation> reservationOpt = reviewService.findByRoomAndClient(roomId, client.getId());
+    if (!reservationOpt.isPresent()) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new Review());
+    }
+
+    Reservation reservation = reservationOpt.get();
     Review review = new Review();
     review.setRating(reviewDTO.getRating());
     review.setComment(reviewDTO.getComment());
     review.setClient(client);
+    review.setReservation(reservation);
 
-    Review createdReview = reviewService.addReview(reservationId, review);
+    Review createdReview = reviewService.addReview(reservation.getId(), review);
     return ResponseEntity.ok(createdReview);
 }
-
-
 
 
     @PreAuthorize("hasRole('Admin')")

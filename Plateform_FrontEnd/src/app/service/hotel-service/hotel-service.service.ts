@@ -222,6 +222,16 @@ export class HotelServiceService {
   deleteReview(id: number | undefined): Observable<void> {
     return this.http.delete<void>(`${this.reviewUrl}/delete/${id}`, { headers: this.getHeaders() })
   }
+  // addReview(roomId: number, reviewData: any): Observable<any> {
+  //   return this.http.post(`${this.reviewUrl}/reservation/${roomId}`, reviewData , { headers: this.getHeaders() });
+  // }
+
+
+  addReview(roomId: number, reviewData: any): Observable<any> {
+    const headers = this.getHeaders(); // Assure-toi que cette méthode inclut le token JWT
+    return this.http.post(`${this.reviewUrl}/room/${roomId}/add-review`, reviewData, { headers });
+  }
+
 
   getAllReviews(): Observable<Review[]> {
     return this.http.get<Review[]>(`${this.reviewUrl}/all`, { headers: this.getHeaders() })

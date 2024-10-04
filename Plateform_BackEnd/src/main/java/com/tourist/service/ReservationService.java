@@ -122,7 +122,7 @@ public class ReservationService {
         reservationRepository.delete(reservation);
     }
 
-    public Optional<Object> getReservationById(Long reservationId) {
-        return Optional.of(reservationRepository.findById(reservationId));
-    }
+
+
+
 }

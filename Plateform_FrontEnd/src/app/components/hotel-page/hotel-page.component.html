@@ -370,7 +370,6 @@
 
             <h3 class="event-name">{{ room.type }}</h3>
 
-            <!-- Affiche le prix de la chambre -->
             <div class="price-details">
               <p class="price-amount">{{ room.price | currency:'MAD' }}</p>
             </div>
@@ -378,8 +377,7 @@
             <div class="action-buttons">
               <button class="btn btn-secondary view-reviews-btn" (click)="viewReviews(room.id)">View Reviews</button>
               <button class="btn btn-secondary add-reviews-btn" (click)="addReview(room.id)">Add Review</button>
-              <button *ngIf="room.available" class="btn btn-primary book-btn" (click)="showBookingForm(room.id)">Book now</button>
-            </div>
+              <button *ngIf="room.available" class="btn btn-primary book-btn" (click)="showBookingFormForRoom(room.id)"></button></div>
           </div>
         </div>
       </article>
@@ -389,7 +387,7 @@
   </mat-paginator>
 
 </section>
-<section class="booking-section" *ngIf="showBookingForm">
+<section class="booking-section" *ngIf="showBookingForm ">
   <h1 class="heading">Book Now!</h1>
   <div class="wrapper-content">
     <div class="layout-columns">
@@ -443,31 +441,48 @@
       </div>
 
       <div class="column">
-        <article class="card-event">
+        <h2>Available Rooms</h2>
+        <article *ngFor="let room of rooms" class="card-event">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/4eaea4a79370e36d896c5d488f04ad6371dbefc2208d4a3dcb8f5ff62c9fd2b7?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0"
-            alt="Event location"
+            [src]="room.imageUrl"
+            alt="Room image"
             class="image-event"
           />
           <div class="details-event">
-            <h3 class="heading-event">Agadir, Timitar</h3>
-            <div class="rating">
-              <div class="rating-star">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0"
-                  alt="star"
-                  class="icon-star"
-                />
-              </div>
-            </div>
-            <p class="count-review" style="margin-top: 25px;">(0 reviews)</p>
-            <p class="count" style="margin-top: 25px;">From $800</p>
+            <h3 class="heading-event">{{ room.name }}</h3>
+            <p class="count" style="margin-top: 25px;">From ${{ room.price }}</p>
           </div>
         </article>
       </div>
     </div>
   </div>
 </section>
+
+<section>
+  <div *ngFor="let review of reviews" class="review-card">
+    <h3>{{ review.client?.email }}</h3>
+    <p>Rating: {{ review.rating }} / 5</p>
+    <p>Comment: {{ review.comment }}</p>
+    <p>Date: {{ review.date }}</p>
+  </div>
+
+  <div *ngIf="reviews.length === 0">
+    <p>No reviews for this room yet.</p>
+  </div>
+</section>
+
+<section *ngIf="showAddReviewForm">
+  <form (ngSubmit)="addReview(roomId)">
+    <label for="comment">Comment:</label>
+    <textarea id="comment" [(ngModel)]="newReview.comment" name="comment" required></textarea>
+
+    <label for="rating">Rating:</label>
+    <input id="rating" type="number" [(ngModel)]="newReview.rating" name="rating" min="1" max="5" required />
+
+    <button type="submit">Submit Review</button>
+  </form>
+</section>
+
 
 
 <!--&lt;!&ndash; Booking Section &ndash;&gt;-->

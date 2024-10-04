@@ -45,15 +45,19 @@ public class ReviewService {
 //        review.setReservation(reservation);
 //        return reviewRepository.save(review);
 //    }
-@Transactional
-public Review addReview(Long reservationId, Review review) {
-    Reservation reservation = reservationRepository.findById(reservationId)
-            .orElseThrow(() -> new ReservationNotFoundException("Reservation not found with id " + reservationId));
-    review.setReservation(reservation);
-    review.setDate(LocalDate.now());
-    return reviewRepository.save(review);
-}
 
+    public Optional<Reservation> findByRoomAndClient(Long roomId, Long clientId) {
+        return reservationRepository.findByRoomAndClient(roomId, clientId);
+    }
+
+    @Transactional
+    public Review addReview(Long reservationId, Review review) {
+        Reservation reservation = reservationRepository.findById(reservationId)
+                .orElseThrow(() -> new ReservationNotFoundException("Reservation not found with id " + reservationId));
+        review.setReservation(reservation);
+        review.setDate(LocalDate.now());
+        return reviewRepository.save(review);
+    }
 
 
 
