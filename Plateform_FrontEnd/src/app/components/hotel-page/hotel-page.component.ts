@@ -53,8 +53,8 @@ export class HotelPageComponent implements OnInit {
   reservationId?: number;
   idHotel?: number;
   review = { rating: 0, comment: '' };
-  reviews: Review[] = []; // Un tableau d'avis vides
-  newReview: { rating: number; comment: string } = { rating: 0, comment: '' }; // Nouvelle structure pour ajouter un avis
+  reviews: Review[] = [];
+  newReview: { rating: number; comment: string } = { rating: 0, comment: '' };
 
   errorMessage: string | null = null;  reviewMessage: string = '';
   location: string = '';
@@ -66,10 +66,9 @@ export class HotelPageComponent implements OnInit {
     checkInDate: '',
     checkOutDate: ''
   };
-
-
+  roomId!: number; // Use non-null assertion operator
+  showForm: boolean = false;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-
   confirmationMessage: string | null = null;
   bookingConfirmed: boolean = false;
   showRooms: boolean = false;
@@ -77,7 +76,7 @@ export class HotelPageComponent implements OnInit {
   maxRating?: number;
   bookingForm: FormGroup;
   selectedReservationId!: number;
-
+  protected reviewData: Review = { rating: 0, comment: '' };
   constructor(
     private fb: FormBuilder,
     private hotelService: HotelServiceService,
@@ -87,12 +86,16 @@ export class HotelPageComponent implements OnInit {
     private route: ActivatedRoute ,
     private http: HttpClient
   ) {
+
     this.bookingForm = this.fb.group({
       roomId: [null, Validators.required],
       numberOfPersons: [0, [Validators.required, Validators.min(1)]],
       checkInDate: ['', Validators.required],
       checkOutDate: ['', Validators.required]
     });
+    this.roomId = this.route.snapshot.params['roomId'];
+    this.roomId = 1;
+
   }
   searchHotels() {
     console.log('Category:', this.category);
@@ -116,6 +119,16 @@ export class HotelPageComponent implements OnInit {
     this.loadHotels();
     console.log('Hotels:', this.hotels);
     this.route.paramMap.subscribe(params => {});
+    this.route.paramMap.subscribe(params => {
+      const roomIdParam = params.get('roomId');
+
+      if (!this.roomId) {
+        console.warn('No room ID found or invalid');
+      } else {
+        console.log('Room ID from route:', this.roomId);
+      }
+    });
+
   }
 
   loadHotels(): void {
@@ -190,7 +203,6 @@ export class HotelPageComponent implements OnInit {
   showBookingForm: boolean = false;
   selectedRoomId: number = 1;
   showAddReviewForm: any;
-  roomId!: number;
 
   showBookingFormForRoom(roomId: number) {
     this.selectedRoomId = roomId;
@@ -242,24 +254,6 @@ export class HotelPageComponent implements OnInit {
   }
 
 
-  addReview(roomId: number) {
-    const reviewData = {
-      rating: this.newReview.rating,
-      comment: this.newReview.comment
-    };
-
-    this.reviewService.addReview(roomId, reviewData).subscribe(
-      (response) => {
-        console.log("Review added successfully:", response);
-        alert("Review added successfully!");
-        this.viewReviews(roomId);
-      },
-      (error) => {
-        console.error("Error adding review:", error);
-        alert("Error adding review.");
-      }
-    );
-  }
 
 
   pageChanged(event: PageEvent) {
@@ -268,6 +262,25 @@ export class HotelPageComponent implements OnInit {
     this.loadHotels();
   }
 
+  onSubmit() {
+    console.log('Submitting review:', this.reviewData);
+    if (!this.roomId) {
+      console.error('Room ID is not defined');
+      return;
+    }
 
-
+    this.hotelService.addReview(this.roomId, this.reviewData).subscribe({
+      next: (response) => {
+        console.log('Review added successfully:', response);
+        this.reviewData = { rating: 0, comment: '' };
+        this.showForm = false;
+      },
+      error: (error) => {
+        console.error('Error adding review:', error);
+      }
+    });
+  }
+  navigateToReviewForm() {
+    this.router.navigate(['/room', this.roomId, 'add-review']);
+  }
 }

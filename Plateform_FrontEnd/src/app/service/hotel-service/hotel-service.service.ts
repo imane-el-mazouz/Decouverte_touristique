@@ -127,32 +127,6 @@ export class HotelServiceService {
     return localStorage.getItem('token');
   }
 
-
-  // const formData: FormData = new FormData();
-    // formData.append('roomDTO', JSON.stringify(room)); // Make sure the key matches what the backend expects
-    //
-    // images.forEach(image => {
-    //   formData.append('images', image, image.name);
-    // });
-    // const headers = new HttpHeaders({
-    //   'Authorization': `Bearer ${localStorage.getItem('token')}`
-    // });
-    //
-    // return this.http.post<HttpEvent<any>>(`${this.roomApiUrl}/create/${hotelId}`, formData, {
-    //   headers,
-    //   reportProgress: true,
-    //   observe: 'events'
-    // }).pipe(
-    //   catchError(error => {
-    //     console.error('Error occurred:', error); // Log the error
-    //     return throwError(error); // Rethrow the error for further handling
-    //   })
-    // );
-
-
-
-
-
   listRoomsByHotelId(idHotel: number | undefined): Observable<DtoRoom[]> {
     // return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotel/${idHotel}`, { headers: this.getHeaders() });
     return this.http.get<DtoRoom[]>(`${this.roomApiUrl}/hotel/${idHotel}` , { headers: this.getHeaders() }).pipe(
@@ -222,20 +196,21 @@ export class HotelServiceService {
   deleteReview(id: number | undefined): Observable<void> {
     return this.http.delete<void>(`${this.reviewUrl}/delete/${id}`, { headers: this.getHeaders() })
   }
-  // addReview(roomId: number, reviewData: any): Observable<any> {
-  //   return this.http.post(`${this.reviewUrl}/reservation/${roomId}`, reviewData , { headers: this.getHeaders() });
-  // }
 
 
-  addReview(roomId: number, reviewData: any): Observable<any> {
-    const headers = this.getHeaders(); // Assure-toi que cette méthode inclut le token JWT
-    return this.http.post(`${this.reviewUrl}/room/${roomId}/add-review`, reviewData, { headers });
+
+  addReview(roomId: number, reviewData: Review): Observable<Review> {
+    console.log('Adding review for Room ID:', roomId);
+    console.log('Review Data:', reviewData);
+
+
+    return this.http.post<Review>(`${this.reviewUrl}/room/${roomId}/add-review`, reviewData, { headers: this.getHeaders() });
   }
 
 
   getAllReviews(): Observable<Review[]> {
     return this.http.get<Review[]>(`${this.reviewUrl}/all`, { headers: this.getHeaders() })
   }
-
+  //
 }
 

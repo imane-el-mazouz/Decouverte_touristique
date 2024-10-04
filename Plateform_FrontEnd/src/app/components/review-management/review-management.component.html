@@ -1,6 +1,32 @@
-<div *ngIf="reviews.length > 0">
-  <table>
-    <thead>
+<!--<div *ngIf="reviews.length > 0">-->
+<!--  <table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>ID</th>-->
+<!--      <th>Rating</th>-->
+<!--      <th>Comment</th>-->
+<!--      <th>Date</th>-->
+<!--      <th>Actions</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let review of reviews">-->
+<!--      <td>{{ review.id }}</td>-->
+<!--      <td>{{ review.rating }}</td>-->
+<!--      <td>{{ review.comment }}</td>-->
+<!--      <td>{{ review.date | date }}</td>-->
+<!--      <button (click)="deleteReview(review.id)">Delete</button>-->
+<!--      <td>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</div>-->
+<!--<div *ngIf="reviews.length === 0">-->
+<!--  <p>No reviews available.</p>-->
+<!--</div>-->
+<p-table [value]="reviews" [paginator]="true" [rows]="5" [responsive]="true" class="ok">
+  <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
       <th>Rating</th>
@@ -8,29 +34,28 @@
       <th>Date</th>
       <th>Actions</th>
     </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let review of reviews">
+  </ng-template>
+
+  <ng-template pTemplate="body" let-review>
+    <tr>
       <td>{{ review.id }}</td>
       <td>{{ review.rating }}</td>
       <td>{{ review.comment }}</td>
       <td>{{ review.date | date }}</td>
-      <button (click)="deleteReview(review.id)">Delete</button>
+
       <td>
-      </td>
+        <button
+          pButton
+          icon="{{ actions[0].icon }}"
+          (click)="deleteReview(review.id)"
+          styleClass="p-button-danger"
+          title="Delete Review">
+          {{ actions[0].label }}
+        </button>
     </tr>
-    </tbody>
-  </table>
-</div>
+  </ng-template>
+</p-table>
+
 <div *ngIf="reviews.length === 0">
   <p>No reviews available.</p>
 </div>
-<form (ngSubmit)="saveReview()">
-  <label for="rating">Rating (1-5):</label>
-  <input type="number" id="rating" [(ngModel)]="review.rating" name="rating" required>
-
-  <label for="comment">Comment:</label>
-  <textarea id="comment" [(ngModel)]="review.comment" name="comment" required></textarea>
-
-  <button type="submit">{{ isEditMode ? 'Update' : 'Add' }} Review</button>
-</form>

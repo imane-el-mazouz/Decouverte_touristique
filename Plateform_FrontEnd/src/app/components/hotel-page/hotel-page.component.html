@@ -376,8 +376,7 @@
 
             <div class="action-buttons">
               <button class="btn btn-secondary view-reviews-btn" (click)="viewReviews(room.id)">View Reviews</button>
-              <button class="btn btn-secondary add-reviews-btn" (click)="addReview(room.id)">Add Review</button>
-              <button *ngIf="room.available" class="btn btn-primary book-btn" (click)="showBookingFormForRoom(room.id)"></button></div>
+              <button class="btn btn-secondary" (click)="showForm = true">Add Review</button>              <button *ngIf="room.available" class="btn btn-primary book-btn" (click)="showBookingFormForRoom(room.id)"></button></div>
           </div>
         </div>
       </article>
@@ -471,17 +470,22 @@
   </div>
 </section>
 
-<section *ngIf="showAddReviewForm">
-  <form (ngSubmit)="addReview(roomId)">
-    <label for="comment">Comment:</label>
-    <textarea id="comment" [(ngModel)]="newReview.comment" name="comment" required></textarea>
-
-    <label for="rating">Rating:</label>
-    <input id="rating" type="number" [(ngModel)]="newReview.rating" name="rating" min="1" max="5" required />
-
-    <button type="submit">Submit Review</button>
-  </form>
-</section>
+<div *ngIf="showForm" class="review-form-container">
+  <div class="review-form">
+    <h2>Add Review</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="rating">Rating (1-5):</label>
+        <input type="number" id="rating" [(ngModel)]="reviewData.rating" name="rating" min="1" max="5" required />
+      </div>
+      <div>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" [(ngModel)]="reviewData.comment" name="comment" required></textarea>
+      </div>
+      <button type="submit">Submit Review</button>
+    </form>
+  </div>
+</div>
 
 
 

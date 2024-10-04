@@ -1,4 +1,3 @@
-// src/app/models/review.model.ts
 export interface Review {
   id?: number;
   rating: number;

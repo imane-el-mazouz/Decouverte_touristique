@@ -4,6 +4,9 @@ import { Review } from '../../model/review/review';
 import { DatePipe, NgForOf, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import {TableModule} from "primeng/table";
+import {Button, ButtonModule} from "primeng/button";
+import {PrimeIcons} from "primeng/api";
 
 @Component({
   selector: 'app-review-management',
@@ -12,13 +15,23 @@ import { FormsModule } from '@angular/forms';
     DatePipe,
     NgForOf,
     NgIf,
-    FormsModule
+    FormsModule,
+    TableModule,
+    Button,
+    ButtonModule
+
   ],
   templateUrl: './review-management.component.html',
   styleUrls: ['./review-management.component.css']
 })
 export class ReviewManagementComponent implements OnInit {
   reviews: Review[] = [];
+  actions = [
+    {
+      label: 'Delete',
+      icon: PrimeIcons.TRASH
+    }
+  ];
   @Input() reservationId!: number;
   review: Review = { rating: 1, comment: '' };
   isEditMode: boolean = false;
@@ -51,16 +64,7 @@ export class ReviewManagementComponent implements OnInit {
     );
   }
 
-  saveReview(): void {
-    if (this.isEditMode) {
-      // Implement update review functionality if needed
-    } else {
-      this.reviewService.addReview(this.reservationId, this.review).subscribe(
-        () => this.router.navigate(['/reviews']),
-        (error) => console.error('Error saving review', error)
-      );
-    }
-  }
+
 
   deleteReview(id: number | undefined): void {
     if (confirm('Are you sure you want to delete this review?')) {
