@@ -199,6 +199,7 @@ import { EventService } from '../../../service/event-service/event-service.servi
 import { DtoEvent } from '../../../dto/eventDTO/dto-event';
 import { CategoryEvent } from '../../../enums/category-event';
 import { CurrencyPipe, DatePipe, NgForOf, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 import {EventFormComponentComponent} from "../event-form-component/event-form-component.component";
 import {
   EventSearchFilterComponent
@@ -231,11 +232,16 @@ export class EventListComponentComponent implements OnInit {
   fileToUpload: File | null = null;
   categories = Object.values(CategoryEvent);
 
-  constructor(private eventService: EventService, private fb: FormBuilder) {
+  constructor(
+    private eventService: EventService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.eventForm = this.fb.group({
       name: ['', Validators.required],
       description: [''],
       date: ['', Validators.required],
+      imgPath: ['', Validators.required],
       location: [''],
       capacity: [0, Validators.required],
       price: [0, Validators.required],
@@ -244,7 +250,6 @@ export class EventListComponentComponent implements OnInit {
       category: ['', Validators.required]
     });
 
-    // Initializing the booking form
     this.bookingForm = this.fb.group({
       numberOfPerson: [1, Validators.required],
       dateTime: ['', Validators.required]
@@ -271,59 +276,6 @@ export class EventListComponentComponent implements OnInit {
     this.selectedEvent = event;
     this.editMode = true;
     this.eventForm.patchValue(event);
-  }
-
-  updateEvent(): void {
-    if (this.selectedEvent && this.eventForm.valid) {
-      const formValues = this.eventForm.value;
-      const updatedEvent: DtoEvent = { ...this.selectedEvent, ...formValues };
-
-      // Ensure date is an instance of Date
-      if (typeof updatedEvent.date === 'string') {
-        updatedEvent.date = new Date(updatedEvent.date);
-      }
-
-      const formData = new FormData();
-      formData.append('name', updatedEvent.name);
-      formData.append('description', updatedEvent.description);
-      formData.append('date', updatedEvent.date.toISOString()); // Ensure date is converted to ISO string
-      formData.append('location', updatedEvent.location);
-      formData.append('capacity', updatedEvent.capacity.toString());
-      formData.append('price', updatedEvent.price.toString());
-      formData.append('rating', updatedEvent.rating.toString());
-      formData.append('distance', updatedEvent.distance.toString());
-      formData.append('category', updatedEvent.category.toString());
-      if (this.fileToUpload) {
-        formData.append('img', this.fileToUpload);
-      }
-
-      this.eventService.updateEvent(this.selectedEvent.id, formData).subscribe({
-        next: () => {
-          this.loadEvents();
-          this.cancelEdit();
-        },
-        error: (err) => {
-          console.error('Error updating event', err);
-        }
-      });
-    }
-  }
-
-  deleteEvent(eventId: number): void {
-    if (!eventId) {
-      console.error("Event ID is invalid:", eventId);
-      return;
-    }
-
-    this.eventService.deleteEvent(eventId).subscribe({
-      next: () => {
-        console.log(`Event ${eventId} deleted successfully.`);
-        this.loadEvents();
-      },
-      error: (err) => {
-        console.error('Error deleting event', err);
-      }
-    });
   }
 
   cancelEdit(): void {
@@ -367,18 +319,38 @@ export class EventListComponentComponent implements OnInit {
     }
   }
 
-  onDeleteEvent(id: number): void {
-    if (id === undefined || id === null) {
-      console.error('Invalid event ID');
-      return;
+  onEventAdded(newEvent: DtoEvent) {
+    this.events.push(newEvent);
+  }
+
+  deleteEvent(eventId: number): void {
+    if (!eventId) {
+      console.error("Event ID is undefined or null");
+      return; // Exit if event ID is not valid
     }
-    this.eventService.deleteEvent(id).subscribe(
-      () => {
-        this.loadEvents();
-      },
-      error => {
-        console.error('Error deleting event:', error);
-      }
-    );
+
+    console.log("Attempting to delete event with ID:", eventId);
+    this.eventService.deleteEvent(eventId).subscribe(() => {
+      console.log(`Deleted event with ID: ${eventId}`);
+      this.loadEvents(); // Refresh the event list after deletion
+    }, error => {
+      console.error("Error deleting event:", error);
+    });
+  }
+
+  updateEvent(): void {
+    if (this.eventForm.valid && this.selectedEvent) {
+      const updatedEvent: DtoEvent = { ...this.selectedEvent, ...this.eventForm.value };
+      this.eventService.updateEvent(this.selectedEvent.id, updatedEvent).subscribe({
+        next: (updatedEvent) => {
+          console.log('Événement mis à jour:', updatedEvent);
+          this.loadEvents(); // Refresh the event list after update
+          this.cancelEdit(); // Reset the form and exit edit mode
+        },
+        error: (err) => {
+          console.error('Erreur lors de la mise à jour de l\'événement:', err);
+        }
+      });
+    }
   }
 }

@@ -7,6 +7,7 @@ import jakarta.persistence.Enumerated;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -32,8 +33,20 @@ public class EventDTO {
     private List<ReservationDTO> reservations;
 
     public EventDTO(String name, String description, String imgPath, LocalDate date, String location, Integer capacity, CategoryEvent category, Object o) {
+        this.name = name;
+        this.description = description;
+        this.imgPath = imgPath;
+        this.date = date;
+        this.location = location;
+        this.capacity = capacity;
+        this.category = category;
+        this.reservations = new ArrayList<>();
     }
 
     public EventDTO(String name, CategoryEvent category, String location, LocalDate date) {
+        this.name = name;
+        this.category = category;
+        this.location = location;
+        this.date = date;
     }
 }

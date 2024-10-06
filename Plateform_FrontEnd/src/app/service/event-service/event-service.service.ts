@@ -121,29 +121,29 @@ export class EventService {
   }
 
   getEventById(id: number): Observable<DtoEvent> {
+    console.log("Fetching event with ID:", id);
     return this.http.get<DtoEvent>(`${this.apiUrl}/get/${id}`, { headers: this.getHeaders() });
   }
 
-  createEvent(event: DtoEvent, img: File | null): Observable<DtoEvent> {
-    const formData: FormData = new FormData();
 
-    formData.append('event', new Blob([JSON.stringify(event)], { type: 'application/json' }));
+  saveEvent(eventDTO: DtoEvent): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
 
-    if (img) {
-      formData.append('img', img);
-    }
-
-    return this.http.post<DtoEvent>(`${this.apiUrl}`, formData, { headers: this.getHeaders() });
+    return this.http.post<DtoEvent>(this.apiUrl, eventDTO,{ headers: this.getHeaders() } );
   }
 
 
-  updateEvent(id: number, formData: FormData): Observable<DtoEvent> {
-    return this.http.put<DtoEvent>(`${this.apiUrl}/${id}`, formData, { headers: this.getHeaders() });
+  updateEvent(id: number, eventDTO: DtoEvent): Observable<DtoEvent> {
+    return this.http.put<DtoEvent>(`${this.apiUrl}/${id}`, eventDTO , { headers: this.getHeaders() });
   }
 
-  deleteEvent(id: number ): Observable<void> {
+  deleteEvent(id: number): Observable<void> {
+    console.log("Deleting event with ID:", id); // Debugging line
     return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
   }
+
 
   filterEvents(filterData: any): Observable<DtoEvent[]> {
     return this.http.get<DtoEvent[]>(`${this.apiUrl}/filter`, { headers: this.getHeaders(), params: filterData });
@@ -160,5 +160,19 @@ export class EventService {
 
   bookEvent(bookingData: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/event`, bookingData);
+  }
+
+  public loadAndDeleteEvent(eventId: number): void {
+    this.getEventById(eventId).subscribe(event => {
+      if (event && event.id) {
+        this.deleteEvent(event.id).subscribe(() => {
+          console.log(`Deleted event with ID: ${event.id}`);
+        });
+      } else {
+        console.error("Event not found or ID is undefined");
+      }
+    }, error => {
+      console.error("Error fetching event by ID:", error);
+    });
   }
 }

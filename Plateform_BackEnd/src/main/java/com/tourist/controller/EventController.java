@@ -64,18 +64,7 @@ public class EventController {
     @PreAuthorize("hasRole('Admin')")
     public ResponseEntity<Event> updateEvent(
             @PathVariable Long id,
-            @RequestParam("name") String name,
-            @RequestParam("description") String description,
-            @RequestParam("date") LocalDate date,
-            @RequestParam("location") String location,
-            @RequestParam("capacity") Integer capacity,
-            @RequestParam("category") CategoryEvent category,
-            @RequestParam(value = "img", required = false) MultipartFile img,
-            @RequestParam(value = "reservations", required = false) List<ReservationDTO> reservations) throws IOException {
-
-        String imgPath = (img != null) ? eventService.saveImage(img) : null;
-        EventDTO eventDTO = new EventDTO(name, description, imgPath, date, location, capacity, category, reservations);
-
+            @RequestBody EventDTO eventDTO) {
         Event updatedEvent = eventService.updateEvent(id, eventDTO);
         return ResponseEntity.ok(updatedEvent);
     }
@@ -109,7 +98,11 @@ public class EventController {
             @RequestParam(required = false) CategoryEvent category,
             @RequestParam(required = false) String location,
             @RequestParam(required = false) LocalDate date) {
+
         List<Event> eventList = eventService.search(category, location, date);
+        if (eventList.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.ok(eventList);
     }
 

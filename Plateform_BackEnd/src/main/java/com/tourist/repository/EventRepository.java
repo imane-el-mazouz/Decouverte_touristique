@@ -13,7 +13,11 @@ import java.util.List;
 @Repository
 public interface EventRepository extends JpaRepository <Event , Long> {
 
-    List<Event> findEventByCategoryOrLocationOrDate(CategoryEvent category, String location, LocalDate date);
+    List<Event> findEventByCategoryOrLocationOrDate(
+            CategoryEvent category,
+            String location,
+            LocalDate date);
+
 
     List<Event> findAllByPriceBetweenAndRatingBetweenAndDistanceLessThan(
             Double minPrice, Double maxPrice,

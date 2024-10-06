@@ -4,7 +4,6 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Id</th>
       <th>Name</th>
       <th>Description</th>
       <th>Location</th>
@@ -20,7 +19,6 @@
     </thead>
     <tbody>
     <tr *ngFor="let event of events">
-      <td>{{ event.id }}</td>
       <td>{{ event.name }}</td>
       <td>{{ event.description }}</td>
       <td>{{ event.location }}</td>
@@ -36,7 +34,7 @@
 
       <td>
         <button class="btn btn-warning" (click)="editEvent(event)">Edit</button>
-        <button class="btn btn-danger" (click)="onDeleteEvent(event.id)">Delete</button>
+        <button (click)="deleteEvent(event.id)">Delete</button>
         <button class="btn btn-success" (click)="showBookingForm(event)">Book</button>
       </td>
     </tr>
@@ -64,7 +62,6 @@
     </div>
   </div>
 
-  <!-- Edit form (visible only in edit mode) -->
   <div *ngIf="editMode" class="edit-form">
     <h3>Edit Event</h3>
     <form [formGroup]="eventForm" (ngSubmit)="updateEvent()">
@@ -77,8 +74,8 @@
         <textarea formControlName="description" id="description" class="form-control"></textarea>
       </div>
       <div class="form-group">
-        <label for="file">Upload Image</label>
-        <input type="file" id="file" (change)="onFileChange($event)" class="form-control" />
+        <label for="imgPath">Upload Image</label>
+        <input formControlName="imgPath" id="imgPath" type="text" class="form-control"  />
       </div>
       <div class="form-group">
         <label for="location">Location</label>
@@ -110,11 +107,11 @@
           <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-success">Save</button>
+      <button type="submit" class="btn btn-success" (click)="updateEvent()">Save</button>
       <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
     </form>
   </div>
 </div>
 
-<app-event-form-component></app-event-form-component>
+<app-event-form-component (eventAdded)="onEventAdded($event)"></app-event-form-component>
 <app-event-search-filter></app-event-search-filter>

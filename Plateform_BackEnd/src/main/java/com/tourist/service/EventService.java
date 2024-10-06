@@ -71,21 +71,20 @@ public class EventService {
     }
 
     public Event updateEvent(Long id, EventDTO eventDTO) {
-        Event event = eventRepository.findById(id)
-                .orElseThrow(() -> new EventNotFoundException("Event not found with ID: " + id));
+        Event existingEvent = eventRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Event not found with id: " + id));
 
-        event.setName(eventDTO.getName());
-        event.setDescription(eventDTO.getDescription());
-        event.setImgPath(eventDTO.getImgPath());
-        event.setDate(eventDTO.getDate());
-        event.setLocation(eventDTO.getLocation());
-        event.setCapacity(eventDTO.getCapacity());
-        event.setPrice(eventDTO.getPrice());
-        event.setRating(eventDTO.getRating());
-        event.setDistance(eventDTO.getDistance());
-        event.setCategory(eventDTO.getCategory());
+        existingEvent.setName(eventDTO.getName());
+        existingEvent.setDescription(eventDTO.getDescription());
+        existingEvent.setImgPath(eventDTO.getImgPath());
+        existingEvent.setDate(eventDTO.getDate());
+        existingEvent.setLocation(eventDTO.getLocation());
+        existingEvent.setCapacity(eventDTO.getCapacity());
+        existingEvent.setPrice(eventDTO.getPrice());
+        existingEvent.setRating(eventDTO.getRating());
+        existingEvent.setDistance(eventDTO.getDistance());
 
-        return eventRepository.save(event);
+        return eventRepository.save(existingEvent);
     }
 
 
@@ -98,7 +97,7 @@ public class EventService {
     }
 
     public List<Event> search(CategoryEvent category, String location, LocalDate date) {
-        return eventRepository.findEventByCategoryOrLocationOrDate(category, location, LocalDate.from(date));
+        return eventRepository.findEventByCategoryOrLocationOrDate(category, location, date);
     }
 
    private static final String UPLOADED_FOLDER = "src/main/resources/img/";
