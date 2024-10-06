@@ -85,26 +85,35 @@ public class EventController {
 
 
 
-    @GetMapping("/filter")
+    @PostMapping("/filter")
     @PreAuthorize("hasRole('Client') or hasRole('Admin')")
     public ResponseEntity<List<Event>> filterEvents(EventFilterDTO filterDTO) {
         List<Event> filteredEvents = eventService.filterEvents(filterDTO);
         return ResponseEntity.ok(filteredEvents);
     }
 
-    @GetMapping("/search")
-    @PreAuthorize("hasRole('Client') or hasRole('Admin')")
-    public ResponseEntity<List<Event>> searchEvents(
-            @RequestParam(required = false) CategoryEvent category,
-            @RequestParam(required = false) String location,
-            @RequestParam(required = false) LocalDate date) {
+//    @GetMapping("/search")
+//    @PreAuthorize("hasRole('Client') or hasRole('Admin')")
+//    public ResponseEntity<List<Event>> searchEvents(
+//            @RequestParam(required = false) CategoryEvent category,
+//            @RequestParam(required = false) String location,
+//            @RequestParam(required = false) LocalDate date) {
+//
+//        List<Event> eventList = eventService.search(category, location, date);
+//        if (eventList.isEmpty()) {
+//            return ResponseEntity.noContent().build();
+//        }
+//        return ResponseEntity.ok(eventList);
+//    }
+@GetMapping("/search")
+public ResponseEntity<List<Event>> searchEvents(
+        @RequestParam(required = false) String name,
+        @RequestParam(required = false) String category,
+        @RequestParam(required = false) Double maxDistance) {
 
-        List<Event> eventList = eventService.search(category, location, date);
-        if (eventList.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(eventList);
-    }
+    List<Event> events = eventService.searchEvents(name, category, maxDistance);
+    return ResponseEntity.ok(events);
+}
 
     @GetMapping("/all")
     @PreAuthorize("hasRole('Client') or hasRole('Admin')")

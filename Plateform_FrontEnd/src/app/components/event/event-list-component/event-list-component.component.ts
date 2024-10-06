@@ -272,18 +272,6 @@ export class EventListComponentComponent implements OnInit {
     });
   }
 
-  editEvent(event: DtoEvent): void {
-    this.selectedEvent = event;
-    this.editMode = true;
-    this.eventForm.patchValue(event);
-  }
-
-  cancelEdit(): void {
-    this.selectedEvent = undefined;
-    this.editMode = false;
-    this.eventForm.reset();
-    this.fileToUpload = null;
-  }
 
   onFileChange(event: any): void {
     const file = event.target.files[0];
@@ -302,7 +290,7 @@ export class EventListComponentComponent implements OnInit {
   bookEvent(): void {
     if (this.bookingForm.valid && this.selectedEvent) {
       const bookingData = {
-        eventId: this.selectedEvent.id,
+        eventId: this.selectedEvent.idEvent,
         numberOfPerson: this.bookingForm.get('numberOfPerson')?.value,
         dateTime: this.bookingForm.get('dateTime')?.value
       };
@@ -323,34 +311,56 @@ export class EventListComponentComponent implements OnInit {
     this.events.push(newEvent);
   }
 
-  deleteEvent(eventId: number): void {
+  deleteEvent(eventId: number | undefined | null): void {
     if (!eventId) {
-      console.error("Event ID is undefined or null");
-      return; // Exit if event ID is not valid
+      console.error("Cannot delete event with undefined or null ID");
+      return;
     }
 
-    console.log("Attempting to delete event with ID:", eventId);
-    this.eventService.deleteEvent(eventId).subscribe(() => {
-      console.log(`Deleted event with ID: ${eventId}`);
-      this.loadEvents(); // Refresh the event list after deletion
-    }, error => {
-      console.error("Error deleting event:", error);
-    });
+    this.eventService.deleteEvent(eventId).subscribe(
+      () => {
+        console.log(`Event with ID ${eventId} deleted successfully.`);
+        this.loadEvents();
+      },
+      (error) => {
+        console.error("Error deleting event:", error);
+      }
+    );
   }
 
   updateEvent(): void {
     if (this.eventForm.valid && this.selectedEvent) {
-      const updatedEvent: DtoEvent = { ...this.selectedEvent, ...this.eventForm.value };
-      this.eventService.updateEvent(this.selectedEvent.id, updatedEvent).subscribe({
-        next: (updatedEvent) => {
-          console.log('Événement mis à jour:', updatedEvent);
-          this.loadEvents(); // Refresh the event list after update
-          this.cancelEdit(); // Reset the form and exit edit mode
+      const updatedEvent: DtoEvent = {
+        ...this.selectedEvent,
+        ...this.eventForm.value // récupère les valeurs modifiées du formulaire
+      };
+
+      this.eventService.updateEvent(updatedEvent.idEvent, updatedEvent).subscribe({
+        next: () => {
+          console.log('Event updated successfully');
+          this.loadEvents(); // Recharge la liste des événements pour afficher les modifications
+          this.cancelEdit(); // Réinitialise le formulaire et sort du mode édition
         },
         error: (err) => {
-          console.error('Erreur lors de la mise à jour de l\'événement:', err);
+          console.error('Error updating event', err);
         }
       });
     }
   }
+
+  editEvent(event: DtoEvent): void {
+    this.selectedEvent = event;
+    this.editMode = true;
+    this.eventForm.patchValue(event);
+  }
+
+  cancelEdit(): void {
+    this.selectedEvent = undefined;
+    this.editMode = false;
+    this.eventForm.reset();
+  }
+  onSearchResults(results: DtoEvent[]): void {
+    this.events = results;
+  }
+
 }

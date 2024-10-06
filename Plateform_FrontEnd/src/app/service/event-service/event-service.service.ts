@@ -82,7 +82,7 @@
 //   }
 // }
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CategoryEvent } from '../../enums/category-event';
 import { DtoEvent } from '../../dto/eventDTO/dto-event';
@@ -135,44 +135,48 @@ export class EventService {
   }
 
 
-  updateEvent(id: number, eventDTO: DtoEvent): Observable<DtoEvent> {
-    return this.http.put<DtoEvent>(`${this.apiUrl}/${id}`, eventDTO , { headers: this.getHeaders() });
+  updateEvent(eventId: number, updatedEvent: DtoEvent): Observable<DtoEvent> {
+    return this.http.put<DtoEvent>(`${this.apiUrl}/${eventId}`, updatedEvent , {headers : this.getHeaders()});
   }
 
   deleteEvent(id: number): Observable<void> {
-    console.log("Deleting event with ID:", id); // Debugging line
-    return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
+    return this.http.delete<void>(`${this.apiUrl}/${id}` ,{ headers: this.getHeaders()});
   }
-
 
   filterEvents(filterData: any): Observable<DtoEvent[]> {
     return this.http.get<DtoEvent[]>(`${this.apiUrl}/filter`, { headers: this.getHeaders(), params: filterData });
   }
 
-  searchEvents(category?: CategoryEvent, location?: string, date?: Date): Observable<DtoEvent[]> {
-    let params: any = {};
-    if (category) params.category = category;
-    if (location) params.location = location;
-    if (date) params.date = date.toISOString().split('T')[0];
+  // searchEvents(category?: CategoryEvent, location?: string, date?: Date): Observable<DtoEvent[]> {
+  //   let params: any = {};
+  //   if (category) params.category = category;
+  //   if (location) params.location = location;
+  //   if (date) params.date = date.toISOString().split('T')[0];
+  //
+  //   return this.http.get<DtoEvent[]>(`${this.apiUrl}/search`, { headers: this.getHeaders(), params });
+  // }
+  searchEvents(name: string, category: string, distance: number): Observable<DtoEvent[]> {
+    let params = new HttpParams();
 
-    return this.http.get<DtoEvent[]>(`${this.apiUrl}/search`, { headers: this.getHeaders(), params });
+    if (name) {
+      params = params.set('name', name);
+    }
+    if (category) {
+      params = params.set('category', category);
+    }
+    if (distance) {
+      params = params.set('maxDistance', distance.toString());
+    }
+
+    return this.http.get<DtoEvent[]>(`${this.apiUrl}/search`, {
+      headers: this.getHeaders(),
+      params: params
+    });
   }
 
   bookEvent(bookingData: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/event`, bookingData);
+    return this.http.post(`${this.apiUrl}/event`, bookingData ,{ headers: this.getHeaders()});
   }
 
-  public loadAndDeleteEvent(eventId: number): void {
-    this.getEventById(eventId).subscribe(event => {
-      if (event && event.id) {
-        this.deleteEvent(event.id).subscribe(() => {
-          console.log(`Deleted event with ID: ${event.id}`);
-        });
-      } else {
-        console.error("Event not found or ID is undefined");
-      }
-    }, error => {
-      console.error("Error fetching event by ID:", error);
-    });
-  }
+
 }

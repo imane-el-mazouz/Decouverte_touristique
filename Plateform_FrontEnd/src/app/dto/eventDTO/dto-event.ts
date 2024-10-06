@@ -1,7 +1,7 @@
 import { CategoryEvent } from "../../enums/category-event";
 
 export interface DtoEvent {
-  id: number;
+  idEvent: number;
   name: string;
   description: string;
   imgPath: string;

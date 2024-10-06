@@ -2,7 +2,7 @@ import {CategoryEvent} from "../../enums/category-event";
 import {Reservation} from "../reservation/reservation";
 
 export class Event {
-  id !: number ;
+  idEvent !: number ;
   name !: string ;
   description !: string ;
   imgPath !: string ;

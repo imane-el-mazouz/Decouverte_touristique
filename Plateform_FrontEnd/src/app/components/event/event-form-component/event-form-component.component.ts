@@ -19,7 +19,7 @@ import { NgForOf } from "@angular/common";
 export class EventFormComponentComponent implements OnInit {
   @Output() eventAdded = new EventEmitter<DtoEvent>();
   event: DtoEvent = {
-    id: 0,
+    idEvent: 0,
     name: '',
     description: '',
     imgPath: '',
@@ -54,7 +54,7 @@ export class EventFormComponentComponent implements OnInit {
 
   resetForm() {
     this.event = {
-      id: 0,
+      idEvent: 0,
       name: '',
       description: '',
       imgPath: '',

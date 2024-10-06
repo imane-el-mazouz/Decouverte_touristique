@@ -5,18 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e3fd31-8393-44c8-8caf-2d681d6d67dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/controller/EventController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/EventDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/dto/EventDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/EventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/repository/EventRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_BackEnd/src/main/java/com/tourist/service/EventService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-form-component/event-form-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-form-component/event-form-component.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-form-component/event-form-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-form-component/event-form-component.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-list-component/event-list-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-list-component/event-list-component.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-list-component/event-list-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-list-component/event-list-component.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-search-filter.component.ts/event-search-filter.component.ts.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-search-filter.component.ts/event-search-filter.component.ts.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-search-filter.component.ts/event-search-filter.component.ts.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/event/event-search-filter.component.ts/event-search-filter.component.ts.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/components/hotel-management-component/hotel-management-component.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/eventDTO/dto-event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/dto/eventDTO/dto-event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/event/event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/model/event/event.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/event-service/event-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Plateform_FrontEnd/src/app/service/event-service/event-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/beach_hociema.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +307,7 @@
       <workItem from="1727950498037" duration="10042000" />
       <workItem from="1727967985551" duration="4923000" />
       <workItem from="1727990349610" duration="14619000" />
-      <workItem from="1728216442338" duration="9988000" />
+      <workItem from="1728216442338" duration="14062000" />
     </task>
     <servers />
   </component>

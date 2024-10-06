@@ -235,8 +235,8 @@ export class HotelManagementComponent implements OnInit {
   getRoomById(roomId: number): void {
     this.hotelService.getRoomById(roomId).subscribe({
       next: (room) => {
-        this.editRoom = room;  // Assigner les données récupérées à editRoom
-        this.showRoomForm = true; // Afficher le formulaire pour l'édition
+        this.editRoom = room;
+        this.showRoomForm = true;
       },
       error: (error) => {
         console.error('Error fetching room', error);
@@ -273,8 +273,8 @@ export class HotelManagementComponent implements OnInit {
       }).subscribe({
         next: () => {
           console.log('Room updated successfully');
-          this.loadRooms(this.selectedHotelId!);  // Recharger les chambres après la mise à jour
-          this.resetRoomForm(); // Réinitialiser le formulaire après la mise à jour
+          this.loadRooms(this.selectedHotelId!);
+          this.resetRoomForm();
         },
         error: (error) => {
           console.error('Error updating room', error);

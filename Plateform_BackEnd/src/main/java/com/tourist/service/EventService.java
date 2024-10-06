@@ -9,6 +9,7 @@ import com.tourist.model.Event;
 import com.tourist.repository.EventRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -96,8 +97,30 @@ public class EventService {
         );
     }
 
-    public List<Event> search(CategoryEvent category, String location, LocalDate date) {
-        return eventRepository.findEventByCategoryOrLocationOrDate(category, location, date);
+//    public List<Event> search(CategoryEvent category, String location, LocalDate date) {
+//        return eventRepository.findEventByCategoryOrLocationOrDate(category, location, date);
+//    }
+public List<Event> searchEvents(String name, String category, Double maxDistance) {
+    return eventRepository.findAll(
+            Specification.where(hasName(name))
+                    .and(hasCategory(category))
+                    .and(isWithinDistance(maxDistance))
+    );
+}
+
+    private Specification<Event> hasName(String name) {
+        return (root, query, criteriaBuilder) ->
+                name != null ? criteriaBuilder.like(root.get("name"), "%" + name + "%") : criteriaBuilder.conjunction();
+    }
+
+    private Specification<Event> hasCategory(String category) {
+        return (root, query, criteriaBuilder) ->
+                category != null ? criteriaBuilder.equal(root.get("category"), category) : criteriaBuilder.conjunction();
+    }
+
+    private Specification<Event> isWithinDistance(Double maxDistance) {
+        return (root, query, criteriaBuilder) ->
+                maxDistance != null ? criteriaBuilder.lessThanOrEqualTo(root.get("distance"), maxDistance) : criteriaBuilder.conjunction();
     }
 
    private static final String UPLOADED_FOLDER = "src/main/resources/img/";
