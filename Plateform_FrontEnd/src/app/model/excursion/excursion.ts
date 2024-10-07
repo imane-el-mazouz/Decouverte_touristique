@@ -1,7 +1,7 @@
 import {Reservation} from "../reservation/reservation";
 
 export class Excursion {
-    id !: number ;
+    idExcursion !: number ;
     name !: string ;
     description !: string ;
     imgPath !: string ;

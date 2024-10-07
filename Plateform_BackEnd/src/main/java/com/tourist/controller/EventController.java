@@ -85,11 +85,18 @@ public class EventController {
 
 
 
-    @PostMapping("/filter")
+//    @PostMapping("/filter")
+//    @PreAuthorize("hasRole('Client') or hasRole('Admin')")
+//    public ResponseEntity<List<Event>> filterEvents(EventFilterDTO filterDTO) {
+//        List<Event> filteredEvents = eventService.filterEvents(filterDTO);
+//        return ResponseEntity.ok(filteredEvents);
+//    }
+
+    @GetMapping("/filter")
     @PreAuthorize("hasRole('Client') or hasRole('Admin')")
     public ResponseEntity<List<Event>> filterEvents(EventFilterDTO filterDTO) {
-        List<Event> filteredEvents = eventService.filterEvents(filterDTO);
-        return ResponseEntity.ok(filteredEvents);
+        List<Event> events = eventService.getEventsByFilter(filterDTO);
+        return ResponseEntity.ok(events);
     }
 
 //    @GetMapping("/search")
@@ -105,7 +112,9 @@ public class EventController {
 //        }
 //        return ResponseEntity.ok(eventList);
 //    }
+
 @GetMapping("/search")
+@PreAuthorize("hasRole('Client') or hasRole('Admin')")
 public ResponseEntity<List<Event>> searchEvents(
         @RequestParam(required = false) String name,
         @RequestParam(required = false) String category,

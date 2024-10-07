@@ -4,6 +4,7 @@ import { ExcursionService } from "../../../service/excursion-service/excursion-s
 import { DtoExcursion } from "../../../dto/excursionDTO/dto-excursion";
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {AddExcursionComponentComponent} from "../add-excursion-component/add-excursion-component.component";
+import {Excursion} from "../../../model/excursion/excursion";
 
 @Component({
   selector: 'app-list-excursions-component',
@@ -85,18 +86,10 @@ export class ListExcursionsComponentComponent implements OnInit {
     );
   }
 
-  onDelete(id: number): void {
-    this.excursionService.deleteExcursion(id).subscribe(
-      () => {
-        console.log('Excursion deleted!');
-        this.loadExcursions();
-      },
-      error => console.error('Error deleting excursion', error)
-    );
-  }
+
 
   onBook(id: number): void {
-    this.selectedExcursion = this.excursions.find(excursion => excursion.id === id) || null;
+    this.selectedExcursion = this.excursions.find(excursion => excursion.idExcursion === id) || null;
   }
 
   onConfirmBooking(): void {
@@ -106,5 +99,22 @@ export class ListExcursionsComponentComponent implements OnInit {
       this.bookingForm.reset();
       this.selectedExcursion = null;
     }
+  }
+
+  deleteExcursion(id: number) {
+    if (confirm('Are you sure you want to delete this excursion?')) {
+      this.excursionService.deleteExcursion(id).subscribe({
+        next: () => {
+          this.excursions = this.excursions.filter(excursion => excursion.idExcursion !== id);
+        },
+        error: (err) => {
+          console.error('Error deleting excursion', err);
+        }
+      });
+    }
+  }
+
+  onExcursionAdded(excursion: DtoExcursion) {
+    this.excursions.push(excursion);
   }
 }

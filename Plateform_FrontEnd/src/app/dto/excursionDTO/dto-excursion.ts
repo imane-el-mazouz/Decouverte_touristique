@@ -1,7 +1,7 @@
 import {Excursion} from "../../model/excursion/excursion";
 
 export class DtoExcursion {
-  id !: number ;
+  idExcursion !: number ;
   name !: string ;
   description !: string ;
   imgPath !: string ;

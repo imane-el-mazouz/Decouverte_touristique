@@ -5,6 +5,8 @@ import com.tourist.model.Event;
 import jdk.jfr.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -19,9 +21,22 @@ public interface EventRepository extends JpaRepository<Event, Long>, JpaSpecific
             LocalDate date);
 
 
-    List<Event> findAllByPriceBetweenAndRatingBetweenAndDistanceLessThan(
-            Double minPrice, Double maxPrice,
-            Integer minRating, Integer maxRating,
-            Double maxDistance
-    );
+//    List<Event> findAllByPriceBetweenAndRatingBetweenAndDistanceLessThan(
+//            Double minPrice, Double maxPrice,
+//            Integer minRating, Integer maxRating,
+//            Double maxDistance
+//    );
+@Query("SELECT e FROM Event e WHERE " +
+        "(:minPrice IS NULL OR e.price >= :minPrice) AND " +
+        "(:maxPrice IS NULL OR e.price <= :maxPrice) AND " +
+        "(:minRating IS NULL OR e.rating >= :minRating) AND " +
+        "(:maxRating IS NULL OR e.rating <= :maxRating) AND " +
+        "(:maxDistance IS NULL OR e.distance <= :maxDistance)")
+List<Event> findEventsByCriteria(
+        @Param("minPrice") Double minPrice,
+        @Param("maxPrice") Double maxPrice,
+        @Param("minRating") Integer minRating,
+        @Param("maxRating") Integer maxRating,
+        @Param("maxDistance") Double maxDistance
+);
 }

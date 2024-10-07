@@ -89,10 +89,21 @@ public class EventService {
     }
 
 
-    public List<Event> filterEvents(EventFilterDTO filterDTO) {
-        return eventRepository.findAllByPriceBetweenAndRatingBetweenAndDistanceLessThan(
-                filterDTO.getMinPrice(), filterDTO.getMaxPrice(),
-                filterDTO.getMinRating(), filterDTO.getMaxRating(),
+//    public List<Event> filterEvents(EventFilterDTO filterDTO) {
+//        return eventRepository.findAllByPriceBetweenAndRatingBetweenAndDistanceLessThan(
+//                filterDTO.getMinPrice(), filterDTO.getMaxPrice(),
+//                filterDTO.getMinRating(), filterDTO.getMaxRating(),
+//                filterDTO.getMaxDistance()
+//        );
+//    }
+
+
+    public List<Event> getEventsByFilter(EventFilterDTO filterDTO) {
+        return eventRepository.findEventsByCriteria(
+                filterDTO.getMinPrice(),
+                filterDTO.getMaxPrice(),
+                filterDTO.getMinRating(),
+                filterDTO.getMaxRating(),
                 filterDTO.getMaxDistance()
         );
     }

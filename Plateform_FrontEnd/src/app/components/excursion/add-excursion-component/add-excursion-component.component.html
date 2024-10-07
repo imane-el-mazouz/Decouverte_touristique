@@ -1,30 +1,47 @@
 <div class="container">
   <h2>Add Excursion</h2>
-  <form [formGroup]="excursionForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input id="name" formControlName="name" class="form-control" />
+  <form [formGroup]="excursionForm" (ngSubmit)="addExcursion()">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" required />
+      <div *ngIf="excursionForm.get('name')?.invalid && (excursionForm.get('name')?.touched || excursionForm.get('name')?.dirty)">
+        <small>Name is required.</small>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <textarea id="description" formControlName="description" class="form-control"></textarea>
+
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
     </div>
-    <div class="form-group">
-      <label for="img">Image</label>
-      <input id="img" type="file" (change)="onFileChange($event)" />
+
+    <div>
+      <label for="imgPath">Image Link:</label>
+      <input type="text" id="imgPath" formControlName="imgPath" required />
+      <div *ngIf="excursionForm.get('imgPath')?.invalid && (excursionForm.get('imgPath')?.touched || excursionForm.get('imgPath')?.dirty)">
+        <small>Image link is required.</small>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="dateTime">Date and Time</label>
-      <input id="dateTime" type="datetime-local" formControlName="dateTime" class="form-control" />
+
+    <div>
+      <label for="dateTime">Date and Time:</label>
+      <input type="datetime-local" id="dateTime" formControlName="dateTime" required />
     </div>
-    <div class="form-group">
-      <label for="location">Location</label>
-      <input id="location" formControlName="location" class="form-control" />
+
+    <div>
+      <label for="location">Location:</label>
+      <input id="location" formControlName="location" required />
     </div>
-    <div class="form-group">
-      <label for="capacity">Capacity</label>
-      <input id="capacity" formControlName="capacity" type="number" class="form-control" />
+
+    <div>
+      <label for="capacity">Capacity:</label>
+      <input type="number" id="capacity" formControlName="capacity" required min="1" />
     </div>
-    <button type="submit" class="btn btn-primary">Add Excursion</button>
+
+    <div>
+      <label for="rating">Rating:</label>
+      <input type="number" id="rating" formControlName="rating" required min="1" max="5" />
+    </div>
+
+    <button type="submit" [disabled]="excursionForm.invalid">Add Excursion</button>
   </form>
 </div>

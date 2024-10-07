@@ -58,3 +58,40 @@
 
   <button type="submit" class="btn btn-primary">Search</button>
 </form>
+
+
+<form [formGroup]="filterForm" (ngSubmit)="onFilter()">
+  <div>
+    <label for="minPrice">Min price:</label>
+    <input id="minPrice" formControlName="minPrice" type="number">
+  </div>
+
+  <div>
+    <label for="maxPrice">Max Price:</label>
+    <input id="maxPrice" formControlName="maxPrice" type="number">
+  </div>
+
+  <div>
+    <label for="minRating">Min rating:</label>
+    <input id="minRating" formControlName="minRating" type="number">
+  </div>
+
+  <div>
+    <label for="maxRating">Max rating:</label>
+    <input id="maxRating" formControlName="maxRating" type="number">
+  </div>
+
+  <div>
+    <label for="maxDistance">Max Distance:</label>
+    <input id="maxDistance" formControlName="maxDistance" type="number">
+  </div>
+
+  <button type="submit">Filter</button>
+</form>
+
+<!--<div *ngIf="events.length > 0">-->
+<!--  <h3>Résultats des événements filtrés:</h3>-->
+<!--  <ul>-->
+<!--    <li *ngFor="let event of events">{{ event.name }} - {{ event.price }}€ - {{ event.rating }} étoiles</li>-->
+<!--  </ul>-->
+<!--</div>-->

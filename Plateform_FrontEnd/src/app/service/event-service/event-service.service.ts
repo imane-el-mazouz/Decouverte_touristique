@@ -86,6 +86,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CategoryEvent } from '../../enums/category-event';
 import { DtoEvent } from '../../dto/eventDTO/dto-event';
+import {EventFilterDTO} from "../../dto/event-filter.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -143,10 +144,6 @@ export class EventService {
     return this.http.delete<void>(`${this.apiUrl}/${id}` ,{ headers: this.getHeaders()});
   }
 
-  filterEvents(filterData: any): Observable<DtoEvent[]> {
-    return this.http.get<DtoEvent[]>(`${this.apiUrl}/filter`, { headers: this.getHeaders(), params: filterData });
-  }
-
   // searchEvents(category?: CategoryEvent, location?: string, date?: Date): Observable<DtoEvent[]> {
   //   let params: any = {};
   //   if (category) params.category = category;
@@ -178,5 +175,30 @@ export class EventService {
     return this.http.post(`${this.apiUrl}/event`, bookingData ,{ headers: this.getHeaders()});
   }
 
+  getFilteredEvents(filters: any): Observable<DtoEvent[]> {
+    let params = new HttpParams();
+
+    if (filters.minPrice != null) {
+      params = params.set('minPrice', filters.minPrice);
+    }
+    if (filters.maxPrice != null) {
+      params = params.set('maxPrice', filters.maxPrice);
+    }
+    if (filters.minRating != null) {
+      params = params.set('minRating', filters.minRating);
+    }
+    if (filters.maxRating != null) {
+      params = params.set('maxRating', filters.maxRating);
+    }
+    if (filters.maxDistance != null) {
+      params = params.set('maxDistance', filters.maxDistance);
+    }
+
+    // Assure-toi que tu as bien spécifié que le retour est un tableau de DtoEvent
+    return this.http.get<DtoEvent[]>(`${this.apiUrl}/filter`, {
+      params,
+      headers: this.getHeaders() // Utilisation de tes headers
+    });
+  }
 
 }

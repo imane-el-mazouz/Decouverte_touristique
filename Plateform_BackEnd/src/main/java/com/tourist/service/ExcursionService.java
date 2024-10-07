@@ -6,13 +6,7 @@ import com.tourist.repository.ExcursionRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,10 +15,6 @@ public class ExcursionService {
 
     @Autowired
     private ExcursionRepository excursionRepository;
-
-    private static final String IMAGE_DIRECTORY = "/img2";
-
-
 
     public Excursion saveExcursion(ExcursionDTO excursionDTO) {
         Excursion excursion = new Excursion();
@@ -37,40 +27,6 @@ public class ExcursionService {
         excursion.setRating(excursionDTO.getRating());
 
         return excursionRepository.save(excursion);
-    }
-
-
-    //    private String saveImage(MultipartFile imgFile) throws IOException {
-//        if (imgFile == null || imgFile.isEmpty()) {
-//            return null;
-//        }
-//
-//        String imgName = System.currentTimeMillis() + "_" + imgFile.getOriginalFilename();
-//        Path path = Paths.get(IMAGE_DIRECTORY, imgName);
-//        Files.write(path, imgFile.getBytes());
-//
-//        return imgName;
-//    }
-//public String saveImage(MultipartFile imgFile) throws IOException {
-//    if (imgFile == null || imgFile.isEmpty()) {
-//        return null;
-//    }
-//    Path directoryPath = Paths.get(IMAGE_DIRECTORY);
-//    if (!Files.exists(directoryPath)) {
-//        Files.createDirectories(directoryPath);
-//    }
-//
-//    String imgName = System.currentTimeMillis() + "_" + imgFile.getOriginalFilename();
-//    Path path = directoryPath.resolve(imgName);
-//    Files.write(path, imgFile.getBytes());
-//
-//    return imgName;
-//}
-    public String saveImage(MultipartFile img) throws IOException {
-        String imgPath = "/src/main/resources/img2/" + img.getOriginalFilename();
-        Path path = Paths.get(imgPath);
-        Files.write(path, img.getBytes());
-        return imgPath;
     }
 
 
@@ -116,6 +72,9 @@ public class ExcursionService {
         Excursion excursion = getExcursionById(id);
         excursionRepository.delete(excursion);
     }
+
+
+
 }
 
 

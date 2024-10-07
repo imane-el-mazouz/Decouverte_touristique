@@ -25,7 +25,6 @@
     <button type="submit" class="btn btn-primary">Filter</button>
   </form>
 
-  <!-- Excursions Table -->
   <table class="table">
     <thead>
     <tr>
@@ -43,15 +42,17 @@
     <tr *ngFor="let excursion of excursions">
       <td>{{ excursion.name }}</td>
       <td>{{ excursion.description }}</td>
-      <td>{{ excursion.imgPath }}</td>
+      <td>
+        <img [src]="excursion.imgPath" alt="{{ excursion.name }}" width="100" height="auto" />
+      </td>
       <td>{{ excursion.dateTime | date:'short' }}</td>
       <td>{{ excursion.location }}</td>
       <td>{{ excursion.capacity }}</td>
       <td>{{ excursion.rating }}</td>
       <td>
-        <button (click)="onUpdate(excursion.id, excursion)" class="btn btn-warning">Update</button>
-        <button (click)="onDelete(excursion.id)" class="btn btn-danger">Delete</button>
-        <button (click)="onBook(excursion.id)" class="btn btn-primary">Book</button>
+        <button (click)="onUpdate(excursion.idExcursion, excursion)" class="btn btn-warning">Update</button>
+        <button (click)="deleteExcursion(excursion.idExcursion)">Delete</button>
+        <button (click)="onBook(excursion.idExcursion)" class="btn btn-primary">Book</button>
       </td>
     </tr>
     </tbody>
@@ -73,4 +74,4 @@
   </div>
 </div>
 
-<app-add-excursion-component></app-add-excursion-component>
+<app-add-excursion-component (excursionAdded)="onExcursionAdded($event)"></app-add-excursion-component>

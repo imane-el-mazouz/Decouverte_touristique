@@ -1,61 +1,37 @@
 package com.tourist.controller;
 
 import com.tourist.dto.ExcursionDTO;
+import com.tourist.mapper.ExcursionMapper;
 import com.tourist.model.Excursion;
 import com.tourist.service.ExcursionService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/excursion")
 @CrossOrigin("*")
 public class ExcursionController {
-    private static final Logger logger = LoggerFactory.getLogger(ExcursionController.class);
 
-    @Autowired
-    private ExcursionService excursionService;
+    private final ExcursionService excursionService;
+    private final ExcursionMapper excursionMapper;
 
-
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<?> addExcursion(
-            @RequestPart("excursionDTO") ExcursionDTO excursionDTO, // JSON part
-            @RequestPart(value = "img", required = false) MultipartFile img // File part
-    ) {
-        try {
-            // Handle image upload
-            if (img != null && !img.isEmpty()) {
-                String imgPath = excursionService.saveImage(img);
-                excursionDTO.setImgPath(imgPath);
-            }
-
-            // Save the excursion using the DTO
-            Excursion excursion = excursionService.saveExcursion(excursionDTO);
-            return ResponseEntity.ok(excursion);
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing image");
-        }
+    public ExcursionController(ExcursionMapper excursionMapper , ExcursionService excursionService) {
+        this.excursionMapper = excursionMapper;
+        this.excursionService = excursionService;
     }
 
-
-
+    @PostMapping
+    @PreAuthorize("hasRole('Admin')")
+    public ResponseEntity<Excursion> createExcursion(@RequestBody ExcursionDTO excursionDTO) {
+        Excursion savedExcursion = excursionService.saveExcursion(excursionDTO);
+        return ResponseEntity.ok(savedExcursion);
+    }
 
 
     @GetMapping("/all")

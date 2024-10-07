@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 import { CategoryEvent } from '../../../enums/category-event';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
@@ -18,19 +18,32 @@ import {DatePipe, NgForOf, NgIf} from "@angular/common";
   ],
   styleUrls: ['./event-search-filter.component.ts.component.css']
 })
-export class EventSearchFilterComponent {
+export class EventSearchFilterComponent implements OnInit{
   @Output() searchResults = new EventEmitter<DtoEvent[]>();
   events: DtoEvent[] = [];
   categories = Object.values(CategoryEvent);
-  searchFilterForm: FormGroup;
+  // searchFilterForm: FormGroup;
   searchForm: FormGroup ;
+  filterForm!: FormGroup;
+
+  ngOnInit(): void {
+    this.filterForm = this.fb.group({
+        minPrice: [null],
+        maxPrice: [null],
+        minRating: [null],
+        maxRating: [null],
+        maxDistance: [null]
+      }
+
+    )
+  }
 
   constructor(private eventService: EventService, private fb: FormBuilder) {
-    this.searchFilterForm = this.fb.group({
-      category: [''],
-      location: [''],
-      date: ['']
-    });
+    // this.searchFilterForm = this.fb.group({
+    //   category: [''],
+    //   location: [''],
+    //   date: ['']
+    // });
     this.searchForm = this.fb.group({
       name: [''],
       category: [''],
@@ -70,4 +83,22 @@ export class EventSearchFilterComponent {
       }
     });
   }
+
+
+  onFilter(): void {
+    const filterValues = this.filterForm.value;
+
+    this.eventService.getFilteredEvents(filterValues).subscribe(
+      (events: DtoEvent[]) => {
+        this.searchResults.emit(events);
+        this.events = events;
+        console.log('Filtered events:', this.events);
+      },
+      (error) => {
+        console.error('Error fetching filtered events', error);
+      }
+    );
+  }
+
+
 }

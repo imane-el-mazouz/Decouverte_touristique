@@ -1,124 +1,60 @@
-// import {Component, OnInit} from '@angular/core';
-// import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-// import {ExcursionService} from "../../../service/excursion-service/excursion-service.service";
-//
-// @Component({
-//   selector: 'app-add-excursion-component',
-//   standalone: true,
-//   imports: [
-//     ReactiveFormsModule
-//   ],
-//   templateUrl: './add-excursion-component.component.html',
-//   styleUrl: './add-excursion-component.component.css'
-// })
-// export class AddExcursionComponentComponent {
-//   excursionForm: FormGroup;
-//
-//   constructor(
-//     private fb: FormBuilder,
-//     private excursionService: ExcursionService
-//   ) {
-//     this.excursionForm = this.fb.group({
-//       capacity: ['', Validators.required],
-//       name: ['', Validators.required],
-//       description: ['', Validators.required],
-//       dateTime: ['', Validators.required],
-//       location: ['', Validators.required],
-//       rating: [''],
-//     });
-//
-//   }
-//
-//   ngOnInit(): void {
-//         throw new Error('Method not implemented.');
-//     }
-//
-//   onFileChange(event: any) {
-//     if (event.target.files && event.target.files[0]) {
-//       const file = event.target.files[0];
-//       this.excursionForm.patchValue({
-//         imgPath: file
-//       });
-//     }
-//   }
-//
-//
-//   onSubmit() {
-//     if (this.excursionForm.valid) {
-//       const formData = new FormData();
-//       for (const key of Object.keys(this.excursionForm.value)) {
-//         formData.append(key, this.excursionForm.value[key]);
-//       }
-//
-//       if (this.excursionForm.get('imgPath')?.value) {
-//         formData.append('imgPath', this.excursionForm.get('imgPath')?.value);
-//       }
-//
-//       this.excursionService.addExcursion(formData).subscribe(
-//         (response: any) => console.log('Excursion added!', response),
-//         (error: any) => console.error('Error adding excursion', error)
-//       );
-//     }
-//   }
-//
-// }
-import { Component } from '@angular/core';
+
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { ExcursionService } from '../../../service/excursion-service/excursion-service.service';
+import {Router} from "@angular/router";
+import {NgIf} from "@angular/common";
+import {DtoExcursion} from "../../../dto/excursionDTO/dto-excursion";
 
 @Component({
   selector: 'app-add-excursion-component',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './add-excursion-component.component.html',
   styleUrl: './add-excursion-component.component.css'
 })
-export class AddExcursionComponentComponent {
+export class AddExcursionComponentComponent implements OnInit {
   excursionForm: FormGroup;
   selectedFile: File | null = null;
-
+  @Output() excursionAdded = new EventEmitter<DtoExcursion>();
   constructor(
     private fb: FormBuilder,
-    private excursionService: ExcursionService
+    private excursionService: ExcursionService,
+    private router: Router
+
   ) {
     this.excursionForm = this.fb.group({
-      capacity: ['', Validators.required],
       name: ['', Validators.required],
-      description: ['', Validators.required],
+      description: [''],
+      imgPath: ['', Validators.required],
       dateTime: ['', Validators.required],
       location: ['', Validators.required],
-      rating: [''],
-      imgPath: [null]
+      capacity: ['', [Validators.required, Validators.min(1)]],
+      rating: ['', [Validators.required, Validators.min(0), Validators.max(5)]]
     });
   }
 
-  onFileChange(event: any) {
-    if (event.target.files && event.target.files[0]) {
-      this.selectedFile = event.target.files[0]; // Assign the selected file
-    }
-  }
 
-  onSubmit() {
+  addExcursion() {
     if (this.excursionForm.valid) {
-      const formData = new FormData();
-
-      // Append form values to FormData
-      for (const key of Object.keys(this.excursionForm.value)) {
-        formData.append(key, this.excursionForm.value[key]);
-      }
-
-      // Append the selected file if available
-      if (this.selectedFile) {
-        formData.append('img', this.selectedFile); // 'img' matches @RequestPart in the backend
-      }
-
-      // Send formData to the service
-      this.excursionService.addExcursion(formData).subscribe(
-        (response: any) => console.log('Excursion added!', response),
-        (error: any) => console.error('Error adding excursion', error)
-      );
+      this.excursionService.addExcursion(this.excursionForm.value).subscribe({
+        next: (response) => {
+          this.excursionAdded.emit(response);
+          alert('Excursion added successfully!');
+        },
+        error: (err) => {
+          console.error('Error adding excursion', err);
+          alert('There was an error adding the excursion. Please try again.');
+        }
+      });
     }
   }
+
+
+  ngOnInit(): void {
+  }
+
 }

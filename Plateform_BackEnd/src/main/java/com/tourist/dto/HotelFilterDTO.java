@@ -11,4 +11,5 @@ public class HotelFilterDTO {
     private Long minRating;
     private Long maxRating;
 
+
 }

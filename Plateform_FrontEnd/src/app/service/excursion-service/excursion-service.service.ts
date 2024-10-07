@@ -36,8 +36,7 @@ export class ExcursionService {
   //     .pipe(catchError(this.handleError));
   // }
   addExcursion(excursion: FormData): Observable<DtoExcursion> {
-    const headers = this.getHeaders();
-    return this.http.post<DtoExcursion>(`${this.apiUrl}`, excursion, { headers })
+    return this.http.post<DtoExcursion>(`${this.apiUrl}`, excursion, {headers: this.getHeaders()})
       .pipe(catchError(this.handleError));
   }
 
@@ -47,11 +46,14 @@ export class ExcursionService {
   //     .pipe(catchError(this.handleError));
   // }
 
-  // Adjust method to return DtoExcursion[]
   getAllExcursions(): Observable<DtoExcursion[]> {
     const headers = this.getHeaders();
     return this.http.get<DtoExcursion[]>(`${this.apiUrl}/all`, { headers })
       .pipe(catchError(this.handleError));
+  }
+
+  deleteExcursion(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/delete/${id}` , {headers: this.getHeaders()});
   }
 
   updateExcursion(id: number, excursion: DtoExcursion): Observable<DtoExcursion> {
@@ -76,11 +78,7 @@ export class ExcursionService {
       .pipe(catchError(this.handleError));
   }
 
-  deleteExcursion(id: number): Observable<void> {
-    const headers = this.getHeaders();
-    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`, { headers })
-      .pipe(catchError(this.handleError));
-  }
+
 
   bookExcursion(excursionId: number, userId: number): Observable<any> {
     const headers = this.getHeaders();

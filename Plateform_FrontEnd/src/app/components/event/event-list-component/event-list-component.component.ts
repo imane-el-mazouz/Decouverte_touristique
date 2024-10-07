@@ -204,6 +204,7 @@ import {EventFormComponentComponent} from "../event-form-component/event-form-co
 import {
   EventSearchFilterComponent
 } from "../event-search-filter.component.ts/event-search-filter.component.ts.component";
+import {EventFilterDTO} from "../../../dto/event-filter.dto";
 
 @Component({
   selector: 'app-event-list-component',
@@ -231,6 +232,7 @@ export class EventListComponentComponent implements OnInit {
   bookingError = false;
   fileToUpload: File | null = null;
   categories = Object.values(CategoryEvent);
+
 
   constructor(
     private eventService: EventService,
@@ -338,8 +340,8 @@ export class EventListComponentComponent implements OnInit {
       this.eventService.updateEvent(updatedEvent.idEvent, updatedEvent).subscribe({
         next: () => {
           console.log('Event updated successfully');
-          this.loadEvents(); // Recharge la liste des événements pour afficher les modifications
-          this.cancelEdit(); // Réinitialise le formulaire et sort du mode édition
+          this.loadEvents();
+          this.cancelEdit();
         },
         error: (err) => {
           console.error('Error updating event', err);
