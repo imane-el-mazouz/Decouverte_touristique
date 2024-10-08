@@ -1,5 +1,7 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Manrope:wght@400&display=swap');
+
 
 * {
   box-sizing: border-box;

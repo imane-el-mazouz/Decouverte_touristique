@@ -55,23 +55,45 @@ public class ExcursionService {
                 .orElseThrow(() -> new EntityNotFoundException("Excursion not found with id: " + id));
     }
 
-    public Excursion updateExcursion(Long id, Excursion updatedExcursion) {
-        Excursion excursion = getExcursionById(id);
+    public Excursion updateExcursion(Long id, ExcursionDTO excursionDTO) {
+        Excursion existingExcursion = excursionRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Excursion not found with id: " + id));
 
-        excursion.setName(updatedExcursion.getName());
-        excursion.setDescription(updatedExcursion.getDescription());
-        excursion.setImgPath(updatedExcursion.getImgPath());
-        excursion.setDateTime(updatedExcursion.getDateTime());
-        excursion.setLocation(updatedExcursion.getLocation());
-        excursion.setCapacity(updatedExcursion.getCapacity());
+        if (excursionDTO.getName() == null || excursionDTO.getName().isEmpty()) {
+            throw new IllegalArgumentException("Excursion name cannot be null or empty.");
+        }
+        if (excursionDTO.getDescription() == null || excursionDTO.getDescription().isEmpty()) {
+            throw new IllegalArgumentException("Excursion description cannot be null or empty.");
+        }
+        if (excursionDTO.getDateTime() == null) {
+            throw new IllegalArgumentException("Excursion date and time cannot be null.");
+        }
+        if (excursionDTO.getLocation() == null || excursionDTO.getLocation().isEmpty()) {
+            throw new IllegalArgumentException("Excursion location cannot be null or empty.");
+        }
+        if (excursionDTO.getCapacity() <= 0) {
+            throw new IllegalArgumentException("Excursion capacity must be greater than zero.");
+        }
+        if (excursionDTO.getRating() < 0 || excursionDTO.getRating() > 5) {
+            throw new IllegalArgumentException("Excursion rating must be between 0 and 5.");
+        }
+        existingExcursion.setName(excursionDTO.getName());
+        existingExcursion.setDescription(excursionDTO.getDescription());
+        existingExcursion.setImgPath(excursionDTO.getImgPath());
+        existingExcursion.setDateTime(excursionDTO.getDateTime());
+        existingExcursion.setLocation(excursionDTO.getLocation());
+        existingExcursion.setCapacity(excursionDTO.getCapacity());
+        existingExcursion.setRating(excursionDTO.getRating());
 
-        return excursionRepository.save(excursion);
+        return excursionRepository.save(existingExcursion);
     }
+
 
     public void deleteExcursion(Long id) {
         Excursion excursion = getExcursionById(id);
         excursionRepository.delete(excursion);
     }
+
 
 
 

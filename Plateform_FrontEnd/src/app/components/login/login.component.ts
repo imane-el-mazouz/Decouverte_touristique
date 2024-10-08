@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import {AuthService} from "../../service/auth_service/auth-service.service";
 import {DividerModule} from "primeng/divider";
 import {ButtonDirective} from "primeng/button";
+import {NavBarComponent} from "../shared/nav-bar/nav-bar.component";
+import {FooterComponent} from "../shared/footer/footer.component";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,9 @@ import {ButtonDirective} from "primeng/button";
     ReactiveFormsModule,
     RouterLink,
     DividerModule,
-    ButtonDirective
+    ButtonDirective,
+    NavBarComponent,
+    FooterComponent
   ],
   styleUrls: ['./login.component.scss']
 })

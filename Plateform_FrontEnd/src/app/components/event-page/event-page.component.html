@@ -35,110 +35,16 @@
   </div>
 </section>
 
-<!--<section class="events-container" >-->
-<!--  <header class="events-header">-->
-<!--    <h2 class="events-title">Our Events</h2>-->
-<!--    <div class="events-icons">-->
-<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0be4f5ae517fb455396a4b0d7af4bc7bf793de43906db4c47433085ebb2d9941?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-icon" alt="" />-->
-<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/363ec222dcaa41986982fe7d4fe42c6754d8b686330570a3039ec56d3f6faf61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-icon" alt="" />-->
-<!--    </div>-->
-<!--    <div class="events-icons">-->
-<!--      <ng-container *ngFor="let icon of getVisibleIcons()">-->
-<!--        <img loading="lazy" [src]="icon" class="event-icon" alt="Event icon" />-->
-<!--      </ng-container>-->
-<!--    </div>-->
-
-<!--    &lt;!&ndash; Pagination &ndash;&gt;-->
-<!--    <div class="pagination">-->
-<!--      <button class="pagination-btn" (click)="prevPage()" [disabled]="isPrevDisabled()">Previous</button>-->
-<!--      <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>-->
-<!--      <button class="pagination-btn" (click)="nextPage()" [disabled]="isNextDisabled()">Next</button>-->
-<!--    </div>-->
-<!--    <div class="pagination">-->
-<!--      <button class="pagination-btn" id="prev-btn" disabled>Previous</button>-->
-<!--      <span class="pagination-info" id="page-info">Page 1 of 2</span>-->
-<!--      <button class="pagination-btn" id="next-btn">Next</button>-->
-<!--    </div>-->
-<!--  </header>-->
-<!--  <div class="events-list">-->
-<!--    <article class="event-card">-->
-<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b52887050f70a579d63d67c8a54c32bfc221f1888c33da90bb32617a157b0c51?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="International Festival in Mhamid El Ghizlane, Essaouira" />-->
-<!--      <div class="event-details">-->
-<!--        <div class="event-content">-->
-<!--          <h3 class="event-name">International Festival</h3>-->
-<!--          <p class="event-location">Mhamid El Ghizlane , Essaouira</p>-->
-<!--          <div class="event-rating">-->
-<!--            <div class="rating-content">-->
-<!--              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />-->
-<!--              <span>4</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <p class="event-price">$200</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </article>-->
-<!--    <article class="event-card">-->
-<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1aa94dd5dbd1c62c4dcbe90535e72c08d66364c14f02b9335869d28aabcc38cb?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="International Film Festival in Marrakech" />-->
-<!--      <div class="event-details">-->
-<!--        <div class="event-content">-->
-<!--          <h3 class="event-name">International Film Festival</h3>-->
-<!--          <p class="event-location">Marakech</p>-->
-<!--          <div class="event-rating">-->
-<!--            <div class="rating-content">-->
-<!--              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />-->
-<!--              <span>4</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <p class="event-price">$400</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </article>-->
-<!--    <article class="event-card">-->
-<!--      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5825d116f3a31eb2d14348cea8413faad375cc7173e95f4ce7053c9793a02dde?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="Gitex Africa in Marrakech" />-->
-<!--      <div class="event-details">-->
-<!--        <div class="event-content">-->
-<!--          <h3 class="event-name">Gitex Africa</h3>-->
-<!--          <p class="event-location">Marakech</p>-->
-<!--          <div class="event-rating">-->
-<!--            <div class="rating-content">-->
-<!--              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />-->
-<!--              <span>4</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="price-details">-->
-<!--            <p class="price-amount">$100</p>-->
-<!--            <p class="tour-duration">10 days tour</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </article>-->
-<!--  </div>-->
-<!--  <div class="pagination-container">-->
-<!--    <ul class="pagination">-->
-<!--      <li class="active">1</li>-->
-<!--      <li>2</li>-->
-<!--      <li>3</li>-->
-<!--      <li>Next</li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</section>-->
-
-
 
 <section class="events-container" >
   <header class="events-header">
     <h2 class="events-title">Our Events</h2>
-    <div class="events-icons">
-      <ng-container *ngFor="let icon of getVisibleIcons()">
-        <img [src]="icon" class="event-icon" alt="Event icon" loading="lazy" />
-      </ng-container>
-    </div>
+<!--    <div class="events-icons">-->
+<!--      <ng-container *ngFor="let icon of getVisibleIcons()">-->
+<!--        <img [src]="icon" class="event-icon" alt="Event icon" loading="lazy" />-->
+<!--      </ng-container>-->
+<!--    </div>-->
 
-    <div class="pagination">
-      <button class="pagination-btn" (click)="prevPage()" [disabled]="isPrevDisabled()">Previous</button>
-      <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>
-      <button class="pagination-btn" (click)="nextPage()" [disabled]="isNextDisabled()">Next</button>
-    </div>
   </header>
 
   <div class="events-list">
@@ -195,79 +101,48 @@
     </article>
   </div>
 </section>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Image</th>
+    <th>Date</th>
+    <th>Price</th>
+    <th>Rating</th>
+    <th>Category</th>
+    <th>Capacity</th>
+    <th>Distance</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let event of events">
+    <td>{{ event.idEvent }}</td>
+    <td>{{ event.name }}</td>
+    <td>{{ event.description }}</td>
+    <td>{{ event.location }}</td>
+    <td>
+      <img [src]="event.imgPath" alt="{{ event.name }}" style="width: 100px; height: auto;" />
+    </td>
+    <td>{{ event.date | date:'shortDate' }}</td>
+    <td>{{ event.price | currency }}</td>
+    <td>{{ event.rating }}</td>
+    <td>{{ event.category }}</td>
+    <td>{{ event.capacity }}</td>
+    <td>{{ event.distance }}</td>
 
-<!--<section class="book-now-section">-->
-<!--  <h1 class="main-title">Book Now!</h1>-->
-<!--  <div class="content-wrapper">-->
-<!--    <div class="two-column-layout">-->
-<!--      <div class="column">-->
-<!--        <form class="booking-form">-->
-<!--          <h2 class="form-title">Event Details</h2>-->
-<!--          <div class="form-row">-->
-<!--            <div class="form-group">-->
-<!--              <mat-form-field appearance="fill">-->
-<!--                <mat-label>First Name</mat-label>-->
-<!--                <input matInput placeholder="Input your First Name" />-->
-<!--              </mat-form-field>-->
-<!--            </div>-->
-<!--            <div class="form-group">-->
-<!--              <mat-form-field appearance="fill">-->
-<!--                <mat-label>Last Name</mat-label>-->
-<!--                <input matInput placeholder="Input your Last Name" />-->
-<!--              </mat-form-field>-->
-<!--            </div>-->
-<!--          </div>-->
 
-<!--          <div class="form-group">-->
-<!--            <mat-form-field appearance="fill">-->
-<!--              <mat-label>Email Address</mat-label>-->
-<!--              <input matInput type="email" placeholder="Input your Email Address" />-->
-<!--            </mat-form-field>-->
-<!--          </div>-->
+    <td>
+      <button class="btn btn-success" (click)="showBookingForm(event)">Book</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
 
-<!--          <div class="form-group">-->
-<!--            <mat-form-field appearance="fill">-->
-<!--              <mat-label>Phone Number</mat-label>-->
-<!--              <input matInput type="tel" placeholder="Input your Phone Number" />-->
-<!--            </mat-form-field>-->
-<!--          </div>-->
 
-<!--          <div class="form-group">-->
-<!--            <mat-form-field appearance="fill">-->
-<!--              <mat-label>Number of Person</mat-label>-->
-<!--              <input matInput type="number" placeholder="Input number of persons" />-->
-<!--            </mat-form-field>-->
-<!--          </div>-->
-
-<!--          <button mat-raised-button class="book-now-btn" color="primary">Book Now!</button>-->
-<!--        </form>-->
-
-<!--      </div>-->
-<!--      <div class="column">-->
-<!--        <article class="event-card">-->
-<!--          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4eaea4a79370e36d896c5d488f04ad6371dbefc2208d4a3dcb8f5ff62c9fd2b7?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Event location image" class="event-image" />-->
-<!--          <div class="event-details">-->
-<!--            <h3 class="event-title">Agadir, Timitar</h3>-->
-<!--            <div class="rating">-->
-<!--              <div class="star-rating">-->
-<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
-<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
-<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
-<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
-<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5554aaf58006776f6cde68d571ea9a711c12986cad7a8a867253c7c36a16bc?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="star-icon" />-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <p class="review-count">(1 Review)</p>-->
-<!--            <div class="price-info">-->
-<!--              <span class="price-label">From</span>-->
-<!--              <span class="price-value">$800</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </article>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
 <section class="booking-section">
   <h1 class="heading">Book Now!</h1>
   <div class="wrapper-content">
@@ -369,5 +244,55 @@
   </form>
 </section>
 
+<form [formGroup]="searchForm" (ngSubmit)="searchEvents()">
+  <div class="form-group">
+    <label for="name">Event Name</label>
+    <input type="text" id="name" formControlName="name" class="form-control">
+  </div>
 
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select id="category" formControlName="category" class="form-control">
+      <option value="">Select Category</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="distance">Max Distance (km)</label>
+    <input type="number" id="distance" formControlName="distance" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+<form [formGroup]="filterForm" (ngSubmit)="onFilter()">
+  <div>
+    <label for="minPrice">Min price:</label>
+    <input id="minPrice" formControlName="minPrice" type="number">
+  </div>
+
+  <div>
+    <label for="maxPrice">Max Price:</label>
+    <input id="maxPrice" formControlName="maxPrice" type="number">
+  </div>
+
+  <div>
+    <label for="minRating">Min rating:</label>
+    <input id="minRating" formControlName="minRating" type="number">
+  </div>
+
+  <div>
+    <label for="maxRating">Max rating:</label>
+    <input id="maxRating" formControlName="maxRating" type="number">
+  </div>
+
+  <div>
+    <label for="maxDistance">Max Distance:</label>
+    <input id="maxDistance" formControlName="maxDistance" type="number">
+  </div>
+
+  <button type="submit">Filter</button>
+</form>
 <app-footer></app-footer>

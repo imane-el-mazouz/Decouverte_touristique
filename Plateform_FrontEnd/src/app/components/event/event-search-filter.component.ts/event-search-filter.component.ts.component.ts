@@ -22,7 +22,6 @@ export class EventSearchFilterComponent implements OnInit{
   @Output() searchResults = new EventEmitter<DtoEvent[]>();
   events: DtoEvent[] = [];
   categories = Object.values(CategoryEvent);
-  // searchFilterForm: FormGroup;
   searchForm: FormGroup ;
   filterForm!: FormGroup;
 

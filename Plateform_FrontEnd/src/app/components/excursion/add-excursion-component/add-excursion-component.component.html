@@ -1,47 +1,80 @@
-<div class="container">
-  <h2>Add Excursion</h2>
+<!--<div class="container">-->
+<!--  <h2>Add Excursion</h2>-->
+<!--  <form [formGroup]="excursionForm" (ngSubmit)="addExcursion()">-->
+<!--    <div>-->
+<!--      <label for="name">Name:</label>-->
+<!--      <input id="name" formControlName="name" required />-->
+<!--      <div *ngIf="excursionForm.get('name')?.invalid && (excursionForm.get('name')?.touched || excursionForm.get('name')?.dirty)">-->
+<!--        <small>Name is required.</small>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <label for="description">Description:</label>-->
+<!--      <textarea id="description" formControlName="description"></textarea>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <label for="imgPath">Image Link:</label>-->
+<!--      <input type="text" id="imgPath" formControlName="imgPath" required />-->
+<!--      <div *ngIf="excursionForm.get('imgPath')?.invalid && (excursionForm.get('imgPath')?.touched || excursionForm.get('imgPath')?.dirty)">-->
+<!--        <small>Image link is required.</small>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <label for="dateTime">Date and Time:</label>-->
+<!--      <input type="datetime-local" id="dateTime" formControlName="dateTime" required />-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <label for="location">Location:</label>-->
+<!--      <input id="location" formControlName="location" required />-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <label for="capacity">Capacity:</label>-->
+<!--      <input type="number" id="capacity" formControlName="capacity" required min="1" />-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <label for="rating">Rating:</label>-->
+<!--      <input type="number" id="rating" formControlName="rating" required min="1" max="5" />-->
+<!--    </div>-->
+
+<!--    <button type="submit" [disabled]="excursionForm.invalid">Add Excursion</button>-->
+<!--  </form>-->
+<!--</div>-->
+<p-button class="o" (onClick)="showDialog()" label="Show" />
+<p-dialog header="Edit Profile" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+<div class="form-container">
+  <h3 class="title">Add Excursion</h3>
   <form [formGroup]="excursionForm" (ngSubmit)="addExcursion()">
-    <div>
-      <label for="name">Name:</label>
-      <input id="name" formControlName="name" required />
-      <div *ngIf="excursionForm.get('name')?.invalid && (excursionForm.get('name')?.touched || excursionForm.get('name')?.dirty)">
-        <small>Name is required.</small>
-      </div>
-    </div>
 
-    <div>
-      <label for="description">Description:</label>
-      <textarea id="description" formControlName="description"></textarea>
-    </div>
+    <label for="name" class="visually-hidden">Name</label>
+    <input id="name" formControlName="name" class="form-input" placeholder="Name" aria-label="Name" required/>
 
-    <div>
-      <label for="imgPath">Image Link:</label>
-      <input type="text" id="imgPath" formControlName="imgPath" required />
-      <div *ngIf="excursionForm.get('imgPath')?.invalid && (excursionForm.get('imgPath')?.touched || excursionForm.get('imgPath')?.dirty)">
-        <small>Image link is required.</small>
-      </div>
-    </div>
+    <label for="description" class="visually-hidden">Description</label>
+    <textarea id="description" formControlName="description" class="form-input" placeholder="Description" aria-label="Description"></textarea>
 
-    <div>
-      <label for="dateTime">Date and Time:</label>
-      <input type="datetime-local" id="dateTime" formControlName="dateTime" required />
-    </div>
+    <label for="imgPath" class="visually-hidden">Image Link</label>
+    <input id="imgPath" formControlName="imgPath" class="form-input" placeholder="Image Link" aria-label="Image Link" required/>
 
-    <div>
-      <label for="location">Location:</label>
-      <input id="location" formControlName="location" required />
-    </div>
+    <label for="dateTime" class="visually-hidden">Date and Time</label>
+    <input id="dateTime" type="datetime-local" formControlName="dateTime" class="form-input" aria-label="Date and Time" required/>
 
-    <div>
-      <label for="capacity">Capacity:</label>
-      <input type="number" id="capacity" formControlName="capacity" required min="1" />
-    </div>
+    <label for="location" class="visually-hidden">Location</label>
+    <input id="location" formControlName="location" class="form-input" placeholder="Location" aria-label="Location" required/>
 
-    <div>
-      <label for="rating">Rating:</label>
-      <input type="number" id="rating" formControlName="rating" required min="1" max="5" />
-    </div>
+    <label for="capacity" class="visually-hidden">Capacity</label>
+    <input id="capacity" type="number" formControlName="capacity" class="form-input" placeholder="Capacity" aria-label="Capacity" required min="1"/>
 
-    <button type="submit" [disabled]="excursionForm.invalid">Add Excursion</button>
+    <label for="rating" class="visually-hidden">Rating</label>
+    <input id="rating" type="number" formControlName="rating" class="form-input" placeholder="Rating" aria-label="Rating" required min="1" max="5"/>
+
+    <button type="submit" class="submit-btn" [disabled]="excursionForm.invalid">Add Excursion</button>
+
   </form>
 </div>
+
+</p-dialog>

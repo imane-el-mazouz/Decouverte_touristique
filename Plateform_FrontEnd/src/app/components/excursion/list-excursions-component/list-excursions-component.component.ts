@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import { ExcursionService } from "../../../service/excursion-service/excursion-service.service";
 import { DtoExcursion } from "../../../dto/excursionDTO/dto-excursion";
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {AddExcursionComponentComponent} from "../add-excursion-component/add-excursion-component.component";
 import {Excursion} from "../../../model/excursion/excursion";
+import {TableModule} from "primeng/table";
 
 @Component({
   selector: 'app-list-excursions-component',
@@ -14,17 +15,21 @@ import {Excursion} from "../../../model/excursion/excursion";
     NgForOf,
     DatePipe,
     AddExcursionComponentComponent,
-    NgIf
+    NgIf,
+    TableModule
   ],
   templateUrl: './list-excursions-component.component.html',
-  styleUrls: ['./list-excursions-component.component.css']
+  styleUrls: ['./list-excursions-component.component.scss']
 })
 export class ListExcursionsComponentComponent implements OnInit {
   excursions: DtoExcursion[] = [];
   searchForm: FormGroup;
   filterForm: FormGroup;
   bookingForm: FormGroup;
+  updateForm: FormGroup | undefined;
   selectedExcursion: DtoExcursion | null = null;
+  isUpdating: boolean = false;
+
 
   constructor(
     private fb: FormBuilder,
@@ -44,6 +49,17 @@ export class ListExcursionsComponentComponent implements OnInit {
       userName: [''],
       userEmail: ['']
     });
+
+    this.updateForm = this.fb.group({
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      imgPath: ['', Validators.required],
+      dateTime: ['', Validators.required],
+      location: ['', Validators.required],
+      capacity: ['', [Validators.required, Validators.min(1)]],
+      rating: ['', [Validators.required, Validators.min(1), Validators.max(5)]]
+    });
+
   }
 
   ngOnInit(): void {
@@ -73,16 +89,6 @@ export class ListExcursionsComponentComponent implements OnInit {
     this.excursionService.filterExcursions(minRating, maxRating).subscribe(
       data => this.excursions = data,
       error => console.error('Error filtering excursions', error)
-    );
-  }
-
-  onUpdate(id: number, updatedExcursion: DtoExcursion): void {
-    this.excursionService.updateExcursion(id, updatedExcursion).subscribe(
-      response => {
-        console.log('Excursion updated!', response);
-        this.loadExcursions();
-      },
-      error => console.error('Error updating excursion', error)
     );
   }
 
@@ -117,4 +123,43 @@ export class ListExcursionsComponentComponent implements OnInit {
   onExcursionAdded(excursion: DtoExcursion) {
     this.excursions.push(excursion);
   }
+  updateExcursion(excursion: DtoExcursion): void {
+    this.isUpdating = true;
+    this.selectedExcursion = excursion;
+    this.updateForm!.patchValue({
+      name: excursion.name,
+      description: excursion.description,
+      imgPath: excursion.imgPath,
+      dateTime: excursion.dateTime,
+      location: excursion.location,
+      capacity: excursion.capacity,
+      rating: excursion.rating
+    });
+
+
+  }
+  onConfirmUpdate(): void {
+    if (this.selectedExcursion && this.updateForm!.valid) {
+      const updatedExcursion = {
+        ...this.selectedExcursion,
+        ...this.updateForm!.value
+      };
+
+      this.excursionService.updateExcursion(this.selectedExcursion.idExcursion, updatedExcursion).subscribe({
+        next: (updatedData) => {
+          const index = this.excursions.findIndex(e => e.idExcursion === this.selectedExcursion!.idExcursion);
+          if (index !== -1) {
+            this.excursions[index] = updatedData;
+          }
+          this.isUpdating = false;
+          this.selectedExcursion = null;
+          this.updateForm!.reset();
+        },
+        error: (err) => {
+          console.error('Error updating excursion', err);
+        }
+      });
+    }
+  }
+
 }

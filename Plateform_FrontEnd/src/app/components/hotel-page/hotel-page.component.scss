@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700&family=Manrope:wght@400&display=swap');
+
 body , html{
   font-family: Abhaya Libre SemiBold, serif ;
   width: 100%;
-  margin: 0px;
+  margin: 0px ;
+  font: 700 35px Abhaya Libre ExtraBold, serif;
+
 }
 *{
   margin: 0;
@@ -175,12 +179,12 @@ h1 {
   font: 800 14px 'Abhaya Libre ExtraBold', sans-serif;
   flex-grow: 1;
   transition: transform 0.2s;
-  min-width: 180px; /* Réduire la largeur minimale des cartes */
-  width: 240px; /* Réduire la largeur des cartes */
+  min-width: 180px;
+  width: 240px;
 }
 
 .event-card:hover {
-  transform: scale(1.05); /* Add a subtle hover effect */
+  transform: scale(1.05);
 }
 
 .event-image {
@@ -839,6 +843,7 @@ count-review{
   font-family: Abhaya Libre SemiBold, serif;
   color: #000;
   font-weight: 90;
+  margin-left: 33px;
 }
 
 .hotel-name {

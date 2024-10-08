@@ -1,62 +1,182 @@
 <div class="container">
   <h2>Excursions List</h2>
 
-  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
-    <div class="form-group">
-      <label for="date">Date</label>
-      <input id="date" type="date" formControlName="date" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="location">Location</label>
-      <input id="location" formControlName="location" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Search</button>
-  </form>
+<!--  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">-->
+<!--    <div class="form-group">-->
+<!--      <label for="date">Date</label>-->
+<!--      <input id="date" type="date" formControlName="date" class="form-control" />-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="location">Location</label>-->
+<!--      <input id="" formControlName="location" class="form-control" />-->
+<!--    </div>-->
+<!--    <button type="submit" class="btn btn-primary">Search</button>-->
+<!--  </form>-->
+<!--  <form [formGroup]="filterForm" (ngSubmit)="onFilter()">-->
+<!--    <div class="form-group">-->
+<!--      <label for="minRating">Min Rating</label>-->
+<!--      <input id="minRating" formControlName="minRating" type="number" class="form-control" />-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="maxRating">Max Rating</label>-->
+<!--      <input id="maxRating" formControlName="maxRating" type="number" class="form-control" />-->
+<!--    </div>-->
+<!--    <button type="submit" class="btn btn-primary">Filter</button>-->
+<!--  </form>-->
+  <div class="search-filter-container">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+      <div style="display: flex ; gap: 20px">
+      <input
+        type="text"
+        placeholder="Search Here..."
+        formControlName="location"
+        class="search-input"
+      />
+      <input
+        type="date"
+        placeholder="Search Here..."
+        formControlName="date"
+        class="search-input"
+      />
+      </div>
+      <button type="submit" class="search-button">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
 
-  <form [formGroup]="filterForm" (ngSubmit)="onFilter()">
-    <div class="form-group">
-      <label for="minRating">Min Rating</label>
-      <input id="minRating" formControlName="minRating" type="number" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="maxRating">Max Rating</label>
-      <input id="maxRating" formControlName="maxRating" type="number" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Filter</button>
-  </form>
+    <form [formGroup]="filterForm" (ngSubmit)="onFilter()">
+    <div class="filter-options">
+      <div class="form-group">
+        <input id="minRating" formControlName="minRating" type="number" class="form-control" placeholder="Min" />
+      </div>
 
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>imgPath</th>
-      <th>Date and Time</th>
-      <th>Location</th>
-      <th>Capacity</th>
-      <th>rating</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let excursion of excursions">
-      <td>{{ excursion.name }}</td>
-      <td>{{ excursion.description }}</td>
-      <td>
-        <img [src]="excursion.imgPath" alt="{{ excursion.name }}" width="100" height="auto" />
-      </td>
-      <td>{{ excursion.dateTime | date:'short' }}</td>
-      <td>{{ excursion.location }}</td>
-      <td>{{ excursion.capacity }}</td>
-      <td>{{ excursion.rating }}</td>
-      <td>
-        <button (click)="onUpdate(excursion.idExcursion, excursion)" class="btn btn-warning">Update</button>
-        <button (click)="deleteExcursion(excursion.idExcursion)">Delete</button>
-        <button (click)="onBook(excursion.idExcursion)" class="btn btn-primary">Book</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+      <div class="form-group">
+        <input id="maxRating" formControlName="maxRating" type="number" class="form-control" placeholder="Max" />
+      </div>
+
+      <button class="filter-button" type="button" (click)="onFilter()">
+        <i class="fa fa-filter"></i> Filters
+      </button>
+
+    </div>
+    </form>
+  </div>
+
+<!--  <div class="table-container">-->
+<!--    <table class="table">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th>Name</th>-->
+<!--        <th>Description</th>-->
+<!--        <th>Image</th>-->
+<!--        <th>Date and Time</th>-->
+<!--        <th>Location</th>-->
+<!--        <th>Capacity</th>-->
+<!--        <th>Rating</th>-->
+<!--        <th>Actions</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr *ngFor="let excursion of excursions">-->
+<!--        <td>{{ excursion.name }}</td>-->
+<!--        <td>{{ excursion.description }}</td>-->
+<!--        <td>-->
+<!--          <img [src]="excursion.imgPath" alt="{{ excursion.name }}" width="100" height="auto" />-->
+<!--        </td>-->
+<!--        <td>{{ excursion.dateTime | date:'short' }}</td>-->
+<!--        <td>{{ excursion.location }}</td>-->
+<!--        <td>{{ excursion.capacity }}</td>-->
+<!--        <td>{{ excursion.rating }}</td>-->
+<!--        <td class="action-buttons">-->
+<!--          <button (click)="updateExcursion(excursion)" class="btn btn-warning">-->
+<!--            <i class="fas fa-edit"></i> Update-->
+<!--          </button>-->
+<!--          <button (click)="deleteExcursion(excursion.idExcursion)" class="btn btn-danger">-->
+<!--            <i class="fas fa-trash-alt"></i> Delete-->
+<!--          </button>-->
+<!--          <button (click)="onBook(excursion.idExcursion)" class="btn btn-primary">-->
+<!--            <i class="fas fa-ticket-alt"></i> Book-->
+<!--          </button>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<div >
+  <section class="recent-excursions">
+    <h2 class="section-title">Excursions</h2>
+    <table class="excursion-table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Date and Time</th>
+        <th>Location</th>
+        <th>Capacity</th>
+        <th>Rating</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let excursion of excursions">
+        <td>{{ excursion.name }}</td>
+        <td>{{ excursion.description }}</td>
+        <td>
+          <img [src]="excursion.imgPath" alt="{{ excursion.name }}" width="100" height="auto" />
+        </td>
+        <td>{{ excursion.dateTime | date:'short' }}</td>
+        <td>{{ excursion.location }}</td>
+        <td>{{ excursion.capacity }}</td>
+        <td>{{ excursion.rating }}</td>
+        <td>
+          <button class="btn update-btn" (click)="updateExcursion(excursion)">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+          <button class="btn delete-btn" (click)="deleteExcursion(excursion.idExcursion)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+<!--          <button class="btn book-btn" (click)="onBook(excursion.idExcursion)">Book</button>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <app-add-excursion-component (excursionAdded)="onExcursionAdded($event)"></app-add-excursion-component>
+
+</div>
+</div>
+
+<div *ngIf="isUpdating">
+  <h3>Update Excursion: {{ selectedExcursion?.name }}</h3>
+  <form [formGroup]="updateForm!" (ngSubmit)="onConfirmUpdate()" class="form-container">
+
+    <label for="name" class="visually-hidden">Name</label>
+    <input id="name" formControlName="name" class="form-input" placeholder="Name" aria-label="Name"/>
+
+    <label for="description" class="visually-hidden">Description</label>
+    <input id="description" formControlName="description" class="form-input" placeholder="Description" aria-label="Description"/>
+
+    <label for="imgPath" class="visually-hidden">Image Path</label>
+    <input id="imgPath" formControlName="imgPath" class="form-input" placeholder="Image Path" aria-label="Image Path"/>
+
+    <label for="dateTime" class="visually-hidden">Date and Time</label>
+    <input id="dateTime" type="datetime-local" formControlName="dateTime" class="form-input" aria-label="Date and Time"/>
+
+    <label for="location" class="visually-hidden">Location</label>
+    <input id="location" formControlName="location" class="form-input" placeholder="Location" aria-label="Location"/>
+
+    <label for="capacity" class="visually-hidden">Capacity</label>
+    <input id="capacity" type="number" formControlName="capacity" class="form-input" placeholder="Capacity" aria-label="Capacity"/>
+
+    <label for="rating" class="visually-hidden">Rating</label>
+    <input id="rating" type="number" formControlName="rating" class="form-input" placeholder="Rating" aria-label="Rating"/>
+
+    <button type="submit" class="submit-btn">Update Excursion</button>
+
+  </form>
+</div>
+
+
 
   <div *ngIf="selectedExcursion">
     <h3>Book Excursion: {{ selectedExcursion.name }}</h3>
@@ -72,6 +192,72 @@
       <button type="submit" class="btn btn-success">Confirm Booking</button>
     </form>
   </div>
-</div>
 
-<app-add-excursion-component (excursionAdded)="onExcursionAdded($event)"></app-add-excursion-component>
+
+<section class="calendar">
+  <header class="month-header">
+    <h2 class="month-title">September 2022</h2>
+    <nav class="month-nav">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e11631d6c89e25c2ca0eb7c4445e3054b706f2b2827257ef69a8d6a988a8d37?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Previous month" class="nav-icon" />
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/841f33adf9f80a7a7796815c083a867979f076a0e548829308229e623b913ffd?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Next month" class="nav-icon" />
+    </nav>
+  </header>
+  <hr class="month-divider" />
+  <div class="week-days">
+    <span class="week-day">Sun</span>
+    <span class="week-day">Mon</span>
+    <span class="week-day">Tue</span>
+    <span class="week-day">Wed</span>
+    <span class="week-day">Thu</span>
+    <span class="week-day">Fri</span>
+    <span class="week-day">Sat</span>
+  </div>
+  <div class="calendar-grid">
+    <div class="calendar-row">
+      <span class="calendar-day">1</span>
+      <span class="calendar-day">2</span>
+      <span class="calendar-day">3</span>
+      <span class="calendar-day-empty"></span>
+      <span class="calendar-day-empty"></span>
+      <span class="calendar-day-empty"></span>
+      <span class="calendar-day-empty"></span>
+    </div>
+    <div class="calendar-row">
+      <span class="calendar-day">4</span>
+      <span class="calendar-day">5</span>
+      <span class="calendar-day">6</span>
+      <span class="calendar-day">7</span>
+      <span class="calendar-day">8</span>
+      <span class="calendar-day">9</span>
+      <span class="calendar-day">10</span>
+    </div>
+    <div class="calendar-row">
+      <span class="calendar-day">11</span>
+      <span class="calendar-day">12</span>
+      <span class="calendar-day">13</span>
+      <span class="calendar-day-highlight">14</span>
+      <span class="calendar-day">15</span>
+      <span class="calendar-day">16</span>
+      <span class="calendar-day-highlight">17</span>
+    </div>
+    <div class="calendar-row">
+      <span class="calendar-day">18</span>
+      <span class="calendar-day">19</span>
+      <span class="calendar-day">20</span>
+      <span class="calendar-day">21</span>
+      <span class="calendar-day">22</span>
+      <span class="calendar-day">23</span>
+      <span class="calendar-day">24</span>
+    </div>
+    <div class="calendar-row">
+      <span class="calendar-day">25</span>
+      <span class="calendar-day">26</span>
+      <span class="calendar-day">27</span>
+      <span class="calendar-day">28</span>
+      <span class="calendar-day">29</span>
+      <span class="calendar-day">30</span>
+      <span class="calendar-day-empty"></span>
+    </div>
+  </div>
+  <div class="calendar-footer"></div>
+</section>

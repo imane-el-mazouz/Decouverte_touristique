@@ -5,6 +5,8 @@ import com.tourist.mapper.ExcursionMapper;
 import com.tourist.model.Excursion;
 import com.tourist.service.ExcursionService;
 
+import jakarta.persistence.EntityNotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -66,13 +68,23 @@ public class ExcursionController {
         return ResponseEntity.ok(excursion);
     }
 
-    @PutMapping("/update/{id}")
-    @PreAuthorize("hasRole('Admin')")
+    @PutMapping("/{id}")
     public ResponseEntity<Excursion> updateExcursion(
             @PathVariable Long id,
-            @RequestBody Excursion updatedExcursion) {
-        Excursion excursion = excursionService.updateExcursion(id, updatedExcursion);
-        return ResponseEntity.ok(excursion);
+            @RequestBody ExcursionDTO excursionDTO) {
+        try {
+            Excursion updatedExcursion = excursionService.updateExcursion(id, excursionDTO);
+            return ResponseEntity.ok(updatedExcursion);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(null);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(null);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(null);
+        }
     }
 
     @DeleteMapping("/delete/{id}")

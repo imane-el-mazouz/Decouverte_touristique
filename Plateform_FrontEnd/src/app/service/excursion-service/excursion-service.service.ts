@@ -57,8 +57,7 @@ export class ExcursionService {
   }
 
   updateExcursion(id: number, excursion: DtoExcursion): Observable<DtoExcursion> {
-    const headers = this.getHeaders();
-    return this.http.put<DtoExcursion>(`${this.apiUrl}/update/${id}`, excursion, { headers })
+    return this.http.put<DtoExcursion>(`${this.apiUrl}/${id}`, excursion, {headers: this.getHeaders()})
       .pipe(catchError(this.handleError));
   }
 

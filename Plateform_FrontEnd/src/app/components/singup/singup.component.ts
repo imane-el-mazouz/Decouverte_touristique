@@ -4,7 +4,8 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth_service/auth-service.service';
-import {Person} from "../../model/person/person";
+import {FooterComponent} from "../shared/footer/footer.component";
+import {NavBarComponent} from "../shared/nav-bar/nav-bar.component";
 
 
 @Component({
@@ -12,7 +13,9 @@ import {Person} from "../../model/person/person";
   templateUrl: './singup.component.html',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FooterComponent,
+    NavBarComponent
   ],
   styleUrls: ['./singup.component.scss']
 })

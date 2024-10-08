@@ -5,13 +5,17 @@ import { ExcursionService } from '../../../service/excursion-service/excursion-s
 import {Router} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {DtoExcursion} from "../../../dto/excursionDTO/dto-excursion";
+import {DialogModule} from "primeng/dialog";
+import {Button} from "primeng/button";
 
 @Component({
   selector: 'app-add-excursion-component',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    DialogModule,
+    Button
   ],
   templateUrl: './add-excursion-component.component.html',
   styleUrl: './add-excursion-component.component.css'
@@ -20,7 +24,9 @@ export class AddExcursionComponentComponent implements OnInit {
   excursionForm: FormGroup;
   selectedFile: File | null = null;
   @Output() excursionAdded = new EventEmitter<DtoExcursion>();
-  constructor(
+  visible: boolean = false;
+
+   constructor(
     private fb: FormBuilder,
     private excursionService: ExcursionService,
     private router: Router
@@ -57,4 +63,7 @@ export class AddExcursionComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showDialog() {
+    this.visible = true;
+  }
 }

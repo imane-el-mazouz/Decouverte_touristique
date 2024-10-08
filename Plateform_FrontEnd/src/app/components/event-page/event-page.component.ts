@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FooterComponent} from "../shared/footer/footer.component";
 import {NavBarComponent} from "../shared/nav-bar/nav-bar.component";
-import {NgForOf, NgIf} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatButton, MatButtonModule} from "@angular/material/button";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ReservationService} from "../../service/reservation-service/reservation-service.service";
 import {ReviewService} from "../../service/review-service/review-service.service";
 import {Router} from "@angular/router";
 import {Review} from "../../model/review/review";
+import {DtoEvent} from "../../dto/eventDTO/dto-event";
+import {CategoryEvent} from "../../enums/category-event";
+import {EventService} from "../../service/event-service/event-service.service";
+
 
 @Component({
   selector: 'app-event-page',
@@ -24,12 +28,30 @@ import {Review} from "../../model/review/review";
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    CurrencyPipe,
+    DatePipe
   ],
   styleUrls: ['./event-page.component.scss']
 })
-export class EventPageComponent {
-  constructor(private bookingService: ReservationService, private reviewService: ReviewService, private router: Router) {
+export class EventPageComponent implements OnInit{
+
+  constructor(private bookingService: ReservationService,
+              private reviewService: ReviewService,
+              private router: Router ,
+              private eventService: EventService,
+              private fb: FormBuilder,
+  ) {
+
+    this.bookingForm = this.fb.group({
+      numberOfPerson: [1, Validators.required],
+      dateTime: ['', Validators.required]
+    });
+    this.searchForm = this.fb.group({
+      name: [''],
+      category: [''],
+      distance: ['']
+    });
   }
 
   bookingData = {
@@ -39,13 +61,23 @@ export class EventPageComponent {
   };
 
 
+
   review: Review = {
     id: 0,
     rating: 0,
     comment: '',
     date: new Date()
   };
+  bookingForm: FormGroup;
+  bookingFormVisible = false;
+  bookingSuccess = false;
+  bookingError = false;
+  selectedEvent?: DtoEvent;
+  searchForm! : FormGroup ;
 
+
+  filterForm!: FormGroup;
+  events: DtoEvent[] = [];
   stars = [1, 2, 3, 4, 5];
   reservationId: number = 1;
   isEditMode: boolean = false;
@@ -63,35 +95,7 @@ export class EventPageComponent {
   ];
   bookingConfirmed: boolean = false;
   reviewMessage: string = '';
-  get totalPages(): number {
-    return Math.ceil(this.icons.length / this.iconsPerPage);
-  }
-
-  getVisibleIcons(): string[] {
-    const startIndex = (this.currentPage - 1) * this.iconsPerPage;
-    return this.icons.slice(startIndex, startIndex + this.iconsPerPage);
-  }
-
-  nextPage(): void {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-    }
-  }
-
-  prevPage(): void {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
-  }
-
-  isNextDisabled(): boolean {
-    return this.currentPage >= this.totalPages;
-  }
-
-  isPrevDisabled(): boolean {
-    return this.currentPage <= 1;
-  }
-
+  categories = Object.values(CategoryEvent);
 
   bookEvent(): void {
     this.bookingService.reserveEvent(this.bookingData.eventId, this.bookingData.numberOfPerson, this.bookingData.dateTime).subscribe(
@@ -124,6 +128,61 @@ export class EventPageComponent {
       }
     );
   }
+
+  ngOnInit(): void {
+    this.loadEvents();
+  }
+
+  loadEvents(): void {
+    this.eventService.getAllEvents().subscribe({
+      next: (events) => {
+        this.events = events;
+        console.log('Loaded events:', this.events);
+      },
+      error: (err) => {
+        console.error('Error loading events', err);
+      }
+    });
+  }
+
+  searchEvents(): void {
+    const name = this.searchForm!.get('name')?.value;
+    const category = this.searchForm!.get('category')?.value;
+    const distance = this.searchForm!.get('distance')?.value;
+
+    this.eventService.searchEvents(name, category, distance).subscribe({
+      next: (events) => {
+        this.events = events;
+        console.log('Filtered events:', this.events);
+      },
+      error: (err) => {
+        console.error('Error searching events', err);
+      }
+    });
+  }
+
+  onFilter(): void {
+    const filterValues = this.filterForm.value;
+
+    this.eventService.getFilteredEvents(filterValues).subscribe(
+      (events: DtoEvent[]) => {
+        this.events = events;
+        console.log('Filtered events:', this.events);
+      },
+      (error) => {
+        console.error('Error fetching filtered events', error);
+      }
+    );
+  }
+
+  showBookingForm(event: DtoEvent): void {
+    this.selectedEvent = event;
+    this.bookingFormVisible = true;
+    this.bookingSuccess = false;
+    this.bookingError = false;
+  }
+
+
 }
 
 
