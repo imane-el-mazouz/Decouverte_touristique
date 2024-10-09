@@ -11,6 +11,9 @@ import {
   EventSearchFilterComponent
 } from "../event-search-filter.component.ts/event-search-filter.component.ts.component";
 import {EventFilterDTO} from "../../../dto/event-filter.dto";
+import {PaginatorModule} from "primeng/paginator";
+import {Button} from "primeng/button";
+import {DialogModule} from "primeng/dialog";
 
 @Component({
   selector: 'app-event-list-component',
@@ -23,9 +26,12 @@ import {EventFilterDTO} from "../../../dto/event-filter.dto";
     NgIf,
     NgForOf,
     EventFormComponentComponent,
-    EventSearchFilterComponent
+    EventSearchFilterComponent,
+    PaginatorModule,
+    Button,
+    DialogModule
   ],
-  styleUrls: ['./event-list-component.component.css']
+  styleUrls: ['./event-list-component.component.scss']
 })
 export class EventListComponentComponent implements OnInit {
   events: DtoEvent[] = [];
@@ -39,6 +45,11 @@ export class EventListComponentComponent implements OnInit {
   fileToUpload: File | null = null;
   categories = Object.values(CategoryEvent);
   filterForm!: FormGroup;
+  paginatedEvents: DtoEvent[] = [];
+  rowsPerPage: number = 5;
+  totalRecords: number = 0;
+  currentPage: number = 0;
+  visible: boolean  = false;
 
 
   constructor(
@@ -82,6 +93,8 @@ export class EventListComponentComponent implements OnInit {
     this.eventService.getAllEvents().subscribe({
       next: (events) => {
         this.events = events;
+        this.totalRecords = events.length;
+        this.paginate({ first: 0, rows: this.rowsPerPage });
         console.log('Loaded events:', this.events);
       },
       error: (err) => {
@@ -181,5 +194,15 @@ export class EventListComponentComponent implements OnInit {
 
   onSearchResults(results: DtoEvent[]): void {
     this.events = results;
+  }
+
+  paginate(event: any): void {
+    const start = event.first;
+    const end = event.first + event.rows;
+    this.paginatedEvents = this.events.slice(start, end);
+  }
+
+  showDialog() {
+    this.visible = true;
   }
 }

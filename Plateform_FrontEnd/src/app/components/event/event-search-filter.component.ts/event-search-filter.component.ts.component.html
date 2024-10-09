@@ -1,54 +1,120 @@
 
-<form [formGroup]="searchForm" (ngSubmit)="searchEvents()">
-  <div class="form-group">
-    <label for="name">Event Name</label>
-    <input type="text" id="name" formControlName="name" class="form-control">
-  </div>
+<!--<form [formGroup]="searchForm" (ngSubmit)="searchEvents()">-->
+<!--  <div class="form-group">-->
+<!--    <label for="name">Event Name</label>-->
+<!--    <input type="text" id="name" formControlName="name" class="form-control">-->
+<!--  </div>-->
 
-  <div class="form-group">
-    <label for="category">Category</label>
-    <select id="category" formControlName="category" class="form-control">
-      <option value="">Select Category</option>
-      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-    </select>
-  </div>
+<!--  <div class="form-group">-->
+<!--    <label for="category">Category</label>-->
+<!--    <select id="category" formControlName="category" class="form-control">-->
+<!--      <option value="">Select Category</option>-->
+<!--      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>-->
+<!--    </select>-->
+<!--  </div>-->
 
-  <div class="form-group">
-    <label for="distance">Max Distance (km)</label>
-    <input type="number" id="distance" formControlName="distance" class="form-control">
-  </div>
+<!--  <div class="form-group">-->
+<!--    <label for="distance">Max Distance (km)</label>-->
+<!--    <input type="number" id="distance" formControlName="distance" class="form-control">-->
+<!--  </div>-->
 
-  <button type="submit" class="btn btn-primary">Search</button>
-</form>
-
-
-<form [formGroup]="filterForm" (ngSubmit)="onFilter()">
-  <div>
-    <label for="minPrice">Min price:</label>
-    <input id="minPrice" formControlName="minPrice" type="number">
-  </div>
-
-  <div>
-    <label for="maxPrice">Max Price:</label>
-    <input id="maxPrice" formControlName="maxPrice" type="number">
-  </div>
-
-  <div>
-    <label for="minRating">Min rating:</label>
-    <input id="minRating" formControlName="minRating" type="number">
-  </div>
-
-  <div>
-    <label for="maxRating">Max rating:</label>
-    <input id="maxRating" formControlName="maxRating" type="number">
-  </div>
-
-  <div>
-    <label for="maxDistance">Max Distance:</label>
-    <input id="maxDistance" formControlName="maxDistance" type="number">
-  </div>
-
-  <button type="submit">Filter</button>
-</form>
+<!--  <button type="submit" class="btn btn-primary">Search</button>-->
+<!--</form>-->
 
 
+<!--<form [formGroup]="filterForm" (ngSubmit)="onFilter()">-->
+<!--  <div>-->
+<!--    <label for="minPrice">Min price:</label>-->
+<!--    <input id="minPrice" formControlName="minPrice" type="number">-->
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <label for="maxPrice">Max Price:</label>-->
+<!--    <input id="maxPrice" formControlName="maxPrice" type="number">-->
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <label for="minRating">Min rating:</label>-->
+<!--    <input id="minRating" formControlName="minRating" type="number">-->
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <label for="maxRating">Max rating:</label>-->
+<!--    <input id="maxRating" formControlName="maxRating" type="number">-->
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <label for="maxDistance">Max Distance:</label>-->
+<!--    <input id="maxDistance" formControlName="maxDistance" type="number">-->
+<!--  </div>-->
+
+<!--  <button type="submit">Filter</button>-->
+<!--</form>-->
+
+
+<div class="search-filter-container">
+  <form [formGroup]="searchForm" (ngSubmit)="searchEvents()" class="search-form">
+    <div style="display: flex; gap: 10px;">
+      <input
+        type="text"
+        placeholder="Event Name..."
+        formControlName="name"
+        class="search-input"
+      />
+      <input
+        type="text"
+        placeholder="Category..."
+        formControlName="category"
+        class="search-input"
+      />
+      <input
+        type="number"
+        placeholder="Max Distance (km)"
+        formControlName="distance"
+        class="search-input"
+      />
+    </div>
+    <button type="submit" class="search-button">
+      <i class="fa fa-search"></i>
+    </button>
+  </form>
+
+  <form [formGroup]="filterForm" (ngSubmit)="onFilter()" class="filter-options">
+    <div class="form-group">
+      <input
+        type="number"
+        formControlName="minPrice"
+        class="form-control"
+        placeholder="Min Price"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="number"
+        formControlName="maxPrice"
+        class="form-control"
+        placeholder="Max Price"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="number"
+        formControlName="minRating"
+        class="form-control"
+        placeholder="Min Rating"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="number"
+        formControlName="maxRating"
+        class="form-control"
+        placeholder="Max Rating"
+      />
+    </div>
+
+    <button class="filter-button" type="submit">
+      <i class="fa fa-filter"></i> Filters
+    </button>
+  </form>
+</div>

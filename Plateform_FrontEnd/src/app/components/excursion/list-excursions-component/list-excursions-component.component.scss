@@ -16,7 +16,7 @@
     .search-input {
       padding: 8px 15px;
       border-radius: 25px;
-      border: 1px solid #ccc;
+      border: 1px solid #f15822;
       outline: none;
       width: 200px;
     }
@@ -48,10 +48,10 @@
       }
 
       .form-control {
-        border: 1px solid #ccc;
+        border: 1px solid #f15822;
         border-radius: 25px;
         padding: 8px 15px;
-        width: 80px; /* Ajuster la largeur selon les besoins */
+        width: 80px;
       }
     }
 
@@ -76,7 +76,7 @@
     }
 
     .filter-dropdown {
-      border: 1px solid #ccc;
+      border: 1px solid #f15822;
       border-radius: 25px;
       padding: 8px 15px;
       background-color: transparent;
@@ -90,7 +90,7 @@
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  color: #9a9ab0;
+  color: #fd7401;
   letter-spacing: 0.08px;
   font: 400 16px/1 Mulish, sans-serif;
 }

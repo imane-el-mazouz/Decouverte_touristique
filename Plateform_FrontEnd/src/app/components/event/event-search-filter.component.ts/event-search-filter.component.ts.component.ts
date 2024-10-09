@@ -16,7 +16,7 @@ import {DatePipe, NgForOf, NgIf} from "@angular/common";
     NgIf,
     DatePipe
   ],
-  styleUrls: ['./event-search-filter.component.ts.component.css']
+  styleUrls: ['./event-search-filter.component.ts.component.scss']
 })
 export class EventSearchFilterComponent implements OnInit{
   @Output() searchResults = new EventEmitter<DtoEvent[]>();
@@ -98,6 +98,7 @@ export class EventSearchFilterComponent implements OnInit{
       }
     );
   }
+
 
 
 }

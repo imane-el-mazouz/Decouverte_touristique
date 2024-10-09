@@ -18,7 +18,7 @@ import {Button} from "primeng/button";
     Button
   ],
   templateUrl: './add-excursion-component.component.html',
-  styleUrl: './add-excursion-component.component.css'
+  styleUrl: './add-excursion-component.component.scss'
 })
 export class AddExcursionComponentComponent implements OnInit {
   excursionForm: FormGroup;

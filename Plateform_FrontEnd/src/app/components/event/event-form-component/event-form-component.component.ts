@@ -4,6 +4,8 @@ import { EventService } from '../../../service/event-service/event-service.servi
 import { DtoEvent } from '../../../dto/eventDTO/dto-event';
 import { CategoryEvent } from '../../../enums/category-event';
 import { NgForOf } from "@angular/common";
+import {Button} from "primeng/button";
+import {DialogModule} from "primeng/dialog";
 
 @Component({
   selector: 'app-event-form-component',
@@ -12,9 +14,11 @@ import { NgForOf } from "@angular/common";
   imports: [
     NgForOf,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    Button,
+    DialogModule
   ],
-  styleUrls: ['./event-form-component.component.css']
+  styleUrls: ['./event-form-component.component.scss']
 })
 export class EventFormComponentComponent implements OnInit {
   @Output() eventAdded = new EventEmitter<DtoEvent>();
@@ -33,6 +37,7 @@ export class EventFormComponentComponent implements OnInit {
   };
 
   categories = Object.values(CategoryEvent);
+  visible: boolean = false;
 
   constructor(private eventService: EventService) {}
 
@@ -66,5 +71,9 @@ export class EventFormComponentComponent implements OnInit {
       distance: 0,
       category: CategoryEvent.Sports
     };
+  }
+
+  showDialog() {
+    this.visible = true;
   }
 }

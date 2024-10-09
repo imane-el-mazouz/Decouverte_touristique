@@ -1,43 +1,7 @@
+<!--
 
-<!--<div class="container">-->
-<!--  <h2>Create/Edit Event</h2>-->
-<!--  <form [formGroup]="eventForm" (ngSubmit)="submitForm()">-->
-<!--    <label for="name">Name:</label>-->
-<!--    <input id="name" formControlName="name" type="text">-->
-
-<!--    <label for="description">Description:</label>-->
-<!--    <textarea id="description" formControlName="description"></textarea>-->
-
-<!--    <label for="img">Image:</label>-->
-<!--    <input #fileToUpload id="img" type="file" (change)="onFileChange($event)">-->
-
-<!--    <label for="date">Date:</label>-->
-<!--    <input id="date" formControlName="date" type="date">-->
-
-<!--    <label for="location">Location:</label>-->
-<!--    <input id="location" formControlName="location" type="text">-->
-
-<!--    <label for="capacity">Capacity:</label>-->
-<!--    <input id="capacity" formControlName="capacity" type="number">-->
-
-<!--    <label for="price">Price:</label>-->
-<!--    <input id="price" formControlName="price" type="number">-->
-
-<!--    <label for="rating">Rating:</label>-->
-<!--    <input id="rating" formControlName="rating" type="number">-->
-
-<!--    <label for="distance">Distance:</label>-->
-<!--    <input id="distance" formControlName="distance" type="number">-->
-
-<!--    <label for="category">Category:</label>-->
-<!--    <select id="category" formControlName="category">-->
-<!--      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>-->
-<!--    </select>-->
-
-<!--    <button type="submit">Submit</button>-->
-<!--  </form>-->
-<!--</div>-->
-<form (ngSubmit)="onSubmit()">
+<p-button class="o" (onClick)="showDialog()" label="Add Excursion" />
+<p-dialog header="" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }"><form (ngSubmit)="onSubmit()">
   <input type="text" [(ngModel)]="event.name" name="name" placeholder="Event Name" required />
   <textarea [(ngModel)]="event.description" name="description" placeholder="Description" required></textarea>
   <input type="text" [(ngModel)]="event.imgPath" name="imgPath" placeholder="Image Path" />
@@ -56,4 +20,47 @@
 
   <button type="submit">Save Event</button>
 </form>
+</p-dialog>
 
+-->
+<p-button class="o" (onClick)="showDialog()" label="Add Event" />
+<p-dialog header="" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+  <div class="form-container">
+    <h3 class="title">Add Event</h3>
+    <form (ngSubmit)="onSubmit()">
+      <label for="name" class="visually-hidden">Event Name</label>
+      <input id="name" [(ngModel)]="event.name" name="name" class="form-input" placeholder="Event Name" required />
+
+      <label for="description" class="visually-hidden">Description</label>
+      <textarea id="description" [(ngModel)]="event.description" name="description" class="form-input" placeholder="Description" required></textarea>
+
+      <label for="imgPath" class="visually-hidden">Image Link</label>
+      <input id="imgPath" [(ngModel)]="event.imgPath" name="imgPath" class="form-input" placeholder="Image Link" />
+
+      <label for="date" class="visually-hidden">Date and Time</label>
+      <input id="date" type="datetime-local" [(ngModel)]="event.date" name="date" class="form-input" required />
+
+      <label for="location" class="visually-hidden">Location</label>
+      <input id="location" [(ngModel)]="event.location" name="location" class="form-input" placeholder="Location" required />
+
+      <label for="capacity" class="visually-hidden">Capacity</label>
+      <input id="capacity" type="number" [(ngModel)]="event.capacity" name="capacity" class="form-input" placeholder="Capacity" required min="1" />
+
+      <label for="category" class="visually-hidden">Category</label>
+      <select id="category" [(ngModel)]="event.category" name="category" class="form-input" required>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+
+      <label for="price" class="visually-hidden">Price</label>
+      <input id="price" type="number" [(ngModel)]="event.price" name="price" class="form-input" placeholder="Price" required />
+
+      <label for="rating" class="visually-hidden">Rating</label>
+      <input id="rating" type="number" [(ngModel)]="event.rating" name="rating" class="form-input" placeholder="Rating" min="1" max="5" />
+
+      <label for="distance" class="visually-hidden">Distance</label>
+      <input id="distance" type="number" [(ngModel)]="event.distance" name="distance" class="form-input" placeholder="Distance" />
+
+      <button type="submit" class="submit-btn">Save Event</button>
+    </form>
+  </div>
+</p-dialog>

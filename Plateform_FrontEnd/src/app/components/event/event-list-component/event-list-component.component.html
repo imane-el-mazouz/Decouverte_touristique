@@ -1,129 +1,251 @@
-<div class="container">
-  <h2>Event List, Update & Delete</h2>
+<!--<div class="container">-->
+<!--  <h2>Event List, Update & Delete</h2>-->
 
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Image</th>
-      <th>Date</th>
-      <th>Price</th>
-      <th>Rating</th>
-      <th>Category</th>
-      <th>Capacity</th>
-      <th>Distance</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let event of events">
-      <td>{{ event.idEvent }}</td>
-      <td>{{ event.name }}</td>
-      <td>{{ event.description }}</td>
-      <td>{{ event.location }}</td>
-      <td>
-        <img [src]="event.imgPath" alt="{{ event.name }}" style="width: 100px; height: auto;" />
-      </td>
-      <td>{{ event.date | date:'shortDate' }}</td>
-      <td>{{ event.price | currency }}</td>
-      <td>{{ event.rating }}</td>
-      <td>{{ event.category }}</td>
-      <td>{{ event.capacity }}</td>
-      <td>{{ event.distance }}</td>
+<!--  <table class="table table-striped">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>Id</th>-->
+<!--      <th>Name</th>-->
+<!--      <th>Description</th>-->
+<!--      <th>Location</th>-->
+<!--      <th>Image</th>-->
+<!--      <th>Date</th>-->
+<!--      <th>Price</th>-->
+<!--      <th>Rating</th>-->
+<!--      <th>Category</th>-->
+<!--      <th>Capacity</th>-->
+<!--      <th>Distance</th>-->
+<!--      <th>Actions</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let event of events">-->
+<!--      <td>{{ event.idEvent }}</td>-->
+<!--      <td>{{ event.name }}</td>-->
+<!--      <td>{{ event.description }}</td>-->
+<!--      <td>{{ event.location }}</td>-->
+<!--      <td>-->
+<!--        <img [src]="event.imgPath" alt="{{ event.name }}" style="width: 100px; height: auto;" />-->
+<!--      </td>-->
+<!--      <td>{{ event.date | date:'shortDate' }}</td>-->
+<!--      <td>{{ event.price | currency }}</td>-->
+<!--      <td>{{ event.rating }}</td>-->
+<!--      <td>{{ event.category }}</td>-->
+<!--      <td>{{ event.capacity }}</td>-->
+<!--      <td>{{ event.distance }}</td>-->
 
 
-      <td>
-        <button class="btn btn-warning" (click)="editEvent(event)">Edit</button>
-        <button (click)="deleteEvent(event.idEvent)">Delete</button>
-        <button class="btn btn-success" (click)="showBookingForm(event)">Book</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<!--      <td>-->
+<!--        <button class="btn btn-warning" (click)="editEvent(event)">Edit</button>-->
+<!--        <button (click)="deleteEvent(event.idEvent)">Delete</button>-->
+<!--        <button class="btn btn-success" (click)="showBookingForm(event)">Book</button>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
 
-  <div *ngIf="bookingFormVisible">
-    <h3>Book Event: {{ selectedEvent?.name }}</h3>
-    <form [formGroup]="bookingForm" (ngSubmit)="bookEvent()">
-      <div class="form-group">
-        <label for="numberOfPerson">Number of Persons</label>
-        <input formControlName="numberOfPerson" id="numberOfPerson" type="number" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="dateTime">Date</label>
-        <input formControlName="dateTime" id="dateTime" type="date" class="form-control" />
-      </div>
-      <button type="submit" class="btn btn-primary">Book</button>
-    </form>
-    <div *ngIf="bookingSuccess" class="alert alert-success mt-3">
-      Your booking was successful!
-    </div>
-    <div *ngIf="bookingError" class="alert alert-danger mt-3">
-      Sorry, the booking failed. Please try again.
-    </div>
-  </div>
+<!--  <div *ngIf="bookingFormVisible">-->
+<!--    <h3>Book Event: {{ selectedEvent?.name }}</h3>-->
+<!--    <form [formGroup]="bookingForm" (ngSubmit)="bookEvent()">-->
+<!--      <div class="form-group">-->
+<!--        <label for="numberOfPerson">Number of Persons</label>-->
+<!--        <input formControlName="numberOfPerson" id="numberOfPerson" type="number" class="form-control" />-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="dateTime">Date</label>-->
+<!--        <input formControlName="dateTime" id="dateTime" type="date" class="form-control" />-->
+<!--      </div>-->
+<!--      <button type="submit" class="btn btn-primary">Book</button>-->
+<!--    </form>-->
+<!--    <div *ngIf="bookingSuccess" class="alert alert-success mt-3">-->
+<!--      Your booking was successful!-->
+<!--    </div>-->
+<!--    <div *ngIf="bookingError" class="alert alert-danger mt-3">-->
+<!--      Sorry, the booking failed. Please try again.-->
+<!--    </div>-->
+<!--  </div>-->
 
-  <div *ngIf="editMode" class="event-edit-form">
-    <form [formGroup]="eventForm" (ngSubmit)="updateEvent()">
-      <div>
-        <label for="name">Name:</label>
-        <input id="name" formControlName="name" type="text" />
-      </div>
+<!--  <div *ngIf="editMode" class="event-edit-form">-->
+<!--    <form [formGroup]="eventForm" (ngSubmit)="updateEvent()">-->
+<!--      <div>-->
+<!--        <label for="name">Name:</label>-->
+<!--        <input id="name" formControlName="name" type="text" />-->
+<!--      </div>-->
 
-      <div>
-        <label for="description">Description:</label>
-        <input id="description" formControlName="description" type="text" />
-      </div>
+<!--      <div>-->
+<!--        <label for="description">Description:</label>-->
+<!--        <input id="description" formControlName="description" type="text" />-->
+<!--      </div>-->
 
-      <div>
-        <label for="date">Date:</label>
-        <input id="date" formControlName="date" type="date" />
-      </div>
+<!--      <div>-->
+<!--        <label for="date">Date:</label>-->
+<!--        <input id="date" formControlName="date" type="date" />-->
+<!--      </div>-->
 
-      <div>
-        <label for="imgPath">Image URL:</label>
-        <input id="imgPath" formControlName="imgPath" type="text" />
-      </div>
+<!--      <div>-->
+<!--        <label for="imgPath">Image URL:</label>-->
+<!--        <input id="imgPath" formControlName="imgPath" type="text" />-->
+<!--      </div>-->
 
-      <div>
-        <label for="location">Location:</label>
-        <input id="location" formControlName="location" type="text" />
-      </div>
+<!--      <div>-->
+<!--        <label for="location">Location:</label>-->
+<!--        <input id="location" formControlName="location" type="text" />-->
+<!--      </div>-->
 
-      <div>
-        <label for="capacity">Capacity:</label>
-        <input id="capacity" formControlName="capacity" type="number" />
-      </div>
+<!--      <div>-->
+<!--        <label for="capacity">Capacity:</label>-->
+<!--        <input id="capacity" formControlName="capacity" type="number" />-->
+<!--      </div>-->
 
-      <div>
-        <label for="price">Price:</label>
-        <input id="price" formControlName="price" type="number" />
-      </div>
+<!--      <div>-->
+<!--        <label for="price">Price:</label>-->
+<!--        <input id="price" formControlName="price" type="number" />-->
+<!--      </div>-->
 
-      <div>
-        <label for="rating">Rating:</label>
-        <input id="rating" formControlName="rating" type="number" />
-      </div>
+<!--      <div>-->
+<!--        <label for="rating">Rating:</label>-->
+<!--        <input id="rating" formControlName="rating" type="number" />-->
+<!--      </div>-->
 
-      <div>
-        <label for="distance">Distance:</label>
-        <input id="distance" formControlName="distance" type="number" />
-      </div>
+<!--      <div>-->
+<!--        <label for="distance">Distance:</label>-->
+<!--        <input id="distance" formControlName="distance" type="number" />-->
+<!--      </div>-->
 
-      <div>
-        <label >Category:</label>
-        <select formControlName="category">
-          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-        </select>
-      </div>
+<!--      <div>-->
+<!--        <label >Category:</label>-->
+<!--        <select formControlName="category">-->
+<!--          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>-->
+<!--        </select>-->
+<!--      </div>-->
 
-      <button type="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Save Changes</button>
-      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
-    </form>
-  </div>
+<!--      <button type="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Save Changes</button>-->
+<!--      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>-->
+<!--    </form>-->
+<!--  </div>-->
 
-</div>
-<app-event-form-component (eventAdded)="onEventAdded($event)"></app-event-form-component>
+<!--</div>-->
+<!--<app-event-form-component (eventAdded)="onEventAdded($event)"></app-event-form-component>-->
+<!--<app-event-search-filter (searchResults)="onSearchResults($event)"></app-event-search-filter>-->
 <app-event-search-filter (searchResults)="onSearchResults($event)"></app-event-search-filter>
+<app-event-form-component (eventAdded)="onEventAdded($event)"></app-event-form-component>
+
+<div class="container">
+  <section class="recent-excursions">
+    <table class="excursion-table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Image</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Rating</th>
+        <th>Category</th>
+        <th>Capacity</th>
+        <th>Distance</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{ event.name }}</td>
+        <td>{{ event.description }}</td>
+        <td>{{ event.location }}</td>
+        <td>
+          <img [src]="event.imgPath" alt="{{ event.name }}" width="100" height="auto" />
+        </td>
+        <td>{{ event.date | date:'shortDate' }}</td>
+        <td>{{ event.price | currency }}</td>
+        <td>{{ event.rating }}</td>
+        <td>{{ event.category }}</td>
+        <td>{{ event.capacity }}</td>
+        <td>{{ event.distance }}</td>
+        <td>
+          <button class="btn update-btn" (click)="showDialog(); editEvent(event)">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+          <button class="btn delete-btn" (click)="deleteEvent(event.idEvent)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+<!--          <button class="btn book-btn" (click)="showBookingForm(event)">-->
+<!--            <i class="fas fa-book"></i>-->
+<!--          </button>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <p-paginator
+      [rows]="rowsPerPage"
+      [totalRecords]="events.length"
+      [rowsPerPageOptions]="[3, 5, 10, 20]"
+      (onPageChange)="paginate($event)">
+    </p-paginator>
+  </section>
+</div>
+
+
+<!--  <div *ngIf="bookingFormVisible">-->
+<!--    <h3>Book Event: {{ selectedEvent?.name }}</h3>-->
+<!--    <form [formGroup]="bookingForm" (ngSubmit)="bookEvent()">-->
+<!--      <div class="form-group">-->
+<!--        <label for="numberOfPerson">Number of Persons</label>-->
+<!--        <input formControlName="numberOfPerson" id="numberOfPerson" type="number" class="form-control" />-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="dateTime">Date</label>-->
+<!--        <input formControlName="dateTime" id="dateTime" type="date" class="form-control" />-->
+<!--      </div>-->
+<!--      <button type="submit" class="btn btn-primary">Book</button>-->
+<!--    </form>-->
+<!--    <div *ngIf="bookingSuccess" class="alert alert-success mt-3">-->
+<!--      Your booking was successful!-->
+<!--    </div>-->
+<!--    <div *ngIf="bookingError" class="alert alert-danger mt-3">-->
+<!--      Sorry, the booking failed. Please try again.-->
+<!--    </div>-->
+<!--  </div>-->
+
+<p-dialog header="" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+  <div *ngIf="editMode" class="form-container">
+    <h3 class="title">Edit Event</h3>
+    <form [formGroup]="eventForm" (ngSubmit)="updateEvent()">
+
+      <label for="name" class="visually-hidden">Name</label>
+      <input id="name" formControlName="name" class="form-input" placeholder="Name" required/>
+
+      <label for="description" class="visually-hidden">Description</label>
+      <textarea id="description" formControlName="description" class="form-input" placeholder="Description"></textarea>
+
+      <label for="imgPath" class="visually-hidden">Image URL</label>
+      <input id="imgPath" formControlName="imgPath" class="form-input" placeholder="Image URL" required/>
+
+      <label for="date" class="visually-hidden">Date</label>
+      <input id="date" type="date" formControlName="date" class="form-input" required/>
+
+      <label for="location" class="visually-hidden">Location</label>
+      <input id="location" formControlName="location" class="form-input" placeholder="Location" required/>
+
+      <label for="capacity" class="visually-hidden">Capacity</label>
+      <input id="capacity" type="number" formControlName="capacity" class="form-input" placeholder="Capacity" required min="1"/>
+
+      <label for="price" class="visually-hidden">Price</label>
+      <input id="price" type="number" formControlName="price" class="form-input" placeholder="Price" required/>
+
+      <label for="rating" class="visually-hidden">Rating</label>
+      <input id="rating" type="number" formControlName="rating" class="form-input" placeholder="Rating" min="1" max="5"/>
+
+      <label for="distance" class="visually-hidden">Distance</label>
+      <input id="distance" type="number" formControlName="distance" class="form-input" placeholder="Distance"/>
+
+      <label>Category:</label>
+      <select formControlName="category" class="form-input" required>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+
+      <button type="submit" class="submit-btn" [disabled]="eventForm.invalid">Save Changes</button>
+      <button type="button" class="submit-btn" (click)="cancelEdit()">Cancel</button>
+    </form>
+  </div>
+</p-dialog>
