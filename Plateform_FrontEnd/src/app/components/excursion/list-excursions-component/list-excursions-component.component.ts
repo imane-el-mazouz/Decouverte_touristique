@@ -6,6 +6,10 @@ import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {AddExcursionComponentComponent} from "../add-excursion-component/add-excursion-component.component";
 import {Excursion} from "../../../model/excursion/excursion";
 import {TableModule} from "primeng/table";
+import {eachDayOfInterval, endOfMonth, endOfWeek, isSameMonth, startOfMonth, startOfWeek} from "date-fns";
+import {Button} from "primeng/button";
+import {DialogModule} from "primeng/dialog";
+import {PaginatorModule} from "primeng/paginator";
 
 @Component({
   selector: 'app-list-excursions-component',
@@ -16,7 +20,10 @@ import {TableModule} from "primeng/table";
     DatePipe,
     AddExcursionComponentComponent,
     NgIf,
-    TableModule
+    TableModule,
+    Button,
+    DialogModule,
+    PaginatorModule
   ],
   templateUrl: './list-excursions-component.component.html',
   styleUrls: ['./list-excursions-component.component.scss']
@@ -29,6 +36,14 @@ export class ListExcursionsComponentComponent implements OnInit {
   updateForm: FormGroup | undefined;
   selectedExcursion: DtoExcursion | null = null;
   isUpdating: boolean = false;
+  currentDate: Date = new Date();
+  weeks: Date[][] = [];
+  highlightedDays: Date[] = [];
+  visible: boolean = false;
+  paginatedExcursions = [];
+  rowsPerPage = 5;
+  first = 0;
+
 
 
   constructor(
@@ -64,17 +79,35 @@ export class ListExcursionsComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadExcursions();
+    this.generateCalendar();
+    this.highlightToday();
+    this.loadData();
+
+    // @ts-ignore
+    this.excursions = this.loadExcursions();
+    this.paginate({ first: this.first, rows: this.rowsPerPage });
   }
 
+  // loadExcursions(): void {
+  //   this.excursionService.getAllExcursions().subscribe(
+  //     data => {
+  //       console.log('Excursion data:', data);
+  //       this.excursions = data;
+  //     },
+  //     error => console.error('Error loading excursions', error)
+  //   );
+  // }
   loadExcursions(): void {
     this.excursionService.getAllExcursions().subscribe(
       data => {
         console.log('Excursion data:', data);
         this.excursions = data;
+        this.paginate({ first: this.first, rows: this.rowsPerPage });
       },
       error => console.error('Error loading excursions', error)
     );
   }
+
 
   onSearch(): void {
     const { date, location } = this.searchForm.value;
@@ -162,4 +195,51 @@ export class ListExcursionsComponentComponent implements OnInit {
     }
   }
 
+  generateCalendar(): void {
+    const startMonth = startOfMonth(this.currentDate);
+    const endMonth = endOfMonth(this.currentDate);
+    const startDate = startOfWeek(startMonth, { weekStartsOn: 0 });
+    const endDate = endOfWeek(endMonth, { weekStartsOn: 0 });
+
+    const days = eachDayOfInterval({ start: startDate, end: endDate });
+    const weeks: Date[][] = [];
+
+    while (days.length) {
+      weeks.push(days.splice(0, 7));
+    }
+
+    this.weeks = weeks;
+  }
+
+  protected highlightToday() {
+
+  }
+
+  isHighlighted(day: Date) {
+
+  }
+
+  protected readonly isSameMonth = isSameMonth;
+
+  nextMonth() {
+
+  }
+
+  showDialog() {
+    this.visible = true;
+  }
+
+
+
+  loadData() {
+    this.excursions = [
+    ];
+  }
+
+  paginate(event: any) {
+    this.first = event.first;
+    this.rowsPerPage = event.rows;
+    // @ts-ignore
+    this.paginatedExcursions = this.excursions.slice(this.first, this.first + this.rowsPerPage);
+  }
 }

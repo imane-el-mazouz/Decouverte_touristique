@@ -1,5 +1,4 @@
 <div class="container">
-  <h2>Excursions List</h2>
 
 <!--  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">-->
 <!--    <div class="form-group">-->
@@ -103,7 +102,7 @@
 <!--    </table>-->
 <div >
   <section class="recent-excursions">
-    <h2 class="section-title">Excursions</h2>
+<!--    <h2 class="section-title">Excursions</h2>-->
     <table class="excursion-table">
       <thead>
       <tr>
@@ -129,7 +128,8 @@
         <td>{{ excursion.capacity }}</td>
         <td>{{ excursion.rating }}</td>
         <td>
-          <button class="btn update-btn" (click)="updateExcursion(excursion)">
+<!--          <button class="btn update-btn" (click)="updateExcursion(excursion)">-->
+          <button class="btn update-btn" (click)="showDialog(); updateExcursion(excursion)">
             <i class="fas fa-pencil-alt"></i>
           </button>
           <button class="btn delete-btn" (click)="deleteExcursion(excursion.idExcursion)">
@@ -140,11 +140,19 @@
       </tr>
       </tbody>
     </table>
+    <p-paginator
+      [rows]="rowsPerPage"
+      [totalRecords]="excursions.length"
+      [rowsPerPageOptions]="[3, 5, 10, 20]"
+      (onPageChange)="paginate($event)">      (onPageChange)="paginate($event)">
+    </p-paginator>
   </section>
   <app-add-excursion-component (excursionAdded)="onExcursionAdded($event)"></app-add-excursion-component>
 
 </div>
 </div>
+
+<p-dialog header="" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
 
 <div *ngIf="isUpdating">
   <h3>Update Excursion: {{ selectedExcursion?.name }}</h3>
@@ -175,89 +183,22 @@
 
   </form>
 </div>
+</p-dialog>
 
 
 
-  <div *ngIf="selectedExcursion">
-    <h3>Book Excursion: {{ selectedExcursion.name }}</h3>
-    <form [formGroup]="bookingForm" (ngSubmit)="onConfirmBooking()">
-      <div class="form-group">
-        <label for="userName">Your Name</label>
-        <input id="userName" formControlName="userName" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="userEmail">Your Email</label>
-        <input id="userEmail" formControlName="userEmail" class="form-control" />
-      </div>
-      <button type="submit" class="btn btn-success">Confirm Booking</button>
-    </form>
-  </div>
+<!--  <div *ngIf="selectedExcursion">-->
+<!--    <h3>Book Excursion: {{ selectedExcursion.name }}</h3>-->
+<!--    <form [formGroup]="bookingForm" (ngSubmit)="onConfirmBooking()">-->
+<!--      <div class="form-group">-->
+<!--        <label for="userName">Your Name</label>-->
+<!--        <input id="userName" formControlName="userName" class="form-control" />-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="userEmail">Your Email</label>-->
+<!--        <input id="userEmail" formControlName="userEmail" class="form-control" />-->
+<!--      </div>-->
+<!--      <button type="submit" class="btn btn-success">Confirm Booking</button>-->
+<!--    </form>-->
+<!--  </div>-->
 
-
-<section class="calendar">
-  <header class="month-header">
-    <h2 class="month-title">September 2022</h2>
-    <nav class="month-nav">
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e11631d6c89e25c2ca0eb7c4445e3054b706f2b2827257ef69a8d6a988a8d37?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Previous month" class="nav-icon" />
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/841f33adf9f80a7a7796815c083a867979f076a0e548829308229e623b913ffd?placeholderIfAbsent=true&apiKey=fbeb5a321590488ab4d866ae3e262c8d" alt="Next month" class="nav-icon" />
-    </nav>
-  </header>
-  <hr class="month-divider" />
-  <div class="week-days">
-    <span class="week-day">Sun</span>
-    <span class="week-day">Mon</span>
-    <span class="week-day">Tue</span>
-    <span class="week-day">Wed</span>
-    <span class="week-day">Thu</span>
-    <span class="week-day">Fri</span>
-    <span class="week-day">Sat</span>
-  </div>
-  <div class="calendar-grid">
-    <div class="calendar-row">
-      <span class="calendar-day">1</span>
-      <span class="calendar-day">2</span>
-      <span class="calendar-day">3</span>
-      <span class="calendar-day-empty"></span>
-      <span class="calendar-day-empty"></span>
-      <span class="calendar-day-empty"></span>
-      <span class="calendar-day-empty"></span>
-    </div>
-    <div class="calendar-row">
-      <span class="calendar-day">4</span>
-      <span class="calendar-day">5</span>
-      <span class="calendar-day">6</span>
-      <span class="calendar-day">7</span>
-      <span class="calendar-day">8</span>
-      <span class="calendar-day">9</span>
-      <span class="calendar-day">10</span>
-    </div>
-    <div class="calendar-row">
-      <span class="calendar-day">11</span>
-      <span class="calendar-day">12</span>
-      <span class="calendar-day">13</span>
-      <span class="calendar-day-highlight">14</span>
-      <span class="calendar-day">15</span>
-      <span class="calendar-day">16</span>
-      <span class="calendar-day-highlight">17</span>
-    </div>
-    <div class="calendar-row">
-      <span class="calendar-day">18</span>
-      <span class="calendar-day">19</span>
-      <span class="calendar-day">20</span>
-      <span class="calendar-day">21</span>
-      <span class="calendar-day">22</span>
-      <span class="calendar-day">23</span>
-      <span class="calendar-day">24</span>
-    </div>
-    <div class="calendar-row">
-      <span class="calendar-day">25</span>
-      <span class="calendar-day">26</span>
-      <span class="calendar-day">27</span>
-      <span class="calendar-day">28</span>
-      <span class="calendar-day">29</span>
-      <span class="calendar-day">30</span>
-      <span class="calendar-day-empty"></span>
-    </div>
-  </div>
-  <div class="calendar-footer"></div>
-</section>

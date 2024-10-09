@@ -2,18 +2,18 @@
 @import "primeng/resources/primeng.css";
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Manrope:wght@400&display=swap');
 
-
 * {
   box-sizing: border-box;
 }
 
 html, body {
   width: 100%;
+  height: 100%;
   overflow-x: hidden;
+  margin: 0;
+  font-family: 'Abhaya Libre', serif;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:host {
+  font-family: 'Abhaya Libre', serif;
+}

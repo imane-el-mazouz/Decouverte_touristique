@@ -45,8 +45,8 @@
 <!--    <button type="submit" [disabled]="excursionForm.invalid">Add Excursion</button>-->
 <!--  </form>-->
 <!--</div>-->
-<p-button class="o" (onClick)="showDialog()" label="Show" />
-<p-dialog header="Edit Profile" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+<p-button class="o" (onClick)="showDialog()" label="Add Excursion" />
+<p-dialog header="" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
 <div class="form-container">
   <h3 class="title">Add Excursion</h3>
   <form [formGroup]="excursionForm" (ngSubmit)="addExcursion()">
