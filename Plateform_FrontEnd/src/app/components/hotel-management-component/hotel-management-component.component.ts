@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {HotelServiceService} from '../../service/hotel-service/hotel-service.service';
 import {DtoHotel} from '../../dto/hotelDTO/dto-hotel';
 import {DtoRoom} from '../../dto/roomDTO/dto-room';
@@ -11,6 +11,9 @@ import {TableModule} from "primeng/table";
 import {Button} from "primeng/button";
 import {TagModule} from "primeng/tag";
 import {AutoCompleteCompleteEvent, AutoCompleteModule} from "primeng/autocomplete";
+import {RatingModule} from "primeng/rating";
+import {CarouselModule} from "primeng/carousel";
+import {DialogModule} from "primeng/dialog";
 
 @Component({
   selector: 'app-hotel-management',
@@ -27,9 +30,13 @@ import {AutoCompleteCompleteEvent, AutoCompleteModule} from "primeng/autocomplet
     CurrencyPipe,
     TagModule,
     NgClass,
-    AutoCompleteModule
+    AutoCompleteModule,
+    RatingModule,
+    CarouselModule,
+    DialogModule
   ],
-  styleUrls: ['./hotel-management-component.component.css']
+  styleUrls: ['./hotel-management-component.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HotelManagementComponent implements OnInit {
   hotels: DtoHotel[] = [];
@@ -72,22 +79,53 @@ export class HotelManagementComponent implements OnInit {
     distance: 0,
     rooms: []
   };
-
+  items = [
+    { name: 'Item 1', category: 'Bohemian' },
+    { name: 'Item 2', category: 'Traditional' }
+  ];
+  filteredResults: any[] = this.items;
   hotelId: number | undefined;
 
   searchQuery: string = '';
-
+  totalHotels: number = 0;
   protected selectedHotelId !: number;
   categories = Object.values(CategoryHotel);
+  currentSlide = 0;
+
+  currentIndex = 0;
+
+
   constructor(private hotelService: HotelServiceService) { }
+
+  pageSize: number = 10;
+  responsiveOptions: any[] | undefined;
+  visible: boolean = false;
 
   ngOnInit() {
     this.loadHotels();
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
   }
 
   loadHotels() {
     this.hotelService.getAllHotels().subscribe(hotels => {
       this.hotels = hotels;
+      this.totalHotels = hotels.length
     });
   }
 
@@ -99,11 +137,6 @@ export class HotelManagementComponent implements OnInit {
   }
 
 
-  // getRoomsByHotelId(hotelId: number) {
-  //   this.hotelService.listRoomsByHotelId(hotelId).subscribe((data: DtoRoom[]) => {
-  //     this.rooms = data;
-  //   });
-  // }
 
   getRoomsByHotelId(hotelId: number): void {
     this.selectedHotelId = hotelId;
@@ -158,13 +191,12 @@ export class HotelManagementComponent implements OnInit {
       .subscribe({
         next: (response) => {
           console.log('Room created successfully', response);
-          this.loadRooms(this.selectedHotelId!);  // Reload rooms for the hotel
+          this.loadRooms(this.selectedHotelId!);
           this.resetRoomForm();
         },
       });
   }
 
-  // Function to handle file selection
   onRoomImagesSelected(event: any) {
     this.roomImages = Array.from(event.target.files);
   }
@@ -201,24 +233,6 @@ export class HotelManagementComponent implements OnInit {
     }
   }
 
-  // filterHotels() {
-  //   const filterDTO: DtoFilterHotel = {
-  //     category: this.categoryFilter.trim(),
-  //     location: this.locationFilter.trim(),
-  //     minRating: this.minRating,
-  //     maxRating: this.maxRating
-  //   };
-  //
-  //   this.hotelService.filterHotels(filterDTO).subscribe(data => {
-  //     this.hotels = data;
-  //   });
-  // }
-
-  // searchHotels() {
-  //   this.hotelService.search(this.categoryFilter, this.locationFilter).subscribe(data => {
-  //     this.hotels = data;
-  //   });
-  // }
 
   deleteRoom(roomId: number): void {
     this.hotelService.deleteRoom(roomId).subscribe({
@@ -245,23 +259,6 @@ export class HotelManagementComponent implements OnInit {
   }
 
 
-  // updateRoom(): void {
-  //   if (this.editRoom) {
-  //     this.hotelService.updateRoom(this.editRoom.id, {
-  //       price: this.editRoom.price,
-  //       available: this.editRoom.available
-  //     }).subscribe({
-  //       next: () => {
-  //         console.log('Room updated successfully');
-  //         this.loadRooms(this.selectedHotelId!); // Reload rooms for the hotel
-  //         this.resetRoomForm(); // Reset form after updating
-  //       },
-  //       error: (error) => {
-  //         console.error('Error updating room', error);
-  //       }
-  //     });
-  //   }
-  // }
 
   updateRoom(): void {
     if (this.editRoom) {
@@ -368,7 +365,6 @@ export class HotelManagementComponent implements OnInit {
     });
   }
 
-  // Filter hotels using the filter API with multiple parameters
   filterHotels() {
     const filterDTO: DtoFilterHotel = {
       minRating: this.minRating,
@@ -381,7 +377,6 @@ export class HotelManagementComponent implements OnInit {
   }
 
 
-  // Methods to provide category and location suggestions for auto-complete
   searchCategories(event: any) {
     const query = event.query;
     this.filteredCategories = this.categories.filter(category =>
@@ -391,9 +386,37 @@ export class HotelManagementComponent implements OnInit {
 
   searchLocations(event: any) {
     const query = event.query;
-    const locations = ['New York', 'Paris', 'London', 'Tokyo']; // Example locations
+    const locations = ['tangier', 'rabat', 'marrakech', 'agadir'];
     this.filteredLocations = locations.filter(location =>
       location.toLowerCase().includes(query.toLowerCase())
     );
   }
+
+  searchByCategory() {
+    const searchValue = this.categorySearch.toLowerCase();
+    this.filteredResults = this.items.filter(item =>
+      item.category.toLowerCase().includes(searchValue)
+    );
+  }
+
+  prevSlide() {
+    this.currentSlide = (this.currentSlide > 0) ? this.currentSlide - 1 : this.rooms.length - 1;
+  }
+
+  nextSlide() {
+    this.currentSlide = (this.currentSlide < this.rooms.length - 1) ? this.currentSlide + 1 : 0;
+  }
+  prev() {
+    this.currentIndex = (this.currentIndex > 0) ? this.currentIndex - 1 : this.rooms.length - 3;
+  }
+
+  next() {
+    this.currentIndex = (this.currentIndex < this.rooms.length - 3) ? this.currentIndex + 1 : 0;
+  }
+
+  showDialog() {
+    this.showHotelForm = true;
+    this.visible = true;
+  }
+
 }

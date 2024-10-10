@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;700&display=swap');
+
+.search-filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin-bottom: 44px;
+  font-family: 'Abhaya Libre', serif;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+
+  .search-input {
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: 1px solid #f15822;
+    outline: none;
+    width: 200px;
+  }
+
+  .search-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+
+    .fa-search {
+      color: #f15822;
+    }
+  }
+}
+
+.filter-options {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    .form-control {
+      border: 1px solid #f15822;
+      border-radius: 25px;
+      padding: 8px 15px;
+      width: 120px;
+    }
+  }
+
+  .filter-button {
+    border: 1px solid #fd7401;
+    border-radius: 25px;
+    padding: 8px 20px;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    .fa-filter {
+      color: #f15822;
+    }
+  }
+}
+//table
+:host ::ng-deep .section-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+}
+
+:host ::ng-deep .hotel-table {
+  margin-bottom: 30px;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+:host ::ng-deep .hotel-table th,
+:host ::ng-deep .hotel-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+:host ::ng-deep .hotel-table th {
+  background-color: #f2f2f2;
+}
+
+:host ::ng-deep .hotel-image {
+  width: 100px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+:host ::ng-deep .room-table {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+:host ::ng-deep .room-table th,
+:host ::ng-deep .room-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+:host ::ng-deep .room-table th {
+  background-color: #f2f2f2;
+}
+
+:host ::ng-deep .room-image {
+  width: 80px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+:host ::ng-deep .room-form {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+:host ::ng-deep .form-group {
+  margin-bottom: 15px;
+}
+
+:host ::ng-deep .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+:host ::ng-deep .form-group input,
+:host ::ng-deep .form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+//buttons
+.btn {
+  background-color: transparent; /* Default background */
+  border: none; /* No border */
+  color: white; /* Text color */
+  padding: 8px 12px; /* Padding */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  border-radius: 5px; /* Rounded corners */
+  display: flex; /* Flexbox for icon alignment */
+  align-items: center; /* Center the icon vertically */
+  transition: background-color 0.3s; /* Transition effect for hover */
+  margin-right: 8px; /* Add space to the right of each button */
+}
+
+.btn-warning {
+  background-color: #f58c00;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+}
+
+.btn-success {
+  background-color: #5cb85c;
+}
+
+.btn-secondary {
+  background-color: #5bc0de;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+td button:last-child {
+  margin-right: 0;
+}
+
+
+//header
+.header-title {
+  font-family: 'Abhaya Libre', serif;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+
+.add{
+  background-color : #14183e;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+  margin-right: 8px;
+
+}
+
+.get {
+  background-color : green;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+  margin-right: 8px;
+}
+
+
+//table room and form
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700&family=Manrope:wght@400&display=swap');
+
+.form-container {
+  max-width: 500px; /* Adjusted for a larger width */
+  border-radius: 8px;
+  background-color: #f8f9fa; /* Light background color for the form */
+  padding: 20px; /* Padding for spacing */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  display: flex;
+  flex-direction: column;
+  color: #22f13e;
+  letter-spacing: 0.08px;
+  font: 400 16px/1 'Manrope', sans-serif;
+}
+
+.form-group {
+  margin-bottom: 20px; /* Space between form groups */
+}
+
+.form-group label {
+  font-family: 'Abhaya Libre', serif; /* Font for labels */
+  margin-bottom: 8px; /* Space between label and input */
+  display: block; /* Display label as block */
+}
+
+.form-input,
+.form-select {
+  border-radius: 8px;
+  background-color: #fff;
+  width: 100%;
+  padding: 12px; /* Slightly less padding for input fields */
+  border: 1px solid #fd7401;
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: #e06300; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.submit-btn {
+  font-family: 'Abhaya Libre', serif;
+  font-size: 18px;
+  padding: 12px;
+  background-color: #fd7401;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s; /* Smooth transition for button color */
+}
+
+.submit-btn:hover {
+  background-color: #e06300; /* Darker color on hover */
+}
+
+.cancel-btn {
+  font-family: 'Manrope', sans-serif;
+  padding: 10px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px; /* Space above cancel button */
+  transition: background-color 0.3s; /* Smooth transition for cancel button */
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+//rooms
+.carousel-container {
+  position: relative;
+  marginin-bottom:30px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.card {
+  flex: 0 0 33.33%; /* Show 3 cards at a time */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 0 10px;
+  overflow: hidden;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.image-container {
+  position: relative;
+}
+
+.room-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.available {
+  background-color: #28a745;
+}
+
+.unavailable {
+  background-color: #dc3545;
+}
+
+.card-content {
+  padding: 1rem;
+  text-align: center;
+}
+
+.room-type {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.room-price {
+  font-size: 1.2rem;
+  color: #ff5722;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.wishlist-button,
+.book-now-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.wishlist-button {
+  background-color: #f0f0f0;
+}
+
+.wishlist-button:hover {
+  background-color: #ffc107;
+}
+
+.book-now-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.book-now-button:hover {
+  background-color: #0056b3;
+}
+
+/* Navigation buttons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.edit-button {
+  color: #007bff;
+}
+
+.edit-button:hover {
+  color: #0056b3;
+}
+
+.delete-button {
+  color: #dc3545;
+}
+
+.delete-button:hover {
+  color: #c82333;
+}
+
+
+.add-button {
+  color: #28a745;
+}
+
+.add-button:hover {
+  color: #218838;
+}
+
+.view-button {
+  color: #007bff;
+}
+
+.view-button:hover {
+  color: #0056b3;
+}
+
+#create{
+  margin-bottom: 26px;
+  margin-left: 91%;
+  width: 95px;
+  font-family: Abhaya Libre ExtraBold, sans-serif;
+}
+
+#filtrage{
+  border: 1px solid #fd7401;
+  border-radius: 25px;
+  padding: 8px 20px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+//form
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700&family=Manrope:wght@400&display=swap');
+
+.form-container {
+  max-width: 361px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  color: #1c1f37;
+  letter-spacing: 0.08px;
+  font: 400 16px/1 Mulish, sans-serif;
+}
+
+.form-input {
+  border-radius: 8px;
+  background-color: #fff;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #fd7401;
+  margin-bottom: 26px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.submit-btn {
+  font-family: 'Abhaya Libre', serif;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #fd7401;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #e06300;
+}
+
+.title {
+  font-family: "Abhaya Libre", serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #181818;
+  margin-bottom: 20px;
+}
+
+::ng-deep .p-button {
+  background-color: #fd7401 !important;
+  font-family: "Abhaya Libre", serif;
+  border: 1px solid #fd7401;
+  color: white !important;
+  padding: 10px 15px !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 450px;
+  margin-bottom : 20px ;
+}
+
+::ng-deep .p-button:hover {
+  border: 1px solid #fd7401;
+  background-color: white !important;
+}
