@@ -283,4 +283,6 @@ export class HotelPageComponent implements OnInit {
   navigateToReviewForm() {
     this.router.navigate(['/room', this.roomId, 'add-review']);
   }
+
+
 }
