@@ -121,74 +121,116 @@
               </button>
             </div>
 
-
           </td>
         </tr>
 
 
-        <tr *ngIf="selectedHotelId === hotel.idHotel && showRoomForm">
-                  <td colspan="9">
-                    <div class="room-form">
-                      <form (ngSubmit)="createRoom()">
-                        <div class="form-group">
-                          <label for="roomType">Room Type</label>
-                          <select  [(ngModel)]="newRoom.type" name="type" required>
-                            <option *ngFor="let type of roomTypes" [value]="type">{{ type }}</option>
-                          </select>
-                        </div>
+<!--        <tr *ngIf="selectedHotelId === hotel.idHotel && showRoomForm">-->
+<!--           <td colspan="9">-->
+<!--                    <div class="room-form">-->
+<!--                      <form (ngSubmit)="createRoom()">-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="roomType">Room Type</label>-->
+<!--                          <select  [(ngModel)]="newRoom.type" name="type" required>-->
+<!--                            <option *ngFor="let type of roomTypes" [value]="type">{{ type }}</option>-->
+<!--                          </select>-->
+<!--                        </div>-->
 
-                        <div class="form-group">
-                          <label for="roomPrice">Price</label>
-                          <input type="number" [(ngModel)]="newRoom.price" name="price" required />
-                        </div>
+<!--                        <div class="form-group">-->
+<!--                          <label for="roomPrice">Price</label>-->
+<!--                          <input type="number" [(ngModel)]="newRoom.price" name="price" required />-->
+<!--                        </div>-->
 
-                        <div class="form-group">
-                          <label for="available">Available</label>
-                          <input type="checkbox" id="available" [(ngModel)]="newRoom.available" name="available" />
-                        </div>
+<!--                        <div class="form-group">-->
+<!--                          <label for="available">Available</label>-->
+<!--                          <input type="checkbox" id="available" [(ngModel)]="newRoom.available" name="available" />-->
+<!--                        </div>-->
 
-                        <div class="form-group">
-                          <label for="roomImages">Room Images</label>
-                          <input type="file" id="roomImages" (change)="onRoomImagesSelected($event)" multiple />
-                        </div>
+<!--                        <div class="form-group">-->
+<!--                          <label for="roomImages">Room Images</label>-->
+<!--                          <input type="file" id="roomImages" (change)="onRoomImagesSelected($event)" multiple />-->
+<!--                        </div>-->
 
-                        <button type="submit" class="btn btn-success">Create Room</button>
-                        <button type="button" class="btn btn-secondary" (click)="cancelRoomForm()">Cancel</button>
-                      </form>
-                    </div>
-                  </td>
-                </tr>
+<!--                        <button type="submit" class="btn btn-success">Create Room</button>-->
+<!--                        <button type="button" class="btn btn-secondary" (click)="cancelRoomForm()">Cancel</button>-->
+<!--                      </form>-->
+<!--                </div>-->
+<!--           </td>-->
+<!--        </tr>-->
 
         <tr *ngIf="selectedHotelId === hotel.idHotel && showRoomForm">
           <td colspan="9">
-            <form *ngIf="showRoomForm" (ngSubmit)="editRoom ? updateRoom() : createRoom()">
-              <div class="form-group">
-                <label for="roomType">Room Type</label>
-                <select id="roomType" [(ngModel)]="newRoom.type" name="type" required>
-                  <option *ngFor="let roomType of roomTypes" [ngValue]="roomType">{{ roomType }}</option>
-                </select>
-              </div>
+            <div class="form-container room-form">
+              <div class="title">Create a Room</div>
+              <form (ngSubmit)="createRoom()">
 
-              <div class="form-group">
-                <label for="roomPrice">Price</label>
-                <input type="number" id="roomPrice" [(ngModel)]="newRoom.price" name="price" required>
-              </div>
+                <div class="form-group">
+                  <label for="" class="visually-hidden">Room Type</label>
+                  <select class="form-input" [(ngModel)]="newRoom.type" name="type" required>
+                    <option *ngFor="let type of roomTypes" [value]="type">{{ type }}</option>
+                  </select>
+                </div>
 
-              <div class="form-group">
-                <label for="roomAvailable">Available</label>
-                <input type="checkbox" id="roomAvailable" [(ngModel)]="newRoom.available" name="available">
-              </div>
+                <div class="form-group">
+                  <label for="" class="visually-hidden">Price</label>
+                  <input type="number" class="form-input" [(ngModel)]="newRoom.price" name="price" placeholder="Price" required />
+                </div>
 
-              <div class="form-group">
-                <label for="roomImages">Room Images</label>
-                <input type="file" (change)="onRoomImagesSelected($event)" multiple>
-              </div>
+                <div class="form-group">
+                  <label for="available" class="visually-hidden">Available</label>
+                  <div>
+                    <input type="checkbox" id="available" [(ngModel)]="newRoom.available" name="available" />
+                    <label for="available">Available</label>
+                  </div>
+                </div>
 
-              <button type="submit" class="btn btn-primary">{{ editRoom ? 'Update Room' : 'Add Room' }}</button>
-              <button type="button" class="btn btn-secondary" (click)="resetRoomForm()">Cancel</button>
-            </form>
+                <div class="form-group">
+                  <label for="roomImages" class="visually-hidden">Room Images</label>
+                  <input type="file" id="roomImages" (change)="onRoomImagesSelected($event)" multiple />
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="submit-btn">Create Room</button>
+                  <button type="button" class="btn btn-secondary" (click)="cancelRoomForm()">Cancel</button>
+                </div>
+
+              </form>
+            </div>
           </td>
         </tr>
+
+<!--        <p-dialog header="" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">-->
+<!--        <tr *ngIf="selectedHotelId === hotel.idHotel && showRoomForm">-->
+<!--          <td colspan="9">-->
+<!--            <form *ngIf="showRoomForm" (ngSubmit)="editRoom ? updateRoom() : createRoom()">-->
+<!--              <div class="form-group">-->
+<!--                <label for="roomType">Room Type</label>-->
+<!--                <select id="roomType" [(ngModel)]="newRoom.type" name="type" required>-->
+<!--                  <option *ngFor="let roomType of roomTypes" [ngValue]="roomType">{{ roomType }}</option>-->
+<!--                </select>-->
+<!--              </div>-->
+
+<!--              <div class="form-group">-->
+<!--                <label for="roomPrice">Price</label>-->
+<!--                <input type="number" id="roomPrice" [(ngModel)]="newRoom.price" name="price" required>-->
+<!--              </div>-->
+
+<!--              <div class="form-group">-->
+<!--                <label for="roomAvailable">Available</label>-->
+<!--                <input type="checkbox" id="roomAvailable" [(ngModel)]="newRoom.available" name="available">-->
+<!--              </div>-->
+
+<!--              <div class="form-group">-->
+<!--                <label for="roomImages">Room Images</label>-->
+<!--                <input type="file" (change)="onRoomImagesSelected($event)" multiple>-->
+<!--              </div>-->
+
+<!--              <button type="submit" class="btn btn-primary">{{ editRoom ? 'Update Room' : 'Add Room' }}</button>-->
+<!--              <button type="button" class="btn btn-secondary" (click)="resetRoomForm()">Cancel</button>-->
+<!--            </form>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        </p-dialog>-->
 
       </ng-template>
     </p-table>

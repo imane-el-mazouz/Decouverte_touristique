@@ -21,11 +21,6 @@ public interface EventRepository extends JpaRepository<Event, Long>, JpaSpecific
             LocalDate date);
 
 
-//    List<Event> findAllByPriceBetweenAndRatingBetweenAndDistanceLessThan(
-//            Double minPrice, Double maxPrice,
-//            Integer minRating, Integer maxRating,
-//            Double maxDistance
-//    );
 @Query("SELECT e FROM Event e WHERE " +
         "(:minPrice IS NULL OR e.price >= :minPrice) AND " +
         "(:maxPrice IS NULL OR e.price <= :maxPrice) AND " +

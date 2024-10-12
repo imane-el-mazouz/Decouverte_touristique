@@ -296,8 +296,8 @@ td button:last-child {
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
-  margin-top: 10px; /* Space above cancel button */
-  transition: background-color 0.3s; /* Smooth transition for cancel button */
+  margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
 .cancel-btn:hover {
@@ -568,4 +568,32 @@ td button:last-child {
 ::ng-deep .p-button:hover {
   border: 1px solid #fd7401;
   background-color: white !important;
+}
+
+//cancel btn
+.btn-secondary {
+  font-family: 'Abhaya Libre', serif;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #d3d3d3;
+  border: none;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  width: 48%;
+}
+
+.btn-secondary:hover {
+  background-color: #b0b0b0;
+  color: #000;
+}
+
+.btn-secondary:active {
+  background-color: #a0a0a0;
+  transform: scale(0.98);
+}
+
+.btn-secondary:focus {
+  outline: 2px solid #fd7401;
+  outline-offset: 2px;
 }

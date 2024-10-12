@@ -100,6 +100,7 @@ export class HotelManagementComponent implements OnInit {
   pageSize: number = 10;
   responsiveOptions: any[] | undefined;
   visible: boolean = false;
+  invisible : boolean = true;
 
   ngOnInit() {
     this.loadHotels();
@@ -419,4 +420,7 @@ export class HotelManagementComponent implements OnInit {
     this.visible = true;
   }
 
+  viewDialog() {
+    this.invisible = false;
+  }
 }
