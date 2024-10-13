@@ -1,0 +1,45 @@
+<div class="search-container">
+  <h2>Recherche</h2>
+  <form (ngSubmit)="onSearch()" #searchForm="ngForm">
+    <div>
+      <label for="location">Location:</label>
+      <input type="text" id="location" [(ngModel)]="location" name="location" required />
+    </div>
+    <div>
+      <label for="date">Date:</label>
+      <input type="date" id="date" [(ngModel)]="date" name="date" required />
+    </div>
+    <div>
+      <label for="category">Category:</label>
+      <select id="category" [(ngModel)]="category" name="category" required>
+        <option value="">Select Category</option>
+        <option value="EVENT">Event</option>
+        <option value="EXCURSION">Excursion</option>
+        <option value="HOTEL">Hotel</option>
+      </select>
+    </div>
+    <button type="submit">Search</button>
+  </form>
+
+  <div *ngIf="searchResults">
+    <h3>Search Results</h3>
+    <div *ngIf="searchResults.events.length > 0">
+      <h4>Events:</h4>
+      <ul>
+        <li *ngFor="let event of searchResults.events">{{ event.name }}</li>
+      </ul>
+    </div>
+    <div *ngIf="searchResults.excursions.length > 0">
+      <h4>Excursions:</h4>
+      <ul>
+        <li *ngFor="let excursion of searchResults.excursions">{{ excursion.name }}</li>
+      </ul>
+    </div>
+    <div *ngIf="searchResults.hotels.length > 0">
+      <h4>Hôtels:</h4>
+      <ul>
+        <li *ngFor="let hotel of searchResults.hotels">{{ hotel.name }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

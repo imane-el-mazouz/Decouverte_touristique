@@ -22,9 +22,4 @@ public interface ReservationRepository extends JpaRepository<Reservation , Long>
     Optional<Reservation> findByRoomAndClient(@Param("roomId") Long roomId, @Param("clientId") Long clientId);
 
 
-    List<Reservation> findAllByExcursionNotNull();
-
-    List<Reservation> findAllByRoomNotNull();
-
-    List<Reservation> findAllByEventNotNull();
 }

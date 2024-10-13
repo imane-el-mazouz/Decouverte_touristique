@@ -104,24 +104,14 @@ public class ReservationController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/excursions")
+    @GetMapping("/all")
     @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<List<Reservation>> listAllReservationsForExcursions() {
-        List<Reservation> reservations = reservationService.listAllReservationsForExcursions();
-        return new ResponseEntity<>(reservations, HttpStatus.OK);
+    public ResponseEntity<List<Reservation>> getAllReservations() {
+        List<Reservation> reservations = reservationService.findAllReservations();
+        if (reservations.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(reservations);
     }
 
-    @GetMapping("/hotels")
-    @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<List<Reservation>> listAllReservationsForHotels() {
-        List<Reservation> reservations = reservationService.listAllReservationsForHotels();
-        return new ResponseEntity<>(reservations, HttpStatus.OK);
-    }
-
-    @GetMapping("/events")
-    @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<List<Reservation>> listAllReservationsForEvents() {
-        List<Reservation> reservations = reservationService.listAllReservationsForEvents();
-        return new ResponseEntity<>(reservations, HttpStatus.OK);
-    }
 }

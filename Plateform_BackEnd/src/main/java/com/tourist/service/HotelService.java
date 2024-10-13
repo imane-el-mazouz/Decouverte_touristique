@@ -128,7 +128,7 @@ public class HotelService {
                 .build();
     }
 
-//    private Room convertToEntity(RoomDTO roomDTO) {
+    //    private Room convertToEntity(RoomDTO roomDTO) {
 //        Room room = new Room();
 //        room.setId(roomDTO.getId());
 //        room.setType(roomDTO.getType());
@@ -148,17 +148,17 @@ public class HotelService {
 //
 //        return room;
 //    }
-private Room convertToEntity(RoomDTO roomDTO) {
-    Room room = new Room();
-    room.setId(roomDTO.getId());
-    room.setType(roomDTO.getType());
-    room.setPrice(roomDTO.getPrice());
-    room.setAvailable(roomDTO.isAvailable());
+    private Room convertToEntity(RoomDTO roomDTO) {
+        Room room = new Room();
+        room.setId(roomDTO.getId());
+        room.setType(roomDTO.getType());
+        room.setPrice(roomDTO.getPrice());
+        room.setAvailable(roomDTO.isAvailable());
 
-    room.setImages(roomDTO.getImageUrls());
+        room.setImages(roomDTO.getImageUrls());
 
-    return room;
-}
+        return room;
+    }
 
 
     private RoomDTO convertToDTO(Room room) {

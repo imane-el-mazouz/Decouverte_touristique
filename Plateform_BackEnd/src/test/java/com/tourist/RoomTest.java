@@ -5,7 +5,6 @@
 //import com.tourist.enums.Type;
 //import com.tourist.exception.HotelNotFoundException;
 //import com.tourist.model.Hotel;
-//import com.tourist.model.Image;
 //import com.tourist.model.Room;
 //import com.tourist.repository.HotelRepository;
 //import com.tourist.repository.RoomRepository;

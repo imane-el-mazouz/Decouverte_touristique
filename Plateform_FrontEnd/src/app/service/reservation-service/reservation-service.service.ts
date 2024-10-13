@@ -75,4 +75,9 @@ export class ReservationService {
   listReservationsForHotels(): Observable<DtoReservation[]> {
     return this.http.get<DtoReservation[]>(`${this.apiUrl}/hotels`, { headers: this.getHeaders() });
   }
+
+  listReservations() :Observable<DtoReservation> {
+    return this.http.get<DtoReservation>(`${this.apiUrl}/all`, { headers: this.getHeaders() });
+  }
+
 }

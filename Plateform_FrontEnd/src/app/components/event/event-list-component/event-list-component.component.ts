@@ -8,12 +8,14 @@ import { CurrencyPipe, DatePipe, NgForOf, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import {EventFormComponentComponent} from "../event-form-component/event-form-component.component";
 import {
+
   EventSearchFilterComponent
 } from "../event-search-filter.component.ts/event-search-filter.component.ts.component";
 import {EventFilterDTO} from "../../../dto/event-filter.dto";
 import {PaginatorModule} from "primeng/paginator";
 import {Button} from "primeng/button";
 import {DialogModule} from "primeng/dialog";
+import {EventChartComponent} from "../event-chart/event-chart.component";
 
 @Component({
   selector: 'app-event-list-component',
@@ -29,7 +31,8 @@ import {DialogModule} from "primeng/dialog";
     EventSearchFilterComponent,
     PaginatorModule,
     Button,
-    DialogModule
+    DialogModule,
+    EventChartComponent
   ],
   styleUrls: ['./event-list-component.component.scss']
 })
@@ -49,7 +52,7 @@ export class EventListComponentComponent implements OnInit {
   rowsPerPage: number = 5;
   totalRecords: number = 0;
   currentPage: number = 0;
-  visible: boolean  = false;
+  visible: boolean = false;
 
 
   constructor(
@@ -85,16 +88,28 @@ export class EventListComponentComponent implements OnInit {
         maxRating: [null],
         maxDistance: [null]
       }
-
     )
   }
 
+  // loadEvents(): void {
+  //   this.eventService.getAllEvents().subscribe({
+  //     next: (events) => {
+  //       this.events = events;
+  //       this.totalRecords = events.length;
+  //       this.paginate({first: 0, rows: this.rowsPerPage});
+  //       console.log('Loaded events:', this.events);
+  //     },
+  //     error: (err) => {
+  //       console.error('Error loading events', err);
+  //     }
+  //   });
+  // }
   loadEvents(): void {
     this.eventService.getAllEvents().subscribe({
       next: (events) => {
         this.events = events;
         this.totalRecords = events.length;
-        this.paginate({ first: 0, rows: this.rowsPerPage });
+        this.paginate({first: 0, rows: this.rowsPerPage});
         console.log('Loaded events:', this.events);
       },
       error: (err) => {

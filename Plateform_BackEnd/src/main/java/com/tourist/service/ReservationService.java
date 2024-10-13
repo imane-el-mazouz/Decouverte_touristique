@@ -14,6 +14,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ReservationService {
@@ -123,16 +124,9 @@ public class ReservationService {
     }
 
 
-    public List<Reservation> listAllReservationsForExcursions() {
-        return reservationRepository.findAllByExcursionNotNull();
-    }
 
-    public List<Reservation> listAllReservationsForHotels() {
-        return reservationRepository.findAllByRoomNotNull();
-    }
-
-    public List<Reservation> listAllReservationsForEvents() {
-        return reservationRepository.findAllByEventNotNull();
+    public List<Reservation> findAllReservations(){
+        return reservationRepository.findAll();
     }
 
 }

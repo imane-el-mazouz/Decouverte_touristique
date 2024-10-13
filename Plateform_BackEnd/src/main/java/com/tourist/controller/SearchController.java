@@ -13,8 +13,12 @@ import java.util.Map;
 @CrossOrigin(origins = "*")
 
 public class SearchController {
-    @Autowired
-    private SearchService searchService;
+
+    private final SearchService searchService;
+
+    public SearchController(SearchService searchService) {
+        this.searchService = searchService;
+    }
 
     @PostMapping
     public SearchResultsDTO search(@RequestBody Map<String, Object> criteria) {

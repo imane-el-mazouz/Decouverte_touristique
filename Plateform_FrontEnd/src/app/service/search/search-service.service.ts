@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {SearchResults} from "../../model/search/search-results";
+import { SearchResults } from "../../model/search/search-results";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,14 @@ export class SearchService {
   private apiUrl = 'http://localhost:8085/api/search';
 
   constructor(private http: HttpClient) { }
+
+  private getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+  }
 
   search(location: string, date: string, category: string): Observable<SearchResults> {
     let params = new HttpParams();
@@ -27,6 +35,8 @@ export class SearchService {
       params = params.set('category', category);
     }
 
-    return this.http.get<SearchResults>(this.apiUrl, { params });
+    return this.http.get<SearchResults>(this.apiUrl, { params, headers: this.getHeaders() });
   }
+
+
 }
