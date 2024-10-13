@@ -4,6 +4,8 @@ import {ContactDto} from "../../dto/contactDTO/contact.dto.interface";
 import {ContactService} from "../../service/contact-service/contact-service.service";
 import {Router} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {TableModule} from "primeng/table";
+import {DialogModule} from "primeng/dialog";
 
 @Component({
   selector: 'app-contact-page',
@@ -11,14 +13,19 @@ import {FormsModule} from "@angular/forms";
   imports: [
     NgForOf,
     NgIf,
-    FormsModule
+    FormsModule,
+    TableModule,
+    DialogModule
   ],
   templateUrl: './contact-page.component.html',
-  styleUrl: './contact-page.component.css'
+  styleUrl: './contact-page.component.scss'
 })
 export class ContactPageComponent {
   contacts: ContactDto[] = [];
   selectedContact: ContactDto | null = null;
+  loading: number = 0;
+  totalRecords: number | undefined;
+  visible: boolean  = false ;
 
   constructor(private contactService: ContactService) { }
 
@@ -58,5 +65,9 @@ export class ContactPageComponent {
 
   cancelUpdate(): void {
     this.selectedContact = null;
+  }
+
+  viewDialog(){
+    this.visible= true;
   }
 }

@@ -123,6 +123,16 @@ public class ReservationService {
     }
 
 
+    public List<Reservation> listAllReservationsForExcursions() {
+        return reservationRepository.findAllByExcursionNotNull();
+    }
 
+    public List<Reservation> listAllReservationsForHotels() {
+        return reservationRepository.findAllByRoomNotNull();
+    }
+
+    public List<Reservation> listAllReservationsForEvents() {
+        return reservationRepository.findAllByEventNotNull();
+    }
 
 }

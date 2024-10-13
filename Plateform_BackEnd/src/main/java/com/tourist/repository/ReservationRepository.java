@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-//@Repository
 public interface ReservationRepository extends JpaRepository<Reservation , Long> {
     List<Reservation> findByEvent(Event event);
 
@@ -21,4 +20,11 @@ public interface ReservationRepository extends JpaRepository<Reservation , Long>
     List<Reservation> findByRoom(Room room);
     @Query("SELECT r FROM Reservation r WHERE r.room.id = :roomId AND r.client.id = :clientId")
     Optional<Reservation> findByRoomAndClient(@Param("roomId") Long roomId, @Param("clientId") Long clientId);
+
+
+    List<Reservation> findAllByExcursionNotNull();
+
+    List<Reservation> findAllByRoomNotNull();
+
+    List<Reservation> findAllByEventNotNull();
 }

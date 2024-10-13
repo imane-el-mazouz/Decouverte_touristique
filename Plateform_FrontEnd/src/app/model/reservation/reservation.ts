@@ -6,7 +6,7 @@ import {Event} from "../event/event";
 
 export class Reservation {
 
-  id !: number;
+  idReservation !: number;
   numberOfPerson !: number;
   dateTime !: Date;
   checkInDate !: Date;

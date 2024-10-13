@@ -22,7 +22,7 @@ import {PrimeIcons} from "primeng/api";
 
   ],
   templateUrl: './review-management.component.html',
-  styleUrls: ['./review-management.component.css']
+  styleUrls: ['./review-management.component.scss']
 })
 export class ReviewManagementComponent implements OnInit {
   reviews: Review[] = [];
@@ -33,7 +33,9 @@ export class ReviewManagementComponent implements OnInit {
     }
   ];
   @Input() reservationId!: number;
-  review: Review = { rating: 1, comment: '' };
+  review: Review = { rating: 1, comment: '' }
+  totalRecords: number = 0;
+  loading: boolean = false;
   isEditMode: boolean = false;
   private roomId!: number;
 

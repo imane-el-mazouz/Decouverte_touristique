@@ -1,28 +1,4 @@
-<!--
 
-<p-button class="o" (onClick)="showDialog()" label="Add Excursion" />
-<p-dialog header="" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }"><form (ngSubmit)="onSubmit()">
-  <input type="text" [(ngModel)]="event.name" name="name" placeholder="Event Name" required />
-  <textarea [(ngModel)]="event.description" name="description" placeholder="Description" required></textarea>
-  <input type="text" [(ngModel)]="event.imgPath" name="imgPath" placeholder="Image Path" />
-  <input type="datetime-local" [(ngModel)]="event.date" name="date" required />
-  <input type="text" [(ngModel)]="event.location" name="location" placeholder="Location" required />
-  <input type="number" [(ngModel)]="event.capacity" name="capacity" placeholder="Capacity" required />
-
-  <label>Category:</label>
-  <select [(ngModel)]="event.category" name="category" required>
-    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-  </select>
-
-  <input type="number" [(ngModel)]="event.price" name="price" placeholder="Price" required />
-  <input type="number" [(ngModel)]="event.rating" name="rating" placeholder="Rating" />
-  <input type="number" [(ngModel)]="event.distance" name="distance" placeholder="Distance" />
-
-  <button type="submit">Save Event</button>
-</form>
-</p-dialog>
-
--->
 <p-button class="o" (onClick)="showDialog()" label="Add Event" />
 <p-dialog header="" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
   <div class="form-container">

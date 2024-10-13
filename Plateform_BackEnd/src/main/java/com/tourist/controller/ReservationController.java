@@ -103,4 +103,25 @@ public class ReservationController {
         reservationService.deleteReservation(reservationId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/excursions")
+    @PreAuthorize("hasRole('Admin')")
+    public ResponseEntity<List<Reservation>> listAllReservationsForExcursions() {
+        List<Reservation> reservations = reservationService.listAllReservationsForExcursions();
+        return new ResponseEntity<>(reservations, HttpStatus.OK);
+    }
+
+    @GetMapping("/hotels")
+    @PreAuthorize("hasRole('Admin')")
+    public ResponseEntity<List<Reservation>> listAllReservationsForHotels() {
+        List<Reservation> reservations = reservationService.listAllReservationsForHotels();
+        return new ResponseEntity<>(reservations, HttpStatus.OK);
+    }
+
+    @GetMapping("/events")
+    @PreAuthorize("hasRole('Admin')")
+    public ResponseEntity<List<Reservation>> listAllReservationsForEvents() {
+        List<Reservation> reservations = reservationService.listAllReservationsForEvents();
+        return new ResponseEntity<>(reservations, HttpStatus.OK);
+    }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {DtoReservation} from "../../dto/reservationDTO/dto-reservation";
 
 @Injectable({
   providedIn: 'root'
@@ -47,21 +48,31 @@ export class ReservationService {
     return this.http.post(`${this.apiUrl}/hotel`, body, { headers: this.getHeaders() });
   }
 
-  listReservationsForEvent(eventId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/event/${eventId}`, { headers: this.getHeaders() });
-  }
-
-  listReservationsForExcursion(excursionId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/excursion/${excursionId}`, { headers: this.getHeaders() });
-  }
-
-
-  listReservationsForHotel(roomId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/hotel/${roomId}`, { headers: this.getHeaders() });
-  }
-
+  // listReservationsForEvent(eventId: number): Observable<DtoReservation[]> {
+  //   return this.http.get<DtoReservation[]>(`${this.apiUrl}/event/${eventId}`, { headers: this.getHeaders() });
+  // }
+  //
+  //
+  // listReservationsForExcursion(excursionId: number): Observable<DtoReservation[]> {
+  //   return this.http.get<DtoReservation[]>(`${this.apiUrl}/excursion/${excursionId}`, { headers: this.getHeaders() });
+  // }
+  //
+  // listReservationsForHotel(roomId: number): Observable<DtoReservation[]> {
+  //   return this.http.get<DtoReservation[]>(`${this.apiUrl}/hotel/${roomId}`, { headers: this.getHeaders() });
+  // }
 
   deleteReservation(reservationId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${reservationId}`, { headers: this.getHeaders() });
+    return this.http.delete<void>(`${this.apiUrl}/reservations/${reservationId}`, { headers: this.getHeaders() });
+  }
+  listReservationsForEvents(): Observable<DtoReservation[]> {
+    return this.http.get<DtoReservation[]>(`${this.apiUrl}/events`, { headers: this.getHeaders() });
+  }
+
+  listReservationsForExcursions(): Observable<DtoReservation[]> {
+    return this.http.get<DtoReservation[]>(`${this.apiUrl}/excursions`, { headers: this.getHeaders() });
+  }
+
+  listReservationsForHotels(): Observable<DtoReservation[]> {
+    return this.http.get<DtoReservation[]>(`${this.apiUrl}/hotels`, { headers: this.getHeaders() });
   }
 }

@@ -461,6 +461,7 @@ import {AutoCompleteCompleteEvent, AutoCompleteModule} from "primeng/autocomplet
 import {RatingModule} from "primeng/rating";
 import {CarouselModule} from "primeng/carousel";
 import {DialogModule} from "primeng/dialog";
+import {FileUploadModule} from "primeng/fileupload";
 
 @Component({
   selector: 'app-hotel-management',
@@ -480,7 +481,8 @@ import {DialogModule} from "primeng/dialog";
     AutoCompleteModule,
     RatingModule,
     CarouselModule,
-    DialogModule
+    DialogModule,
+    FileUploadModule
   ],
   styleUrls: ['./hotel-management-component.component.scss'],
   encapsulation: ViewEncapsulation.None
@@ -548,6 +550,7 @@ export class HotelManagementComponent implements OnInit {
   responsiveOptions: any[] | undefined;
   visible: boolean = false;
   invisible : boolean = true;
+  uploadProgress: number = 0;
 
   ngOnInit() {
     this.loadHotels();
@@ -870,4 +873,5 @@ export class HotelManagementComponent implements OnInit {
   viewDialog() {
     this.invisible = false;
   }
+
 }

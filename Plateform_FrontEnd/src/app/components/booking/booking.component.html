@@ -1,0 +1,48 @@
+<div class="reservation-container">
+  <h2 class="title">Event Reservations</h2>
+  <div *ngIf="eventReservations.length === 0">No event reservations found.</div>
+  <div class="reservation-card" *ngFor="let reservation of eventReservations">
+    <div class="reservation-details">
+      <h3 class="reservation-title">{{ reservation.event.name }}</h3>
+      <p class="reservation-info">Date: {{ reservation.dateTime | date }}</p>
+      <p class="reservation-info">Number of People: {{ reservation.numberOfPerson }}</p>
+      <p class="reservation-info">Status: {{ reservation.status }}</p>
+    </div>
+    <div class="reservation-actions">
+      <button class="btn delete-btn" (click)="removeReservation(reservation.idReservation)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="reservation-container">
+  <h2 class="title">Excursion Reservations</h2>
+  <div *ngIf="excursionReservations.length === 0">No excursion reservations found.</div>
+  <div class="reservation-card" *ngFor="let reservation of excursionReservations">
+    <div class="reservation-details">
+      <h3 class="reservation-title">{{ reservation.excursion.name }}</h3>
+      <p class="reservation-info">Date: {{ reservation.dateTime | date }}</p>
+      <p class="reservation-info">Number of People: {{ reservation.numberOfPerson }}</p>
+      <p class="reservation-info">Status: {{ reservation.status }}</p>
+    </div>
+    <div class="reservation-actions">
+      <button class="btn delete-btn" (click)="removeReservation(reservation.idReservation)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="reservation-container">
+  <h2 class="title">Hotel Room Reservations</h2>
+  <div *ngIf="hotelRoomReservations.length === 0">No hotel room reservations found.</div>
+  <div class="reservation-card" *ngFor="let reservation of hotelRoomReservations">
+    <div class="reservation-details">
+      <h3 class="reservation-title">{{ reservation.room.type }}</h3>
+      <p class="reservation-info">Check-in Date: {{ reservation.checkInDate | date }}</p>
+      <p class="reservation-info">Check-out Date: {{ reservation.checkOutDate | date }}</p>
+      <p class="reservation-info">Number of People: {{ reservation.numberOfPerson }}</p>
+      <p class="reservation-info">Status: {{ reservation.status }}</p>
+    </div>
+    <div class="reservation-actions">
+      <button class="btn delete-btn" (click)="removeReservation(reservation.idReservation)">Delete</button>
+    </div>
+  </div>
+</div>
