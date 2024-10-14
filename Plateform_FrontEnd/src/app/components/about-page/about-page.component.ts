@@ -13,7 +13,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule
   ],
   templateUrl: './about-page.component.html',
-  styleUrl: './about-page.component.css'
+  styleUrl: './about-page.component.scss'
 })
 export class AboutPageComponent {
 
