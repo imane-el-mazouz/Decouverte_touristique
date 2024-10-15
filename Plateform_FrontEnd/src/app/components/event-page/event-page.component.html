@@ -1,4 +1,34 @@
 <app-nav-bar></app-nav-bar>
+
+
+<!--      <div class="search-bg">-->
+<!--        <div class="search-content">-->
+<!--          <div class="search-item">-->
+<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3aaac8b5c6e706ec34c97b35ae12e6cb1834d548e23419f330120c04622c3da?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Location icon" class="search-icon" />-->
+<!--            <div class="search-details">-->
+<!--              <div class="search-label">-->
+<!--                <span>Location</span>-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />-->
+<!--              </div>-->
+<!--              <div class="search-value">Azilal</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="search-divider" role="separator"></div>-->
+<!--          <div class="search-item">-->
+<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Calendar icon" class="search-icon" />-->
+<!--            <div class="search-details">-->
+<!--              <div class="search-label">-->
+<!--                <span>Date</span>-->
+<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />-->
+<!--              </div>-->
+<!--              <div class="search-value">26 Oct, 2024</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <button class="search-button" aria-label="Search">-->
+<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" />-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
 <section class="hero">
   <div class="overlay">
     <h1>Explore Our Events</h1>
@@ -9,138 +39,117 @@
             <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3aaac8b5c6e706ec34c97b35ae12e6cb1834d548e23419f330120c04622c3da?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Location icon" class="search-icon" />
             <div class="search-details">
               <div class="search-label">
-                <span>Location</span>
-                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />
+                <span>Event Name</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Dropdown icon" class="dropdown-icon" />
               </div>
-              <div class="search-value">Azilal</div>
+              <input type="text" formControlName="name" placeholder="Enter Event Name" class="search-input">
             </div>
           </div>
-          <div class="search-divider" role="separator"></div>
+          <div class="search-divider"></div>
           <div class="search-item">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Calendar icon" class="search-icon" />
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Category icon" class="search-icon" />
             <div class="search-details">
               <div class="search-label">
-                <span>Date</span>
-                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />
+                <span>Category</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Dropdown icon" class="dropdown-icon" />
               </div>
-              <div class="search-value">26 Oct, 2024</div>
+              <input type="text" formControlName="category" placeholder="Enter Category" class="search-input">
             </div>
           </div>
-          <button class="search-button" aria-label="Search">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" />
+          <button class="search-button" (click)="searchEvents()" aria-label="Search">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Search icon" class="search-icon" />
           </button>
         </div>
       </div>
     </section>
+
+    <section class="filter-container" style="margin-top:30px">
+      <div class="filter-bg">
+        <div class="filter-content">
+          <div class="filter-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Price icon" class="filter-icon" />
+            <div class="filter-details">
+              <div class="filter-label">
+                <span>Min Price</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Dropdown icon" class="dropdown-icon" />
+              </div>
+              <input type="number" formControlName="minPrice" placeholder="Enter Min Price" class="filter-input">
+            </div>
+          </div>
+          <div class="filter-divider"></div>
+
+          <div class="filter-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Price icon" class="filter-icon" />
+            <div class="filter-details">
+              <div class="filter-label">
+                <span>Max Price</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Dropdown icon" class="dropdown-icon" />
+              </div>
+              <input type="number" formControlName="maxPrice" placeholder="Enter Max Price" class="filter-input">
+            </div>
+          </div>
+          <div class="filter-divider"></div>
+
+          <div class="filter-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating icon" class="filter-icon" />
+            <div class="filter-details">
+              <div class="filter-label">
+                <span>Min Rating</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Dropdown icon" class="dropdown-icon" />
+              </div>
+              <input type="number" formControlName="minRating" placeholder="Enter Min Rating" class="filter-input">
+            </div>
+          </div>
+          <div class="filter-divider"></div>
+
+          <div class="filter-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating icon" class="filter-icon" />
+            <div class="filter-details">
+              <div class="filter-label">
+                <span>Max Rating</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Dropdown icon" class="dropdown-icon" />
+              </div>
+              <input type="number" formControlName="maxRating" placeholder="Enter Max Rating" class="filter-input">
+            </div>
+          </div>
+          <button class="filter-button" (click)="onFilter()" aria-label="Apply Filters">
+            <i class="fa fa-filter"></i> Apply Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
   </div>
 </section>
 
 
-<section class="events-container" >
+<section class="events-container">
   <header class="events-header">
     <h2 class="events-title">Our Events</h2>
-<!--    <div class="events-icons">-->
-<!--      <ng-container *ngFor="let icon of getVisibleIcons()">-->
-<!--        <img [src]="icon" class="event-icon" alt="Event icon" loading="lazy" />-->
-<!--      </ng-container>-->
-<!--    </div>-->
-
   </header>
 
-  <div class="events-list">
-    <article class="event-card">
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b52887050f70a579d63d67c8a54c32bfc221f1888c33da90bb32617a157b0c51?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="International Festival in Mhamid El Ghizlane, Essaouira" />
-      <div class="event-details">
-        <div class="event-content">
-          <h3 class="event-name">International Festival</h3>
-          <p class="event-location">Mhamid El Ghizlane , Essaouira</p>
-          <div class="event-rating">
-            <div class="rating-content">
-              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />
-              <span>4</span>
-            </div>
-          </div>
-          <p class="event-price">$200</p>
+  <!-- Affiche le message de chargement -->
+  <div *ngIf="isLoading">Loading events...</div>
+
+  <!-- Affiche les événements s'ils existent -->
+  <div *ngIf="events.length > 0; else noEvents">
+    <div class="events-list">
+      <article class="event-card" *ngFor="let event of events">
+        <img [src]="event.imgPath" class="event-image" alt="{{ event.name }}" />
+        <div class="event-details">
+          <h3 class="event-name">{{ event.name }}</h3>
+          <p class="event-location">{{ event.location }}</p>
+          <p class="event-price">{{ event.price | currency }}</p>
+          <p class="event-rating">{{ event.rating }} ★</p>
         </div>
-      </div>
-    </article>
-    <article class="event-card">
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1aa94dd5dbd1c62c4dcbe90535e72c08d66364c14f02b9335869d28aabcc38cb?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="International Film Festival in Marrakech" />
-      <div class="event-details">
-        <div class="event-content">
-          <h3 class="event-name">International Film Festival</h3>
-          <p class="event-location">Marakech</p>
-          <div class="event-rating">
-            <div class="rating-content">
-              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />
-              <span>4</span>
-            </div>
-          </div>
-          <p class="event-price">$400</p>
-        </div>
-      </div>
-    </article>
-    <article class="event-card">
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5825d116f3a31eb2d14348cea8413faad375cc7173e95f4ce7053c9793a02dde?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="event-image" alt="Gitex Africa in Marrakech" />
-      <div class="event-details">
-        <div class="event-content">
-          <h3 class="event-name">Gitex Africa</h3>
-          <p class="event-location">Marakech</p>
-          <div class="event-rating">
-            <div class="rating-content">
-              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5c47373f75db0dc9ddbb9a2cc990a7891bdd430f814e49ccd875cee3db4d5d1?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" class="rating-icon" alt="Rating star" />
-              <span>4</span>
-            </div>
-          </div>
-          <div class="price-details">
-            <p class="price-amount">$100</p>
-            <p class="tour-duration">10 days tour</p>
-          </div>
-        </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </div>
+
+  <ng-template #noEvents>
+    <p>No events available.</p>
+  </ng-template>
 </section>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Location</th>
-    <th>Image</th>
-    <th>Date</th>
-    <th>Price</th>
-    <th>Rating</th>
-    <th>Category</th>
-    <th>Capacity</th>
-    <th>Distance</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let event of events">
-    <td>{{ event.idEvent }}</td>
-    <td>{{ event.name }}</td>
-    <td>{{ event.description }}</td>
-    <td>{{ event.location }}</td>
-    <td>
-      <img [src]="event.imgPath" alt="{{ event.name }}" style="width: 100px; height: auto;" />
-    </td>
-    <td>{{ event.date | date:'shortDate' }}</td>
-    <td>{{ event.price | currency }}</td>
-    <td>{{ event.rating }}</td>
-    <td>{{ event.category }}</td>
-    <td>{{ event.capacity }}</td>
-    <td>{{ event.distance }}</td>
-
-
-    <td>
-      <button class="btn btn-success" (click)="showBookingForm(event)">Book</button>
-    </td>
-  </tr>
-  </tbody>
-</table>
 
 
 <section class="booking-section">
@@ -244,55 +253,55 @@
   </form>
 </section>
 
-<form [formGroup]="searchForm" (ngSubmit)="searchEvents()">
-  <div class="form-group">
-    <label for="name">Event Name</label>
-    <input type="text" id="name" formControlName="name" class="form-control">
-  </div>
+<!--<form [formGroup]="searchForm" (ngSubmit)="searchEvents()">-->
+<!--  <div class="form-group">-->
+<!--    <label for="name">Event Name</label>-->
+<!--    <input type="text" id="name" formControlName="name" class="form-control">-->
+<!--  </div>-->
 
-  <div class="form-group">
-    <label for="category">Category</label>
-    <select id="category" formControlName="category" class="form-control">
-      <option value="">Select Category</option>
-      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-    </select>
-  </div>
+<!--  <div class="form-group">-->
+<!--    <label for="category">Category</label>-->
+<!--    <select id="category" formControlName="category" class="form-control">-->
+<!--      <option value="">Select Category</option>-->
+<!--      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>-->
+<!--    </select>-->
+<!--  </div>-->
 
-  <div class="form-group">
-    <label for="distance">Max Distance (km)</label>
-    <input type="number" id="distance" formControlName="distance" class="form-control">
-  </div>
+<!--  <div class="form-group">-->
+<!--    <label for="distance">Max Distance (km)</label>-->
+<!--    <input type="number" id="distance" formControlName="distance" class="form-control">-->
+<!--  </div>-->
 
-  <button type="submit" class="btn btn-primary">Search</button>
-</form>
+<!--  <button type="submit" class="btn btn-primary">Search</button>-->
+<!--</form>-->
 
 
-<form [formGroup]="filterForm" (ngSubmit)="onFilter()">
-  <div>
-    <label for="minPrice">Min price:</label>
-    <input id="minPrice" formControlName="minPrice" type="number">
-  </div>
+<!--<form [formGroup]="filterForm" (ngSubmit)="onFilter()">-->
+<!--  <div>-->
+<!--    <label for="minPrice">Min price:</label>-->
+<!--    <input id="minPrice" formControlName="minPrice" type="number">-->
+<!--  </div>-->
 
-  <div>
-    <label for="maxPrice">Max Price:</label>
-    <input id="maxPrice" formControlName="maxPrice" type="number">
-  </div>
+<!--  <div>-->
+<!--    <label for="maxPrice">Max Price:</label>-->
+<!--    <input id="maxPrice" formControlName="maxPrice" type="number">-->
+<!--  </div>-->
 
-  <div>
-    <label for="minRating">Min rating:</label>
-    <input id="minRating" formControlName="minRating" type="number">
-  </div>
+<!--  <div>-->
+<!--    <label for="minRating">Min rating:</label>-->
+<!--    <input id="minRating" formControlName="minRating" type="number">-->
+<!--  </div>-->
 
-  <div>
-    <label for="maxRating">Max rating:</label>
-    <input id="maxRating" formControlName="maxRating" type="number">
-  </div>
+<!--  <div>-->
+<!--    <label for="maxRating">Max rating:</label>-->
+<!--    <input id="maxRating" formControlName="maxRating" type="number">-->
+<!--  </div>-->
 
-  <div>
-    <label for="maxDistance">Max Distance:</label>
-    <input id="maxDistance" formControlName="maxDistance" type="number">
-  </div>
+<!--  <div>-->
+<!--    <label for="maxDistance">Max Distance:</label>-->
+<!--    <input id="maxDistance" formControlName="maxDistance" type="number">-->
+<!--  </div>-->
 
-  <button type="submit">Filter</button>
-</form>
+<!--  <button type="submit">Filter</button>-->
+<!--</form>-->
 <app-footer></app-footer>

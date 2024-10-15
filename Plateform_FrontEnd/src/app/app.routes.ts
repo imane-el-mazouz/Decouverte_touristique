@@ -23,7 +23,7 @@ import {
 import {GuardService} from "./service/auth_guard/guard.service";
 import {Role} from "./enums/role";
 import {ReviewManagementComponent} from "./components/review-management/review-management.component";
-import {AboutPageComponent} from "./components/about-page/about-page.component";
+import {AboutPageComponent} from "./components/shared/about-page/about-page.component";
 import {EventPageComponent} from "./components/event-page/event-page.component";
 import {ExcursionPageComponent} from "./components/excursion/excursion-page/excursion-page.component";
 import {TraditionPageComponent} from "./components/tradition-page/tradition-page.component";

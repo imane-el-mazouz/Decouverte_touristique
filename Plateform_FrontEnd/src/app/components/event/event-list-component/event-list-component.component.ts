@@ -11,7 +11,6 @@ import {
 
   EventSearchFilterComponent
 } from "../event-search-filter.component.ts/event-search-filter.component.ts.component";
-import {EventFilterDTO} from "../../../dto/event-filter.dto";
 import {PaginatorModule} from "primeng/paginator";
 import {Button} from "primeng/button";
 import {DialogModule} from "primeng/dialog";
@@ -80,7 +79,6 @@ export class EventListComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadEvents();
     this.filterForm = this.fb.group({
         minPrice: [null],
         maxPrice: [null],
@@ -89,6 +87,8 @@ export class EventListComponentComponent implements OnInit {
         maxDistance: [null]
       }
     )
+
+    this.loadEvents();
   }
 
   // loadEvents(): void {
@@ -104,6 +104,8 @@ export class EventListComponentComponent implements OnInit {
   //     }
   //   });
   // }
+
+
   loadEvents(): void {
     this.eventService.getAllEvents().subscribe({
       next: (events) => {

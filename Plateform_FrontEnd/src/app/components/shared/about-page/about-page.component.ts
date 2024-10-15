@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {NavBarComponent} from "../shared/nav-bar/nav-bar.component";
-import {FooterComponent} from "../shared/footer/footer.component";
+import {NavBarComponent} from "../nav-bar/nav-bar.component";
+import {FooterComponent} from "../footer/footer.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @Component({

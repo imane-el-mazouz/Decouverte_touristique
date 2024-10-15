@@ -3,9 +3,13 @@ body , html{
   width: 100%;
   margin: 0px;
 }
+
+
 *{
   margin: 0;
 }
+
+
 .hero {
   position: relative;
   background-image: url('/assets/img/events.jpg');
@@ -44,7 +48,7 @@ h1 {
 }
 
 //search-bar
- .search-container {
+ .search-container , .filter-container {
    max-width: 417px;
    font: 12px "Abhaya Libre SemiBold", serif;
    display: flex;
@@ -54,7 +58,7 @@ h1 {
  }
 
 
-.search-bg {
+.search-bg , .filter-bg {
   border-radius: 58px;
   background: var(--White, #fff);
   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.04);
@@ -62,29 +66,29 @@ h1 {
 
 }
 
-.search-content {
+.search-content , .filter-content {
   display: flex;
   align-items: center;
   gap: 32px;
 }
 
-.search-item {
+.search-item , .filter-item {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.search-icon {
+.search-icon , .filter-icon{
   width: 22px;
   height: 22px;
 }
 
-.search-details {
+.search-details ,.filter-details {
   display: flex;
   flex-direction: column;
 }
 
-.search-label {
+.search-label , .filter-label {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -97,19 +101,19 @@ h1 {
   height: 14px;
 }
 
-.search-value {
+.search-value , .filter-value{
   color: rgba(20, 24, 62, 1);
   font-weight: 700;
   margin-top: 6px;
 }
 
-.search-divider {
+.search-divider ,.filter-divider{
   width: 1px;
   height: 24px;
   background: rgba(128, 128, 128, 0.24);
 }
 
-.search-button {
+.search-button ,.filter-button {
 
   width: 48px;
   height: 48px;

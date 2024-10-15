@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FooterComponent} from "../shared/footer/footer.component";
 import {NavBarComponent} from "../shared/nav-bar/nav-bar.component";
 import {CurrencyPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
@@ -13,6 +13,8 @@ import {Review} from "../../model/review/review";
 import {DtoEvent} from "../../dto/eventDTO/dto-event";
 import {CategoryEvent} from "../../enums/category-event";
 import {EventService} from "../../service/event-service/event-service.service";
+import {PaginatorModule} from "primeng/paginator";
+import {EventListComponentComponent} from "../event/event-list-component/event-list-component.component";
 
 
 @Component({
@@ -30,11 +32,20 @@ import {EventService} from "../../service/event-service/event-service.service";
     ReactiveFormsModule,
     NgIf,
     CurrencyPipe,
-    DatePipe
+    DatePipe,
+    PaginatorModule,
+    EventListComponentComponent
   ],
   styleUrls: ['./event-page.component.scss']
 })
 export class EventPageComponent implements OnInit{
+  @Output() searchResults = new EventEmitter<DtoEvent[]>();
+  events: DtoEvent[] = [];
+  event! : DtoEvent;
+  categories = Object.values(CategoryEvent);
+  searchForm: FormGroup ;
+  filterForm!: FormGroup;
+
 
   constructor(private bookingService: ReservationService,
               private reviewService: ReviewService,
@@ -52,6 +63,11 @@ export class EventPageComponent implements OnInit{
       category: [''],
       distance: ['']
     });
+    this.searchForm = this.fb.group({
+      name: [''],
+      category: [''],
+      distance: ['']
+    });
   }
 
   bookingData = {
@@ -61,29 +77,27 @@ export class EventPageComponent implements OnInit{
   };
 
 
-
   review: Review = {
     id: 0,
     rating: 0,
     comment: '',
     date: new Date()
   };
-  bookingForm: FormGroup;
+
+
+  bookingForm!: FormGroup;
   bookingFormVisible = false;
   bookingSuccess = false;
   bookingError = false;
   selectedEvent?: DtoEvent;
-  searchForm! : FormGroup ;
 
-
-  filterForm!: FormGroup;
-  events: DtoEvent[] = [];
   stars = [1, 2, 3, 4, 5];
   reservationId: number = 1;
   isEditMode: boolean = false;
 
   confirmationMessage: string = '';
   errorMessage: string = '';
+  isLoading: boolean = true;
 
   currentPage = 1;
   iconsPerPage = 2;
@@ -95,7 +109,6 @@ export class EventPageComponent implements OnInit{
   ];
   bookingConfirmed: boolean = false;
   reviewMessage: string = '';
-  categories = Object.values(CategoryEvent);
 
   bookEvent(): void {
     this.bookingService.reserveEvent(this.bookingData.eventId, this.bookingData.numberOfPerson, this.bookingData.dateTime).subscribe(
@@ -131,19 +144,34 @@ export class EventPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadEvents();
+    this.filterForm = this.fb.group({
+        minPrice: [null],
+        maxPrice: [null],
+        minRating: [null],
+        maxRating: [null],
+        maxDistance: [null]
+      }
+
+    )
   }
+
+  errorOccurred: boolean = false;
 
   loadEvents(): void {
     this.eventService.getAllEvents().subscribe({
       next: (events) => {
         this.events = events;
-        console.log('Loaded events:', this.events);
+        this.isLoading = false;
+        console.log('Events loaded:', this.events);
+        console.log(events)
       },
       error: (err) => {
-        console.error('Error loading events', err);
+        this.isLoading = false;
+        console.error('Error loading events:', err);
       }
     });
   }
+
 
   searchEvents(): void {
     const name = this.searchForm!.get('name')?.value;
