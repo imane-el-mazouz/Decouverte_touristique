@@ -1,40 +1,11 @@
 <app-nav-bar></app-nav-bar>
 
-
-<!--      <div class="search-bg">-->
-<!--        <div class="search-content">-->
-<!--          <div class="search-item">-->
-<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3aaac8b5c6e706ec34c97b35ae12e6cb1834d548e23419f330120c04622c3da?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Location icon" class="search-icon" />-->
-<!--            <div class="search-details">-->
-<!--              <div class="search-label">-->
-<!--                <span>Location</span>-->
-<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />-->
-<!--              </div>-->
-<!--              <div class="search-value">Azilal</div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="search-divider" role="separator"></div>-->
-<!--          <div class="search-item">-->
-<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Calendar icon" class="search-icon" />-->
-<!--            <div class="search-details">-->
-<!--              <div class="search-label">-->
-<!--                <span>Date</span>-->
-<!--                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/597af135d1bd4c818a63dc1fee048dbb904329bdb26df24085196be9450af2aa?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="dropdown-icon" />-->
-<!--              </div>-->
-<!--              <div class="search-value">26 Oct, 2024</div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <button class="search-button" aria-label="Search">-->
-<!--            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="" class="search-icon" />-->
-<!--          </button>-->
-<!--        </div>-->
-<!--      </div>-->
 <section class="hero">
   <div class="overlay">
     <h1>Explore Our Events</h1>
     <section class="search-container">
       <div class="search-bg">
-        <div class="search-content">
+        <div class="search-content" [formGroup]="searchForm">
           <div class="search-item">
             <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3aaac8b5c6e706ec34c97b35ae12e6cb1834d548e23419f330120c04622c3da?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Location icon" class="search-icon" />
             <div class="search-details">
@@ -63,9 +34,10 @@
       </div>
     </section>
 
+
     <section class="filter-container" style="margin-top:30px">
       <div class="filter-bg">
-        <div class="filter-content">
+        <div class="filter-content" [formGroup]="filterForm">
           <div class="filter-item">
             <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Price icon" class="filter-icon" />
             <div class="filter-details">
@@ -77,7 +49,6 @@
             </div>
           </div>
           <div class="filter-divider"></div>
-
           <div class="filter-item">
             <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Price icon" class="filter-icon" />
             <div class="filter-details">
@@ -89,7 +60,6 @@
             </div>
           </div>
           <div class="filter-divider"></div>
-
           <div class="filter-item">
             <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating icon" class="filter-icon" />
             <div class="filter-details">
@@ -101,7 +71,6 @@
             </div>
           </div>
           <div class="filter-divider"></div>
-
           <div class="filter-item">
             <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/365ead1eaab23632403ba2eadeb19b4379e73d4bba81a7f218bf6e1e97498b61?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Rating icon" class="filter-icon" />
             <div class="filter-details">
@@ -112,36 +81,44 @@
               <input type="number" formControlName="maxRating" placeholder="Enter Max Rating" class="filter-input">
             </div>
           </div>
-          <button class="filter-button" (click)="onFilter()" aria-label="Apply Filters">
-            <i class="fa fa-filter"></i> Apply Filters
+          <button class="filter-button" (click)="onFilter()" aria-label="Filter">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9990986f798c21cceb1b1d3fad20c575fc5fdc4602f9e8c8b17aed5e6d776fff?placeholderIfAbsent=true&apiKey=af169940446d48718e0b8026890b04d0" alt="Filter icon" class="filter-icon" />
           </button>
         </div>
       </div>
     </section>
 
+
+
   </div>
 </section>
-
 
 <section class="events-container">
   <header class="events-header">
     <h2 class="events-title">Our Events</h2>
   </header>
 
-  <!-- Affiche le message de chargement -->
-  <div *ngIf="isLoading">Loading events...</div>
+  <div *ngIf="isLoading" class="loading-message">Loading events...</div>
 
-  <!-- Affiche les événements s'ils existent -->
   <div *ngIf="events.length > 0; else noEvents">
     <div class="events-list">
       <article class="event-card" *ngFor="let event of events">
         <img [src]="event.imgPath" class="event-image" alt="{{ event.name }}" />
+
         <div class="event-details">
           <h3 class="event-name">{{ event.name }}</h3>
+          <p class="event-description">{{ event.description }}</p>
+          <p class="event-date">{{ event.date | date: 'shortDate' }}</p>
           <p class="event-location">{{ event.location }}</p>
+          <p class="event-capacity">Capacity: {{ event.capacity }}</p>
           <p class="event-price">{{ event.price | currency }}</p>
           <p class="event-rating">{{ event.rating }} ★</p>
-        </div>
+          <p class="event-distance">{{ event.distance }} km</p>
+          <p class="event-category">Category: {{ event.category }}</p>
+          <div style="margin-top: 40px">
+            <button class="button-book" (click)="prepareBooking(event)">Book now</button>
+          </div>
+          </div>
       </article>
     </div>
   </div>
@@ -152,7 +129,7 @@
 </section>
 
 
-<section class="booking-section">
+<section class="booking-section" #bookingSection>
   <h1 class="heading">Book Now!</h1>
   <div class="wrapper-content">
     <div class="layout-columns">

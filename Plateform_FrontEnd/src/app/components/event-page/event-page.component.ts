@@ -1,11 +1,11 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FooterComponent} from "../shared/footer/footer.component";
 import {NavBarComponent} from "../shared/nav-bar/nav-bar.component";
 import {CurrencyPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatButton, MatButtonModule} from "@angular/material/button";
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ReservationService} from "../../service/reservation-service/reservation-service.service";
 import {ReviewService} from "../../service/review-service/review-service.service";
 import {Router} from "@angular/router";
@@ -40,6 +40,8 @@ import {EventListComponentComponent} from "../event/event-list-component/event-l
 })
 export class EventPageComponent implements OnInit{
   @Output() searchResults = new EventEmitter<DtoEvent[]>();
+  @ViewChild('bookingSection') bookingSection!: ElementRef;
+
   events: DtoEvent[] = [];
   event! : DtoEvent;
   categories = Object.values(CategoryEvent);
@@ -54,10 +56,11 @@ export class EventPageComponent implements OnInit{
               private fb: FormBuilder,
   ) {
 
-    this.bookingForm = this.fb.group({
-      numberOfPerson: [1, Validators.required],
-      dateTime: ['', Validators.required]
+    this.bookingForm = new FormGroup({
+      numberOfPerson: new FormControl('', Validators.required),
+      dateTime: new FormControl('', Validators.required)
     });
+
     this.searchForm = this.fb.group({
       name: [''],
       category: [''],
@@ -111,8 +114,17 @@ export class EventPageComponent implements OnInit{
   reviewMessage: string = '';
 
   bookEvent(): void {
-    this.bookingService.reserveEvent(this.bookingData.eventId, this.bookingData.numberOfPerson, this.bookingData.dateTime).subscribe(
+    const bookingData = {
+      eventId: this.bookingData.eventId,
+      numberOfPerson: this.bookingData.numberOfPerson,
+      dateTime: this.bookingData.dateTime
+    };
+
+    console.log('Booking Data:', bookingData);
+
+    this.eventService.bookEvent(bookingData).subscribe(
       (response) => {
+        console.log('Booking Response:', response);
         this.confirmationMessage = 'Your booking was successful!';
         this.errorMessage = '';
       },
@@ -123,6 +135,7 @@ export class EventPageComponent implements OnInit{
       }
     );
   }
+
 
   setRating(rating: number): void {
     this.review.rating = rating;
@@ -143,7 +156,7 @@ export class EventPageComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.loadEvents();
+
     this.filterForm = this.fb.group({
         minPrice: [null],
         maxPrice: [null],
@@ -153,6 +166,18 @@ export class EventPageComponent implements OnInit{
       }
 
     )
+    this.eventService.getAllEvents().subscribe(
+      (data) => {
+        this.events = data;
+        this.isLoading = false;
+        console.log(this.events);
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des événements', error);
+        this.isLoading = false;
+      }
+    );
+
   }
 
   errorOccurred: boolean = false;
@@ -208,6 +233,19 @@ export class EventPageComponent implements OnInit{
     this.bookingFormVisible = true;
     this.bookingSuccess = false;
     this.bookingError = false;
+  }
+
+  prepareBooking(event: any): void {
+    this.bookingData.eventId = event.id;
+    this.bookingData.numberOfPerson = 1;
+    this.bookingData.dateTime = new Date().toISOString();
+    this.scrollToBookingSection();
+  }
+
+  scrollToBookingSection(): void {
+    if (this.bookingSection) {
+      this.bookingSection.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
 

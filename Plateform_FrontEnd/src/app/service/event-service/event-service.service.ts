@@ -93,7 +93,7 @@ import {EventFilterDTO} from "../../dto/event-filter.dto";
 })
 export class EventService {
   private apiUrl = 'http://localhost:8085/api/event';
-  private baseUrl = 'http://localhost:8085/api/api/reservation';
+  private baseUrl = 'http://localhost:8085/api/reservation';
 
 
   constructor(private http: HttpClient) {}
@@ -172,7 +172,7 @@ export class EventService {
   }
 
   bookEvent(bookingData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/event`, bookingData ,{ headers: this.getHeaders()});
+    return this.http.post(`${this.baseUrl}/event`, bookingData ,{ headers: this.getHeaders()});
   }
 
   getFilteredEvents(filters: any): Observable<DtoEvent[]> {
@@ -194,10 +194,9 @@ export class EventService {
       params = params.set('maxDistance', filters.maxDistance);
     }
 
-    // Assure-toi que tu as bien spécifié que le retour est un tableau de DtoEvent
     return this.http.get<DtoEvent[]>(`${this.apiUrl}/filter`, {
       params,
-      headers: this.getHeaders() // Utilisation de tes headers
+      headers: this.getHeaders()
     });
   }
 
