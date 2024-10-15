@@ -135,26 +135,6 @@ export class EventListComponentComponent implements OnInit {
     this.bookingError = false;
   }
 
-  bookEvent(): void {
-    if (this.bookingForm.valid && this.selectedEvent) {
-      const bookingData = {
-        eventId: this.selectedEvent.idEvent,
-        numberOfPerson: this.bookingForm.get('numberOfPerson')?.value,
-        dateTime: this.bookingForm.get('dateTime')?.value
-      };
-
-      this.eventService.bookEvent(bookingData).subscribe({
-        next: () => {
-          this.bookingSuccess = true;
-          this.bookingFormVisible = false;
-        },
-        error: () => {
-          this.bookingError = true;
-        }
-      });
-    }
-  }
-
   onEventAdded(newEvent: DtoEvent) {
     this.events.push(newEvent);
   }

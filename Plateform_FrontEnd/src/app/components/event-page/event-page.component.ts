@@ -76,7 +76,7 @@ export class EventPageComponent implements OnInit{
   bookingData = {
     eventId: 0,
     numberOfPerson: 1,
-    dateTime: new Date().toISOString()
+    dateTime: new Date()
   };
 
 
@@ -113,16 +113,21 @@ export class EventPageComponent implements OnInit{
   bookingConfirmed: boolean = false;
   reviewMessage: string = '';
 
+
   bookEvent(): void {
+    const selectedDate = new Date(this.bookingData.dateTime);
+
+    const formattedDate = selectedDate.toISOString().split('T')[0];
+
     const bookingData = {
       eventId: this.bookingData.eventId,
       numberOfPerson: this.bookingData.numberOfPerson,
-      dateTime: this.bookingData.dateTime
+      dateTime: formattedDate
     };
 
-    console.log('Booking Data:', bookingData);
+    console.log('Formatted Booking Data:', bookingData);
 
-    this.eventService.bookEvent(bookingData).subscribe(
+    this.eventService.bookEvent(bookingData.eventId, bookingData.numberOfPerson, bookingData.dateTime).subscribe(
       (response) => {
         console.log('Booking Response:', response);
         this.confirmationMessage = 'Your booking was successful!';
@@ -135,7 +140,6 @@ export class EventPageComponent implements OnInit{
       }
     );
   }
-
 
   setRating(rating: number): void {
     this.review.rating = rating;
@@ -236,11 +240,20 @@ export class EventPageComponent implements OnInit{
   }
 
   prepareBooking(event: any): void {
-    this.bookingData.eventId = event.id;
-    this.bookingData.numberOfPerson = 1;
-    this.bookingData.dateTime = new Date().toISOString();
-    this.scrollToBookingSection();
+    if (event && event.id) {
+      this.bookingData.eventId = event.id;
+      this.bookingData.numberOfPerson = 1;
+      // @ts-ignore
+      this.bookingData.dateTime = new Date().toISOString();
+      this.scrollToBookingSection();
+      console.log('Booking data prepared:', this.bookingData); // Pour vérifier les données de réservation
+    } else {
+      console.error('Event ID is missing');
+    }
   }
+
+
+
 
   scrollToBookingSection(): void {
     if (this.bookingSection) {
