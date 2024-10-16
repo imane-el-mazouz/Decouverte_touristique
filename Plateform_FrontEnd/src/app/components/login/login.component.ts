@@ -55,7 +55,7 @@ export class LoginComponent {
           if (response.person.role === 'Admin') {
             this.router.navigate(['/dashboard']);
           } else if (response.person.role === 'Client') {
-            this.router.navigate(['/client'])
+            this.router.navigate(['/home'])
           }else if (response.person.role === 'Visitor'){
             this.router.navigate(['/home'])
           } else {

@@ -1,215 +1,24 @@
 
-<!--<div>-->
-<!--  <h2>Manage Traditions and Blogs</h2>-->
-
-<!--  &lt;!&ndash; Create New Tradition &ndash;&gt;-->
-<!--  <div>-->
-<!--    <h3>Create New Tradition</h3>-->
-<!--    <form (ngSubmit)="createTradition()">-->
-<!--      <label>-->
-<!--        City:-->
-<!--        <input type="text" [(ngModel)]="newTradition.city" name="city" required>-->
-<!--      </label>-->
-<!--      <label>-->
-<!--        Description:-->
-<!--        <input type="text" [(ngModel)]="newTradition.description" name="description" required>-->
-<!--      </label>-->
-<!--      <button type="submit">Create Tradition</button>-->
-<!--    </form>-->
-<!--  </div>-->
-
-<!--  &lt;!&ndash; List Traditions &ndash;&gt;-->
-<!--  <div>-->
-<!--    <h3>Traditions</h3>-->
-<!--    <ul>-->
-<!--      <li *ngFor="let tradition of traditions" (click)="onSelectTradition(tradition.id)">-->
-<!--        {{ tradition.city }} - {{ tradition.description }}-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-
-<!--  &lt;!&ndash; Blogs for Selected Tradition &ndash;&gt;-->
-<!--  <div *ngIf="selectedTraditionId">-->
-<!--    <h3>Blogs for Selected Tradition</h3>-->
-<!--    <ul>-->
-<!--      <li *ngFor="let blog of blogs">-->
-<!--        {{ blog.name }} - {{ blog.description }}-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-
-<!--  &lt;!&ndash; Add New Blog to Selected Tradition &ndash;&gt;-->
-<!--  <div *ngIf="selectedTraditionId">-->
-<!--    <h3>Add New Blog</h3>-->
-<!--    <form (ngSubmit)="addBlogToTradition()">-->
-<!--      <label>-->
-<!--        Name:-->
-<!--        <input type="text" [(ngModel)]="newBlog.name" name="name" required>-->
-<!--      </label>-->
-<!--      <label>-->
-<!--        Description:-->
-<!--        <input type="text" [(ngModel)]="newBlog.description" name="description" required>-->
-<!--      </label>-->
-<!--      <button type="submit">Add Blog</button>-->
-<!--    </form>-->
-<!--  </div>-->
-
-<!--  &lt;!&ndash; Search Traditions by City &ndash;&gt;-->
-<!--  <div>-->
-<!--    <input type="text" [(ngModel)]="city" placeholder="Enter city name" />-->
-<!--    <button (click)="searchTraditions()">Search</button>-->
-<!--  </div>-->
-
-<!--  <div *ngIf="searchResults.length > 0">-->
-<!--    <h2>Traditions in {{ city }}</h2>-->
-<!--    <ul>-->
-<!--      <li *ngFor="let tradition of searchResults">-->
-<!--        {{ tradition.description }} - {{ tradition.city }}-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-
-<!--  <div *ngIf="searchResults.length === 0 && city">-->
-<!--    <p>No traditions found for this city.</p>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
-<!--<div>-->
-<!--  <h2>Manage Traditions and Blogs</h2>-->
-
-<!--  <mat-card>-->
-<!--    <mat-card-title>Create New Tradition</mat-card-title>-->
-<!--    <mat-card-content>-->
-<!--      <form (ngSubmit)="createTradition()">-->
-<!--        <mat-form-field appearance="fill">-->
-<!--          <mat-label>City</mat-label>-->
-<!--          <input matInput [(ngModel)]="newTradition.city" name="city" required>-->
-<!--        </mat-form-field>-->
-<!--        <mat-form-field appearance="fill">-->
-<!--          <mat-label>Description</mat-label>-->
-<!--          <input matInput [(ngModel)]="newTradition.description" name="description" required>-->
-<!--        </mat-form-field>-->
-<!--        <button mat-raised-button color="primary" type="submit">Create Tradition</button>-->
-<!--      </form>-->
-<!--    </mat-card-content>-->
-<!--  </mat-card>-->
-
-<!--  &lt;!&ndash; List Traditions &ndash;&gt;-->
-<!--  <mat-card>-->
-<!--    <mat-card-title>Traditions</mat-card-title>-->
-<!--    <mat-card-content>-->
-<!--      <mat-list>-->
-<!--        <mat-list-item *ngFor="let tradition of traditions" (click)="onSelectTradition(tradition.id)">-->
-<!--          {{ tradition.city }} - {{ tradition.description }}-->
-<!--          <button mat-icon-button color="primary" (click)="editTradition(tradition.id)">-->
-<!--            <mat-icon>edit</mat-icon>-->
-<!--          </button>-->
-<!--          <button mat-icon-button color="warn" (click)="deleteTradition(tradition.id)">-->
-<!--            <mat-icon>delete</mat-icon>-->
-<!--          </button>-->
-<!--        </mat-list-item>-->
-<!--      </mat-list>-->
-<!--    </mat-card-content>-->
-<!--  </mat-card>-->
-
-<!--  &lt;!&ndash; Blogs for Selected Tradition &ndash;&gt;-->
-<!--  <mat-card *ngIf="selectedTraditionId">-->
-<!--    <mat-card-title>Blogs for Selected Tradition</mat-card-title>-->
-<!--    <mat-card-content>-->
-<!--      <mat-list>-->
-<!--        <mat-list-item *ngFor="let blog of blogs">-->
-<!--          {{ blog.name }} - {{ blog.description }}-->
-<!--        </mat-list-item>-->
-<!--      </mat-list>-->
-<!--    </mat-card-content>-->
-<!--  </mat-card>-->
-
-<!--  &lt;!&ndash; Add New Blog to Selected Tradition &ndash;&gt;-->
-<!--&lt;!&ndash;  <mat-card *ngIf="selectedTraditionId">&ndash;&gt;-->
-<!--&lt;!&ndash;    <mat-card-title>Add New Blog</mat-card-title>&ndash;&gt;-->
-<!--&lt;!&ndash;    <mat-card-content>&ndash;&gt;-->
-<!--&lt;!&ndash;      <form (ngSubmit)="addBlogToTradition()">&ndash;&gt;-->
-<!--&lt;!&ndash;        <mat-form-field appearance="fill">&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-label>Name</mat-label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <input matInput [(ngModel)]="newBlog.name" name="name" required>&ndash;&gt;-->
-<!--&lt;!&ndash;        </mat-form-field>&ndash;&gt;-->
-<!--&lt;!&ndash;        <mat-form-field appearance="fill">&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-label>Description</mat-label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <input matInput [(ngModel)]="newBlog.description" name="description" required>&ndash;&gt;-->
-<!--&lt;!&ndash;        </mat-form-field>&ndash;&gt;-->
-<!--&lt;!&ndash;        <button mat-raised-button color="primary" type="submit">Add Blog</button>&ndash;&gt;-->
-<!--&lt;!&ndash;      </form>&ndash;&gt;-->
-<!--&lt;!&ndash;    </mat-card-content>&ndash;&gt;-->
-<!--&lt;!&ndash;  </mat-card>&ndash;&gt;-->
-
-<!--  <div *ngIf="selectedTraditionId" class="card-container">-->
-<!--    <div class="card-title">Add New Blog</div>-->
-<!--    <div class="card-content">-->
-<!--      <form (ngSubmit)="addBlogToTradition()" class="blog-form">-->
-<!--        <div class="form-field">-->
-<!--          <label for="name">Name</label>-->
-<!--          <input type="text" id="name" [(ngModel)]="newBlog.name" name="name" placeholder="Enter blog name" required />-->
-<!--        </div>-->
-<!--        <div class="form-field">-->
-<!--          <label for="description">Description</label>-->
-<!--          <input type="text" id="description" [(ngModel)]="newBlog.description" name="description" placeholder="Enter blog description" required />-->
-<!--        </div>-->
-<!--        <button type="submit" class="submit-button">Add Blog</button>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--  </div>-->
+<div class="container">
+  <h2 class="page-title">Manage Traditions and Blogs</h2>
 
 <!--  <div class="search-container">-->
 <!--    <div class="form-field">-->
 <!--      <label for="city">Enter city name</label>-->
-<!--      <input id="city" type="text" [(ngModel)]="city" placeholder="City">-->
+<!--      <input type="text" [(ngModel)]="city" placeholder="City">-->
 <!--    </div>-->
 <!--    <button class="search-button" (click)="searchTraditions()">Search</button>-->
 <!--  </div>-->
-
-<!--  &lt;!&ndash;  <div class="search-container">&ndash;&gt;-->
-<!--&lt;!&ndash;    <mat-form-field appearance="fill">&ndash;&gt;-->
-<!--&lt;!&ndash;      <mat-label>Enter city name</mat-label>&ndash;&gt;-->
-<!--&lt;!&ndash;      <input matInput [(ngModel)]="city" placeholder="City">&ndash;&gt;-->
-<!--&lt;!&ndash;    </mat-form-field>&ndash;&gt;-->
-
-<!--&lt;!&ndash;    <button mat-raised-button color="primary" (click)="searchTraditions()">Search</button>&ndash;&gt;-->
-<!--&lt;!&ndash;  </div>&ndash;&gt;-->
-
-
-<!--  &lt;!&ndash; Search Results &ndash;&gt;-->
-<!--  <mat-card *ngIf="searchResults.length > 0">-->
-<!--    <mat-card-title>Traditions in {{ city }}</mat-card-title>-->
-<!--    <mat-card-content>-->
-<!--      <mat-list>-->
-<!--        <mat-list-item *ngFor="let tradition of searchResults">-->
-<!--          {{ tradition.description }} - {{ tradition.city }}-->
-<!--        </mat-list-item>-->
-<!--      </mat-list>-->
-<!--    </mat-card-content>-->
-<!--  </mat-card>-->
-
-<!--  &lt;!&ndash; No Results Message &ndash;&gt;-->
-<!--  <mat-card *ngIf="searchResults.length === 0 && city">-->
-<!--    <mat-card-content>No traditions found for this city.</mat-card-content>-->
-<!--  </mat-card>-->
-<!--</div>-->
-<div class="container">
-  <!-- Page Title -->
-  <h2 class="page-title">Manage Traditions and Blogs</h2>
-
-  <!-- Search Bar -->
-  <div class="search-container">
-    <div class="form-field">
-      <label for="city">Enter city name</label>
-      <input id="city" type="text" [(ngModel)]="city" placeholder="City">
+  <div class="search-filter-container">
+    <div class="form-group">
+      <input type="text" [(ngModel)]="city" class="form-control" placeholder="City" />
     </div>
-    <button class="search-button" (click)="searchTraditions()">Search</button>
+
+    <button class="filter-button" type="button" (click)="searchTraditions()">
+      <i class="fa fa-search"></i> Search
+    </button>
   </div>
 
-  <!-- Create Tradition Form -->
   <div class="card-container">
     <div class="card-title">Create New Tradition</div>
     <div class="card-content">
@@ -220,7 +29,7 @@
         </div>
         <div class="form-field">
           <label for="description">Description</label>
-          <input type="text" id="description" [(ngModel)]="newTradition.description" name="description" placeholder="Enter tradition description" required />
+          <input type="text"  [(ngModel)]="newTradition.description" name="description" placeholder="Enter tradition description" required />
         </div>
         <button type="submit" class="submit-button">Create Tradition</button>
       </form>

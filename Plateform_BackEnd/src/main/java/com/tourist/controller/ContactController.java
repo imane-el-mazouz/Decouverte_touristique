@@ -29,7 +29,6 @@ public class ContactController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PreAuthorize("hasRole('Client')")
     @PostMapping
     public ContactDTO createContact(@RequestBody ContactDTO contactDTO) {
         return contactService.saveContact(contactDTO);

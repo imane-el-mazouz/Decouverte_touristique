@@ -37,8 +37,6 @@ public class Hotel {
     private Double distance;
 
 
-
-
 //    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
 //    @JsonIgnore
 //    private List<Reservation> reservations;

@@ -3,29 +3,6 @@ import {HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders} from 
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth_service/auth-service.service';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthInterceptorService implements HttpInterceptor {
-//
-//   constructor(private authService: AuthService) { }
-//
-//   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-//     const authToken = this.authService.getToken();
-//
-//     if (authToken) {
-//       const clonedReq = req.clone({
-//         headers: req.headers.set('Authorization', `Bearer ${authToken}`)
-//       });
-//       return next.handle(clonedReq);
-//     }
-//
-//     return next.handle(req);
-//   }
-// }
-
-
-
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
@@ -43,23 +20,5 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
 
-  // intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-  //   let token: string | null = null;
-  //
-  //   if (typeof localStorage !== 'undefined') {
-  //     token = localStorage.getItem('jwt');
-  //   }
-  //
-  //   if (token) {
-  //     const cloned = req.clone({
-  //       setHeaders: {
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     });
-  //     return next.handle(cloned);
-  //   }
-  //
-  //   return next.handle(req);
-  // }
 
 }
